@@ -1,0 +1,29 @@
+Technical deficiencies
+----------------------
+
+-- Maximum path lengths. Not a flaw in NTFS, but in the Windows OS itself. 260 characters, including filename.
+http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx#maxpath
+http://msdn.microsoft.com/en-us/library/ee681827%28VS.85%29.aspx#limits
+http://stackoverflow.com/questions/265769/maximum-filename-length-in-ntfs-windows-xp-and-windows-vista
+http://stackoverflow.com/questions/1065993/has-windows-7-fixed-the-255-character-file-path-limit
+http://www.codinghorror.com/blog/2006/11/filesystem-paths-how-long-is-too-long.html
+
+-- No built-in support for any filesystems but NTFS and FAT32/FAT16.
+
+-- Ease of bug reporting and logging.
+On Windows, you can Ctrl-C when a error window pops up to copy the error message.
+On Linux, you can attach gdb to a running process, start a logfile that catches all output to stderr, and run a backtrace when the program fails.
+
+Configuration deficiencies
+--------------------------
+
+-- Configuration files are not centralized in the user's home directory.
+Most of the things that users care about -- not losing configuration between installs -- are scattered around in various directories.
+On Linux, system level configuration is stored in /etc/ and user level configuration is stored in dotfiles (hidden folders) in the home directory.
+
+-- Package manager with signed binaries and easy backup/reinstall.
+
+-- Fixing configuration problems with commands instead of GUIs.
+GUIs are good for some applications. They are clumsy and error-prone for fixing configuration problems.
+Many Linux config problems can be fixed by a simple script that can be pasted into a terminal.
+Windows requires navigating deeply nested GUIs and ticking various checkboxes.

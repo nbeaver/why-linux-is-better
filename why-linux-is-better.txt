@@ -14,6 +14,11 @@ http://www.codinghorror.com/blog/2006/11/filesystem-paths-how-long-is-too-long.h
 On Windows, you can Ctrl-C when a error window pops up to copy the error message.
 On Linux, you can attach gdb to a running process, start a logfile that catches all output to stderr, and run a backtrace when the program fails.
 
+-- NTFS on Windows cannot be case sensitive because Windows is not case sensitive, though it is case-preserving
+http://support.microsoft.com/kb/100625
+http://www.sevenforums.com/general-discussion/278918-making-windows-7-case-sensitive-possible.html
+http://en.wikipedia.org/wiki/Case_preservation
+
 Configuration deficiencies
 --------------------------
 

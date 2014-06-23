@@ -7,11 +7,15 @@ http://msdn.microsoft.com/en-us/library/ee681827%28VS.85%29.aspx#limits
 http://stackoverflow.com/questions/265769/maximum-filename-length-in-ntfs-windows-xp-and-windows-vista
 http://stackoverflow.com/questions/1065993/has-windows-7-fixed-the-255-character-file-path-limit
 http://www.codinghorror.com/blog/2006/11/filesystem-paths-how-long-is-too-long.html
+http://blogs.msdn.com/b/bclteam/archive/2007/02/13/long-paths-in-net-part-1-of-3-kim-hamilton.aspx
+
+-- Does this cause real problems in real software? Yes.
+https://github.com/joyent/node/issues/6960
 
 -- No built-in support for any filesystems but NTFS and FAT32/FAT16.
 
 -- Ease of bug reporting and logging.
-On Windows, you can Ctrl-C when a error window pops up to copy the error message.
+On Windows, you can (sometimes) use Ctrl-C when an error window pops up to copy the error message.
 On Linux, you can attach gdb to a running process, start a logfile that catches all output to stderr, and run a backtrace when the program fails.
 
 -- NTFS on Windows cannot be case sensitive because Windows is not case sensitive, though it is case-preserving

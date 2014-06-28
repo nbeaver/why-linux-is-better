@@ -23,6 +23,9 @@ http://support.microsoft.com/kb/100625
 http://www.sevenforums.com/general-discussion/278918-making-windows-7-case-sensitive-possible.html
 http://en.wikipedia.org/wiki/Case_preservation
 
+-- Windows applications lock files they use by default, so misbehaving applications can be a serious unintentional nuisance.
+https://en.wikipedia.org/wiki/File_locking#In_Microsoft_Windows
+
 Configuration deficiencies
 --------------------------
 

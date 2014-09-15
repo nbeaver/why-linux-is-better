@@ -17,6 +17,11 @@ https://github.com/joyent/node/issues/6960
 -- Ease of bug reporting and logging.
 On Windows, you can (sometimes) use Ctrl-C when an error window pops up to copy the error message.
 On Linux, you can attach gdb to a running process, start a logfile that catches all output to stderr, and run a backtrace when the program fails.
+Or you can attach strace and see what system calls it makes.
+There are similar programs for Windows,
+but both strace and gdb come with a standard Linux install,
+so you can rely on being able to use them on any Linux box you use.
+
 
 -- NTFS on Windows cannot be case sensitive because Windows is not case sensitive, though it is case-preserving
 http://support.microsoft.com/kb/100625
@@ -26,6 +31,10 @@ http://en.wikipedia.org/wiki/Case_preservation
 -- Windows applications lock files they use by default, so misbehaving applications can be a serious unintentional nuisance.
 https://en.wikipedia.org/wiki/File_locking#In_Microsoft_Windows
 
+-- Window manager and kernel are welded together.
+In Linux, the X server and kernel are separate,
+so the window manager can be restarted if necessary without a reboot.
+
 Configuration deficiencies
 --------------------------
 
@@ -34,8 +43,23 @@ Most of the things that users care about -- not losing configuration between ins
 On Linux, system level configuration is stored in /etc/ and user level configuration is stored in dotfiles (hidden folders) in the home directory.
 
 -- Package manager with signed binaries and easy backup/reinstall.
+There are many Linux packaging systems, including Fedora's rpm-based yum package manager,
+Debian's apt and dpkg,
+Arch Linux's pacman,
+and so on.
+This is has tangible benefits such as avoiding DLL hell,
+avoiding duplication of libraries,
+verifying that there are no backdoors in the coe,
+and upgrading all software at once with a single command.
+It also makes distributing programs with library dependencies much easier.
+For example, installing python and matplotlib is simple on Linux,
+but a pain in the neck on windows.
+People have been working on fixing this, but it's far from comprehensive.
+http://chocolatey.org/
 
 -- Fixing configuration problems with commands instead of GUIs.
 GUIs are good for some applications. They are clumsy and error-prone for fixing configuration problems.
 Many Linux config problems can be fixed by a simple script that can be pasted into a terminal.
-Windows requires navigating deeply nested GUIs and ticking various checkboxes.
+Windows generally requires navigating deeply nested GUIs and ticking various checkboxes.
+This has the same security problems as blindly running commands in a terminal,
+but is much less efficient.

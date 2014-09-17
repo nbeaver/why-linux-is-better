@@ -43,14 +43,25 @@ Most of the things that users care about -- not losing configuration between ins
 On Linux, system level configuration is stored in /etc/ and user level configuration is stored in dotfiles (hidden folders) in the home directory.
 
 -- Package manager with signed binaries and easy backup/reinstall.
+
 There are many Linux packaging systems, including Fedora's rpm-based yum package manager,
 Debian's apt and dpkg,
 Arch Linux's pacman,
 and so on.
-This is has tangible benefits such as avoiding DLL hell,
+This is the real reason Linux users are protected from viruses:
+they use packages that are signed by the maintainers,
+not any old .exe they download from a website.
+
+This is has other tangible benefits such as avoiding DLL hell,
 avoiding duplication of libraries,
-verifying that there are no backdoors in the coe,
+verifying that there are no backdoors in the code,
 and upgrading all software at once with a single command.
+
+Want to back up which programs you have installed without backing up every single binary?
+Just save the output of `dpkg -L` or its equivalent.
+If your disk crashes and your backup fails,
+at least you can get back your packages with a the list and a good internet connection.
+
 It also makes distributing programs with library dependencies much easier.
 For example, installing python and matplotlib is simple on Linux,
 but a pain in the neck on windows.
@@ -58,7 +69,8 @@ People have been working on fixing this, but it's far from comprehensive.
 http://chocolatey.org/
 
 -- Fixing configuration problems with commands instead of GUIs.
-GUIs are good for some applications. They are clumsy and error-prone for fixing configuration problems.
+GUIs are good for some applications,
+but they are clumsy and error-prone for fixing configuration problems.
 Many Linux config problems can be fixed by a simple script that can be pasted into a terminal.
 Windows generally requires navigating deeply nested GUIs and ticking various checkboxes.
 This has the same security problems as blindly running commands in a terminal,

@@ -18,11 +18,16 @@ With the caveat that both Windows and Linux are moving targets,
 here are some specific technical reasons to prefer Linux.
 They are by no means exhaustive,
 but aim to be representative.
-I have aimed for accuracy at the cost of some dryness due to technical detail.
+I have aimed for accuracy at the cost of possible dryness due to technical detail.
 
 I am most familiar with the Debian-based family of Linux distributions,
 so my remarks will necessarily touch on these more,
 but I have tried to include other distributions when possible.
+
+I will use the term "Linux" to refer to the entire Linux operating system,
+which the Free Software Foundation calls "GNU/Linux".
+I will use the term "Windows" to refer to modern versions of Microsoft Windows NT,
+including Windows XP, Windows Vista, Windows 7, and Windows 8.
 
 Many of the same arguments in favor of Linux also apply to the BSD family of operating systems 
 (and POSIX-compliant operating systems in general),
@@ -253,7 +258,9 @@ There are a plethora of window managers to choose from on Linux,
 making it highly customizable to the system's resources and the user's wishes.
 
 The X11 system is by no means perfect;
-in fact, many former X11 developers are hard at work on its replacement, Wayland.
+in fact, many former X11 developers are hard at work on its replacement, Wayland,
+and Canonical is working on a separate but similar endeavor called Mir.
+
 However, X11 has become so pervasive that versions of it power not only Linux desktops but also the BSD family and OS X (XQuartz),
 and there are ways to run an X server on Windows or Android.
 
@@ -402,9 +409,10 @@ Remote administration.
 
 Accessing a Windows machine remotely generally requires remote desktop software.
 While it is possible to install an SSH server,
-this is not a default feature.
+this must installed and configured on each machine;
+there is no built-in secure shell access on a vanilla Windows box.
 
-In additions, Windows machines `do not respond to`_ ``ping`` (ICMP) by default.
+In addition, Windows machines `do not respond to`_ ``ping`` (ICMP) by default.
 Arguably, this is the `wrong`_ `choice`_.
 
 .. _do not respond to: http://msdn.microsoft.com/en-us/library/ms912869(v=winembedded.5).aspx

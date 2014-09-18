@@ -33,9 +33,10 @@ Many of the same arguments in favor of Linux also apply to the BSD family of ope
 (and POSIX-compliant operating systems in general),
 but unfortunately I am not familiar enough with any of them to comment specifically.
 
-There are, naturally,
-objective reasons to use Windows instead of Linux,
-but those will have to wait for another time.
+There are, of course,
+objective reasons to use Windows,
+but I think most users are already aware of them,
+regardless of which operating system they use.
 
 .. contents::
 
@@ -340,8 +341,9 @@ Here are some examples of packages which are not in the Chocolatey repository (a
 - `EXPGUI`_ XRD analysis `* <https://chocolatey.org/packages?q=EXPGUI>`__
 - `DiffPDF`_ PDF comparison `* <http://chocolatey.org/packages?q=DiffPDF>`__
 - `Unison`_ file synchronizer `* <http://chocolatey.org/packages?q=Unison>`__
-- `xchat` IRC client `* <http://chocolatey.org/packages?q=xchat>`__
-- `OpenSCAD` solid 3D CAD modeller `* <http://chocolatey.org/packages?q=openscad>`__
+- `xchat`_ IRC client `* <http://chocolatey.org/packages?q=xchat>`__
+- `OpenSCAD`_ solid 3D CAD modeller `* <http://chocolatey.org/packages?q=openscad>`__
+- `Cura`_ 3D printer control `* <http://chocolatey.org/packages?q=Cura>`__
 
 .. _Chocolatey: http://chocolatey.org/
 .. _KeePassX: https://www.keepassx.org/
@@ -353,6 +355,7 @@ Here are some examples of packages which are not in the Chocolatey repository (a
 .. _Unison: http://www.cis.upenn.edu/~bcpierce/unison/
 .. _xchat: http://xchat.org/download/
 .. _OpenSCAD: http://www.openscad.org/index.html
+.. _Cura: https://www.ultimaker.com/pages/our-software
 
 (This list isn't particularly significant, it's just software that has a Windows version that I would want to use.)
 

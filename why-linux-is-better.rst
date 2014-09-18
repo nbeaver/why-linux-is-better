@@ -176,7 +176,7 @@ File extensions are the sole determiner of filetype.
 ----------------------------------------------------
 
 On Linux, filetypes are determined by a combination of filesystem metadata, heuristics for fixed-formats, and file extension.
-On Windows, the file extension is the sole determiner of filetype.
+On Windows, the file extension is the sole determiner of filetype and executable status.
 
 If the file extensions for different filetypes happen to collide (recall that files are not case-sensitive),
 one program must take default precedence over the other.
@@ -319,13 +319,14 @@ Package manager with signed binaries and easy backup/reinstall.
 ---------------------------------------------------------------
 
 Windows Installer is a software package manager in the sense of installing and uninstalling software,
-but it does not provide the essential features of current major Linux packaging systems,
+but it does not provide the salient features of current major Linux packaging systems,
 such as:
 
 - securely retrieving the package from a trusted remote or local repository,
 - adding and removing third-party repositories,
 - changelogs,
 - cryptographically verifying the integrity of the package,
+- backporting security fixes to stable version,
 - licensing status of software,
 - and sophisticated dependency management.
 
@@ -474,37 +475,46 @@ even when it is `embarrassing`_ to `do so`_.
 Debugging habits.
 -----------------
 
-By requiring `frequent`_ `reboots`_,
+By `requiring`_ or encouraging `reboots`_ for installing software or changing configuration,
 Windows encourages bad habits such as restarting software to make a bug go away,
-rather than diagnosing, reproducing, and reporting bugs.
+or avoiding certain commands as a work-around,
+rather than reproducing and reporting bugs.
 
 In the long run, this hurts both proprietary and open-source software running on Windows.
 It is also one reason why developing solely for Windows because of the larger user base may not always be the best choice.
 
-.. _frequent: http://www.howtogeek.com/182817/htg-explains-why-does-windows-want-to-reboot-so-often/
+.. _requiring: http://www.howtogeek.com/182817/htg-explains-why-does-windows-want-to-reboot-so-often/
 .. _reboots: http://www.howtogeek.com/howto/31204/why-do-application-installs-make-you-reboot-and-close-other-apps/
 
 --------
 Malware.
 --------
 
-In theory, Linux and Windows are equally susceptible to malware.
-In practice, Windows users often inadvertently install malware (see `notes on package management`_).
+In principle, Linux and Windows are equally `susceptible to malware`_.
+In practice, Windows users are `more likely`_ to inadvertently install malware,
+primarily because of the way they install non-malicious software (see `notes on package management`_).
+Requiring every computer user to do the work of package maintainers is harmful in a variety of ways;
+it tends to encourage a cargo-cult mentality to security instead of systematic root-cause analysis.
 
+.. _susceptible to malware: http://www.linux.com/learn/tutorials/284124-myth-busting-is-linux-immune-to-viruses
+.. _more likely: http://unix.stackexchange.com/questions/2751/the-myths-about-malware-in-unix-linux
 .. _notes on package management: `Package manager with signed binaries and easy backup/reinstall.`_
 
-This is has two repercussions:
+As a result,
 
-#. Users must spend considerable time and effort detecting and removing malware.
-#. Users may falsely attribute software misbehavior to malware.
+#. Windows users must spend considerable time and effort detecting and removing malware.
+#. Windows users may falsely attribute software misbehavior to malware.
 
-Number 2 is particularly pernicious, as some users attribute problems arising from failing hardware to malware instead.
+Some users may even attribute problems arising from failing hardware to malware instead.
 
-Computer running slowly?
-  Might be viruses. (Or maybe some recently installed software is using a lot of memory.)
+(This has also consequences for developers.
+Because few Linux users experience problems due to malware,
+Linux developers will be more likely to reproduce issues reported in forums or bug trackers.)
 
-Applications crashing?
-  Is your anti-virus up to date? (Or maybe the application has bugs that need fixing.)
+Linux has a better security model which uses secure package installation by default,
+but allows installing software from other sources as well,
+unlike the overly restrictive app-store model.
 
-Random reboots?
-  Oh, probably a virus. (Or maybe the hard drive is failing.)
+Also, because Linux is a ubiquitous server operating system,
+its security is under constant attack,
+and Linux desktop users benefit from the fixes to the vulnerabilities.

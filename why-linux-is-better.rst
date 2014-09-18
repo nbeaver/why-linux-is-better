@@ -18,6 +18,7 @@ With the caveat that both Windows and Linux are moving targets,
 here are some specific technical reasons to prefer Linux.
 They are by no means exhaustive,
 but aim to be representative.
+I have aimed for accuracy at the cost of some dryness due to technical detail.
 
 I am most familiar with the Debian-based family of Linux distributions,
 so my remarks will necessarily touch on these more,
@@ -26,6 +27,10 @@ but I have tried to include other distributions when possible.
 Many of the same arguments in favor of Linux also apply to the BSD family of operating systems 
 (and POSIX-compliant operating systems in general),
 but unfortunately I am not familiar enough with any of them to comment specifically.
+
+There are, naturally,
+objective reasons to use Windows instead of Linux,
+but those will have to wait for another time.
 
 .. contents::
 
@@ -43,7 +48,7 @@ connect to the internet and run a web browser,
 and (for persistent LiveUSB flash drives) retain settings and data on the next boot-up.
 Some live Linux distributions, such as `Puppy Linux`_,
 are lightweight enough that they default to creating a RAM disk,
-which generally runs faster than the OS installed on the disk.
+which generally runs faster than an OS that uses the disk.
 
 Windows LiveCDs, while `they`_ `do`_ `exist`_,
 are hampered by licensing restrictions or technical limitations.
@@ -80,23 +85,24 @@ Maybe Windows paths `are long enough`_.
 Is MAX_PATH an actual problem in real software?
 
 Yes, most definitely. [#]_ [#]_ [#]_ [#]_
-Moreover, Windows developers are `so used to`_ `working around it`_
-that it has become deeply entrenched and will most likely `never be fixed`_.
+Moreover, Windows developers are `so used to`_ `working around`_ the problem
+that it has become deeply entrenched and may `never be fixed`_.
 
 The Linux kernel does impose an adjustable pathname length limit (`4096 chars in typical kernels and filesystems`_),
-but `this limit is not enforced`_, and some ``libc`` implementations could `suffer from buffer overflow`_ as a result.
+but `this limit is not enforced`_, and some ``libc`` implementations were `susceptible to buffer overflow`_ as a result.
+
 The 2008 POSIX revision has `addressed the issues`_,
-but prior to this the Linux kernel made non-standard modifications to avoid overflow,
+but prior to this the Linux kernel had to make non-standard modifications to avoid overflow,
 and `warned about the problem`_ in the ``realpath (3)`` man page of the Linux Programmer's Manual.
 
 .. _not an issue in well-written software: http://blogs.msdn.com/b/oldnewthing/archive/2007/03/01/1775759.aspx
 .. _are long enough: http://blog.codinghorror.com/filesystem-paths-how-long-is-too-long/
 .. _so used to: http://blogs.msdn.com/b/tomholl/archive/2007/02/04/enterprise-library-and-the-curse-of-max-path.aspx
-.. _working around it: http://stackoverflow.com/a/11212007
+.. _working around: http://stackoverflow.com/a/11212007
 .. _never be fixed: http://visualstudio.uservoice.com/forums/121579-visual-studio/suggestions/2156195-fix-260-character-file-name-length-limitation
 .. _4096 chars in typical kernels and filesystems: http://unix.stackexchange.com/questions/28997/on-deep-created-directories
 .. _this limit is not enforced: http://insanecoding.blogspot.com/2007/11/pathmax-simply-isnt.html
-.. _suffer from buffer overflow: http://stackoverflow.com/questions/1171833/how-to-get-the-absolute-path-of-a-file-programmatically-with-out-realpath-unde
+.. _susceptible to buffer overflow: http://stackoverflow.com/questions/1171833/how-to-get-the-absolute-path-of-a-file-programmatically-with-out-realpath-unde
 .. _addressed the issues: https://www.securecoding.cert.org/confluence/display/seccode/FIO02-C.+Canonicalize+path+names+originating+from+tainted+sources
 .. _warned about the problem: http://linux.die.net/man/3/realpath
 
@@ -264,7 +270,7 @@ Default software
 Linux distributions have many powerful tools installed by default.
 A C compiler (usually ``gcc``),
 build system (``make``),
-and many, many shells (e.g. ``bash``, ``dash``, ``csh``, ``zsh``, ``fish``)
+and many, many shells (e.g. ``bash``, ``dash``, ``csh``, ``zsh``, ``fish``).
 In fact, they are required to do so by the `POSIX standard`_.
 Standards like POSIX make writing and using portable software easier,
 and standard POSIX tools are unlikely to become obsolete.

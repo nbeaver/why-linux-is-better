@@ -144,7 +144,8 @@ and the legacy FAT16/FAT32/exFAT family.
 
 Linux has drivers for almost file systems that can be legally mounted without paying royalties.
 It also can also mount FAT and NTFS,
-despite Microsoft's `ongoing`_ `litigation`_ against Android manufacturers and `other companies`_ for their use of the Linux kernel's FAT drivers.
+despite Microsoft's lucrative patent licensing deals and `ongoing`_ `litigation`_
+against Android manufacturers and `other companies`_ for their use of the Linux kernel's FAT drivers.
 
 .. _ongoing: http://www.forbes.com/sites/timworstall/2013/12/06/german-patent-ruling-threatens-microsofts-windows-phone-earnings-from-android/
 .. _litigation: http://gizmodo.com/the-secret-android-patents-that-microsoft-forces-oems-t-1591338496
@@ -237,13 +238,18 @@ Third-party remote desktop software for Windows is `legally`_ `obligated`_ to no
 .. _legally: http://social.technet.microsoft.com/Forums/windows/en-US/41e9e500-714a-443b-bff2-55f0d500d3d1/concurrent-sessions-remote-desktop-in-windows-7?forum=w7itproinstall
 .. _obligated: http://tightvnc.10971.n7.nabble.com/Multiple-Unique-Sessions-td2060.html
 
-On Linux, multiple instances of the X server are common,
-so that two different users may work remotely at the same time on the same machine,
-or alternately a `multiseat`_ configuration if the hardware is available.
-Even on single-user machines this capability is useful to e.g. run two different desktop environments at the same time.
+On Linux, `multiple local instances of the X server`_ are not unusual,
+even with different desktop environments.
+X sessions can be accessed remotely using e.g. `VNC`_ or `X over SSH`_.
+It is common for two different users to work remotely at the same time on the same machine.
+A `multiseat`_ configuration is also possible if the hardware is available.
+Even on single-user machines this capability of the X server is useful to e.g. run two different desktop environments at the same time.
 Also, sometimes Linux users will forego the X server entirely and log in from a virtual terminal (tty).
 This is important to be able to do if the X server crashes or cannot start.
 
+.. _multiple local instances of the X server: http://journalxtra.com/linux/desktop/multiple-desktops-on-one-linux-pc-now-thats-greedy/
+.. _VNC: https://wiki.debian.org/VNCviewer
+.. _X over SSH: https://www.debian.org/doc/manuals/debian-reference/ch07.en.html#_connecting_a_remote_x_client_via_ssh
 .. _multiseat: https://wiki.archlinux.org/index.php/xorg_multiseat
 
 In Linux, the X server and kernel are separate,
@@ -270,9 +276,9 @@ and there are ways to run an X server on Windows or Android.
 Configuration and software packaging.
 +++++++++++++++++++++++++++++++++++++
 
-----------------
-Default software
-----------------
+-----------------
+Default software.
+-----------------
 
 Linux distributions have many powerful tools installed by default.
 A C compiler (usually ``gcc``),
@@ -322,21 +328,39 @@ such as:
 - licensing status of software,
 - and sophisticated dependency management.
 
-First, I really should mention that there is an open-source package manager for Windows, `Chocolatey`_,
-which is under active development.
-So far the repositories are not comprehensive;
-for example: as of September 2014, no `KeePassX`_ [#]_, no `Apophysis`_ [#]_, and no `GSAS/EXPGUI`_ [#]_.
-Also, the Chocolatey development team acknowledges it does not have package moderation or package signing yet,
-which will need to be resolved before anyone uses it for something important.
+First, I would be remiss to mention that there is an open-source package manager for Windows, `Chocolatey`_,
+that is under active development.
+So far the Chocolatey repository is not as comprehensive as Linux repositories.
+Here are some examples of packages which are not in the Chocolatey repository (as of September 2014).
+
+- `KeePassX`_ password manager `* <http://chocolatey.org/packages?q=keepassx>`__
+- `Apophysis`_ fractal flame editor `* <http://chocolatey.org/packages?q=apophysis>`__
+- `xyscan`_ data extractor `* <https://chocolatey.org/packages?q=xyscan>`__
+- `HEPHAESTUS`_ periodic table `* <https://chocolatey.org/packages?q=HEPHAESTUS>`__
+- `EXPGUI`_ XRD analysis `* <https://chocolatey.org/packages?q=EXPGUI>`__
+- `DiffPDF`_ PDF comparison `* <http://chocolatey.org/packages?q=DiffPDF>`__
+- `Unison`_ file synchronizer `* <http://chocolatey.org/packages?q=Unison>`__
+- `xchat` IRC client `* <http://chocolatey.org/packages?q=xchat>`__
+- `OpenSCAD` solid 3D CAD modeller `* <http://chocolatey.org/packages?q=openscad>`__
 
 .. _Chocolatey: http://chocolatey.org/
 .. _KeePassX: https://www.keepassx.org/
 .. _Apophysis: http://www.apophysis.org/
-.. _GSAS/EXPGUI: http://ncnr.nist.gov/xtal/software/downloads.html
+.. _xyscan: http://star.physics.yale.edu/~ullrich/xyscanDistributionPage/
+.. _HEPHAESTUS: http://cars9.uchicago.edu/~ravel/software/doc/Hephaestus/hephaestus.html
+.. _EXPGUI: https://subversion.xor.aps.anl.gov/trac/EXPGUI
+.. _DiffPDF: http://www.qtrac.eu/diffpdf.html
+.. _Unison: http://www.cis.upenn.edu/~bcpierce/unison/
+.. _xchat: http://xchat.org/download/
+.. _OpenSCAD: http://www.openscad.org/index.html
 
-.. [#] http://chocolatey.org/packages?q=keepassx
-.. [#] http://chocolatey.org/packages?q=apophysis
-.. [#] http://chocolatey.org/packages?q=GSAS
+(This list isn't particularly significant, it's just software that has a Windows version that I would want to use.)
+
+Also, the Chocolatey development team acknowledges it `does not have package moderation or package signing`_ yet,
+which is significant for overcoming Window's issue with `installing software from untrusted sources`_.
+
+.. _does not have package moderation or package signing: https://chocolatey.org/about
+.. _installing software from untrusted sources: `Malware.`_
 
 Linux has many mature packaging systems,
 including Fedora's ``.rpm``-based ``yum`` package manager,
@@ -348,24 +372,25 @@ they generally install packages that are cryptographically signed by the maintai
 not opaque executables from a website which may not use secure HTTP.
 Even inexperienced users can safely install and uninstall software if it is all from a trusted repository.
 
-This is has other tangible benefits,
-such as avoiding problems like DLL hell and its cousins while saving the disk space of duplicated libraries.
+Package managers have other benefits,
+such as avoiding dependency hell while saving the disk space of duplicated libraries.
 Package managers have decent (though not perfect) security,
-and provide the ability to upgrade all software at once with a single command (or button if you use one of the many available GUIs).
-Instead of requiring application developers to re-implement automatic updates,
+and provide the ability to upgrade all software at once with a single command
+(or button if you use one of the many available GUIs).
+Instead of requiring all application developers to re-implement automatic updates,
 packaging makes secure, regular updates much more accessible and convenient for users and developers.
 
-There are other benefits, such as making backups easier by decoupling installed applications from stored personal files.
+Package mangers can make backups easier by decoupling installed applications from stored personal files.
 Want to remember which programs you have installed without backing up every single binary?
-Just save the output of ``dpkg -L`` or its equivalent.
-If your backup fails or you just want to switch to a different Linux distribution,
-you can easily get back your installed software with the package list,
-a fresh Linux install, and a good internet connection.
-Meanwhile, you can focus on keeping your home directory backed up with a combination of cloud storage and physical drives,
-and your backup software doesn't need to run as root since it's only accessing your home directory.
+Just save the output of ``dpkg -L`` or its equivalent as big long text file of installed packages.
 
-Packaging also makes distributing programs with library dependencies easier,
-even if you don't make a full package.
+If your backup fails or you just want to switch to a different Linux distribution,
+you can easily get back your installed software by feeding your package manager the package list.
+All you need is a fresh Linux install and a good internet connection.
+Meanwhile, you can keep your home directory backed up using cloud storage or physical drives (ideally both),
+and the backup software doesn't need to run as root since it's only accessing your home directory.
+
+Packaging also makes distributing scripts with library dependencies easier.
 For example, installing ``python`` and ``matplotlib`` is simple on Linux,
 but a `pain in the neck`_ on Windows.
 

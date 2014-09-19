@@ -4,18 +4,22 @@
 Objective reasons for preferring Linux to Windows
 =================================================
 
-Claims like "Linux is more stable and reliable",
-or "Linux is more secure and private",
+:Author: Nathaniel Beaver
+:Copyright: This document is released under a `Creative Commons Attribution 4.0 International License`_.
+
+.. _Creative Commons Attribution 4.0 International License: http://creativecommons.org/licenses/by/4.0/
+
+Claims like "Linux is stable and reliable",
+or "Linux is secure and private",
 or "Linux is faster and less bloated",
-or "Linux is more flexible and customizable",
-or "Linux has a better community"
+or "Linux is flexible and customizable",
 are vague and hard to verify.
 
 It is easy to opine about one's preferred operating system,
 but harder to give objective, concrete examples.
 
 With the caveat that both Windows and Linux are moving targets,
-here are some specific technical reasons to prefer Linux.
+here are some specific technical reasons to prefer using Linux as a desktop operating system.
 They are by no means exhaustive,
 but aim to be representative.
 I have aimed for accuracy at the cost of possible dryness due to technical detail.
@@ -24,19 +28,14 @@ I am most familiar with the Debian-based family of Linux distributions,
 so my remarks will necessarily touch on these more,
 but I have tried to include other distributions when possible.
 
-I will use the term "Linux" to refer to the entire Linux operating system,
-which the Free Software Foundation calls "GNU/Linux".
+I will use the term "Linux" as shorthand to refer to the entire distribution,
+including bootloader, kernel, shell, window manager, package manager, etc.
 I will use the term "Windows" to refer to modern versions of Microsoft Windows NT,
 including Windows XP, Windows Vista, Windows 7, and Windows 8.
 
 Many of the same arguments in favor of Linux also apply to the BSD family of operating systems 
 (and POSIX-compliant operating systems in general),
 but unfortunately I am not familiar enough with any of them to comment specifically.
-
-There are, of course,
-objective reasons to use Windows,
-but I think most users are already aware of them,
-regardless of which operating system they use.
 
 .. contents::
 
@@ -53,20 +52,22 @@ able to mount and repartition disks,
 connect to the internet and run a web browser,
 and (for persistent LiveUSB flash drives) retain settings and data on the next boot-up.
 Some live Linux distributions, such as `Puppy Linux`_,
-are lightweight enough that they default to creating a RAM disk,
-which generally runs faster than an OS that uses the disk.
-
-Windows LiveCDs, while `they`_ `do`_ `exist`_,
-are hampered by licensing restrictions or technical limitations.
-For example, until Windows 8, desktop versions of Windows could not boot from a USB.
-The BartPE LiveCD building program will run on any version of Windows,
-but it requires the installation files and is `only able to make`_ a LiveCD for Windows XP or Windows Server 2003.
+are lightweight enough that they default to `running from a RAM disk`_,
+and consequently run faster than an OS that access a hard disk.
 
 .. _Live versions: http://www.linux.com/directory/Distributions/livecd
 .. _Puppy Linux: http://puppylinux.org/
-.. _they: http://en.wikipedia.org/wiki/BartPE
-.. _do: http://en.wikipedia.org/wiki/Windows_Preinstallation_Environment
-.. _exist: http://en.wikipedia.org/wiki/Windows_To_Go
+.. _running from a RAM disk: https://en.wikipedia.org/wiki/List_of_Linux_distributions_that_run_from_RAM
+
+Windows LiveCDs, `though they`_ `do exist`_,
+are hampered by licensing restrictions or technical limitations.
+For example, `until Windows 8`_, desktop versions of Windows could not boot from a USB.
+The BartPE LiveCD building program will run on any version of Windows,
+but it is `only able to make`_ a LiveCD for Windows XP or Windows Server 2003.
+
+.. _though they: http://en.wikipedia.org/wiki/BartPE
+.. _do exist: http://en.wikipedia.org/wiki/Windows_Preinstallation_Environment
+.. _until Windows 8: http://technet.microsoft.com/en-us/library/hh831833.aspx
 .. _only able to make: http://www.betaarchive.com/forum/viewtopic.php?t=22258 
 
 ---------------------
@@ -126,14 +127,18 @@ However, it is `case-preserving`_.
 This means that you can mount an NTFS partition with Linux and make a file called "Myfile.txt" in the same directory as "MYFILE.TXT".
 However, you `won't be able to`_ access both those files using standard Windows software.
 
-This has ramifications for cross-platform development.
-In practice, most developers of cross-platform software just make a habit of not relying on case-sensitive filesystem access,
-but this issue still crops up when porting from Linux to Windows or vice-versa.
-
 .. _cannot be case-sensitive: http://www.sevenforums.com/general-discussion/278918-making-windows-7-case-sensitive-possible.html
 .. _is not case-sensitive: http://support.microsoft.com/kb/100625
 .. _case-preserving: http://en.wikipedia.org/wiki/Case_preservation
 .. _won't be able to: http://technet.microsoft.com/en-us/library/cc976809.aspx
+
+This has `ramifications`_ for cross-platform development.
+In practice, most developers of cross-platform software just `make a habit`_ of not relying on case-sensitive filesystem access,
+but this issue still `crops up when porting`_ from Windows to Linux or vice-versa.
+
+.. _ramifications: http://openfoamwiki.net/index.php/Main_FAQ#Why_isn.27t_there_a_Windows_port_of_OpenFOAM_.3F
+.. _make a habit: http://www.mono-project.com/docs/getting-started/application-portability/#case-sensitivity
+.. _crops up when porting: http://adrienb.fr/blog/wp-content/uploads/2013/04/PortingSourceToLinux.pdf
 
 ------------------------------
 Limited choice in filesystems.
@@ -143,16 +148,26 @@ Windows has built-in support for its native NTFS,
 UDF (used for some CDs and DVDs),
 and the legacy FAT16/FAT32/exFAT family.
 
-Linux has drivers for almost file systems that can be legally mounted without paying royalties.
-It also can also mount FAT and NTFS,
+Linux has drivers for `almost all file systems`_ that can be legally mounted without paying royalties,
+including ones that don't see much use nowadays, like `Amiga file systems`_.
+It can also mount FAT and NTFS filesystems,
 despite Microsoft's lucrative patent licensing deals and `ongoing`_ `litigation`_
 against Android manufacturers and `other companies`_ for their use of the Linux kernel's FAT drivers.
 
+.. _almost all file systems: https://wiki.archlinux.org/index.php/file_systems
+.. _Amiga file systems: http://www.tldp.org/FAQ/Linux-FAQ/partitions.html#can-linux-access-amiga-file-systems
 .. _ongoing: http://www.forbes.com/sites/timworstall/2013/12/06/german-patent-ruling-threatens-microsofts-windows-phone-earnings-from-android/
 .. _litigation: http://gizmodo.com/the-secret-android-patents-that-microsoft-forces-oems-t-1591338496
 .. _other companies: http://arstechnica.com/information-technology/2009/02/microsoft-sues-tomtom-over-fat-patents-in-linux-based-device/
 
-Linux users can choose from the usual EXT family of journaling filesystems as well as up-and-coming filesystems like Btrfs.
+For the system partition,
+Linux users can choose either the typical ext3 journaling filesystem
+or
+up-and-coming filesystems like Btrfs.
+Unlike `NTFS and FAT`_, these filesystems `do not require defragmentation`_.
+
+.. _NTFS and FAT: http://technet.microsoft.com/en-us/magazine/2007.11.desktopfiles.aspx
+.. _do not require defragmentation: http://www.tldp.org/LDP/sag/html/filesystems.html#FRAGMENTATION
 
 ------------------
 UTF-16, not UTF-8.
@@ -160,7 +175,7 @@ UTF-16, not UTF-8.
 
 If the Windows API were designed today, it would most likely use `UTF-8`_.
 The Unicode Consortium only `recommends UTF-16`_ for compatibility with Java and the Windows API.
-Some reasons:
+Some practical reasons for this:
 
 - UTF-8 is a superset of ASCII, so it is backwards-compatible with existing text files.
 - UTF-8 is `self-synchronizing`_.
@@ -178,9 +193,10 @@ File extensions are the sole determiner of filetype.
 On Linux, filetypes are determined by a combination of filesystem metadata, heuristics for fixed-formats, and file extension.
 On Windows, the file extension is the sole determiner of filetype and executable status.
 
-If the file extensions for different filetypes happen to collide (recall that files are not case-sensitive),
-one program must take default precedence over the other.
-For example, there a lot of different file formats with a ``.dat`` file extension.
+If the file extensions for different filetypes happen to collide (recall that filenames are not case-sensitive),
+one program must take default precedence over the other for that filetype.
+For example, there a lot of different file formats with a ``.dat`` file extension,
+but only one program gets to open them by default.
 
 ++++++++++++++++++++++++++++++++
 Architectural benefits of Linux.
@@ -261,15 +277,20 @@ one can do so cleanly without the aid of the X-server using the "`Magic Alt-SysR
 .. _Magic Alt-SysRq keys: https://www.kernel.org/doc/Documentation/sysrq.txt
 
 
-There are a plethora of window managers to choose from on Linux,
+There is a plethora of `window managers`_ and `desktop environments`_ to choose from on Linux,
+even for the same distribution,
 making it highly customizable to the system's resources and the user's wishes.
+However, they all use the same X Window System (a.k.a X11).
+
+.. _window managers: https://wiki.archlinux.org/index.php/Window_manager
+.. _desktop environments: https://wiki.debian.org/DesktopEnvironment
 
 The X11 system is by no means perfect;
 in fact, many former X11 developers are hard at work on its replacement, Wayland,
 and Canonical is working on a separate but similar endeavor called Mir.
 
 However, X11 has become so pervasive that versions of it power not only Linux desktops but also the BSD family and OS X (XQuartz),
-and there are ways to run an X server on Windows or Android.
+and there are even ways to run an X server on Windows or Android.
 
 .. [#windowsVNC] "You would think that because Windows XP is multiuser, you could have multiple users running VNC servers. Indeed you can, but you can only use the one that has the currently active user - switch away, and that server goes black, and in my testing, can't even be used again. Windows XP is not really multiuser." http://aplawrence.com/Reviews/tightvnc.html
 
@@ -281,18 +302,18 @@ Configuration and software packaging.
 Default software.
 -----------------
 
-Linux distributions have many powerful tools installed by default.
-A C compiler (usually ``gcc``),
-build system (``make``),
+Linux distributions have many powerful development tools installed by default,
+such as a C compiler (usually ``gcc``),
+build automation (e.g. ``make``),
 and many, many shells (e.g. ``bash``, ``dash``, ``csh``, ``zsh``, ``fish``).
-In fact, they are required to do so by the `POSIX standard`_.
+In fact, they are required to provide these tools by the `POSIX standard`_.
 Standards like POSIX make writing and using portable software easier,
 and standard POSIX tools are unlikely to become obsolete.
 
 .. _POSIX standard: http://pubs.opengroup.org/onlinepubs/009696699/utilities/contents.html
 
-On Windows, by contrast, a C compiler and build system are not installed by default,
-and the currently favored Windows shell (PowerShell) must be installed separately.
+On Windows, by contrast, neither the C compiler and build system
+nor the currently favored Windows shell (PowerShell) are installed by default.
 
 ------------------------
 Registries and dotfiles.
@@ -481,7 +502,7 @@ or avoiding certain commands as a work-around,
 rather than reproducing and reporting bugs.
 
 In the long run, this hurts both proprietary and open-source software running on Windows.
-It is also one reason why developing solely for Windows because of the larger user base may not always be the best choice.
+It is also one reason why developing solely for Windows because of the larger user base may not always be a goo choice.
 
 .. _requiring: http://www.howtogeek.com/182817/htg-explains-why-does-windows-want-to-reboot-so-often/
 .. _reboots: http://www.howtogeek.com/howto/31204/why-do-application-installs-make-you-reboot-and-close-other-apps/

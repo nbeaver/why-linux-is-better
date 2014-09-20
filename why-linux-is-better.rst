@@ -1,8 +1,8 @@
 .. -*- coding: utf-8 -*-
 
-=================================================
-Objective reasons for preferring Linux to Windows
-=================================================
+============================================
+Objective reasons to prefer Linux to Windows
+============================================
 
 :Author: Nathaniel Beaver
 :Copyright: This document is released under a `Creative Commons Attribution 4.0 International License`_.
@@ -12,25 +12,33 @@ Objective reasons for preferring Linux to Windows
 Claims like "Linux is stable and reliable",
 or "Linux is secure and private",
 or "Linux is faster and less bloated",
-or "Linux is flexible and customizable",
+or "Linux is flexible and customizable"
 are vague and hard to verify.
 
+Moreover, such claims lead to `endless debates`_.
 It is easy to opine about one's preferred operating system,
 but harder to give objective, concrete examples.
 
+.. _endless debates: http://linux.slashdot.org/
+
 With the caveat that both Windows and Linux are moving targets,
 here are some specific technical reasons to prefer using Linux as a desktop operating system.
-They are by no means exhaustive,
+These reasons are not exhaustive,
 but aim to be representative.
-I have aimed for accuracy at the cost of possible dryness due to technical detail.
+
+These will not touch on closed vs. open source development,
+but will instead focus on functionality.
+There is plenty of discussion of the advantages of open source elsewhere.
+
+The examples are intended to be accurate at the cost of possible dryness due to technical detail.
 
 I am most familiar with the Debian-based family of Linux distributions,
 so my remarks will necessarily touch on these more,
 but I have tried to include other distributions when possible.
 
-I will use the term "Linux" as shorthand to refer to the entire distribution,
+In this document, the term "Linux" is shorthand to refer to the entire distribution,
 including bootloader, kernel, shell, window manager, package manager, etc.
-I will use the term "Windows" to refer to modern versions of Microsoft Windows NT,
+The term "Windows" refers to modern versions of Microsoft Windows NT,
 including Windows XP, Windows Vista, Windows 7, and Windows 8.
 
 Many of the same arguments in favor of Linux also apply to the BSD family of operating systems 
@@ -47,30 +55,36 @@ Technical deficiencies of Windows.
 Live booting is lacking.
 ------------------------
 
-`Live versions`_ of Linux are full operating systems,
-able to mount and repartition disks,
-connect to the internet and run a web browser,
-and (for persistent LiveUSB flash drives) retain settings and data on the next boot-up.
-Some live Linux distributions, such as `Puppy Linux`_,
-are lightweight enough that they default to `running from a RAM disk`_,
-and consequently run faster than an OS that access a hard disk.
-
-.. _Live versions: http://www.linux.com/directory/Distributions/livecd
-.. _Puppy Linux: http://puppylinux.org/
-.. _running from a RAM disk: https://en.wikipedia.org/wiki/List_of_Linux_distributions_that_run_from_RAM
-
 Windows LiveCDs, `though they`_ `do exist`_,
-are hampered by licensing restrictions or technical limitations.
-For example, `until Windows 8`_, desktop versions of Windows could not boot from a USB.
-(And even on Windows 8, you can't mount hard disks when running from USB.)
+are hampered by licensing restrictions and technical limitations.
 
-The BartPE LiveCD building program will run on any version of Windows,
+For example, `until Windows 8`_, desktop versions of Windows could not boot from a USB.
+(And while running a live USB of Windows 8, it is still not possible mount internal hard disks.)
+
+The BartPE LiveCD building program is 3rd party software that will run on any version of Windows,
 but it is `only able to make`_ a LiveCD for Windows XP or Windows Server 2003.
 
 .. _though they: http://en.wikipedia.org/wiki/BartPE
 .. _do exist: http://en.wikipedia.org/wiki/Windows_Preinstallation_Environment
 .. _until Windows 8: http://technet.microsoft.com/en-us/library/hh831833.aspx
 .. _only able to make: http://www.betaarchive.com/forum/viewtopic.php?t=22258 
+
+The absence of fully functional live versions of Windows makes it difficult to use for, e.g,
+determining if a bug is due to hardware or software problems,
+recovering data from a machine with filesystem corruption or bad disk sectors,
+and testing out different versions of an OS without committing a partition of a hard disk to a permanent installation.
+
+`Live versions`_ of Linux are full operating systems,
+able to mount and repartition disks,
+connect to the internet and run a web browser,
+and (for persistent live USB flash drives) retain settings and data on the next boot-up.
+Some live Linux distributions, such as `Puppy Linux`_,
+are lightweight enough that they default to `running from a RAM disk`_,
+and consequently have faster disk I/O than an OS that must access a spinning hard drive.
+
+.. _Live versions: http://www.linux.com/directory/Distributions/livecd
+.. _Puppy Linux: http://puppylinux.org/
+.. _running from a RAM disk: https://en.wikipedia.org/wiki/List_of_Linux_distributions_that_run_from_RAM
 
 ---------------------
 Maximum path lengths.
@@ -103,10 +117,15 @@ Judging by the number of bug reports and complaints, I would say that the answer
 #. http://llvm.org/bugs/show_bug.cgi?id=20440
 #. https://bugs.eclipse.org/bugs/show_bug.cgi?id=164186
 #. http://bugs.python.org/issue19636
+#. https://bugs.r-project.org/bugzilla3/show_bug.cgi?id=14228
 #. http://social.msdn.microsoft.com/forums/vstudio/en-US/e4a8ee8d-b25d-4b47-8c0c-88329bbece7d/please-increase-maxpath-to-32767
 #. http://stackoverflow.com/questions/1880321/why-does-the-260-character-path-length-limit-exist-in-windows
 #. http://stackoverflow.com/questions/1065993/has-windows-7-fixed-the-255-character-file-path-limit
 #. http://stackoverflow.com/questions/833291/is-there-an-equivalent-to-winapis-max-path-under-linux-unix
+#. http://stackoverflow.com/questions/1858907/svn-command-line-utility-will-not-work-if-full-file-name-is-longer-then-256-char
+#. https://www.itefix.net/content/rsync-file-name-too-long-91
+#. http://sqlite.1065341.n5.nabble.com/Path-Length-Limit-on-Windows-td70642.html
+#. http://sumedha.blogspot.com/2011/01/svn-checkout-fails-windows-max-path.html
 #. http://forums.mozillazine.org/viewtopic.php?f=29&t=263489
 
 But the bigger issue is that many Windows developers are `so used to`_ `working around`_ the problem
@@ -118,7 +137,7 @@ that it has become deeply entrenched and may `never be fixed`_.
 
 The Linux kernel does have an adjustable pathname length limit;
 it's `4096 chars in typical kernels and filesystems`_.
-You can check it yours by running ``getconf PATH_MAX /``.
+You can check it by running ``getconf PATH_MAX /``.
 However, `this limit is not enforced`_ by any filesystems that Linux runs on,
 and consequently some ``libc`` implementations were for a while `susceptible to buffer overflow`_ when trying to resolve canonical file paths.
 
@@ -133,10 +152,10 @@ and `warned about the problem`_ in the ``realpath (3)`` man page of the Linux Pr
 .. _addressed the issue: https://www.securecoding.cert.org/confluence/display/seccode/FIO02-C.+Canonicalize+path+names+originating+from+tainted+sources
 .. _warned about the problem: http://linux.die.net/man/3/realpath
 
-The significance of this is that the Linux kernel developers do not ever break external compatibility,
-they do intentionally expose false assumptions,
+This illustrates that while the Linux kernel developers scrupulously avoid breaking external compatibility,
+they also intentionally expose false assumptions,
 since false assumptions tend to cause hard-to-fix bugs.
-This is why Linus Torvalds `intentionally chose`_ an unusually high timer interrupt frequency for Linux::
+This is why Linus Torvalds `chose an unusually high`_ timer interrupt frequency for Linux::
 
     I chose 1000 originally partly as a way to make sure that people that
     assumed HZ was 100 would get a swift kick in the pants. That meant making
@@ -145,26 +164,34 @@ This is why Linus Torvalds `intentionally chose`_ an unusually high timer interr
     if it's really only been up for ten), but if it is off by just a factor of
     two, it might be overlooked.
 
-.. _intentionally chose: https://lkml.org/lkml/2005/7/8/263
+.. _chose an unusually high: https://lkml.org/lkml/2005/7/8/263
 
 ----------------------
 NTFS case-sensitivity.
 ----------------------
 
-NTFS on Windows `cannot be case-sensitive`_ because the Windows API for filenames `is not case-sensitive`_ for legacy reasons. 
-However, it is `case-preserving`_.
-This means that you can mount an NTFS partition with Linux and make a file called "Myfile.txt" in the same directory as "MYFILE.TXT".
-However, you `won't be able to`_ access both those files using standard Windows software.
+Linux uses case-sensitive filenames because ASCII, Unix, and the C programming language are case-sensitive.
 
-.. _cannot be case-sensitive: http://www.sevenforums.com/general-discussion/278918-making-windows-7-case-sensitive-possible.html
+Windows filenames are not case-sensitive because the `Windows API for opening files`_ `is not case-sensitive`_,
+i.e. the default call to ``CreateFile`` does not enable the ``FILE_FLAG_POSIX_SEMANTICS`` option.
+(This is to maintain `compatibility with MS-DOS`_ filesystems and ultimately to the era of FORTRAN and punch cards.)
+However, NTFS is `case-preserving`_.
+This means that it is possible to mount an NTFS partition with Linux and make a file called "Myfile.txt" in the same directory as "MYFILE.TXT".
+However, it is `not possible to read or modify both those files`_ using standard Windows software.
+
+.. _Windows API for opening files: http://msdn.microsoft.com/en-us/library/windows/desktop/aa363858(v=vs.85).aspx
 .. _is not case-sensitive: http://support.microsoft.com/kb/100625
+.. _compatibility with MS-DOS: http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx
 .. _case-preserving: http://en.wikipedia.org/wiki/Case_preservation
-.. _won't be able to: http://technet.microsoft.com/en-us/library/cc976809.aspx
+.. _not possible to read or modify both those files: http://technet.microsoft.com/en-us/library/cc976809.aspx
 
-This has `ramifications`_ for cross-platform development.
-In practice, most developers of cross-platform software just `make a habit`_ of not relying on case-sensitive filesystem access,
+`Not everyone`_ considers filename case insensitivity to be a bad thing.
+However, it does have `negative`_ `ramifications`_ for cross-platform development.
+Developers of cross-platform software `make a habit`_ of not relying on case-sensitive filesystem access,
 but this issue still `crops up when porting`_ from Windows to Linux or vice-versa.
 
+.. _Not everyone: http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
+.. _negative: https://code.google.com/p/tortoisesvn/issues/detail?id=32
 .. _ramifications: http://openfoamwiki.net/index.php/Main_FAQ#Why_isn.27t_there_a_Windows_port_of_OpenFOAM_.3F
 .. _make a habit: http://www.mono-project.com/docs/getting-started/application-portability/#case-sensitivity
 .. _crops up when porting: http://adrienb.fr/blog/wp-content/uploads/2013/04/PortingSourceToLinux.pdf
@@ -173,9 +200,10 @@ but this issue still `crops up when porting`_ from Windows to Linux or vice-vers
 Limited choice in filesystems.
 ------------------------------
 
-Windows has built-in support for its native NTFS,
+Windows has built-in support for its own NTFS filesystem,
 UDF (used for some CDs and DVDs),
 and the legacy FAT16/FAT32/exFAT family.
+All other filesystems require installation of `third-party software`_.
 
 Linux has drivers for `almost all file systems`_ that can be legally mounted without paying royalties,
 including ones that don't see much use nowadays, like `Amiga file systems`_.
@@ -183,6 +211,7 @@ It can also mount FAT and NTFS filesystems,
 despite Microsoft's lucrative patent licensing deals and `ongoing`_ `litigation`_
 against Android manufacturers and `other companies`_ for their use of the Linux kernel's FAT drivers.
 
+.. _third-party software: http://www.ext2fsd.com/
 .. _almost all file systems: https://wiki.archlinux.org/index.php/file_systems
 .. _Amiga file systems: http://www.tldp.org/FAQ/Linux-FAQ/partitions.html#can-linux-access-amiga-file-systems
 .. _ongoing: http://www.forbes.com/sites/timworstall/2013/12/06/german-patent-ruling-threatens-microsofts-windows-phone-earnings-from-android/
@@ -219,29 +248,71 @@ Some practical reasons for this:
 File extensions are the sole determiner of filetype.
 ----------------------------------------------------
 
-On Linux, filetypes are determined by a combination of filesystem metadata, heuristics for fixed-formats, and file extension.
-On Windows, the file extension is the sole determiner of filetype and executable status.
+On Windows, the file extension is the sole determiner of what happens when opening a file.
+This makes it easier to dupe a Windows user into `unintentionally running malware`_.
 
-If the file extensions for different filetypes happen to collide (recall that filenames are not case-sensitive),
-one program must take default precedence over the other for that filetype.
+.. _unintentionally running malware: http://windows.microsoft.com/en-us/windows-vista/recognizing-dangerous-file-types
+
+Also, if the file extensions for different filetypes happen to collide,
+as they inevitably do
+-- recall that filenames are not case-sensitive --
+one program must take default precedence over the other for that file extension.
+
 For example, there a lot of different file formats with a ``.dat`` file extension,
-but only one program gets to open them by default.
+but only one application gets to open them by default.
+
+On Linux, filetypes are determined by a combination of
+filesystem metadata,
+heuristics based on file signatures (a.k.a "magic numbers"),
+and sometimes file extension.
+
+A file executable status is separate from its file extension,
+and an executable text file written in a scripting language can indicate how to run it using the `first-line ``shebang`` syntax`_.
+Windows does not support ``shebang`` lines,
+but languages that emphasize cross-platform compatibility,
+such as Python,
+have `implemented work-arounds`_.
+
+.. _first-line ``shebang`` syntax: http://en.wikipedia.org/wiki/Shebang_(Unix)
+.. _implemented work-arounds: http://legacy.python.org/dev/peps/pep-0397/
+.. _cannot indicate it is version 2 or 3: http://stackoverflow.com/questions/7574453/shebang-notation-python-scripts-on-windows-and-linux
+.. _shebang: http://en.wikipedia.org/wiki/Shebang_(Unix)
+
+--------------------------------
+Read-only permissions semantics.
+--------------------------------
+
+Read-only files on Windows `can be moved, renamed, or deleted`_.
+`Folders cannot have a read-only status`_.
+
+.. _can be moved, renamed, or deleted: http://windows.microsoft.com/en-us/windows7/prevent-changes-to-a-file-by-setting-it-to-read-only
+.. _Folders cannot have a read-only status: http://windows.microsoft.com/en-us/windows-vista/prevent-changes-to-a-file-or-folder-read-only
+
+Linux, by contrast, inherits a sophisticated permissions model from Unix,
+which was designed as a multi-user system.
+This means that, for example, a read-only folder cannot have files added to it,
+and read-only files cannot be moved, renamed, or deleted without first removing the read-only status.
 
 ++++++++++++++++++++++++++++++++
 Architectural benefits of Linux.
 ++++++++++++++++++++++++++++++++
 
-----------------------------------
-Ease of bug reporting and logging.
-----------------------------------
+-----------------------------
+Debugging with default tools.
+-----------------------------
 
-On Windows, you can (usually) use Ctrl-C when an error window pops up to copy the error message.
-If you plan ahead, you can try to run the command from a terminal and log the output.
+On Windows, Ctrl-C will usually `copy an error message to the clipboard`_.
+Alternately, one can try to run the command from a terminal and log the output.
 
-On Linux, you can attach the debugger ``gdb`` to a running process,
+.. _copy an error message to the clipboard: http://weblogs.asp.net/chuckop/110153
+
+On Linux, you can attach the ``gdb`` debugger `to a running process`_,
 start a logfile that catches all the output,
 and run a backtrace when the program fails (it's better with debugging symbols, though).
-If the process is already unresponsive, you can attach ``strace`` and see what system calls it makes,
+
+.. _to a running process: http://ftp.gnu.org/old-gnu/Manuals/gdb-5.1.1/html_node/gdb_22.html
+
+Alternately, if the process is already unresponsive, you can attach ``strace`` and see what system calls it makes,
 and whether it receives the kill signals you send it or not.
 
 There are `programs`_ `similar`_ to ``gdb`` and ``strace`` `for Windows`_.
@@ -272,10 +343,18 @@ since applications can share file access by default.
 Separation of window manager and kernel.
 ----------------------------------------
 
-The Windows window manager and kernel are very tightly coupled.
-This has negative consequences for stability and backwards compatibility.
+The Windows window manager and kernel are `very tightly coupled`_.
+One consequence of this is that Microsoft must wait for major version changes to implement kernel changes that rely on user interface changes.
+For example, Microsoft did not implement `User Account Control`_ until Windows Vista was released,
+despite the well-known security problems intrinsic to `using an operating system as administrator by default`_.
 
-Also, by design, multiple concurrent sessions are `disabled`_ on all but the `server version`_ of Windows.
+.. _very tightly coupled: http://en.wikipedia.org/wiki/Window_manager#Microsoft_Windows
+.. _User Account Control: http://en.wikipedia.org/wiki/User_Account_Control
+.. _using an operating system as administrator by default: http://askubuntu.com/questions/16178/why-is-it-bad-to-login-as-root
+
+Because Windows users do not have choice in their desktop environment,
+Windows licensing requirements make multi-user remote access and sharing of machine resources difficult.
+By design, multiple concurrent sessions are `disabled`_ on all but the `server version`_ of Windows.
 (This is a licensing issue, not a technical limitation.
 Third-party remote desktop software for Windows is `legally`_ `obligated`_ to not circumvent this limitation [#windowsVNC]_.)
 
@@ -284,8 +363,10 @@ Third-party remote desktop software for Windows is `legally`_ `obligated`_ to no
 .. _legally: http://social.technet.microsoft.com/Forums/windows/en-US/41e9e500-714a-443b-bff2-55f0d500d3d1/concurrent-sessions-remote-desktop-in-windows-7?forum=w7itproinstall
 .. _obligated: http://tightvnc.10971.n7.nabble.com/Multiple-Unique-Sessions-td2060.html
 
-On Linux, `multiple local instances of the X server`_ are not unusual,
-even with different desktop environments.
+The Linux kernel does not require a particular desktop environment.
+Linux desktop users generally run graphical user interfaces managed by the X server.
+Because Linux is multi-user by design, `multiple local instances of the X server`_ are not unusual,
+even with different desktop environments (e.g. GNOME and KDE can coexist on the same Linux box).
 X sessions can be accessed remotely using e.g. `VNC`_ or `X over SSH`_.
 It is common for two different users to work remotely at the same time on the same machine.
 A `multiseat`_ configuration is also possible if the hardware is available.
@@ -422,7 +503,7 @@ which is significant for overcoming Window's issue with `installing software fro
 .. _installing software from untrusted sources: `Malware.`_
 
 On the bright side, most of the language-specific package managers,
-such as 
+such as
 Haskell's ``cabal``,
 Perl's ``CPAN``,
 .NET's NuGet,

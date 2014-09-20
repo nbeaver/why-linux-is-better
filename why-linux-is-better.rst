@@ -43,9 +43,9 @@ but unfortunately I am not familiar enough with any of them to comment specifica
 Technical deficiencies of Windows.
 +++++++++++++++++++++++++++++++++++++
 
---------------------
-LiveCDs are lacking.
---------------------
+------------------------
+Live booting is lacking.
+------------------------
 
 `Live versions`_ of Linux are full operating systems,
 able to mount and repartition disks,
@@ -62,6 +62,8 @@ and consequently run faster than an OS that access a hard disk.
 Windows LiveCDs, `though they`_ `do exist`_,
 are hampered by licensing restrictions or technical limitations.
 For example, `until Windows 8`_, desktop versions of Windows could not boot from a USB.
+(And even on Windows 8, you can't mount hard disks when running from USB.)
+
 The BartPE LiveCD building program will run on any version of Windows,
 but it is `only able to make`_ a LiveCD for Windows XP or Windows Server 2003.
 
@@ -326,7 +328,7 @@ are scattered around in various directories or in the binary-only registry.
 
 On Linux, system level configuration is stored in ``/etc/``,
 and user level configuration is stored in dotfiles (hidden folders or text files) in the user's home directory.
-Want to back up your configuration or migrate it to a different Linux distribution?
+Want to back up your configuration?
 Just copy over your dotfiles.
 Want to save only some of your configuration?
 Just copy over the dotfiles your care about.
@@ -334,6 +336,10 @@ Just copy over the dotfiles your care about.
 Since many dotfiles are textual,
 it is even possible to ``diff`` and selectively merge them,
 which means users can share and benefit from others' customized configurations and accommodate upstream changes.
+It also means that migrating to a different Linux distribution is usually not as painful as starting from scratch,
+since many applications keep the configuration formats relatively stable and merging in the customizations is usually straightforward.
+During major Debian upgrades, for example, users can choose to adopt new configuration files,
+keep the old ones, or diff and merge the files into a hybrid.
 
 ---------------------------------------------------------------
 Package manager with signed binaries and easy backup/reinstall.
@@ -346,9 +352,10 @@ such as:
 - securely retrieving the package from a trusted remote or local repository,
 - adding and removing third-party repositories,
 - changelogs,
-- cryptographically verifying the integrity of the package,
-- backporting security fixes to stable version,
-- licensing status of software,
+- optional fully automatic non-interactive installation,
+- cryptographic verification of packages,
+- backporting security fixes to stable versions,
+- licensing metadata,
 - and sophisticated dependency management.
 
 First, I would be remiss to mention that there is an open-source package manager for Windows, `Chocolatey`_,
@@ -387,7 +394,18 @@ which is significant for overcoming Window's issue with `installing software fro
 .. _does not have package moderation or package signing: https://chocolatey.org/about
 .. _installing software from untrusted sources: `Malware.`_
 
-Linux has many mature packaging systems,
+On the bright side, most of the language-specific package managers,
+such as 
+Haskell's ``cabal``,
+Perl's ``CPAN``,
+.NET's NuGet,
+Node.js's ``npm``,
+Python's ``pip``,
+and
+Ruby's RubyGems,
+are available on Windows.
+
+Linux has several mature, general-purpose packaging systems,
 including Fedora's ``.rpm``-based ``yum`` package manager,
 Debian's ``.deb``-based ``apt`` and ``dpkg``,
 Arch Linux's ``pacman``,
@@ -407,7 +425,8 @@ packaging makes secure, regular updates much more accessible and convenient for 
 
 Package mangers can make backups easier by decoupling installed applications from stored personal files.
 Want to remember which programs you have installed without backing up every single binary?
-Just save the output of ``dpkg -L`` or its equivalent as big long text file of installed packages.
+Just save the output of ``dpkg -L`` or its equivalent as a text file of installed packages,
+and voilà, you can restore them later.
 
 If your backup fails or you just want to switch to a different Linux distribution,
 you can easily get back your installed software by feeding your package manager the package list.
@@ -433,7 +452,7 @@ This has equivalent security problems to blindly running commands in a terminal,
 but is much less efficient.
 
 In addition, using GUIs for configuration makes user support and documentation significantly more time-consuming.
-Text is easier to store, transmit, and search for than screenshots or notations like Tools -> Options -> General Options -> ...
+Text is easier to automate, store, transmit, and search for than screenshots or ad-hoc notations like Tools -> Options -> General Options -> ...
 
 The emphasis on textuality also makes diagnosing problems easier.
 For example, want to see which displays you're connected to? Run ``xrandr``.
@@ -501,11 +520,11 @@ Windows encourages bad habits such as restarting software to make a bug go away,
 or avoiding certain commands as a work-around,
 rather than reproducing and reporting bugs.
 
-In the long run, this hurts both proprietary and open-source software running on Windows.
-It is also one reason why developing solely for Windows because of the larger user base may not always be a goo choice.
-
 .. _requiring: http://www.howtogeek.com/182817/htg-explains-why-does-windows-want-to-reboot-so-often/
 .. _reboots: http://www.howtogeek.com/howto/31204/why-do-application-installs-make-you-reboot-and-close-other-apps/
+
+In the long run, this hurts both proprietary and open-source software running on Windows.
+It is also one reason why developing solely for Windows because of the larger user base may not always be a goo choice.
 
 --------
 Malware.

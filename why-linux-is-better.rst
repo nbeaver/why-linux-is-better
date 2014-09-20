@@ -80,45 +80,72 @@ Windows path lengths `are limited to 260 characters`_, including filename.
 (In practice, it is often more like `199 characters`_.)
 This is `not a flaw in NTFS`_ or Windows per se, but in the `non-Unicode version of the Windows API`_.
 
-This problem can be avoided by using Unicode versions of the API calls,
-but many applications (e.g. Windows Explorer, Powershell) have not done so.
-
 .. _are limited to 260 characters: http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx#maxpath
 .. _not a flaw in NTFS: http://msdn.microsoft.com/en-us/library/ee681827%28VS.85%29.aspx#limits
 .. _non-Unicode version of the Windows API: http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx#maxpath
 .. _199 characters: http://stackoverflow.com/a/265817
 .. _have not done so: http://blogs.msdn.com/b/bclteam/archive/2007/02/13/long-paths-in-net-part-1-of-3-kim-hamilton.aspx
 
+This problem can be avoided by using Unicode versions of the API calls,
+but many applications (e.g. Windows Explorer, Powershell) have not done so.
+
 Of course, most OS restrictions are `not an issue in well-written software`_.
 Maybe Windows paths `are long enough`_.
 Is MAX_PATH an actual problem in real software?
 
-Yes, most definitely. [#]_ [#]_ [#]_ [#]_
-Moreover, Windows developers are `so used to`_ `working around`_ the problem
-that it has become deeply entrenched and may `never be fixed`_.
-
-The Linux kernel does impose an adjustable pathname length limit (`4096 chars in typical kernels and filesystems`_),
-but `this limit is not enforced`_, and some ``libc`` implementations were `susceptible to buffer overflow`_ as a result.
-
-The 2008 POSIX revision has `addressed the issues`_,
-but prior to this the Linux kernel had to make non-standard modifications to avoid overflow,
-and `warned about the problem`_ in the ``realpath (3)`` man page of the Linux Programmer's Manual.
-
 .. _not an issue in well-written software: http://blogs.msdn.com/b/oldnewthing/archive/2007/03/01/1775759.aspx
 .. _are long enough: http://blog.codinghorror.com/filesystem-paths-how-long-is-too-long/
+
+Judging by the number of bug reports and complaints, I would say that the answer is yes.
+
+#. https://github.com/joyent/node/issues/6960
+#. https://gcc.gnu.org/bugzilla/show_bug.cgi?id=61922
+#. http://llvm.org/bugs/show_bug.cgi?id=20440
+#. https://bugs.eclipse.org/bugs/show_bug.cgi?id=164186
+#. http://bugs.python.org/issue19636
+#. http://social.msdn.microsoft.com/forums/vstudio/en-US/e4a8ee8d-b25d-4b47-8c0c-88329bbece7d/please-increase-maxpath-to-32767
+#. http://stackoverflow.com/questions/1880321/why-does-the-260-character-path-length-limit-exist-in-windows
+#. http://stackoverflow.com/questions/1065993/has-windows-7-fixed-the-255-character-file-path-limit
+#. http://stackoverflow.com/questions/833291/is-there-an-equivalent-to-winapis-max-path-under-linux-unix
+#. http://forums.mozillazine.org/viewtopic.php?f=29&t=263489
+
+But the bigger issue is that many Windows developers are `so used to`_ `working around`_ the problem
+that it has become deeply entrenched and may `never be fixed`_.
+
 .. _so used to: http://blogs.msdn.com/b/tomholl/archive/2007/02/04/enterprise-library-and-the-curse-of-max-path.aspx
 .. _working around: http://stackoverflow.com/a/11212007
 .. _never be fixed: http://visualstudio.uservoice.com/forums/121579-visual-studio/suggestions/2156195-fix-260-character-file-name-length-limitation
+
+The Linux kernel does have an adjustable pathname length limit;
+it's `4096 chars in typical kernels and filesystems`_.
+You can check it yours by running ``getconf PATH_MAX /``.
+However, `this limit is not enforced`_ by any filesystems that Linux runs on,
+and consequently some ``libc`` implementations were for a while `susceptible to buffer overflow`_ when trying to resolve canonical file paths.
+
 .. _4096 chars in typical kernels and filesystems: http://unix.stackexchange.com/questions/28997/on-deep-created-directories
 .. _this limit is not enforced: http://insanecoding.blogspot.com/2007/11/pathmax-simply-isnt.html
 .. _susceptible to buffer overflow: http://stackoverflow.com/questions/1171833/how-to-get-the-absolute-path-of-a-file-programmatically-with-out-realpath-unde
-.. _addressed the issues: https://www.securecoding.cert.org/confluence/display/seccode/FIO02-C.+Canonicalize+path+names+originating+from+tainted+sources
+
+The 2008 POSIX revision has `addressed the issue`_,
+but prior to this the Linux kernel had to make non-standard modifications to avoid overflow,
+and `warned about the problem`_ in the ``realpath (3)`` man page of the Linux Programmer's Manual.
+
+.. _addressed the issue: https://www.securecoding.cert.org/confluence/display/seccode/FIO02-C.+Canonicalize+path+names+originating+from+tainted+sources
 .. _warned about the problem: http://linux.die.net/man/3/realpath
 
-.. [#] https://github.com/joyent/node/issues/6960
-.. [#] http://stackoverflow.com/questions/1880321/why-does-the-260-character-path-length-limit-exist-in-windows
-.. [#] http://stackoverflow.com/questions/1065993/has-windows-7-fixed-the-255-character-file-path-limit
-.. [#] http://stackoverflow.com/questions/833291/is-there-an-equivalent-to-winapis-max-path-under-linux-unix
+The significance of this is that the Linux kernel developers do not ever break external compatibility,
+they do intentionally expose false assumptions,
+since false assumptions tend to cause hard-to-fix bugs.
+This is why Linus Torvalds `intentionally chose`_ an unusually high timer interrupt frequency for Linux::
+
+    I chose 1000 originally partly as a way to make sure that people that
+    assumed HZ was 100 would get a swift kick in the pants. That meant making
+    a _big_ change, not a small subtle one. For example, people tend to react
+    if "uptime" suddenly says the machine has been up for a hundred days (even
+    if it's really only been up for ten), but if it is off by just a factor of
+    two, it might be overlooked.
+
+.. _intentionally chose: https://lkml.org/lkml/2005/7/8/263
 
 ----------------------
 NTFS case-sensitivity.

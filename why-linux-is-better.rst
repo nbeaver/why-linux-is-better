@@ -9,26 +9,32 @@ Objective reasons to prefer Linux to Windows
 
 .. _Creative Commons Attribution 4.0 International License: http://creativecommons.org/licenses/by/4.0/
 
+.. contents::
+
+++++++++++++
+Introduction
+++++++++++++
+
 Claims like "Linux is stable and reliable",
 or "Linux is secure and private",
 or "Linux is faster and less bloated",
 or "Linux is flexible and customizable"
 are vague and hard to verify.
 
-Moreover, such claims lead to `endless debates`_.
+Moreover, they lead to `endless debates`_ that are impossible to resolve.
 It is easy to opine about one's preferred operating system,
 but harder to give objective, concrete examples.
 
 .. _endless debates: http://linux.slashdot.org/
 
 With the caveat that both Windows and Linux are moving targets,
-here are some specific technical reasons to prefer using Linux as a desktop operating system.
+this document catalogues some specific technical reasons to prefer using Linux as a desktop operating system.
 These reasons are not exhaustive,
 but aim to be representative.
 
 These will not touch on closed vs. open source development,
 but will instead focus on functionality.
-There is plenty of discussion of the advantages of open source elsewhere.
+There is plenty of discussion of the advantages and disadvantages of open source elsewhere.
 
 The examples are intended to be accurate at the cost of possible dryness due to technical detail.
 
@@ -38,6 +44,7 @@ but I have tried to include other distributions when possible.
 
 In this document, the term "Linux" is shorthand to refer to the entire distribution,
 including bootloader, kernel, shell, window manager, package manager, etc.
+
 The term "Windows" refers to modern versions of Microsoft Windows NT,
 including Windows XP, Windows Vista, Windows 7, and Windows 8.
 
@@ -45,11 +52,50 @@ Many of the same arguments in favor of Linux also apply to the BSD family of ope
 (and POSIX-compliant operating systems in general),
 but unfortunately I am not familiar enough with any of them to comment specifically.
 
-.. contents::
++++++++++++++++
+Why write this?
++++++++++++++++
 
-+++++++++++++++++++++++++++++++++++++
+Most people use Windows on the desktop because it's the default.
+Few are aware of the benefits of switching to another operating system,
+and even fewer are willing to put in the effort to do so.
+
+A curious Windows user who's interested in Linux will have difficulty finding good reasons via web searches,
+since comparisons of operating systems are (almost) always vague, uninformed, or opinion-based.
+
+For a variety of reasons,
+people who do use Linux seldom advertise its benefits to their colleagues.
+If they do, they may find it difficult to articulate exactly what the benefits are in a concrete and specific manner,
+especially without putting down Windows users or Windows applications in general.
+
+If you don't use Linux or Windows,
+this document might still be of interest,
+since it discusses issues which are relevant to all operating systems.
+
+If you are a new Linux user,
+this document is intended to inform you about some of the benefits of Linux you may not be aware of,
+and to dig deeper if you are interested.
+
+If you are an experienced Linux user,
+this document is a test of the theory that the fastest way to get feedback is to be publically wrong about something people care about.
+Corrections and additions are welcome.
+
+If you are a Windows user:
+
+- This document is not intended to convert you to Linux.
+- This document does not claim that Windows is inferior in every way,
+  or even that it is inferior overall.
+- Instead, this is meant to provide insight into why some people choose to use Linux as a desktop operating system,
+  despite its shortcomings,
+  and possibly to challenge some misconceptions that people have about Linux and Windows.
+- Finally, definitions of better and worse are necessarily subjective,
+  despite the title's claim of objectivity.
+  You may heartily disagree with substantial parts of what follows,
+  but perhaps it may be useful to you, even so.
+
+++++++++++++++++++++++++++++++++++
 Technical deficiencies of Windows.
-+++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
 
 ------------------------
 Live booting is lacking.
@@ -110,7 +156,7 @@ Is MAX_PATH an actual problem in real software?
 .. _not an issue in well-written software: http://blogs.msdn.com/b/oldnewthing/archive/2007/03/01/1775759.aspx
 .. _are long enough: http://blog.codinghorror.com/filesystem-paths-how-long-is-too-long/
 
-Judging by the number of bug reports and complaints, I would say that the answer is yes.
+Judging by the number of bug reports and complaints, the answer appears to be yes.
 
 #. https://github.com/joyent/node/issues/6960
 #. https://gcc.gnu.org/bugzilla/show_bug.cgi?id=61922
@@ -352,16 +398,20 @@ despite the well-known security problems intrinsic to `using an operating system
 .. _User Account Control: http://en.wikipedia.org/wiki/User_Account_Control
 .. _using an operating system as administrator by default: http://askubuntu.com/questions/16178/why-is-it-bad-to-login-as-root
 
-Because Windows users do not have choice in their desktop environment,
-Windows licensing requirements make multi-user remote access and sharing of machine resources difficult.
-By design, multiple concurrent sessions are `disabled`_ on all but the `server version`_ of Windows.
-(This is a licensing issue, not a technical limitation.
-Third-party remote desktop software for Windows is `legally`_ `obligated`_ to not circumvent this limitation [#windowsVNC]_.)
+`Windows remote desktop licensing`_ make multi-user remote access and sharing of machine resources expensive.
+By design, multiple concurrent sessions are disabled on all but the server version of Windows,
+and `third-party remote desktop software is not permitted`_ to `circumvent this limitation`_. [#]_ [#]_ [#]_
 
-.. _disabled: http://blogs.msdn.com/b/rds/archive/2009/08/21/remote-desktop-connection-7-for-windows-7-windows-xp-windows-vista.aspx
-.. _server version: http://superuser.com/questions/784523/tightvnc-while-an-rdp-session-is-running
-.. _legally: http://social.technet.microsoft.com/Forums/windows/en-US/41e9e500-714a-443b-bff2-55f0d500d3d1/concurrent-sessions-remote-desktop-in-windows-7?forum=w7itproinstall
-.. _obligated: http://tightvnc.10971.n7.nabble.com/Multiple-Unique-Sessions-td2060.html
+.. _Windows remote desktop licensing: http://technet.microsoft.com/en-us/library/cc725933.aspx
+.. _third-party remote desktop software is not permitted: http://superuser.com/questions/784523/tightvnc-while-an-rdp-session-is-running
+.. _circumvent this limitation: http://lifehacker.com/5873717/enable-concurrent-remote-desktop-sessions-in-windows-with-this-patch
+.. [#] "You would think that because Windows XP is multiuser, you could have multiple users running VNC servers. Indeed you can, but you can only use the one that has the currently active user - switch away, and that server goes black, and in my testing, can't even be used again. Windows XP is not really multiuser." http://aplawrence.com/Reviews/tightvnc.html
+.. [#] "Windows, unless you're using Terminal Server (and have the licenses to go with it) doesn't have this capability, and I don't believe that even with Terminal Server, VNC will be able to take advantage of this." http://tightvnc.10971.n7.nabble.com/Multiple-Unique-Sessions-td2060.html
+.. [#] "If you heard about/saw many active desktop sessions in non-server Windows - that was modified OS with swapped termsrv.dll. Licensing does not allow you to modify/swap system files and use non-server system that way and this is ILLEGAL." http://stackoverflow.com/questions/9410091/multi-user-login-remote-desktop-on-windows-linux
+
+Note that this is a licensing issue,
+not a technical limitation of Windows itself,
+but it has consequences for the utility of the operating system.
 
 The Linux kernel does not require a particular desktop environment.
 Linux desktop users generally run graphical user interfaces managed by the X server.
@@ -380,12 +430,12 @@ This is important to be able to do if the X server crashes or cannot start.
 .. _multiseat: https://wiki.archlinux.org/index.php/xorg_multiseat
 
 In Linux, the X server and kernel are separate,
-so the window manager can be restarted without a reboot.
-Should it be necessary to restart the kernel,
+so the window manager can be restarted without rebooting the kernel.
+
+If a crash is unrecoverable and it becomes necessary to reboot the kernel,
 one can do so cleanly without the aid of the X-server using the "`Magic Alt-SysRq keys`_".
 
 .. _Magic Alt-SysRq keys: https://www.kernel.org/doc/Documentation/sysrq.txt
-
 
 There is a plethora of `window managers`_ and `desktop environments`_ to choose from on Linux,
 even for the same distribution,
@@ -396,13 +446,30 @@ However, they all use the same X Window System (a.k.a X11).
 .. _desktop environments: https://wiki.debian.org/DesktopEnvironment
 
 The X11 system is by no means perfect;
-in fact, many former X11 developers are hard at work on its replacement, Wayland,
-and Canonical is working on a separate but similar endeavor called Mir.
+in fact, many former X11 developers are hard at work on its replacement, `Wayland`_,
+and Canonical (the company behind Ubuntu) is working on a separate but similar endeavor called `Mir`_.
+
+.. _Wayland: http://wayland.freedesktop.org/architecture.html
+.. _Mir: http://unity.ubuntu.com/mir/
 
 However, X11 has become so pervasive that versions of it power not only Linux desktops but also the BSD family and OS X (XQuartz),
 and there are even ways to run an X server on Windows or Android.
 
-.. [#windowsVNC] "You would think that because Windows XP is multiuser, you could have multiple users running VNC servers. Indeed you can, but you can only use the one that has the currently active user - switch away, and that server goes black, and in my testing, can't even be used again. Windows XP is not really multiuser." http://aplawrence.com/Reviews/tightvnc.html
+----------------------------
+A quick note on performance.
+----------------------------
+
+So far, we have avoided the topic of performance entirely.
+Measuring and improving performance is a hugely complex topic,
+incorporating at the very least hardware-specific considerations and deep knowledge of every level of software.
+It also incorporates psychology,
+since people don't care if software has good performance if they don't perceive it to have good performance.
+
+As a result,
+unqualified generalizations about the performance of software as complex as an operating system are nearly always wrong.
+What does seem to be true is that testing and optimizing on multiple platforms tends to yield `unexpected benefits for both operating systems`_.
+
+.. _unexpected benefits for both operating systems: http://blogs.valvesoftware.com/linux/faster-zombies/
 
 +++++++++++++++++++++++++++++++++++++
 Configuration and software packaging.
@@ -422,8 +489,11 @@ and standard POSIX tools are unlikely to become obsolete.
 
 .. _POSIX standard: http://pubs.opengroup.org/onlinepubs/009696699/utilities/contents.html
 
-On Windows, by contrast, neither the C compiler and build system
-nor the currently favored Windows shell (PowerShell) are installed by default.
+On Windows, by contrast, neither the `C compiler and build system`_
+nor the currently favored Windows shell (`PowerShell`_) are installed by default.
+
+.. _C compiler and build system: http://msdn.microsoft.com/en-us/vstudio/
+.. _PowerShell: http://technet.microsoft.com/en-us/library/hh847837.aspx
 
 ------------------------
 Registries and dotfiles.
@@ -432,22 +502,59 @@ Registries and dotfiles.
 On Windows, configuration files are not centralized in the user's home directory.
 Most of the things that users care about --
 not losing configuration between installs --
-are scattered around in various directories or in the binary-only registry.
+are scattered around as ``.INI`` text files in various directories or in the `Windows Registry`_.
+This makes configuration less robust and harder to adapt to the needs of specific users.
 
-On Linux, system level configuration is stored in ``/etc/``,
-and user level configuration is stored in dotfiles (hidden folders or text files) in the user's home directory.
-Want to back up your configuration?
-Just copy over your dotfiles.
-Want to save only some of your configuration?
-Just copy over the dotfiles your care about.
+.. _Windows Registry: http://msdn.microsoft.com/en-us/library/ms970651.aspx
 
-Since many dotfiles are textual,
-it is even possible to ``diff`` and selectively merge them,
+On Linux, most configuration can be done graphically within applications or configuration managers provided by the desktop environment.
+A lot of it is handled by the `package manager`_.
+However, there are a variety of possibilities depending on the needs of the people using it.
+
+.. _package manager: `Package manager with signed binaries and easy backup/reinstall.`_
+
+System administrators, for example, care about system-level configuration files, much of which that is in ``/etc/``.
+These are generally text files, which are simple to edit for ad-hoc debugging and automation.
+Text files are also very robust against corruption.
+
+User level configuration is stored in dotfiles (hidden folders or files) in the user's home directory.
+There are good arguments to the effect that making dotfiles responsible for configuration `is problematic`_.
+Configuration files would make much more sense stored in a dedicated configuration folder in the user's home directory,
+and indeed some applications are `beginning to standardize on this`_.
+In the meantime, however, dotfiles do the job, even if they seem cluttered,
+since each user's configuration is isolated to his or her home directory.
+
+.. _is problematic: https://plus.google.com/+RobPikeTheHuman/posts/R58WgWwN9jp
+.. _beginning to standardize on this: http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
+
+Centralized databases like the Windows Registry are usually unnecessary for configuration.
+Applications for which text files are bad choice,
+e.g. ones which need to store huge amounts of data or must use atomic updates,
+can use, for example, an SQLite database in the user's home directory.
+The GNOME desktop provides `dconf`_, which is probably the closest thing to a Windows Registry that Linux has.
+
+.. _dconf: https://wiki.gnome.org/Projects/dconf
+
+Moreover, using ordinary files instead of a database for application configuration has many benefits.
+Since many configuration files on Linux are `textual`_,
+they are easy to modify,
+back up,
+and ``diff`` and merge them,
 which means users can share and benefit from others' customized configurations and accommodate upstream changes.
-It also means that migrating to a different Linux distribution is usually not as painful as starting from scratch,
+
+.. _textual: http://catb.org/~esr/writings/taoup/html/textualitychapter.html
+
+It also means that migrating to a different Linux distribution is not as painful as starting from scratch,
 since many applications keep the configuration formats relatively stable and merging in the customizations is usually straightforward.
-During major Debian upgrades, for example, users can choose to adopt new configuration files,
+During major Debian upgrades, for example, administrators can choose to adopt new configuration files,
 keep the old ones, or diff and merge the files into a hybrid.
+
+In short, configuration on Linux is better adapted to the needs of its users than on Windows.
+Ordinary users have the package manager or applications themselves for managing configuration,
+developers who like to keep their configuration under version control can use tools like `GNU Stow`_,
+and system administrators can use any of many dedicated configuration management tools like Puppet, Chef, Ansible, SaltStack, etc.
+
+.. _GNU Stow: http://www.gnu.org/software/stow/
 
 ---------------------------------------------------------------
 Package manager with signed binaries and easy backup/reinstall.
@@ -466,9 +573,9 @@ such as:
 - licensing metadata,
 - and sophisticated dependency management.
 
-First, I would be remiss to mention that there is an open-source package manager for Windows, `Chocolatey`_,
+Now, there is an open-source package manager for Windows, `Chocolatey`_,
 that is under active development.
-So far the Chocolatey repository is not as comprehensive as Linux repositories.
+However, thus far the Chocolatey repository is not as comprehensive as Linux repositories.
 Here are some examples of packages which are not in the Chocolatey repository (as of September 2014).
 
 - `KeePassX`_ password manager `* <http://chocolatey.org/packages?q=keepassx>`__
@@ -558,6 +665,11 @@ Many Linux config problems can be fixed by editing a line in a text file or runn
 Windows configuration generally requires navigating deeply nested GUIs and ticking various checkboxes.
 This has equivalent security problems to blindly running commands in a terminal,
 but is much less efficient.
+
+    Graphical user interfaces (GUIs) are helpful for many tasks, but they are not good for all tasks. I have long felt that most computers today do not use electricity. They instead seem to be powered by the "pumping" motion of the mouse! Computers were supposed to free us from manual labor, but how many times have you performed some task you felt sure the computer should be able to do? You ended up doing the work by tediously working the mouse. Pointing and clicking, pointing and clicking.
+    -- William E. Shotts, Jr. "`Learning the shell`_"
+
+.. _Learning the shell: http://linuxcommand.org/learning_the_shell.php
 
 In addition, using GUIs for configuration makes user support and documentation significantly more time-consuming.
 Text is easier to automate, store, transmit, and search for than screenshots or ad-hoc notations like Tools -> Options -> General Options -> ...

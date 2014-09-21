@@ -16,8 +16,6 @@ Objective reasons to prefer Linux to Windows
 Introduction
 ++++++++++++
 
-Linux advocates make a lot of claims about why it is better.
-
 "Linux is stable and reliable."
 
 "Linux is secure and private."
@@ -26,16 +24,19 @@ Linux advocates make a lot of claims about why it is better.
 
 "Linux is flexible and customizable."
 
-Claims like these are vague and hard to verify,
+Stop it.
+
+Claims like these are vague and wishy-washy,
 and they often cite anecdotes and hearsay as evidence.
-Moreover, they lead to `endless debates`_ that are impossible to resolve,
+They lead to `endless debates`_ that are impossible to resolve,
 It is easy to opine about one's preferred operating system,
 but harder to give objective, concrete examples.
 
 .. _endless debates: http://linux.slashdot.org/
 
 With the caveat that both Windows and Linux are moving targets,
-this document catalogues some specific technical reasons to prefer using Linux as a desktop operating system.
+this document describes some specific technical reasons to prefer using Linux as a desktop operating system.
+
 These reasons are not exhaustive,
 but aim to be representative.
 
@@ -187,7 +188,7 @@ but many applications (e.g. Windows Explorer, Powershell) have not done so.
 
 Of course, most OS restrictions are `not an issue in well-written software`_.
 Maybe Windows paths `are long enough`_.
-Is MAX_PATH an actual problem in real software?
+Is ``MAX_PATH`` an actual problem in real software?
 
 .. _not an issue in well-written software: http://blogs.msdn.com/b/oldnewthing/archive/2007/03/01/1775759.aspx
 .. _are long enough: http://blog.codinghorror.com/filesystem-paths-how-long-is-too-long/
@@ -470,7 +471,7 @@ X sessions can be accessed remotely using e.g. `VNC`_ or `X over SSH`_.
 It is common for two different users to work remotely at the same time on the same machine.
 A `multiseat`_ configuration is also possible if the hardware is available.
 Even on single-user machines this capability of the X server is useful to e.g. run two different desktop environments at the same time.
-Also, sometimes Linux users will forego the X server entirely and log in from a virtual terminal (tty).
+Also, sometimes Linux users will forego the X server entirely and log in from a virtual terminal (``tty``).
 This is important to be able to do if the X server crashes or cannot start.
 
 .. _multiple local instances of the X server: http://journalxtra.com/linux/desktop/multiple-desktops-on-one-linux-pc-now-thats-greedy/
@@ -551,10 +552,12 @@ A decade later, `Microsoft contributed device driver code`_ to the Linux kernel.
 .. _Microsoft contributed device driver code: http://www.microsoft.com/en-us/news/features/2009/jul09/07-20linuxqa.aspx
 
 Secondly, testing and optimizing on multiple platforms can yield unexpected performance benefits for both operating systems.
-When Valve `ported Left 4 Dead 2 to Linux`_,
+When Valve `ported Left 4 Dead 2 to Linux`_ in 2012,
 they discovered that OpenGL on Windows and Linux achieved a higher framerate than Direct3D on Windows.
 
     After this work, Left 4 Dead 2 is running at 315 FPS on Linux. That the Linux version runs faster than the Windows version (270.6) seems a little counter-intuitive, given the greater amount of time we have spent on the Windows version. However, it does speak to the underlying efficiency of the kernel and OpenGL. Interestingly, in the process of working with hardware vendors we also sped up the OpenGL implementation on Windows. Left 4 Dead 2 is now running at 303.4 FPS with that configuration.
+
+    -- Valve Linux Team
 
 .. _ported Left 4 Dead 2 to Linux: http://blogs.valvesoftware.com/linux/faster-zombies/
 

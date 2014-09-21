@@ -187,7 +187,7 @@ This is `not a flaw in NTFS`_ or Windows per se, but in the `non-Unicode version
 .. _have not done so: http://blogs.msdn.com/b/bclteam/archive/2007/02/13/long-paths-in-net-part-1-of-3-kim-hamilton.aspx
 
 This problem can be avoided by using Unicode versions of the API calls,
-but many applications (e.g. `Windows Explorer`_, `.NET` and `consequently Powershell`_) have not done so.
+but many applications (e.g. `Windows Explorer`_, `.NET`_ and `consequently Powershell`_) have not done so.
 
 .. _Windows Explorer: https://www.gibixonline.com/post/2009/08/23/Explorer-still-limited-by-MAX_PATH
 .. _.NET: http://blogs.msdn.com/b/bclteam/archive/2007/02/13/long-paths-in-net-part-1-of-3-kim-hamilton.aspx

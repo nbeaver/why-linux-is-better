@@ -41,7 +41,7 @@ With the caveat that both Windows and Linux are moving targets,
 this document describes some specific technical reasons to prefer using Linux as a desktop operating system.
 
 These reasons are not exhaustive
---- and not meant to be ----
+--- and not meant to be ---
 but aim to be representative.
 
 These will not touch on closed vs. open source development,
@@ -110,7 +110,7 @@ If you are a Windows user:
   despite its shortcomings,
   and possibly to challenge some misconceptions that people have about Linux and Windows.
 - Corrections and additions are, of course, welcome.
-  Windows developers are ones who know the most about its flaw and strengths.
+  Windows developers are ones who know the most about its flaws and strengths.
 - Finally, definitions of better and worse are necessarily subjective,
   despite the title's claim of objectivity.
   You may heartily disagree with substantial parts of what follows,
@@ -557,6 +557,8 @@ First, an `anonymous Windows kernel developer stated`_ in 2013 that he believes 
     Windows is indeed slower than other operating systems in many scenarios, and the gap is worsening. The cause of the problem is social. There's almost none of the improvement for its own sake, for the sake of glory, that you see in the Linux world.
     
     Granted, occasionally one sees naive people try to make things better. These people almost always fail. We can and do improve performance for specific scenarios that people with the ability to allocate resources believe impact business goals, but this work is Sisyphean. There's no formal or informal program of systemic performance improvement. We started caring about security because pre-SP3 Windows XP was an existential threat to the business. Our low performance is not an existential threat to the business.
+
+    -- Anonymous Windows NT kernel developer
     
 .. _anonymous Windows kernel developer stated: http://blog.zorinaq.com/?e=74
 
@@ -794,6 +796,8 @@ but is much less efficient.
 
 In addition, using GUIs for configuration makes user support and documentation significantly more time-consuming.
 Text is easier to automate, store, transmit, and search for than screenshots or ad-hoc notations like Tools -> Options -> General Options -> ...
+
+.. TODO: discuss specific comparisons of fixing comparable configuration issue on Linux and Windows.
 
 The emphasis on textuality also makes diagnosing problems easier.
 For example, want to see which displays you're connected to? Run ``xrandr``.

@@ -16,13 +16,19 @@ Objective reasons to prefer Linux to Windows
 Introduction
 ++++++++++++
 
-Claims like "Linux is stable and reliable",
-or "Linux is secure and private",
-or "Linux is faster and less bloated",
-or "Linux is flexible and customizable"
-are vague and hard to verify.
+Linux advocates make a lot of claims about why it is better.
 
-Moreover, they lead to `endless debates`_ that are impossible to resolve.
+"Linux is stable and reliable."
+
+"Linux is secure and private."
+
+"Linux is faster and less bloated."
+
+"Linux is flexible and customizable."
+
+Claims like these are vague and hard to verify,
+and they often cite anecdotes and hearsay as evidence.
+Moreover, they lead to `endless debates`_ that are impossible to resolve,
 It is easy to opine about one's preferred operating system,
 but harder to give objective, concrete examples.
 
@@ -40,9 +46,12 @@ Besides, what is there to discuss when we now know that `even Microsoft loves op
 
 .. _even Microsoft loves open source: http://www.networkworld.com/article/2216878/windows/microsoft---we-love-open-source-.html
 
-This discussion will only discuss Microsoft and other companies in so far as their actions are directly relevant to the technically capabilities of Windows and Linux.
+(This discussion will only mention Microsoft and other companies in so far as their actions are directly relevant to the technically capabilities of Windows and Linux.
+As an aside, Microsoft gets a lot of guff in the open-source world,
+but their behavior is typical of almost any company that relies primarily on selling proprietary software and devices for revenue.
+It's just economics, not malice.)
 
-The examples are intended to be accurate at the cost of possible dryness due to technical detail.
+The discussion is intended to be accurate at the cost of possible dryness due to technical detail.
 
 I am most familiar with the Debian-based family of Linux distributions,
 so my remarks will necessarily touch on these more,
@@ -89,7 +98,7 @@ Corrections and additions are welcome.
 If you are a Windows user:
 
 - This document is not intended to convert you to Linux.
-  That would be silly.
+  (That would be silly.)
 - This document does not claim that Windows is inferior in every way,
   or even that it is inferior overall.
 - Instead, this is meant to provide insight into why some people choose to use Linux as a desktop operating system,
@@ -130,12 +139,17 @@ and testing out different versions of an OS without committing a partition of a 
 `Live versions`_ of Linux are full operating systems,
 able to mount and repartition disks,
 connect to the internet and run a web browser,
-and (for persistent live USB flash drives) retain settings and data on the next boot-up.
-Some live Linux distributions, such as `Puppy Linux`_,
-are lightweight enough that they default to `running from a RAM disk`_,
-and consequently have faster disk I/O than an OS that must access a spinning hard drive.
+and (for `persistent live USB flash drives`_) retain settings and data on the next boot-up.
 
 .. _Live versions: http://www.linux.com/directory/Distributions/livecd
+.. _persistent live USB flash drives: http://askubuntu.com/questions/295701/what-would-be-the-differences-between-a-persistent-usb-live-session-and-a-instal
+
+Some live Linux distributions, such as `Puppy Linux`_,
+are lightweight enough that they default to `running from a RAM disk`_,
+and consequently have much faster disk I/O than an OS that must access a spinning hard drive.
+(This comes at the cost of disk space being limited by RAM.
+There's no reason you can't mount an internal or external drive to store files, though.)
+
 .. _Puppy Linux: http://puppylinux.org/
 .. _running from a RAM disk: https://en.wikipedia.org/wiki/List_of_Linux_distributions_that_run_from_RAM
 
@@ -211,7 +225,7 @@ and `warned about the problem`_ in the ``realpath (3)`` man page of the Linux Pr
 This illustrates that while the Linux kernel developers scrupulously avoid breaking external compatibility,
 they also intentionally expose false assumptions,
 since false assumptions tend to cause hard-to-fix bugs.
-This is why Linus Torvalds `chose an unusually high`_ timer interrupt frequency for Linux::
+This is why Linus Torvalds `chose an unusually high`_ timer interrupt frequency for Linux:
 
     I chose 1000 originally partly as a way to make sure that people that
     assumed HZ was 100 would get a swift kick in the pants. That meant making
@@ -219,6 +233,8 @@ This is why Linus Torvalds `chose an unusually high`_ timer interrupt frequency 
     if "uptime" suddenly says the machine has been up for a hundred days (even
     if it's really only been up for ten), but if it is off by just a factor of
     two, it might be overlooked.
+
+    -- Linus Torvalds
 
 .. _chose an unusually high: https://lkml.org/lkml/2005/7/8/263
 
@@ -278,12 +294,12 @@ For the system partition,
 Linux users can choose among the usual ext3 journaling filesystem
 or
 up-and-coming filesystems like Btrfs.
-Unlike FAT filesystems, ext3 and Btrfs `do not require defragmentation`_.
+Unlike FAT and NTFS filesystems, ext3 and Btrfs `do not require defragmentation`_.
 Realistically, though, `defragmentation isn't that important for NTFS`_, either.
 
 .. _NTFS and FAT: http://technet.microsoft.com/en-us/magazine/2007.11.desktopfiles.aspx
 .. _do not require defragmentation: http://www.tldp.org/LDP/sag/html/filesystems.html#FRAGMENTATION
-.. _defragmentation isn't that important for NTFS: http://superuser.com/questions/23940/does-defragmenting-really-help
+.. _defragmentation isn't that important for NTFS: http://blogs.msdn.com/b/e7/archive/2009/01/25/disk-defragmentation-background-and-engineering-the-windows-7-improvements.aspx
 
 ------------------
 UTF-16, not UTF-8.
@@ -291,16 +307,19 @@ UTF-16, not UTF-8.
 
 If the Windows API were designed today, it would most likely use `UTF-8`_.
 The Unicode Consortium primarily `recommends UTF-16`_ for compatibility with Java and the Windows API.
-Some practical reasons for preferring UTF-8:
+Some `practical reasons for preferring UTF-8`_:
 
 - It is a superset of ASCII, so it is backwards-compatible with existing text files.
 - It is `self-synchronizing`_.
 - It does not require a `byte-order mark`_ and is less likely to be mistaken for other encodings.
+- Internet Explorer has been known to have `security issues with UTF-16`_.
 
 .. _UTF-8: http://www.cl.cam.ac.uk/~mgk25/ucs/utf-8-history.txt
 .. _recommends UTF-16: http://www.unicode.org/faq/programming.html#2
+.. _practical reasons for preferring UTF-8: https://annevankesteren.nl/2009/09/utf-8-reasons
 .. _self-synchronizing: http://en.wikipedia.org/wiki/UTF-8#Description
 .. _byte-order mark: http://www.unicode.org/faq/utf_bom.html
+.. _security issues with UTF-16: http://permalink.gmane.org/gmane.ietf.charsets/372
 
 ----------------------------------------------------
 File extensions are the sole determiner of filetype.
@@ -313,7 +332,7 @@ This makes it easier to dupe a Windows user into `unintentionally running malwar
 
 Also, if the file extensions for different filetypes happen to collide,
 as they inevitably do
--- recall that filenames are not case-sensitive --
+--- recall that filenames are not case-sensitive ---
 one program must take default precedence over the other for that file extension.
 
 For example, there a lot of different file formats with a ``.dat`` file extension,
@@ -474,9 +493,9 @@ However, X11 has become so pervasive that versions of it power not only Linux de
 and it's even been ported Windows or Android,
 even though they don't use it as a display manager.
 
-----------------------------
-A quick note on performance.
-----------------------------
+--------------------------
+Some notes on performance.
+--------------------------
 
 So far, we have avoided the topic of performance almost entirely.
 
@@ -502,23 +521,25 @@ First, an `anonymous Windows kernel developer stated`_ in 2013 that he believes 
 
 This developer gave a SHA1 hash of part of the NT kernel as proof, which while not incontrovertible is certainly strong evidence he is who he claims to be.
 
-This is, at any rate, a very different picture than when Microsoft published its `"Linux Myths" article`_ in 1999.
+At any rate, this is a very different picture Microsoft's `"Linux Myths" article`_ from 1999.
 
     Myth: Linux performs better than Windows NT 
+
     Reality: Windows NT 4.0 Outperforms Linux On Common Customer Workloads
+
     The Linux community claims to have improved performance and scalability in the latest versions of the Linux Kernel (2.2), however it's clear that Linux remains inferior to the Windows NT® 4.0 operating system.
 
 .. _"Linux Myths" article: https://web.archive.org/web/20000303020855/http://www.microsoft.com/NTServer/nts/news/msnw/LinuxMyths.asp
 
-A decade later, `Microsoft is contributing device driver code`_ to the Linux kernel.
+A decade later, `Microsoft contributed device driver code`_ to the Linux kernel.
 
-.. _Microsoft is contributing device driver code: http://www.microsoft.com/en-us/news/features/2009/jul09/07-20linuxqa.aspx
+.. _Microsoft contributed device driver code: http://www.microsoft.com/en-us/news/features/2009/jul09/07-20linuxqa.aspx
 
-Secondly, testing and optimizing on multiple platforms tends to yield unexpected benefits for both operating systems.
+Secondly, testing and optimizing on multiple platforms can yield unexpected performance benefits for both operating systems.
 When Valve `ported Left 4 Dead 2 to Linux`_,
 they discovered that OpenGL on Windows and Linux achieved a higher framerate than Direct3D on Windows.
-The framerate difference between Windows and Linux was not very significant,
-but the framerate of OpenGL on either OS was substantially better than Direct3D.
+
+    After this work, Left 4 Dead 2 is running at 315 FPS on Linux. That the Linux version runs faster than the Windows version (270.6) seems a little counter-intuitive, given the greater amount of time we have spent on the Windows version. However, it does speak to the underlying efficiency of the kernel and OpenGL. Interestingly, in the process of working with hardware vendors we also sped up the OpenGL implementation on Windows. Left 4 Dead 2 is now running at 303.4 FPS with that configuration.
 
 .. _ported Left 4 Dead 2 to Linux: http://blogs.valvesoftware.com/linux/faster-zombies/
 
@@ -564,7 +585,7 @@ On Linux, most configuration can be done graphically within applications or conf
 A lot of it is handled by the `package manager`_.
 However, there are a variety of possibilities depending on the needs of the people using it.
 
-.. _package manager: `Package manager with signed binaries and easy backup/reinstall.`_
+.. _package manager: `Package manager with signed binaries.`_
 
 System administrators, for example, care about system-level configuration files, much of which that is in ``/etc/``.
 These are generally text files, which are simple to edit for ad-hoc debugging and automation.
@@ -609,9 +630,9 @@ and system administrators can use any of many dedicated configuration management
 
 .. _GNU Stow: http://www.gnu.org/software/stow/
 
----------------------------------------------------------------
-Package manager with signed binaries and easy backup/reinstall.
----------------------------------------------------------------
+-------------------------------------
+Package manager with signed binaries.
+-------------------------------------
 
 Windows Installer is a software package manager in the sense of installing and uninstalling software,
 but it does not provide the salient features of current major Linux packaging systems,
@@ -620,11 +641,15 @@ such as:
 - securely retrieving the package from a trusted remote or local repository,
 - adding and removing third-party repositories,
 - changelogs,
-- optional fully automatic non-interactive installation,
-- cryptographic verification of packages,
+- `optional fully automatic non-interactive installation`_,
+- `cryptographic signing of packages`_,
 - backporting security fixes to stable versions,
 - licensing metadata,
-- and sophisticated dependency management.
+- and `sophisticated dependency management`_.
+
+.. _cryptographic signing of packages: http://purplefloyd.wordpress.com/2009/02/05/signing-deb-packages/
+.. _sophisticated dependency management: https://www.debian.org/doc/debian-policy/ch-relationships.html
+.. _optional fully automatic non-interactive installation: http://debian-handbook.info/browse/wheezy/sect.automatic-upgrades.html
 
 Now, there is an open-source package manager for Windows, `Chocolatey`_,
 that is under active development.
@@ -633,8 +658,8 @@ Here are some examples of packages which are not in the Chocolatey repository (a
 
 - `KeePassX`_ password manager `* <http://chocolatey.org/packages?q=keepassx>`__
 - `Apophysis`_ fractal flame editor `* <http://chocolatey.org/packages?q=apophysis>`__
-- `xyscan`_ data extractor `* <https://chocolatey.org/packages?q=xyscan>`__
-- `HEPHAESTUS`_ periodic table `* <https://chocolatey.org/packages?q=HEPHAESTUS>`__
+- `xyscan`_ data extractor `* <https://chocolatey.or/packages?q=xyscan>`__
+- `HEPHAESTUS`_ periodic table for X-ray spectroscopy `* <https://chocolatey.org/packages?q=HEPHAESTUS>`__
 - `EXPGUI`_ XRD analysis `* <https://chocolatey.org/packages?q=EXPGUI>`__
 - `DiffPDF`_ PDF comparison `* <http://chocolatey.org/packages?q=DiffPDF>`__
 - `Unison`_ file synchronizer `* <http://chocolatey.org/packages?q=Unison>`__
@@ -656,10 +681,10 @@ Here are some examples of packages which are not in the Chocolatey repository (a
 
 (This list isn't particularly significant, it's just example open-source software that I use which has a Windows version.)
 
-Also, the Chocolatey development team acknowledges it `does not have package moderation or package signing`_ yet,
+Also, the Chocolatey development team acknowledges it `does not currently have package moderation or package signing`_ in place yet,
 which is significant for overcoming Window's issue with `installing software from untrusted sources`_.
 
-.. _does not have package moderation or package signing: https://chocolatey.org/about
+.. _does not currently have package moderation or package signing: https://chocolatey.org/about
 .. _installing software from untrusted sources: `Malware.`_
 
 On the bright side, most of the language-specific package managers,
@@ -720,6 +745,7 @@ This has equivalent security problems to blindly running commands in a terminal,
 but is much less efficient.
 
     Graphical user interfaces (GUIs) are helpful for many tasks, but they are not good for all tasks. I have long felt that most computers today do not use electricity. They instead seem to be powered by the "pumping" motion of the mouse! Computers were supposed to free us from manual labor, but how many times have you performed some task you felt sure the computer should be able to do? You ended up doing the work by tediously working the mouse. Pointing and clicking, pointing and clicking.
+
     -- William E. Shotts, Jr. "`Learning the shell`_"
 
 .. _Learning the shell: http://linuxcommand.org/learning_the_shell.php
@@ -828,7 +854,7 @@ it tends to encourage a cargo-cult mentality to security instead of systematic r
 
 .. _susceptible to malware: http://www.linux.com/learn/tutorials/284124-myth-busting-is-linux-immune-to-viruses
 .. _more likely: http://unix.stackexchange.com/questions/2751/the-myths-about-malware-in-unix-linux
-.. _notes on package management: `Package manager with signed binaries and easy backup/reinstall.`_
+.. _notes on package management: `Package manager with signed binaries.`_
 
 As a result,
 
@@ -846,6 +872,6 @@ Linux has a better security model which uses secure package installation by defa
 but allows installing software from other sources as well,
 unlike the overly restrictive app-store model.
 
-Also, because Linux is a ubiquitous server operating system,
+Finally, because Linux is a ubiquitous server operating system,
 its security is under constant attack,
-and Linux desktop users benefit from the fixes to the vulnerabilities.
+and Linux desktop users benefit from fixes to the vulnerabilities.

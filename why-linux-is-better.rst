@@ -117,19 +117,28 @@ Technical deficiencies of Windows.
 Live booting is lacking.
 ------------------------
 
-Windows LiveCDs, `though they`_ `do exist`_,
+Windows LiveCDs, `though they do exist`_,
 are hampered by licensing restrictions and technical limitations.
+
+.. _though they do exist: http://en.wikipedia.org/wiki/Windows_Preinstallation_Environment
 
 For example, `until Windows 8`_, desktop versions of Windows could not boot from a USB.
 (And while running a live USB of Windows 8, it is still not possible mount internal hard disks.)
 
-The BartPE LiveCD building program is 3rd party software that will run on any version of Windows,
+.. _until Windows 8: http://technet.microsoft.com/en-us/library/hh831833.aspx
+
+The `BartPE LiveCD building program`_ is 3rd party software that will run on any version of Windows,
 but it is `only able to make`_ a LiveCD for Windows XP or Windows Server 2003.
 
-.. _though they: http://en.wikipedia.org/wiki/BartPE
-.. _do exist: http://en.wikipedia.org/wiki/Windows_Preinstallation_Environment
-.. _until Windows 8: http://technet.microsoft.com/en-us/library/hh831833.aspx
+.. _BartPE LiveCD building program: http://en.wikipedia.org/wiki/BartPE
 .. _only able to make: http://www.betaarchive.com/forum/viewtopic.php?t=22258 
+
+There is also the `WinBuilder`_ project,
+which is the closest to a fully-functional LiveCD of modern Windows versions,
+but installing software and drivers is still `sometimes a challenge`_.
+
+.. _WinBuilder: http://winbuilder.net/
+.. _sometimes a challenge: http://www.irongeek.com/i.php?page=security/winbuilder-win7pe-se-tutorial
 
 The absence of fully functional live versions of Windows makes it difficult to use for, e.g,
 determining if a bug is due to hardware or software problems,
@@ -152,6 +161,12 @@ There's no reason you can't mount an internal or external drive to store files, 
 
 .. _Puppy Linux: http://puppylinux.org/
 .. _running from a RAM disk: https://en.wikipedia.org/wiki/List_of_Linux_distributions_that_run_from_RAM
+
+Very little hardware comes a `desktop version of Linux pre-installed`_,
+so live versions of Linux tend to work very well,
+since that is the most common method of installing it.
+
+.. _desktop version of Linux pre-installed: https://help.ubuntu.com/community/UbuntuPre-installed
 
 ---------------------
 Maximum path lengths.

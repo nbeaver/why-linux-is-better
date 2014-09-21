@@ -534,7 +534,8 @@ As a result,
 unqualified generalizations about the performance of software as complex as an operating system are nearly always wrong.
 There are some things, however, that we do know about relative performance of the Windows and Linux kernels.
 
-First, an `anonymous Windows kernel developer stated`_ in 2013 that he believes that Windows has fallen behind in performance because of how Microsoft functions as a corporation:
+First, an `anonymous Windows kernel developer stated`_ in 2013 that he believes that Windows has fallen behind in performance because of how Microsoft functions as a corporation.
+(This developer gave a SHA1 hash of part of the NT kernel as proof, which while not incontrovertible is certainly strong evidence he is who he claims to be.)
 
     Windows is indeed slower than other operating systems in many scenarios, and the gap is worsening. The cause of the problem is social. There's almost none of the improvement for its own sake, for the sake of glory, that you see in the Linux world.
     
@@ -542,9 +543,8 @@ First, an `anonymous Windows kernel developer stated`_ in 2013 that he believes 
     
 .. _anonymous Windows kernel developer stated: http://blog.zorinaq.com/?e=74
 
-This developer gave a SHA1 hash of part of the NT kernel as proof, which while not incontrovertible is certainly strong evidence he is who he claims to be.
 
-At any rate, this is a very different picture Microsoft's `"Linux Myths" article`_ from 1999.
+Contrast with Microsoft's `"Linux Myths" article`_ from 1999.
 
     Myth: Linux performs better than Windows NT 
 

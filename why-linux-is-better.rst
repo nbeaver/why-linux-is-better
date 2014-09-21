@@ -40,7 +40,8 @@ but harder to give objective, concrete examples.
 With the caveat that both Windows and Linux are moving targets,
 this document describes some specific technical reasons to prefer using Linux as a desktop operating system.
 
-These reasons are not exhaustive,
+These reasons are not exhaustive
+--- and not meant to be ----
 but aim to be representative.
 
 These will not touch on closed vs. open source development,
@@ -108,6 +109,8 @@ If you are a Windows user:
 - Instead, this is meant to provide insight into why some people choose to use Linux as a desktop operating system,
   despite its shortcomings,
   and possibly to challenge some misconceptions that people have about Linux and Windows.
+- Corrections and additions are, of course, welcome.
+  Windows developers are ones who know the most about its flaw and strengths.
 - Finally, definitions of better and worse are necessarily subjective,
   despite the title's claim of objectivity.
   You may heartily disagree with substantial parts of what follows,
@@ -403,7 +406,10 @@ Debugging with default tools.
 -----------------------------
 
 On Windows, Ctrl-C will usually `copy an error message to the clipboard`_.
-Alternately, one can try to run the command from a terminal and log the output.
+Alternately, you can try to run the command from a terminal and log the output.
+
+.. TODO: Using the informal you here seems to be the only option.
+   Everything else I can think of is too awkwardly phrased.
 
 .. _copy an error message to the clipboard: http://weblogs.asp.net/chuckop/110153
 
@@ -468,23 +474,30 @@ and `third-party remote desktop software is not permitted`_ to legally `circumve
 
 Note that this is a licensing issue,
 not a technical limitation of Windows itself,
-but it has consequences for the utility of the operating system.
+but it compromises the utility of the operating system.
 
-The Linux kernel does not require a particular desktop environment.
-Linux desktop users generally run graphical user interfaces managed by the X server.
+The Linux kernel does not require a particular desktop environment,
+or indeed any graphical desktop at all.
+However, Linux desktop users generally run graphical user interfaces managed by the X server.
+
 Because Linux is multi-user by design, `multiple local instances of the X server`_ are not unusual,
 even with different desktop environments (e.g. GNOME and KDE can coexist on the same Linux box).
 X sessions can be accessed remotely using e.g. `VNC`_ or `X over SSH`_.
 It is common for two different users to work remotely at the same time on the same machine.
-A `multiseat`_ configuration is also possible if the hardware is available.
-Even on single-user machines this capability of the X server is useful to e.g. run two different desktop environments at the same time.
-Also, sometimes Linux users will forego the X server entirely and log in from a virtual terminal (``tty``).
-This is important to be able to do if the X server crashes or cannot start.
 
 .. _multiple local instances of the X server: http://journalxtra.com/linux/desktop/multiple-desktops-on-one-linux-pc-now-thats-greedy/
 .. _VNC: https://wiki.debian.org/VNCviewer
 .. _X over SSH: https://www.debian.org/doc/manuals/debian-reference/ch07.en.html#_connecting_a_remote_x_client_via_ssh
+
+A `multiseat`_ configuration is also possible if the hardware is available.
+Even on single-user machines this capability of the X server is useful to e.g. run two different desktop environments at the same time.
+
 .. _multiseat: https://wiki.archlinux.org/index.php/xorg_multiseat
+
+Also, sometimes Linux users will forego the X server entirely and log in from a text-only `virtual terminal`_ (a.k.a ``tty``).
+This is important to be able to do if the X server crashes or cannot start.
+
+.. _virtual terminal: http://en.wikipedia.org/wiki/Virtual_console
 
 Because the Linux kernel does not rely on the X server to function,
 the X server can be restarted without rebooting.
@@ -512,9 +525,13 @@ and Canonical (the company behind Ubuntu) is working on a separate but similar e
 .. _Wayland: http://wayland.freedesktop.org/architecture.html
 .. _Mir: http://unity.ubuntu.com/mir/
 
-However, X11 has become so pervasive that versions of it power not only Linux desktops but also the BSD family of operating systems and OS X (XQuartz),
-and it's even been ported Windows or Android,
+However, X11 has become so pervasive that versions of it power not only Linux desktops but also the BSD family of operating systems and OS X (`XQuartz`_),
+and it's also been `ported to Windows`_ `and Android`_,
 even though they don't use it as a display manager.
+
+.. _XQuartz: http://xquartz.macosforge.org/landing/
+.. _ported to Windows: http://sourceforge.net/projects/xming/
+.. _and Android: https://play.google.com/store/apps/details?id=net.sourceforge.x11basic
 
 --------------------------
 Some notes on performance.
@@ -627,12 +644,13 @@ since each user's configuration is isolated to his or her home directory.
 .. _beginning to standardize on this: http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
 Centralized databases like the Windows Registry are usually unnecessary for configuration.
-Applications for which text files are bad choice,
+Applications for which text files are a bad choice,
 e.g. ones which need to store huge amounts of data or must use atomic updates,
-can use, for example, an SQLite database in the user's home directory.
+can use, for example, `an SQLite database`_ in the user's home directory.
 The GNOME desktop provides `dconf`_, which is probably the closest thing to a Windows Registry that Linux has.
 
 .. _dconf: https://wiki.gnome.org/Projects/dconf
+.. _an SQLite database: http://kb.mozillazine.org/Places.sqlite
 
 Moreover, using ordinary files instead of a database for application configuration has many benefits.
 Since many configuration files on Linux are `textual`_,
@@ -712,15 +730,14 @@ which is significant for overcoming Window's issue with `installing software fro
 .. _does not currently have package moderation or package signing: https://chocolatey.org/about
 .. _installing software from untrusted sources: `Malware.`_
 
-On the bright side, most of the language-specific package managers,
-such as
+On the bright side, most of the language-specific package managers such as
 Haskell's ``cabal``,
 Perl's ``CPAN``,
 .NET's NuGet,
 Node.js's ``npm``,
 Python's ``pip``,
 and
-Ruby's RubyGems,
+Ruby's RubyGems
 are available on Windows.
 
 Linux has several mature, general-purpose packaging systems,
@@ -894,7 +911,7 @@ Some users may even attribute problems arising from failing hardware to malware 
 
 This also has consequences for developers.
 Because few Linux users experience problems due to malware,
-they will report bugs cause by the actual applications,
+they will report bugs caused by the actual applications,
 not ones caused by malware.
 
 Linux has a better security model which uses secure package installation by default,

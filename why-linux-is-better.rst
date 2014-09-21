@@ -5,6 +5,7 @@ Objective reasons to prefer Linux to Windows
 ============================================
 
 :Author: Nathaniel Beaver
+:Date: September 20, 2014
 :Copyright: This document is released under a `Creative Commons Attribution 4.0 International License`_.
 
 .. _Creative Commons Attribution 4.0 International License: http://creativecommons.org/licenses/by/4.0/
@@ -35,6 +36,11 @@ but aim to be representative.
 These will not touch on closed vs. open source development,
 but will instead focus on functionality.
 There is plenty of discussion of the advantages and disadvantages of open source elsewhere.
+Besides, what is there to discuss when we now know that `even Microsoft loves open source`_?
+
+.. _even Microsoft loves open source: http://www.networkworld.com/article/2216878/windows/microsoft---we-love-open-source-.html
+
+This discussion will only discuss Microsoft and other companies in so far as their actions are directly relevant to the technically capabilities of Windows and Linux.
 
 The examples are intended to be accurate at the cost of possible dryness due to technical detail.
 
@@ -42,7 +48,7 @@ I am most familiar with the Debian-based family of Linux distributions,
 so my remarks will necessarily touch on these more,
 but I have tried to include other distributions when possible.
 
-In this document, the term "Linux" is shorthand to refer to the entire distribution,
+In this document, the term "Linux" is shorthand for the entire distribution,
 including bootloader, kernel, shell, window manager, package manager, etc.
 
 The term "Windows" refers to modern versions of Microsoft Windows NT,
@@ -83,6 +89,7 @@ Corrections and additions are welcome.
 If you are a Windows user:
 
 - This document is not intended to convert you to Linux.
+  That would be silly.
 - This document does not claim that Windows is inferior in every way,
   or even that it is inferior overall.
 - Instead, this is meant to provide insight into why some people choose to use Linux as a desktop operating system,
@@ -183,7 +190,10 @@ that it has become deeply entrenched and may `never be fixed`_.
 
 The Linux kernel does have an adjustable pathname length limit;
 it's `4096 chars in typical kernels and filesystems`_.
-You can check it by running ``getconf PATH_MAX /``.
+You can check it by running::
+
+    $ getconf PATH_MAX /
+    
 However, `this limit is not enforced`_ by any filesystems that Linux runs on,
 and consequently some ``libc`` implementations were for a while `susceptible to buffer overflow`_ when trying to resolve canonical file paths.
 
@@ -212,18 +222,18 @@ This is why Linus Torvalds `chose an unusually high`_ timer interrupt frequency 
 
 .. _chose an unusually high: https://lkml.org/lkml/2005/7/8/263
 
-----------------------
-NTFS case-sensitivity.
-----------------------
+--------------------------
+Filename case-sensitivity.
+--------------------------
 
 Linux uses case-sensitive filenames because ASCII, Unix, and the C programming language are case-sensitive.
 
 Windows filenames are not case-sensitive because the `Windows API for opening files`_ `is not case-sensitive`_,
 i.e. the default call to ``CreateFile`` does not enable the ``FILE_FLAG_POSIX_SEMANTICS`` option.
 (This is to maintain `compatibility with MS-DOS`_ filesystems and ultimately to the era of FORTRAN and punch cards.)
-However, NTFS is `case-preserving`_.
-This means that it is possible to mount an NTFS partition with Linux and make a file called "Myfile.txt" in the same directory as "MYFILE.TXT".
-However, it is `not possible to read or modify both those files`_ using standard Windows software.
+However, Windows' own NTFS filesystem is `case-preserving`_.
+This means that it is possible to mount an NTFS partition with Linux and make a file called "Myfile.txt" in the same directory as "MYFILE.TXT",
+but it will `not possible to read or modify both those files`_ using standard Windows software.
 
 .. _Windows API for opening files: http://msdn.microsoft.com/en-us/library/windows/desktop/aa363858(v=vs.85).aspx
 .. _is not case-sensitive: http://support.microsoft.com/kb/100625
@@ -265,25 +275,27 @@ against Android manufacturers and `other companies`_ for their use of the Linux 
 .. _other companies: http://arstechnica.com/information-technology/2009/02/microsoft-sues-tomtom-over-fat-patents-in-linux-based-device/
 
 For the system partition,
-Linux users can choose either the typical ext3 journaling filesystem
+Linux users can choose among the usual ext3 journaling filesystem
 or
 up-and-coming filesystems like Btrfs.
-Unlike `NTFS and FAT`_, these filesystems `do not require defragmentation`_.
+Unlike FAT filesystems, ext3 and Btrfs `do not require defragmentation`_.
+Realistically, though, `defragmentation isn't that important for NTFS`_, either.
 
 .. _NTFS and FAT: http://technet.microsoft.com/en-us/magazine/2007.11.desktopfiles.aspx
 .. _do not require defragmentation: http://www.tldp.org/LDP/sag/html/filesystems.html#FRAGMENTATION
+.. _defragmentation isn't that important for NTFS: http://superuser.com/questions/23940/does-defragmenting-really-help
 
 ------------------
 UTF-16, not UTF-8.
 ------------------
 
 If the Windows API were designed today, it would most likely use `UTF-8`_.
-The Unicode Consortium only `recommends UTF-16`_ for compatibility with Java and the Windows API.
-Some practical reasons for this:
+The Unicode Consortium primarily `recommends UTF-16`_ for compatibility with Java and the Windows API.
+Some practical reasons for preferring UTF-8:
 
-- UTF-8 is a superset of ASCII, so it is backwards-compatible with existing text files.
-- UTF-8 is `self-synchronizing`_.
-- UTF-8 does not require a `byte-order mark`_ and is less likely to be mistaken for other encodings.
+- It is a superset of ASCII, so it is backwards-compatible with existing text files.
+- It is `self-synchronizing`_.
+- It does not require a `byte-order mark`_ and is less likely to be mistaken for other encodings.
 
 .. _UTF-8: http://www.cl.cam.ac.uk/~mgk25/ucs/utf-8-history.txt
 .. _recommends UTF-16: http://www.unicode.org/faq/programming.html#2
@@ -312,17 +324,18 @@ filesystem metadata,
 heuristics based on file signatures (a.k.a "magic numbers"),
 and sometimes file extension.
 
-A file executable status is separate from its file extension,
-and an executable text file written in a scripting language can indicate how to run it using the `first-line ``shebang`` syntax`_.
-Windows does not support ``shebang`` lines,
+A file's executable status is separate from its file extension,
+and an executable text file written in a scripting language can indicate how to run it using the `first-line shebang convention`_,
+e.g. ``#!/usr/bin/env python3 -i``.
+
+Windows does not support shebang lines,
 but languages that emphasize cross-platform compatibility,
 such as Python,
 have `implemented work-arounds`_.
 
-.. _first-line ``shebang`` syntax: http://en.wikipedia.org/wiki/Shebang_(Unix)
+.. _first-line shebang convention: http://en.wikipedia.org/wiki/Shebang_(Unix)
 .. _implemented work-arounds: http://legacy.python.org/dev/peps/pep-0397/
 .. _cannot indicate it is version 2 or 3: http://stackoverflow.com/questions/7574453/shebang-notation-python-scripts-on-windows-and-linux
-.. _shebang: http://en.wikipedia.org/wiki/Shebang_(Unix)
 
 --------------------------------
 Read-only permissions semantics.
@@ -374,6 +387,8 @@ so system administrators can rely on being able to use them on nearly any Linux 
 More permissive file locking.
 -----------------------------
 
+.. TODO: Add more sources to this.
+
 Windows applications `lock files they use by default`_, so file access is a nuisance by default.
 If an application is misbehaving and you want to examine a file it is using,
 this is generally blocked until the application is killed.
@@ -390,17 +405,17 @@ Separation of window manager and kernel.
 ----------------------------------------
 
 The Windows window manager and kernel are `very tightly coupled`_.
-One consequence of this is that Microsoft must wait for major version changes to implement kernel changes that rely on user interface changes.
+One consequence of this is that Microsoft tends to wait for major version changes to implement kernel changes that rely on user interface changes.
 For example, Microsoft did not implement `User Account Control`_ until Windows Vista was released,
-despite the well-known security problems intrinsic to `using an operating system as administrator by default`_.
+despite the well-known security problems intrinsic to `using an operating system as administrator`_ all the time.
 
 .. _very tightly coupled: http://en.wikipedia.org/wiki/Window_manager#Microsoft_Windows
 .. _User Account Control: http://en.wikipedia.org/wiki/User_Account_Control
-.. _using an operating system as administrator by default: http://askubuntu.com/questions/16178/why-is-it-bad-to-login-as-root
+.. _using an operating system as administrator: http://askubuntu.com/questions/16178/why-is-it-bad-to-login-as-root
 
-`Windows remote desktop licensing`_ make multi-user remote access and sharing of machine resources expensive.
+`Windows remote desktop licensing`_ makes multi-user remote access and sharing of machine resources expensive.
 By design, multiple concurrent sessions are disabled on all but the server version of Windows,
-and `third-party remote desktop software is not permitted`_ to `circumvent this limitation`_. [#]_ [#]_ [#]_
+and `third-party remote desktop software is not permitted`_ to legally `circumvent this limitation`_. [#]_ [#]_ [#]_
 
 .. _Windows remote desktop licensing: http://technet.microsoft.com/en-us/library/cc725933.aspx
 .. _third-party remote desktop software is not permitted: http://superuser.com/questions/784523/tightvnc-while-an-rdp-session-is-running
@@ -429,18 +444,21 @@ This is important to be able to do if the X server crashes or cannot start.
 .. _X over SSH: https://www.debian.org/doc/manuals/debian-reference/ch07.en.html#_connecting_a_remote_x_client_via_ssh
 .. _multiseat: https://wiki.archlinux.org/index.php/xorg_multiseat
 
-In Linux, the X server and kernel are separate,
-so the window manager can be restarted without rebooting the kernel.
+Because the Linux kernel does not rely on the X server to function,
+the X server can be restarted without rebooting.
 
 If a crash is unrecoverable and it becomes necessary to reboot the kernel,
-one can do so cleanly without the aid of the X-server using the "`Magic Alt-SysRq keys`_".
+one can do so cleanly even if the X server is unresponsive by using the "`Magic Alt-SysRq keys`_",
+key combinations which send instructions to the kernel.
 
 .. _Magic Alt-SysRq keys: https://www.kernel.org/doc/Documentation/sysrq.txt
+
+(Windows has Ctrl-Alt-Delete, but requires a responding display manager to allow the user to cleanly reboot.)
 
 There is a plethora of `window managers`_ and `desktop environments`_ to choose from on Linux,
 even for the same distribution,
 making it highly customizable to the system's resources and the user's wishes.
-However, they all use the same X Window System (a.k.a X11).
+However, they all use the same X Window System (a.k.a X11) provided by the X server.
 
 .. _window managers: https://wiki.archlinux.org/index.php/Window_manager
 .. _desktop environments: https://wiki.debian.org/DesktopEnvironment
@@ -452,24 +470,59 @@ and Canonical (the company behind Ubuntu) is working on a separate but similar e
 .. _Wayland: http://wayland.freedesktop.org/architecture.html
 .. _Mir: http://unity.ubuntu.com/mir/
 
-However, X11 has become so pervasive that versions of it power not only Linux desktops but also the BSD family and OS X (XQuartz),
-and there are even ways to run an X server on Windows or Android.
+However, X11 has become so pervasive that versions of it power not only Linux desktops but also the BSD family of operating systems and OS X (XQuartz),
+and it's even been ported Windows or Android,
+even though they don't use it as a display manager.
 
 ----------------------------
 A quick note on performance.
 ----------------------------
 
-So far, we have avoided the topic of performance entirely.
-Measuring and improving performance is a hugely complex topic,
+So far, we have avoided the topic of performance almost entirely.
+
+This is because measuring and improving performance is a hugely complex topic,
 incorporating at the very least hardware-specific considerations and deep knowledge of every level of software.
+
 It also incorporates psychology,
-since people don't care if software has good performance if they don't perceive it to have good performance.
+since people don't care if software has good performance if they `don't perceive it to have good performance`_.
+
+.. _don't perceive it to have good performance: https://developers.google.com/speed/articles/usability-latency
 
 As a result,
 unqualified generalizations about the performance of software as complex as an operating system are nearly always wrong.
-What does seem to be true is that testing and optimizing on multiple platforms tends to yield `unexpected benefits for both operating systems`_.
+There are some things, however, that we do know about relative performance of the Windows and Linux kernels.
 
-.. _unexpected benefits for both operating systems: http://blogs.valvesoftware.com/linux/faster-zombies/
+First, an `anonymous Windows kernel developer stated`_ in 2013 that he believes that Windows has fallen behind in performance because of how Microsoft functions as a corporation:
+
+    Windows is indeed slower than other operating systems in many scenarios, and the gap is worsening. The cause of the problem is social. There's almost none of the improvement for its own sake, for the sake of glory, that you see in the Linux world.
+    
+    Granted, occasionally one sees naive people try to make things better. These people almost always fail. We can and do improve performance for specific scenarios that people with the ability to allocate resources believe impact business goals, but this work is Sisyphean. There's no formal or informal program of systemic performance improvement. We started caring about security because pre-SP3 Windows XP was an existential threat to the business. Our low performance is not an existential threat to the business.
+    
+.. _anonymous Windows kernel developer stated: http://blog.zorinaq.com/?e=74
+
+This developer gave a SHA1 hash of part of the NT kernel as proof, which while not incontrovertible is certainly strong evidence he is who he claims to be.
+
+This is, at any rate, a very different picture than when Microsoft published its `"Linux Myths" article`_ in 1999.
+
+    Myth: Linux performs better than Windows NT 
+    Reality: Windows NT 4.0 Outperforms Linux On Common Customer Workloads
+    The Linux community claims to have improved performance and scalability in the latest versions of the Linux Kernel (2.2), however it's clear that Linux remains inferior to the Windows NT® 4.0 operating system.
+
+.. _"Linux Myths" article: https://web.archive.org/web/20000303020855/http://www.microsoft.com/NTServer/nts/news/msnw/LinuxMyths.asp
+
+A decade later, `Microsoft is contributing device driver code`_ to the Linux kernel.
+
+.. _Microsoft is contributing device driver code: http://www.microsoft.com/en-us/news/features/2009/jul09/07-20linuxqa.aspx
+
+Secondly, testing and optimizing on multiple platforms tends to yield unexpected benefits for both operating systems.
+When Valve `ported Left 4 Dead 2 to Linux`_,
+they discovered that OpenGL on Windows and Linux achieved a higher framerate than Direct3D on Windows.
+The framerate difference between Windows and Linux was not very significant,
+but the framerate of OpenGL on either OS was substantially better than Direct3D.
+
+.. _ported Left 4 Dead 2 to Linux: http://blogs.valvesoftware.com/linux/faster-zombies/
+
+.. TODO: should I talk more about this?
 
 +++++++++++++++++++++++++++++++++++++
 Configuration and software packaging.
@@ -601,7 +654,7 @@ Here are some examples of packages which are not in the Chocolatey repository (a
 .. _OpenSCAD: http://www.openscad.org/index.html
 .. _Cura: https://www.ultimaker.com/pages/our-software
 
-(This list isn't particularly significant, it's just software that has a Windows version that I would want to use.)
+(This list isn't particularly significant, it's just example open-source software that I use which has a Windows version.)
 
 Also, the Chocolatey development team acknowledges it `does not have package moderation or package signing`_ yet,
 which is significant for overcoming Window's issue with `installing software from untrusted sources`_.
@@ -621,8 +674,8 @@ Ruby's RubyGems,
 are available on Windows.
 
 Linux has several mature, general-purpose packaging systems,
-including Fedora's ``.rpm``-based ``yum`` package manager,
-Debian's ``.deb``-based ``apt`` and ``dpkg``,
+including Fedora's ``rpm``-based ``yum`` package manager,
+Debian's ``deb``-based ``apt`` and ``dpkg``,
 Arch Linux's ``pacman``,
 and so on.
 This is one reason Linux users are less susceptible to viruses:
@@ -643,7 +696,7 @@ Want to remember which programs you have installed without backing up every sing
 Just save the output of ``dpkg -L`` or its equivalent as a text file of installed packages,
 and voilà, you can restore them later.
 
-If your backup fails or you just want to switch to a different Linux distribution,
+If your backup fails or you just want to switch to a different Linux distribution with the same package manager,
 you can easily get back your installed software by feeding your package manager the package list.
 All you need is a fresh Linux install and a good internet connection.
 Meanwhile, you can keep your home directory backed up using cloud storage or physical drives (ideally both),
@@ -659,7 +712,7 @@ but a `pain in the neck`_ on Windows.
 Fixing configuration problems with commands instead of GUIs.
 ------------------------------------------------------------
 
-GUIs are good for some applications,
+Graphical user interfaces are excellent for some kinds of software,
 but they are clumsy and error-prone for rapidly fixing configuration problems.
 Many Linux config problems can be fixed by editing a line in a text file or running a few commands in a terminal.
 Windows configuration generally requires navigating deeply nested GUIs and ticking various checkboxes.
@@ -716,16 +769,33 @@ many tech support and remote administration tasks are easier and faster to resol
 Cultural problems.
 ++++++++++++++++++
 
-These are practical issues caused by cultural problems,
+It might appear at this point that we are throwing objectivity to the wind,
+but these are practical issues caused by cultural differences,
 not subjective criticism of the Linux/Unix culture vs. the Microsoft Windows culture.
 
 --------------------
 Public bug trackers.
 --------------------
 
-Windows and proprietary software in general do not usually maintain a public bug tracker.
-This means that assessing what went wrong when an application crashes is often more difficult than it needs to be.
-By contrast, projects like the Linux kernel and the Debian project publically track and acknowledge bugs,
+Windows and proprietary software in general do not usually maintain a public bug tracker,
+although `there are exceptions`_.
+Software companies have strong incentives to keep their issue tracking systems internal due to things like customer confidentiality, security, and public relations.
+
+.. _there are exceptions: http://fold.it/portal/node/986241
+
+As a result,
+it can be hard to for a user to discern if their problem is shared by others,
+what they can do to fix it,
+and whether or not a bug has been fixed in the latest version.
+
+Most companies devote a lot of staff to user support for this reason.
+The inefficiencies and pitfalls of this are evident to anyone who's had to set up their home internet connection before.
+Some companies complement user support with user forums,
+which have the same `issues with signal-to-noise ratio`_ that most forums have.
+
+.. _issues with signal-to-noise ratio: http://blog.codinghorror.com/civilized-discourse-construction-kit/
+
+By contrast, projects like the Linux kernel and the Debian project maintain accountability and clarity by publically tracking and acknowledging bugs,
 even when it is `embarrassing`_ to `do so`_.
 
 .. _embarrassing: http://lwn.net/1999/0204/kernel.php3
@@ -737,14 +807,14 @@ Debugging habits.
 
 By `requiring`_ or encouraging `reboots`_ for installing software or changing configuration,
 Windows encourages bad habits such as restarting software to make a bug go away,
-or avoiding certain commands as a work-around,
+or avoiding using parts of an application as a work-around,
 rather than reproducing and reporting bugs.
 
 .. _requiring: http://www.howtogeek.com/182817/htg-explains-why-does-windows-want-to-reboot-so-often/
 .. _reboots: http://www.howtogeek.com/howto/31204/why-do-application-installs-make-you-reboot-and-close-other-apps/
 
 In the long run, this hurts both proprietary and open-source software running on Windows.
-It is also one reason why developing solely for Windows because of the larger user base may not always be a goo choice.
+It is also one reason why developing solely for Windows because of the larger user base may not always be a good choice.
 
 --------
 Malware.
@@ -767,9 +837,10 @@ As a result,
 
 Some users may even attribute problems arising from failing hardware to malware instead.
 
-(This has also consequences for developers.
+This also has consequences for developers.
 Because few Linux users experience problems due to malware,
-Linux developers will be more likely to reproduce issues reported in forums or bug trackers.)
+they will report bugs cause by the actual applications,
+not ones caused by malware.
 
 Linux has a better security model which uses secure package installation by default,
 but allows installing software from other sources as well,

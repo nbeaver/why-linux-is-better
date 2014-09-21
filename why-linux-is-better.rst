@@ -16,23 +16,26 @@ Objective reasons to prefer Linux to Windows
 Introduction
 ++++++++++++
 
-"Linux is stable and reliable."
+"Linux is more stable and reliable."
 
-"Linux is secure and private."
+"Linux is more secure and private."
 
 "Linux is faster and less bloated."
 
-"Linux is flexible and customizable."
+"Linux is more flexible and customizable."
+
+"Linux gives you more control over your computer."
 
 Stop it.
 
-Claims like these are vague and wishy-washy,
-and they often cite anecdotes and hearsay as evidence.
-They lead to `endless debates`_ that are impossible to resolve,
-It is easy to opine about one's preferred operating system,
-but harder to give objective, concrete examples.
+Clichés like these are vague and wishy-washy,
+and they rely mainly on anecdotes and hearsay.
+They cause `endless, unnecessary debates`_ and make a muddle of the facts.
 
-.. _endless debates: http://linux.slashdot.org/
+.. _endless, unnecessary debates: http://linux.slashdot.org/
+
+It's easy to opine about one's preferred operating system,
+but harder to give objective, concrete examples.
 
 With the caveat that both Windows and Linux are moving targets,
 this document describes some specific technical reasons to prefer using Linux as a desktop operating system.
@@ -184,7 +187,11 @@ This is `not a flaw in NTFS`_ or Windows per se, but in the `non-Unicode version
 .. _have not done so: http://blogs.msdn.com/b/bclteam/archive/2007/02/13/long-paths-in-net-part-1-of-3-kim-hamilton.aspx
 
 This problem can be avoided by using Unicode versions of the API calls,
-but many applications (e.g. Windows Explorer, Powershell) have not done so.
+but many applications (e.g. `Windows Explorer`_, `.NET` and `consequently Powershell`_) have not done so.
+
+.. _Windows Explorer: https://www.gibixonline.com/post/2009/08/23/Explorer-still-limited-by-MAX_PATH
+.. _.NET: http://blogs.msdn.com/b/bclteam/archive/2007/02/13/long-paths-in-net-part-1-of-3-kim-hamilton.aspx
+.. _consequently Powershell: https://connect.microsoft.com/PowerShell/feedback/details/276235/path-length-limitations
 
 Of course, most OS restrictions are `not an issue in well-written software`_.
 Maybe Windows paths `are long enough`_.
@@ -822,10 +829,14 @@ Public bug trackers.
 --------------------
 
 Windows and proprietary software in general do not usually maintain a public bug tracker,
-although `there are exceptions`_.
-Software companies have strong incentives to keep their issue tracking systems internal due to things like customer confidentiality, security, and public relations.
+although `there`_ `are`_ `exceptions`_.
+Software companies have strong incentives to keep their issue tracking systems internal due to things like customer confidentiality,
+security,
+and public relations.
 
-.. _there are exceptions: http://fold.it/portal/node/986241
+.. _there: https://connect.microsoft.com/
+.. _are: https://bugbase.adobe.com/
+.. _exceptions: http://fold.it/portal/node/986241
 
 As a result,
 it can be hard to for a user to discern if their problem is shared by others,

@@ -369,6 +369,8 @@ filesystem metadata,
 heuristics based on file signatures (a.k.a "magic numbers"),
 and sometimes file extension.
 
+.. TODO: add links about how Linux decides file formats.
+
 A file's executable status is separate from its file extension,
 and an executable text file written in a scripting language can indicate how to run it using the `first-line shebang convention`_,
 e.g. ``#!/usr/bin/env python3 -i``.
@@ -807,7 +809,7 @@ Want to restart your networking daemon? Run ``sudo /etc/init.d/networking restar
 Another benefit of textuality is ease of using search engines to find similar problems.
 Many a Linux user has thought they had found a new bug,
 only to run a quick web search that turned up dozens of users with the same issue.
-(The `Arch Linux BBS forum`_, for example, tends to be `ahead of the curve`_ on bug reports.)
+(The `Arch Linux BBS forum and bug tracker`_, for example, tends to be `ahead of the curve`_ on bug reports.)
 
 .. _Arch Linux BBS forum: https://bbs.archlinux.org/
 .. _ahead of the curve: https://bugs.archlinux.org/task/40444

@@ -454,13 +454,13 @@ since applications can share file access by default.
 Separation of window manager and kernel.
 ----------------------------------------
 
-The Windows window manager and kernel are `very tightly coupled`_.
+The Windows window manager and kernel are `tightly coupled`_.
 One consequence of this is that Microsoft tends to wait for major version changes to implement kernel changes that rely on user interface changes.
 For example, Microsoft did not implement `User Account Control`_ until Windows Vista was released,
 despite the well-known security problems intrinsic to `using an operating system as administrator`_ all the time.
 
-.. _very tightly coupled: http://en.wikipedia.org/wiki/Window_manager#Microsoft_Windows
-.. _User Account Control: http://en.wikipedia.org/wiki/User_Account_Control
+.. _tightly coupled: http://en.wikipedia.org/wiki/Window_manager#Microsoft_Windows
+.. _User Account Control: http://technet.microsoft.com/en-us/magazine/2007.06.uac.aspx
 .. _using an operating system as administrator: http://askubuntu.com/questions/16178/why-is-it-bad-to-login-as-root
 
 `Windows remote desktop licensing`_ makes multi-user remote access and sharing of machine resources expensive.
@@ -633,9 +633,8 @@ However, there are a variety of possibilities depending on the needs of the peop
 
 .. _package manager: `Package manager with signed binaries.`_
 
-System administrators, for example, care about system-level configuration files, much of which that is in ``/etc/``.
-These are generally text files, which are simple to edit for ad-hoc debugging and automation.
-Text files are also very robust against corruption.
+System administrators, for example, care about system-level configuration files, generally text files in ``/etc/``.
+Text files simple to edit for ad-hoc debugging and automation and also very robust against corruption.
 
 User level configuration is stored in dotfiles (hidden folders or files) in the user's home directory.
 There are good arguments to the effect that making dotfiles responsible for configuration `is problematic`_.
@@ -809,7 +808,7 @@ Want to restart your networking daemon? Run ``sudo /etc/init.d/networking restar
 Another benefit of textuality is ease of using search engines to find similar problems.
 Many a Linux user has thought they had found a new bug,
 only to run a quick web search that turned up dozens of users with the same issue.
-(The `Arch Linux BBS forum and bug tracker`_, for example, tends to be `ahead of the curve`_ on bug reports.)
+(The `Arch Linux BBS forum`_ and bug tracker, for example, tends to be `ahead of the curve`_ on bug reports.)
 
 .. _Arch Linux BBS forum: https://bbs.archlinux.org/
 .. _ahead of the curve: https://bugs.archlinux.org/task/40444

@@ -459,6 +459,8 @@ One consequence of this is that Microsoft tends to wait for major version change
 For example, Microsoft did not implement `User Account Control`_ until Windows Vista was released,
 despite the well-known security problems intrinsic to `using an operating system as administrator`_ all the time.
 
+.. TODO: find a better link than Wikipedia.
+
 .. _tightly coupled: http://en.wikipedia.org/wiki/Window_manager#Microsoft_Windows
 .. _User Account Control: http://technet.microsoft.com/en-us/magazine/2007.06.uac.aspx
 .. _using an operating system as administrator: http://askubuntu.com/questions/16178/why-is-it-bad-to-login-as-root
@@ -809,6 +811,8 @@ Another benefit of textuality is ease of using search engines to find similar pr
 Many a Linux user has thought they had found a new bug,
 only to run a quick web search that turned up dozens of users with the same issue.
 (The `Arch Linux BBS forum`_ and bug tracker, for example, tends to be `ahead of the curve`_ on bug reports.)
+
+.. TODO: Find a better example of Arch Linux being ahead of the curve.
 
 .. _Arch Linux BBS forum: https://bbs.archlinux.org/
 .. _ahead of the curve: https://bugs.archlinux.org/task/40444

@@ -275,13 +275,13 @@ i.e. the default call to ``CreateFile`` does not enable the ``FILE_FLAG_POSIX_SE
 (This is to maintain `compatibility with MS-DOS`_ filesystems and ultimately to the era of FORTRAN and punch cards.)
 However, Windows' own NTFS filesystem is `case-preserving`_.
 This means that it is possible to mount an NTFS partition with Linux and make a file called "Myfile.txt" in the same directory as "MYFILE.TXT",
-but it will `not possible to read or modify both those files`_ using standard Windows software.
+but it will `not be possible to read or modify both those files`_ using standard Windows software.
 
 .. _Windows API for opening files: http://msdn.microsoft.com/en-us/library/windows/desktop/aa363858(v=vs.85).aspx
 .. _is not case-sensitive: http://support.microsoft.com/kb/100625
 .. _compatibility with MS-DOS: http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx
 .. _case-preserving: http://en.wikipedia.org/wiki/Case_preservation
-.. _not possible to read or modify both those files: http://technet.microsoft.com/en-us/library/cc976809.aspx
+.. _not be possible to read or modify both those files: http://technet.microsoft.com/en-us/library/cc976809.aspx
 
 `Not everyone`_ considers filename case insensitivity to be a bad thing.
 However, it does have `negative`_ `ramifications`_ for cross-platform development.
@@ -335,14 +335,17 @@ If the Windows API were designed today, it would most likely use `UTF-8`_.
 The Unicode Consortium primarily `recommends UTF-16`_ for compatibility with Java and the Windows API.
 Some `practical reasons for preferring UTF-8`_:
 
-- It is a superset of ASCII, so it is backwards-compatible with existing text files.
-- It is `self-synchronizing`_.
-- It does not require a `byte-order mark`_ and is less likely to be mistaken for other encodings.
-- Internet Explorer has been known to have `security issues with UTF-16`_.
-
 .. _UTF-8: http://www.cl.cam.ac.uk/~mgk25/ucs/utf-8-history.txt
 .. _recommends UTF-16: http://www.unicode.org/faq/programming.html#2
 .. _practical reasons for preferring UTF-8: https://annevankesteren.nl/2009/09/utf-8-reasons
+
+- It is a superset of ASCII, so it is backwards-compatible with existing text files.
+- `Zero bytes do not appear`_ at any point in a valid UTF-8 representation, so ``strcpy()`` still works.
+- It is `self-synchronizing`_, i.e. it is possible to resynchronize after a lost or corrupted code point without re-reading the entire string.
+- It is more portable because it does not require a `byte-order mark`_ and is less likely to be mistaken for other encodings.
+- Internet Explorer has been known to have `security issues with UTF-16`_.
+
+.. _Zero bytes do not appear: https://docs.python.org/2/howto/unicode.html#encodings
 .. _self-synchronizing: http://en.wikipedia.org/wiki/UTF-8#Description
 .. _byte-order mark: http://www.unicode.org/faq/utf_bom.html
 .. _security issues with UTF-16: http://permalink.gmane.org/gmane.ietf.charsets/372

@@ -346,7 +346,7 @@ Some `practical reasons for preferring UTF-8`_:
 - Internet Explorer has been known to have `security issues with UTF-16`_.
 
 .. _Zero bytes do not appear: https://docs.python.org/2/howto/unicode.html#encodings
-.. _self-synchronizing: http://en.wikipedia.org/wiki/UTF-8#Description
+.. _self-synchronizing: http://research.swtch.com/utf8
 .. _byte-order mark: http://www.unicode.org/faq/utf_bom.html
 .. _security issues with UTF-16: http://permalink.gmane.org/gmane.ietf.charsets/372
 
@@ -625,8 +625,8 @@ Registries and dotfiles.
 ------------------------
 
 On Windows, configuration files are not centralized in the user's home directory.
-Most of the things that users care about --
-not losing configuration between installs --
+Most of the things that users care about ---
+not losing configuration between installs ---
 are scattered around as ``.INI`` text files in various directories or in the `Windows Registry`_.
 This makes configuration less robust and harder to adapt to the needs of specific users.
 
@@ -655,7 +655,7 @@ Centralized databases like the Windows Registry are usually unnecessary for conf
 Applications for which text files are a bad choice,
 e.g. ones which need to store huge amounts of data or must use atomic updates,
 can use, for example, `an SQLite database`_ in the user's home directory.
-The GNOME desktop provides `dconf`_, which is probably the closest thing to a Windows Registry that Linux has.
+In a similar vein, the GNOME desktop provides `dconf`_, which is probably the closest thing to a Windows Registry that Linux has.
 
 .. _dconf: https://wiki.gnome.org/Projects/dconf
 .. _an SQLite database: http://kb.mozillazine.org/Places.sqlite
@@ -672,14 +672,19 @@ which means users can share and benefit from others' customized configurations a
 It also means that migrating to a different Linux distribution is not as painful as starting from scratch,
 since many applications keep the configuration formats relatively stable and merging in the customizations is usually straightforward.
 During major Debian upgrades, for example, administrators can choose to adopt new configuration files,
-keep the old ones, or diff and merge the files into a hybrid.
+keep the old ones, or ``diff`` and merge the files into a hybrid.
 
 In short, configuration on Linux is better adapted to the needs of its users than on Windows.
 Ordinary users have the package manager or applications themselves for managing configuration,
 developers who like to keep their configuration under version control can use tools like `GNU Stow`_,
-and system administrators can use any of many dedicated configuration management tools like Puppet, Chef, Ansible, SaltStack, etc.
+and system administrators can use any of many dedicated configuration management tools like
+`Puppet`_, `Chef`_, `Ansible`_, `SaltStack`_, etc.
 
 .. _GNU Stow: http://www.gnu.org/software/stow/
+.. _Puppet: http://puppetlabs.com/
+.. _Chef: https://www.getchef.com/
+.. _Ansible: http://www.ansible.com/
+.. _SaltStack: http://www.saltstack.com/
 
 -------------------------------------
 Package manager with signed binaries.

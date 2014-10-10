@@ -367,12 +367,13 @@ one program must take default precedence over the other for that file extension.
 For example, there a lot of different file formats with a ``.dat`` file extension,
 but only one application gets to open them by default.
 
-On Linux, filetypes are determined by a combination of
+On Linux, `filetypes are determined`_ by a combination of
 filesystem metadata,
 heuristics based on file signatures (a.k.a "magic numbers"),
 and sometimes file extension.
 
-.. TODO: add links about how Linux decides file formats.
+.. _filetypes are determined: http://www.howtogeek.com/192628/mime-types-explained-why-linux-and-mac-os-x-dont-need-file-extensions/
+.. TODO: add more links about how Linux decides file formats.
 
 A file's executable status is separate from its file extension,
 and an executable text file written in a scripting language can indicate how to run it using the `first-line shebang convention`_,

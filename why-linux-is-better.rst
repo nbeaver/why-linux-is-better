@@ -640,7 +640,7 @@ However, there are a variety of possibilities depending on the needs of the peop
 .. _package manager: `Package manager with signed binaries.`_
 
 System administrators, for example, care about system-level configuration files, generally text files in ``/etc/``.
-Text files simple to edit for ad-hoc debugging and automation and also very robust against corruption.
+Text files are simple to edit for ad-hoc debugging and automation and also very robust against corruption.
 
 User level configuration is stored in dotfiles (hidden folders or files) in the user's home directory.
 There are good arguments to the effect that making dotfiles responsible for configuration `is problematic`_.
@@ -665,7 +665,7 @@ Moreover, using ordinary files instead of a database for application configurati
 Since many configuration files on Linux are `textual`_,
 they are easy to modify,
 back up,
-and ``diff`` and merge them,
+and ``diff`` or merge,
 which means users can share and benefit from others' customized configurations and accommodate upstream changes.
 
 .. _textual: http://catb.org/~esr/writings/taoup/html/textualitychapter.html

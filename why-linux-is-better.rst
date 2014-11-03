@@ -68,7 +68,7 @@ including bootloader, kernel, shell, window manager, package manager, etc.
 The term "Windows" refers to modern versions of Microsoft Windows NT,
 including Windows XP, Windows Vista, Windows 7, and Windows 8.
 
-Many of the same arguments in favor of Linux also apply to the BSD family of operating systems 
+Many of the same arguments in favor of Linux also apply to the BSD family of operating systems
 (and POSIX-compliant operating systems in general),
 but unfortunately I am not familiar enough with any of them to comment specifically.
 
@@ -138,7 +138,7 @@ The `BartPE LiveCD building program`_ is 3rd party software that will run on any
 but it is `only able to make`_ a LiveCD for Windows XP or Windows Server 2003.
 
 .. _BartPE LiveCD building program: http://en.wikipedia.org/wiki/BartPE
-.. _only able to make: http://www.betaarchive.com/forum/viewtopic.php?t=22258 
+.. _only able to make: http://www.betaarchive.com/forum/viewtopic.php?t=22258
 
 There is also the `WinBuilder`_ project,
 which is the closest to a fully-functional LiveCD of modern Windows versions,
@@ -233,7 +233,7 @@ it's `4096 chars in typical kernels and filesystems`_.
 You can check it by running::
 
     $ getconf PATH_MAX /
-    
+
 However, `this limit is not enforced`_ by any filesystems that Linux runs on,
 and consequently some ``libc`` implementations were for a while `susceptible to buffer overflow`_ when trying to resolve canonical file paths.
 
@@ -573,7 +573,7 @@ First, an `anonymous Windows kernel developer stated`_ in 2013 that he believes 
 
 Contrast with Microsoft's `"Linux Myths" article`_ from 1999.
 
-    Myth: Linux performs better than Windows NT 
+    Myth: Linux performs better than Windows NT
 
     Reality: Windows NT 4.0 Outperforms Linux On Common Customer Workloads
 
@@ -699,23 +699,23 @@ such as:
 - adding and removing third-party repositories,
 - changelogs,
 - `optional fully automatic non-interactive installation`_,
-- `cryptographic signing of packages`_,
+- `mandatory cryptographic signing of packages`_, [#]_
 - backporting security fixes to stable versions,
 - licensing metadata,
 - and `sophisticated dependency management`_.
 
-.. _cryptographic signing of packages: http://purplefloyd.wordpress.com/2009/02/05/signing-deb-packages/
+.. [#] Windows provides the means to cryptographically sign ``.exe`` and ``.msi`` installers, but it is not required for installation. "The Windows installer verifies signatures on .msi packages. If a package has an invalid signature, the installer warns users before it installs the package."
+.. _mandatory cryptographic signing of packages: http://purplefloyd.wordpress.com/2009/02/05/signing-deb-packages/
 .. _sophisticated dependency management: https://www.debian.org/doc/debian-policy/ch-relationships.html
 .. _optional fully automatic non-interactive installation: http://debian-handbook.info/browse/wheezy/sect.automatic-upgrades.html
 
 Now, there is an open-source package manager for Windows, `Chocolatey`_,
 that is under active development.
 However, thus far the Chocolatey repository is not as comprehensive as Linux repositories.
-Here are some examples of packages which are not in the Chocolatey repository (as of September 2014).
+Here are some examples of packages which are not in the Chocolatey repository (as of November 2014).
 
-- `KeePassX`_ password manager `* <http://chocolatey.org/packages?q=keepassx>`__
 - `Apophysis`_ fractal flame editor `* <http://chocolatey.org/packages?q=apophysis>`__
-- `xyscan`_ data extractor `* <https://chocolatey.or/packages?q=xyscan>`__
+- `xyscan`_ data extractor `* <https://chocolatey.org/packages?q=xyscan>`__
 - `HEPHAESTUS`_ periodic table for X-ray spectroscopy `* <https://chocolatey.org/packages?q=HEPHAESTUS>`__
 - `EXPGUI`_ XRD analysis `* <https://chocolatey.org/packages?q=EXPGUI>`__
 - `DiffPDF`_ PDF comparison `* <http://chocolatey.org/packages?q=DiffPDF>`__
@@ -725,7 +725,6 @@ Here are some examples of packages which are not in the Chocolatey repository (a
 - `Cura`_ 3D printer control `* <http://chocolatey.org/packages?q=Cura>`__
 
 .. _Chocolatey: http://chocolatey.org/
-.. _KeePassX: https://www.keepassx.org/
 .. _Apophysis: http://www.apophysis.org/
 .. _xyscan: http://star.physics.yale.edu/~ullrich/xyscanDistributionPage/
 .. _HEPHAESTUS: http://cars9.uchicago.edu/~ravel/software/doc/Hephaestus/hephaestus.html

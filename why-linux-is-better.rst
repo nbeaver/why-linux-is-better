@@ -704,7 +704,7 @@ such as:
 - licensing metadata,
 - and `sophisticated dependency management`_.
 
-.. [#] Windows provides the means to cryptographically sign ``.exe`` and ``.msi`` installers, but it is not required for installation. "The Windows installer verifies signatures on .msi packages. If a package has an invalid signature, the installer warns users before it installs the package."
+.. [#] Windows provides the means to cryptographically sign ``.exe`` and ``.msi`` installers, but it is not required for installation. "The Windows installer verifies signatures on .msi packages. If a package has an invalid signature, the installer warns users before it installs the package." http://download.microsoft.com/download/a/f/7/af7777e5-7dcd-4800-8a0a-b18336565f5b/best_practices.doc
 .. _mandatory cryptographic signing of packages: http://purplefloyd.wordpress.com/2009/02/05/signing-deb-packages/
 .. _sophisticated dependency management: https://www.debian.org/doc/debian-policy/ch-relationships.html
 .. _optional fully automatic non-interactive installation: http://debian-handbook.info/browse/wheezy/sect.automatic-upgrades.html

@@ -169,9 +169,9 @@ There's no reason you can't mount an internal or external drive to store files, 
 .. _Puppy Linux: http://puppylinux.org/
 .. _running from a RAM disk: https://en.wikipedia.org/wiki/List_of_Linux_distributions_that_run_from_RAM
 
-Very little hardware comes a `desktop version of Linux pre-installed`_,
+Very little hardware comes with a `desktop version of Linux pre-installed`_,
 so live versions of Linux tend to work very well,
-since that is the most common method of installing it.
+since that is the almost always the way it is installed.
 
 .. _desktop version of Linux pre-installed: https://help.ubuntu.com/community/UbuntuPre-installed
 
@@ -654,7 +654,7 @@ since each user's configuration is isolated to his or her home directory.
 
 Centralized databases like the Windows Registry are usually unnecessary for configuration.
 Applications for which text files are a bad choice,
-e.g. ones which need to store huge amounts of data or must use atomic updates,
+e.g. ones which need random access to large amounts of structured data or which require atomic updates,
 can use, for example, `an SQLite database`_ in the user's home directory.
 In a similar vein, the GNOME desktop provides `dconf`_, which is probably the closest thing to a Windows Registry that Linux has.
 

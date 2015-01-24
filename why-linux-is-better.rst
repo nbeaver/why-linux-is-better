@@ -486,7 +486,98 @@ but it compromises the utility of the operating system.
 
 The Linux kernel does not require a particular desktop environment,
 or indeed any graphical desktop at all.
-However, Linux desktop users generally run graphical user interfaces managed by the X server.
+However, Linux desktop users generally run graphical user interfaces managed by the X server,
+of which there are many, many choices.
+
+This is in contrast to Windows,
+which must have a graphical desktop and offers only one option.
+This means that accessibility and user interface issues can be hard to fix,
+and often rely on less robust third-party addons.
+
+For example, unlike most Linux desktop environments,
+Windows presents many configuration options in non-resizable dialog boxes.
+This can pose user-interface problems,
+especially on high-resolution monitors.[#]_ [#]_
+
+.. [#] http://windows.microsoft.com/en-us/windows/working-with-windows#1TC=windows-7&section_3
+.. [#] http://answers.microsoft.com/en-us/windows/forum/windows_7-desktop/cannot-resize-small-windows/160862cf-6e52-4a99-9365-d380491a067d
+
+The usual solution to this problem is to download and run a third-party background process
+that tracks every single attempt to resize any window. [#]_ [#]_ [#]_
+
+.. [#] http://www.thewindowsclub.com/resize-non-resizable-windows
+.. [#] http://www.howtogeek.com/howto/11799/turn-non-resizeable-windows-into-rezieable-windows/
+.. [#] http://www.digitallis.co.uk/pc/ResizeEnable/index.html
+
+::
+
+    =============================================================================================
+    What is ResizeEnable
+    =============================================================================================
+    It's a very ugly system hack that sits in your system tray and attempts to make windows
+    that can't usually be resized, resizeable.
+    
+    
+    =============================================================================================
+    Why was it written?
+    =============================================================================================
+    It was written following a request from a friend. He runs his PC at a screen resolution above 
+    1280x1024, and was fed up with having to pick items from a list that could only display three
+    items because the window didn't take into account the screen resolution, hence only occupying 
+    about 20% of the desktop 'real-estate'.
+    
+    
+    =============================================================================================
+    How does it work?
+    =============================================================================================
+    ResizeEnable sits in the background and attaches itself into Windows via three 'Hooks'.
+    The first hook is so that it can see which windows are created/destroyed, in which it attempts
+    to alter the window's style so that it can be resized.
+    The second hook intercepts all messages for every single window to see if it is a message
+    associated with resizing a window that it has previously altered the style of. If the message
+    is associated with sizing, it then resizes all the child windows (Buttons, Edit boxes and so on)
+    simply by scaling them to fit the new windows size. Its ugly, but most of the time it works ok.
+    The third hook spots whether the mouse has been pressed in the 'sizing area' of a window and
+    takes care of doing all the work of resizing the window. This hook didn't exist in v1.0 but
+    has been added to make even more windows resize properly.
+
+There are some drawbacks to this approach::
+
+    =============================================================================================
+    Known problems
+    =============================================================================================
+    1) Most applications will respond to having their windows resized ok. Well, applications that 
+    	have followed the guidelines will. <grin>
+    2) Some applications have, shall we say, problems, when their window has been resized and all
+    	sort of visual chaos will be revealed.
+    3) Some applications won't respond at all, which is rather strange!
+    4) Certain windows will 'jiggle' as you attempt to resize them, seemingly resizing and then
+    	snapping back to their original size. This is annoying, but we're not sure what is
+    	causing it.
+    5) Some versions of Internet Explorer, coupled with certain version of Windows98/NT seemed to 
+    	crash with v1.0 of ResizeEnable. We don't have that setup on any of our test machines
+    	so we can't test it. But, we have done a little bit more work so ResizeEnable is a
+    	bit more choosy as to which windows it can work with. So it -might- not crash anymore.
+    	If it still crashes, then all we can suggest at the moment is that you upgrade to
+    	Internet Explorer 6. We're not Microsoft pushers, but Internet Explorer 6 has better
+    	error reporting and shouldn't just explode without warning.
+    6) Some Microsoft applications have dialogs that can be resized, but none of their contents
+    	move. This is down to the fact that the contents of the dialog ARE NOT STANDARD 
+    	MICROSOFT CONTROLS! They are some bastardisation written specially for the application.
+    	They may look like normal buttons/drop downs, but they sure as heck aren't! Hence,
+    	ResizeEnable can't tell them to move or resize. Yet again, Microsoft ignore their own
+    	codebase and reinvent the wheel. And people wonder why their applications are so big..
+
+As another example,
+the transition from Windows 7's desktop environment to Windows 8's was controversial,
+because the user interface departed substantially from the historical one.
+Of course, users had little choice besides downgrading to Windows 7.
+
+When similarly controversial change happened in GNOME 3,
+several developers forked GNOME 2 to become `MATE`_,
+which retained the "traditional desktop metaphor".
+
+.. _MATE: http://mate-desktop.org/
 
 Because Linux is multi-user by design, `multiple local instances of the X server`_ are not unusual,
 even with different desktop environments (e.g. GNOME and KDE can coexist on the same Linux box).
@@ -889,6 +980,9 @@ even when it is `embarrassing`_ to `do so`_.
 
 .. _embarrassing: http://lwn.net/1999/0204/kernel.php3
 .. _do so: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=155873
+
+.. TODO: http://serverfault.com/questions/403732/anyone-else-experiencing-high-rates-of-linux-server-crashes-during-a-leap-second/
+.. http://www.somebits.com/weblog/tech/bad/leap-second-2012.html
 
 -----------------
 Debugging habits.

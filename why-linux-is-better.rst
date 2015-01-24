@@ -503,7 +503,7 @@ especially on high-resolution monitors.[#]_ [#]_
 .. [#] http://answers.microsoft.com/en-us/windows/forum/windows_7-desktop/cannot-resize-small-windows/160862cf-6e52-4a99-9365-d380491a067d
 
 The usual solution to this problem is to download and run a third-party background process
-that tracks every single attempt to resize any window. [#]_ [#]_ [#]_
+that tracks every single time a window is resized. [#]_ [#]_ [#]_
 
 .. [#] http://www.thewindowsclub.com/resize-non-resizable-windows
 .. [#] http://www.howtogeek.com/howto/11799/turn-non-resizeable-windows-into-rezieable-windows/
@@ -569,15 +569,38 @@ There are some drawbacks to this approach::
     	codebase and reinvent the wheel. And people wonder why their applications are so big..
 
 As another example,
-the transition from Windows 7's desktop environment to Windows 8's was controversial,
-because the user interface departed substantially from the historical one.
-Of course, users had little choice besides downgrading to Windows 7.
+the transition from Windows 7 to Windows 8 was controversial,
+because the Metro user interface departed substantially from the historical Windows desktop. [#]_ [#]_ [#]_ [#]_ [#]_ [#]_
 
-When similarly controversial change happened in GNOME 3,
-several developers forked GNOME 2 to become `MATE`_,
+.. [#] http://www.washingtonpost.com/blogs/the-switch/wp/2014/02/14/8-things-i-hate-about-windows-8-1/
+.. [#] http://www.forbes.com/sites/tonybradley/2014/03/19/im-sorry-the-windows-8-hate-just-doesnt-make-sense/
+.. [#] http://www.smh.com.au/digital-life/computers/hate-windows-8-microsoft-replacing-it-with-windows-9-20140122-317fo.html
+.. [#] http://bgr.com/2013/12/04/windows-8-hatred-explained/
+.. [#] http://www.maximumpc.com/article/features/8_things_we_hate_about_windows_841
+.. [#] http://answers.microsoft.com/en-us/windows/forum/windows_8-windows_install/i-hate-windows-8/cd2d9fec-9d95-42ba-9e41-727419459465
+
+Enterprise customers, in particular,
+refused to upgrade from Windows 7,
+citing usability problems. [#]_ [#]_
+
+.. [#] http://www.forbes.com/sites/adriankingsleyhughes/2013/05/19/why-enterprise-is-avoiding-windows-8/
+.. [#] http://www.nngroup.com/articles/windows-8-disappointing-usability/
+
+These incidents are relevant not because they show that Microsoft makes occasional mistakes,
+but to highlight the risks of monoculture and vendor lock-in
+and to provide contrast to the way that the Linux ecosystem maintains checks and balances.
+
+When the GNOME developers made controversial changes for GNOME 3,
+a team forked GNOME 2 to become `MATE`_,
 which retained the "traditional desktop metaphor".
+This would be impossibly difficult if GNOME 2 were the desktop environment of any OS but Linux.
 
 .. _MATE: http://mate-desktop.org/
+
+Such forks will either eventually fade away,
+continue to coexist in perpetuity,
+or even overtake their parent project,
+depending on the needs of the users.
 
 Because Linux is multi-user by design, `multiple local instances of the X server`_ are not unusual,
 even with different desktop environments (e.g. GNOME and KDE can coexist on the same Linux box).

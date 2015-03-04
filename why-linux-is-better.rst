@@ -497,7 +497,7 @@ and often rely on less robust third-party addons.
 For example, unlike most Linux desktop environments,
 Windows presents many configuration options in non-resizable dialog boxes.
 This can pose user-interface problems,
-especially on high-resolution monitors.[#]_ [#]_
+especially on high-resolution monitors. [#]_ [#]_
 
 .. [#] http://windows.microsoft.com/en-us/windows/working-with-windows#1TC=windows-7&section_3
 .. [#] http://answers.microsoft.com/en-us/windows/forum/windows_7-desktop/cannot-resize-small-windows/160862cf-6e52-4a99-9365-d380491a067d
@@ -593,7 +593,7 @@ and to provide contrast to the way that the Linux ecosystem maintains checks and
 When the GNOME developers made controversial changes for GNOME 3,
 a team forked GNOME 2 to become `MATE`_,
 which retained the "traditional desktop metaphor".
-This would be impossibly difficult if GNOME 2 were the desktop environment of any OS but Linux.
+This would be impossibly difficult if GNOME 2 were the desktop environment of a proprietary operating system.
 
 .. _MATE: http://mate-desktop.org/
 

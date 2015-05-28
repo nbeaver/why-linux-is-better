@@ -275,13 +275,13 @@ i.e. the default call to ``CreateFile`` does not enable the ``FILE_FLAG_POSIX_SE
 (This is to maintain `compatibility with MS-DOS`_ filesystems and ultimately to the era of FORTRAN and punch cards.)
 However, Windows' own NTFS filesystem is `case-preserving`_.
 This means that it is possible to mount an NTFS partition with Linux and make a file called "Myfile.txt" in the same directory as "MYFILE.TXT",
-but it will `not be possible to read or modify both those files`_ using standard Windows software.
+but it will `not be possible to read or modify both of those files`_ using standard Windows software.
 
 .. _Windows API for opening files: http://msdn.microsoft.com/en-us/library/windows/desktop/aa363858(v=vs.85).aspx
 .. _is not case-sensitive: http://support.microsoft.com/kb/100625
 .. _compatibility with MS-DOS: http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx
 .. _case-preserving: http://en.wikipedia.org/wiki/Case_preservation
-.. _not be possible to read or modify both those files: http://technet.microsoft.com/en-us/library/cc976809.aspx
+.. _not be possible to read or modify both of those files: http://technet.microsoft.com/en-us/library/cc976809.aspx
 
 `Not everyone`_ considers filename case insensitivity to be a bad thing.
 However, it does have `negative`_ `ramifications`_ for cross-platform development.
@@ -350,6 +350,12 @@ Some `practical reasons for preferring UTF-8`_:
 .. _byte-order mark: http://www.unicode.org/faq/utf_bom.html
 .. _security issues with UTF-16: http://permalink.gmane.org/gmane.ietf.charsets/372
 
+In principle, UTF-16 would have the advantage of constant time addressing of single characters,
+but in practice most programming languages do not provide data types for this,
+with the `exception of Go and rust`_.
+
+.. _exception of Go and rust: http://lucumr.pocoo.org/2014/1/9/ucs-vs-utf8/
+
 ----------------------------------------------------
 File extensions are the sole determiner of filetype.
 ----------------------------------------------------
@@ -364,8 +370,10 @@ as they inevitably do
 --- recall that filenames are not case-sensitive ---
 one program must take default precedence over the other for that file extension.
 
-For example, there a lot of different file formats with a ``.dat`` file extension,
+For example, there `a lot of different file formats`_ with a ``.dat`` file extension,
 but only one application gets to open them by default.
+
+.. _a lot of different file formats: http://filext.com/file-extension/dat
 
 On Linux, `filetypes are determined`_ by a combination of
 filesystem metadata,
@@ -486,8 +494,11 @@ but it compromises the utility of the operating system.
 
 The Linux kernel does not require a particular desktop environment,
 or indeed any graphical desktop at all.
-However, Linux desktop users generally run graphical user interfaces managed by the X server,
-of which there are many, many choices.
+However, Linux desktop users generally run graphical user interfaces managed by the X server.
+There are are many, many options for `desktop environment`_ and `window manager`_ on Linux.
+
+.. _desktop environment: http://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments
+.. _window manager: http://en.wikipedia.org/wiki/Comparison_of_X_window_managers
 
 This is in contrast to Windows,
 which must have a graphical desktop and offers only one option.
@@ -740,12 +751,15 @@ Registries and dotfiles.
 ------------------------
 
 On Windows, configuration files are not centralized in the user's home directory.
-Most of the things that users care about ---
-not losing configuration between installs ---
+Most of the things that users care about
+--- not losing configuration between installs ---
 are scattered around as ``.INI`` text files in various directories or in the `Windows Registry`_.
 This makes configuration less robust and harder to adapt to the needs of specific users.
+Windows developers have noted the `many other drawbacks`_ `of the registry`_.
 
 .. _Windows Registry: http://msdn.microsoft.com/en-us/library/ms970651.aspx
+.. _many other drawbacks: https://rwmj.wordpress.com/2010/02/18/why-the-windows-registry-sucks-technically/
+.. _of the registry: http://blog.codinghorror.com/was-the-windows-registry-a-good-idea/
 
 On Linux, most configuration can be done graphically within applications or configuration managers provided by the desktop environment.
 A lot of it is handled by the `package manager`_.

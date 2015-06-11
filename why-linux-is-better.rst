@@ -171,7 +171,7 @@ There's no reason you can't mount an internal or external drive to store files, 
 
 Very little hardware comes with a `desktop version of Linux pre-installed`_,
 so live versions of Linux tend to work very well,
-since that is the almost always the way it is installed.
+since that is almost always the way it is installed.
 
 .. _desktop version of Linux pre-installed: https://help.ubuntu.com/community/UbuntuPre-installed
 

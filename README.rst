@@ -307,7 +307,7 @@ Linux has drivers for `almost all file systems`_ that can be legally mounted wit
 including ones that don't see much use nowadays, like `Amiga file systems`_.
 It can also mount FAT and NTFS filesystems,
 despite Microsoft's lucrative patent licensing deals and `ongoing`_ `litigation`_
-against Android manufacturers and `other companies`_ for their use of the Linux kernel's FAT drivers.
+against Android manufacturers and `other companies`_ that use the Linux kernel's FAT drivers.
 
 .. _third-party software: http://www.ext2fsd.com/
 .. _almost all file systems: https://wiki.archlinux.org/index.php/file_systems
@@ -319,10 +319,11 @@ against Android manufacturers and `other companies`_ for their use of the Linux 
 For the system partition,
 Linux users can choose among the usual ext3 journaling filesystem
 or
-up-and-coming filesystems like Btrfs.
+up-and-coming filesystems like `Btrfs`_.
 Unlike FAT and NTFS filesystems, ext3 and Btrfs `do not require defragmentation`_.
 Realistically, though, `defragmentation isn't that important for NTFS`_, either.
 
+.. _Btrfs: https://btrfs.wiki.kernel.org/index.php/Main_Page
 .. _NTFS and FAT: http://technet.microsoft.com/en-us/magazine/2007.11.desktopfiles.aspx
 .. _do not require defragmentation: http://www.tldp.org/LDP/sag/html/filesystems.html#FRAGMENTATION
 .. _defragmentation isn't that important for NTFS: http://blogs.msdn.com/b/e7/archive/2009/01/25/disk-defragmentation-background-and-engineering-the-windows-7-improvements.aspx
@@ -499,6 +500,10 @@ There are are many, many options for `desktop environment`_ and `window manager`
 
 .. _desktop environment: http://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments
 .. _window manager: http://en.wikipedia.org/wiki/Comparison_of_X_window_managers
+
+.. TODO: Make this part more specifically about needing keyboard for initial setup.
+.. connect a monitor, keyboard, and mouse for the initial setup; then disconnect them and use them elsewhere.
+.. http://windowssecrets.com/top-story/a-cheap-effective-home-server-using-windows-8/
 
 This is in contrast to Windows,
 which must have a graphical desktop and offers only one option.
@@ -684,8 +689,11 @@ As a result,
 unqualified generalizations about the performance of software as complex as an operating system are nearly always wrong.
 There are some things, however, that we do know about relative performance of the Windows and Linux kernels.
 
-First, an `anonymous Windows kernel developer stated`_ in 2013 that he believes that Windows has fallen behind in performance because of how Microsoft functions as a corporation.
-(This developer gave a SHA1 hash of part of the NT kernel as proof, which while not incontrovertible is certainly strong evidence he is who he claims to be.)
+First, an `anonymous Windows kernel developer stated`_ in 2013
+that he believes that Windows has fallen behind in performance
+because of how Microsoft functions as a corporation.
+(This developer gave a SHA1 hash of part of the NT kernel as proof,
+which while not incontrovertible is certainly strong evidence he is who he claims to be.)
 
     Windows is indeed slower than other operating systems in many scenarios, and the gap is worsening. The cause of the problem is social. There's almost none of the improvement for its own sake, for the sake of glory, that you see in the Linux world.
     
@@ -710,9 +718,11 @@ A decade later, `Microsoft contributed device driver code`_ to the Linux kernel.
 
 .. _Microsoft contributed device driver code: http://www.microsoft.com/en-us/news/features/2009/jul09/07-20linuxqa.aspx
 
-Secondly, testing and optimizing on multiple platforms can yield unexpected performance benefits for both operating systems.
+Secondly, testing and optimizing on multiple platforms
+can yield unexpected performance benefits for both operating systems.
 When Valve `ported Left 4 Dead 2 to Linux`_ in 2012,
-they discovered that OpenGL on Windows and Linux achieved a higher framerate than Direct3D on Windows.
+they discovered that OpenGL on Windows and Linux
+achieved a higher framerate than Direct3D on Windows.
 
     After this work, Left 4 Dead 2 is running at 315 FPS on Linux. That the Linux version runs faster than the Windows version (270.6) seems a little counter-intuitive, given the greater amount of time we have spent on the Windows version. However, it does speak to the underlying efficiency of the kernel and OpenGL. Interestingly, in the process of working with hardware vendors we also sped up the OpenGL implementation on Windows. Left 4 Dead 2 is now running at 303.4 FPS with that configuration.
 

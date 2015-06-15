@@ -1,6 +1,6 @@
-all: why-linux-is-better.html
+all: README.html
 # Prevent make from looking for a file called 'all'
 .PHONY : all
 
-why-linux-is-better.html : why-linux-is-better.rst
-	rst2html why-linux-is-better.rst > why-linux-is-better.html
+README.html: README.rst
+	rst2html README.rst > README.html

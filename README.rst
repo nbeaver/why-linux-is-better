@@ -29,7 +29,7 @@ Introduction
 Stop it.
 
 Clichés like these are vague and wishy-washy,
-and they rely mainly on anecdotes and hearsay.
+and they are founded on anecdotes and hearsay.
 They cause `endless, unnecessary debates`_ and make a muddle of the facts.
 
 .. _endless, unnecessary debates: http://linux.slashdot.org/

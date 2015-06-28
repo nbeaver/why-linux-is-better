@@ -264,9 +264,9 @@ This is why Linus Torvalds `chose an unusually high`_ timer interrupt frequency 
 
 .. _chose an unusually high: https://lkml.org/lkml/2005/7/8/263
 
---------------------------
-Filename case-sensitivity.
---------------------------
+----------------------------
+Filename case-insensitivity.
+----------------------------
 
 Linux uses case-sensitive filenames because ASCII, Unix, and the C programming language are case-sensitive.
 
@@ -288,11 +288,24 @@ However, it does have `negative`_ `ramifications`_ for cross-platform developmen
 Developers of cross-platform software `make a habit`_ of not relying on case-sensitive filesystem access,
 but this issue still `crops up when porting`_ from Windows to Linux or vice-versa.
 
+For example, the Linux port of the `Unity engine`_ has `issues with case-sensitive filesystems`_.
+
+    Unity does not properly run on a case-sensitive file system (which is something
+    that Unity users have discovered if they’ve tried to install and run Unity on a
+    case-sensitive HFS+ file system).  This is primarily due to Unity’s asset
+    database, and how it stores paths to map them to GUID values.  Of course we
+    tried to be smart in the early days, but if you don’t set up a way to actually
+    verify that what you’re doing works on a case-sensitive file system, then it
+    will never fail that some well-intentioned programmer throws a toLower() in
+    somewhere and ruins the party.
+
 .. _Not everyone: http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
 .. _negative: https://code.google.com/p/tortoisesvn/issues/detail?id=32
 .. _ramifications: http://openfoamwiki.net/index.php/Main_FAQ#Why_isn.27t_there_a_Windows_port_of_OpenFOAM_.3F
 .. _make a habit: http://www.mono-project.com/docs/getting-started/application-portability/#case-sensitivity
 .. _crops up when porting: http://adrienb.fr/blog/wp-content/uploads/2013/04/PortingSourceToLinux.pdf
+.. _Unity engine: http://unity3d.com/
+.. _issues with case-sensitive filesystems: http://natoshabard.com/post/122670082502/porting-the-unity-editor-to-linux-stuff-i-wish
 
 ------------------------------
 Limited choice in filesystems.
@@ -896,7 +909,7 @@ including Fedora's ``rpm``-based ``yum`` package manager,
 Debian's ``deb``-based ``apt`` and ``dpkg``,
 Arch Linux's ``pacman``,
 and so on.
-This is one reason Linux users are less susceptible to viruses:
+This is one reason Linux users are less susceptible to malware:
 they generally install packages that are cryptographically signed by the maintainers,
 not opaque executables from a website which may not use secure HTTP.
 Even inexperienced users can safely install and uninstall software if it is all from a trusted repository.

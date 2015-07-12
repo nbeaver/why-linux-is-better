@@ -271,15 +271,27 @@ Filename case-insensitivity.
 Linux uses case-sensitive filenames because ASCII, Unix, and the C programming language are case-sensitive.
 
 Windows filenames are not case-sensitive because the `Windows API for opening files`_ `is not case-sensitive`_,
-i.e. the default call to ``CreateFile`` does not enable the ``FILE_FLAG_POSIX_SEMANTICS`` option.
-(This is to maintain `compatibility with MS-DOS`_ filesystems and ultimately to the era of FORTRAN and punch cards.)
+i.e. the `default call`_ to ``CreateFile`` does not enable the ``FILE_FLAG_POSIX_SEMANTICS`` option.
+(This is to maintain `compatibility with DOS`_ filesystems and CP/M and ultimately to the era of FORTRAN and punch cards.)
 However, Windows' own NTFS filesystem is `case-preserving`_.
 This means that it is possible to mount an NTFS partition with Linux and make a file called "Myfile.txt" in the same directory as "MYFILE.TXT",
 but it will `not be possible to read or modify both of those files`_ using standard Windows software.
 
+.. TODO: did CP/M have a case-sensitive filesystem?
+.. Conflicting sources:
+.. "even CP/M was case sensitive"
+.. http://lists.apple.com/archives/unix-porting/2002/May/msg00190.html
+.. "Case insensitivity isn't so hard, especially in encodings like ASCII. DOS did it, CP/M did it."
+.. https://superuser.com/questions/881804/case-sensitive-file-extensions-in-windows-and-linux#comment1176681_881806
+.. "CP/M uses only upper-case for file names and the parameters are meant to represent file names and switches which in CP/M apparently shouldn't be case-sensitive."
+.. http://www.desertpenguin.org/blog/cpm-zero-page/
+.. It's open source now, so it should be possible to find this out.
+.. http://www.cpm.z80.de/
+
 .. _Windows API for opening files: http://msdn.microsoft.com/en-us/library/windows/desktop/aa363858(v=vs.85).aspx
 .. _is not case-sensitive: http://support.microsoft.com/kb/100625
-.. _compatibility with MS-DOS: http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx
+.. _default call: http://www.nicklowe.org/2012/02/understanding-case-sensitivity-in-windows-obcaseinsensitive-file_case_sensitive_search/
+.. _compatibility with DOS: http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx
 .. _case-preserving: http://en.wikipedia.org/wiki/Case_preservation
 .. _not be possible to read or modify both of those files: http://technet.microsoft.com/en-us/library/cc976809.aspx
 
@@ -306,6 +318,57 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 .. _crops up when porting: http://adrienb.fr/blog/wp-content/uploads/2013/04/PortingSourceToLinux.pdf
 .. _Unity engine: http://unity3d.com/
 .. _issues with case-sensitive filesystems: http://natoshabard.com/post/122670082502/porting-the-unity-editor-to-linux-stuff-i-wish
+
+-----------------------
+Drive letter assignment
+-----------------------
+
+.. https://unix.stackexchange.com/questions/93960/why-is-linuxs-filesystem-designed-as-a-single-directory-tree
+.. http://new.office-watch.com/2008/make-a-consistent-drive-letter-or-path-to-a-removable-drive/
+.. http://windowsitpro.com/systems-management/magic-mount-points
+.. http://support.2brightsparks.com/knowledgebase/articles/211485-assigning-a-drive-letter-to-external-usb
+.. http://www.tmsbackup.com/cms/index.php?id=652
+.. http://new.office-watch.com/2008/make-a-consistent-drive-letter-or-path-to-a-removable-drive/
+.. http://www.techrepublic.com/blog/the-enterprise-cloud/use-mount-points-if-you-run-out-of-windows-drive-letters/
+
+
+---------------------
+Filename restrictions
+---------------------
+
+In Linux and other Unix-derived operating systems,
+the only `characters that cannot appear`_ in the name of a file or directory are
+the slash ``/``, which is used to delimit paths,
+and the ASCII null, which is used to terminate strings in C.
+(Arguably, `using null-terminated strings`_ instead of length-prefixed strings was `the wrong decision`_,
+although `length-prefixed strings have drawbacks`_,
+but `Windows uses null-terminated strings`_ too.)
+
+.. _characters than cannot appear: https://stackoverflow.com/questions/1976007/what-characters-are-forbidden-in-windows-and-linux-directory-names
+.. _using null-terminated strings: https://stackoverflow.com/questions/4418708/whats-the-rationale-for-null-terminated-strings
+.. _the wrong decision: https://queue.acm.org/detail.cfm?id=2010365
+.. _length-prefixed strings have drawbacks: https://www.lysator.liu.se/c/bwk-on-pascal.html
+.. _Windows uses null-terminated strings: http://blogs.msdn.com/b/oldnewthing/archive/2009/10/08/9904646.aspx
+
+Windows has the same restrictions,
+as well as many other `restrictions which are considerably more complex`_.
+
+.. _restrictions which are considerably more complex: https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx#naming_conventions
+
+One example of problems this causes is in timestamps.
+Since filenames cannot contain colons,
+an e.g. 8601 timestamp such as ``1970-01-01T00:00:00Z`` is not a legal filename.
+Windows software uses various workarounds, such as removing it or replacing it with a dash or similar-looking Unicode character.
+
+https://support.microsoft.com/en-us/kb/289627
+https://serverfault.com/questions/16706/current-date-in-the-file-name
+https://stackoverflow.com/questions/1642677/generate-unique-file-name-with-timestamp-in-batch-script
+https://programmers.stackexchange.com/questions/61683/standard-format-for-using-a-timestamp-as-part-of-a-filename
+
+Another example was a bag in ASP.
+.. TODO: explain more
+
+https://stackoverflow.com/questions/987105/asp-net-mvc-routing-vs-reserved-filenames-in-windows
 
 ------------------------------
 Limited choice in filesystems.

@@ -711,7 +711,7 @@ but to highlight the risks of monoculture and vendor lock-in
 and to provide contrast to the way that the Linux ecosystem maintains checks and balances.
 
 Linux users can, if they wish,
-install a recent kernel and applications
+install a recent kernel and up-to-date applications
 together with a window manager `under maintenance`_ `since 1987`_,
 and `a non-negligable number do exactly that`_.
 
@@ -885,7 +885,7 @@ Default software.
 Linux distributions have many powerful development tools installed by default,
 such as a C compiler (usually ``gcc``),
 build automation (e.g. ``make``),
-and many, many shells (e.g. ``bash``, ``dash``, ``csh``, ``zsh``, ``fish``).
+and usually more than one shell (e.g. ``bash``, ``dash``, and ``csh``).
 In fact, they are required to provide these tools by the `POSIX standard`_.
 Standards like POSIX make writing and using portable software easier,
 and standard POSIX tools are unlikely to become obsolete.
@@ -913,21 +913,25 @@ Windows developers have noted the `many other drawbacks`_ `of the registry`_.
 .. _many other drawbacks: https://rwmj.wordpress.com/2010/02/18/why-the-windows-registry-sucks-technically/
 .. _of the registry: http://blog.codinghorror.com/was-the-windows-registry-a-good-idea/
 
-On Linux, most configuration can be done graphically within applications or configuration managers provided by the desktop environment.
+On Linux, most configuration can be done graphically
+within applications or configuration managers provided by the desktop environment.
 A lot of it is handled by the `package manager`_.
 However, there are a variety of possibilities depending on the needs of the people using it.
 
 .. _package manager: `Package manager with signed binaries.`_
 
 System administrators, for example, care about system-level configuration files, generally text files in ``/etc/``.
-Text files are simple to edit for ad-hoc debugging and automation and also very robust against corruption.
+Text files are simple to edit for ad-hoc debugging and automation,
+easy to diff,
+easy to backup or version control,
+and robust against corruption.
 
 User level configuration is stored in dotfiles (hidden folders or files) in the user's home directory.
 There are good arguments to the effect that making dotfiles responsible for configuration `is problematic`_.
 Configuration files would make much more sense stored in a dedicated configuration folder in the user's home directory,
 and indeed some applications are `beginning to standardize on this`_.
-In the meantime, however, dotfiles do the job, even if they seem cluttered,
-since each user's configuration is isolated to his or her home directory.
+In the meantime, however, dotfiles do the job, cluttered as they are,
+since each user's files and configuration is isolated to his or her home directory.
 
 .. _is problematic: https://plus.google.com/+RobPikeTheHuman/posts/R58WgWwN9jp
 .. _beginning to standardize on this: http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
@@ -936,7 +940,8 @@ Centralized databases like the Windows Registry are usually unnecessary for conf
 Applications for which text files are a bad choice,
 e.g. ones which need random access to large amounts of structured data or which require atomic updates,
 can use, for example, `an SQLite database`_ in the user's home directory.
-In a similar vein, the GNOME desktop provides `dconf`_, which is probably the closest thing to a Windows Registry that Linux has.
+In a similar vein, the GNOME desktop provides `dconf`_,
+which is probably the closest thing to a Windows Registry that Linux has.
 
 .. _dconf: https://wiki.gnome.org/Projects/dconf
 .. _an SQLite database: http://kb.mozillazine.org/Places.sqlite
@@ -951,7 +956,8 @@ which means users can share and benefit from others' customized configurations a
 .. _textual: http://catb.org/~esr/writings/taoup/html/textualitychapter.html
 
 It also means that migrating to a different Linux distribution is not as painful as starting from scratch,
-since many applications keep the configuration formats relatively stable and merging in the customizations is usually straightforward.
+since many applications keep the configuration formats relatively stable
+and merging in the customizations is usually straightforward.
 During major Debian upgrades, for example, administrators can choose to adopt new configuration files,
 keep the old ones, or ``diff`` and merge the files into a hybrid.
 
@@ -992,7 +998,7 @@ such as:
 Now, there is an open-source package manager for Windows, `Chocolatey`_,
 that is under active development.
 However, thus far the Chocolatey repository is not as comprehensive as Linux repositories.
-Here are some examples of packages which are not in the Chocolatey repository (as of November 2014).
+Here are some examples of packages which are not in the Chocolatey repository (as of July 2015).
 
 - `Apophysis`_ fractal flame editor `* <http://chocolatey.org/packages?q=apophysis>`__
 - `xyscan`_ data extractor `* <https://chocolatey.org/packages?q=xyscan>`__
@@ -1001,8 +1007,6 @@ Here are some examples of packages which are not in the Chocolatey repository (a
 - `DiffPDF`_ PDF comparison `* <http://chocolatey.org/packages?q=DiffPDF>`__
 - `Unison`_ file synchronizer `* <http://chocolatey.org/packages?q=Unison>`__
 - `xchat`_ IRC client `* <http://chocolatey.org/packages?q=xchat>`__
-- `OpenSCAD`_ solid 3D CAD modeller `* <http://chocolatey.org/packages?q=openscad>`__
-- `Cura`_ 3D printer control `* <http://chocolatey.org/packages?q=Cura>`__
 
 .. _Chocolatey: http://chocolatey.org/
 .. _Apophysis: http://www.apophysis.org/
@@ -1012,10 +1016,8 @@ Here are some examples of packages which are not in the Chocolatey repository (a
 .. _DiffPDF: http://www.qtrac.eu/diffpdf.html
 .. _Unison: http://www.cis.upenn.edu/~bcpierce/unison/
 .. _xchat: http://xchat.org/download/
-.. _OpenSCAD: http://www.openscad.org/index.html
-.. _Cura: https://www.ultimaker.com/pages/our-software
 
-(This list isn't particularly significant, it's just example open-source software that I use which has a Windows version.)
+(This list isn't particularly significant, it's just example open-source software that I happen to use which has a Windows version.)
 
 Also, the Chocolatey development team acknowledges it `does not currently have package moderation or package signing`_ in place yet,
 which is significant for overcoming Window's issue with `installing software from untrusted sources`_.
@@ -1040,7 +1042,7 @@ Arch Linux's ``pacman``,
 and so on.
 This is one reason Linux users are less susceptible to malware:
 they generally install packages that are cryptographically signed by the maintainers,
-not opaque executables from a website which may not use secure HTTP.
+not opaque executables from a website which may or may not use secure HTTP.
 Even inexperienced users can safely install and uninstall software if it is all from a trusted repository.
 
 Package managers have other benefits,
@@ -1143,32 +1145,33 @@ Public bug trackers.
 --------------------
 
 Windows and proprietary software in general do not usually maintain a public bug tracker,
-although `there`_ `are`_ `exceptions`_.
+although there are exceptions [#]_ [#]_ [#]_.
 Software companies have strong incentives to keep their issue tracking systems internal due to things like customer confidentiality,
 security,
 and public relations.
 
-.. _there: https://connect.microsoft.com/
-.. _are: https://bugbase.adobe.com/
-.. _exceptions: http://fold.it/portal/node/986241
+.. [#] https://connect.microsoft.com/
+.. [#] https://bugbase.adobe.com/
+.. [#] http://fold.it/portal/node/986241
 
-As a result,
+Because bug trackers for proprietary software are not public,
 it can be hard to for a user to discern if their problem is shared by others,
 what they can do to fix it,
 and whether or not a bug has been fixed in the latest version.
 
 Most companies devote a lot of staff to user support for this reason.
-The inefficiencies and pitfalls of this are evident to anyone who's had to set up their home internet connection before.
+The inefficiencies and pitfalls of this are evident
+to anyone who's had to set up their home internet connection before.
 Some companies complement user support with user forums,
 which have the same `issues with signal-to-noise ratio`_ that most forums have.
 
 .. _issues with signal-to-noise ratio: http://blog.codinghorror.com/civilized-discourse-construction-kit/
 
 By contrast, projects like the Linux kernel and the Debian project maintain accountability and clarity by publically tracking and acknowledging bugs,
-even when it is `embarrassing`_ to `do so`_.
+even when it is embarrassing to do so [#brown_paper_bag_release]_ [#runs_rm_r_as_root]_.
 
-.. _embarrassing: http://lwn.net/1999/0204/kernel.php3
-.. _do so: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=155873
+.. [#brown_paper_bag_release] http://lwn.net/1999/0204/kernel.php3
+.. [#runs_rm_r_as_root] https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=155873
 
 .. TODO: http://serverfault.com/questions/403732/anyone-else-experiencing-high-rates-of-linux-server-crashes-during-a-leap-second/
 .. http://www.somebits.com/weblog/tech/bad/leap-second-2012.html
@@ -1192,8 +1195,13 @@ It is also one reason why developing solely for Windows because of the larger us
 Malware.
 --------
 
-In principle, Linux and Windows are equally `susceptible to malware`_.
-In practice, Windows users are `more likely`_ to inadvertently install malware,
+In principle, Linux and Windows users are equally `susceptible to malware`_.
+Android, for example, runs on the Linux kernel, and there is plenty of malware written that targets it.
+
+.. http://www.linux.org/threads/android-malware.7836/
+.. http://www.firstpost.com/business/gunpoder-new-android-malware-targets-users-not-residing-china-2339516.html
+
+In practice, though, Windows users are `more likely`_ to inadvertently install malware,
 primarily because of the way they install non-malicious software (see `notes on package management`_).
 Requiring every computer user to do the work of package maintainers is harmful in a variety of ways;
 it tends to encourage a cargo-cult mentality to security instead of systematic root-cause analysis.
@@ -1204,8 +1212,12 @@ it tends to encourage a cargo-cult mentality to security instead of systematic r
 
 As a result,
 
-#. Windows users must spend considerable time and effort detecting and removing malware.
-#. Windows users may falsely attribute software misbehavior to malware.
+#. Windows users must spend `considerable time and effort`_ detecting and removing malware.
+#. Windows users may `falsely attribute`_ `software misbehavior to malware`_.
+
+.. _considerable time and effort: https://www.microsoft.com/security/portal/mmpc/shared/ransomware.aspx
+.. _falsely attribute: http://www.combofix.org/suspect-a-malware-infection-heres-the-right-way-to-remove-it.php
+.. _software misbehavior to malware: http://lifehacker.com/5958001/the-5-biggest-myths-about-slow-pcs-and-how-you-can-actually-fix-them
 
 Some users may even attribute problems arising from failing hardware to malware instead.
 

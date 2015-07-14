@@ -64,8 +64,7 @@ but I have tried to include other distributions when possible.
 
 In this document, the term "Linux" is shorthand for the entire distribution,
 including bootloader, kernel, shell, window manager, package manager, etc.
-
-The term "Windows" refers to modern versions of Microsoft Windows NT,
+Similarly, the term "Windows" refers to all default components of modern versions of Microsoft Windows NT,
 including Windows XP, Windows Vista, Windows 7, and Windows 8.
 
 Many of the same arguments in favor of Linux also apply to the BSD family of operating systems
@@ -116,9 +115,9 @@ If you are a Windows user:
   You may heartily disagree with substantial parts of what follows,
   but perhaps it may be useful to you, even so.
 
-++++++++++++++++++++++++++++++++++
-Technical deficiencies of Windows.
-++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+Technical deficiencies of Windows relative to Linux.
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ------------------------
 Live booting is lacking.
@@ -268,14 +267,36 @@ This is why Linus Torvalds `chose an unusually high`_ timer interrupt frequency 
 Filename case-insensitivity.
 ----------------------------
 
-Linux uses case-sensitive filenames because ASCII, Unix, and the C programming language are case-sensitive.
+Linux uses case-sensitive filenames because Unix used case-sensitive filename.
+Unix was probably case-sensitive because teletypes and ASCII are case-sensitive,
+as were the `keyboards on PDP-11 computers`_,
+so `string comparisons were simpler and faster`_ if they didn't occasionally have to convert everything to uppercase or lowercase.
 
-Windows filenames are not case-sensitive because the `Windows API for opening files`_ `is not case-sensitive`_,
+.. _keyboards on PDP-11 computers: https://pmf.silvrback.com/pdp-11-keyboard
+.. _string comparisons were simpler and faster: http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
+
+    Bear in mind that it's MUCH more work for a filesystem to be case-insensitive than -sensitive. A filesystem is case-sensitive by default, in the simplest case; it can only be made case-INsensitive through a lot of extra engineering. In UNIX, all the system has to do is sort on the ASCII values of the first letters of the filenames. In the Mac OS and Windows, the filesystem has to be smart enough to create synonyms of various letters — A for a, and so on — and sort accordingly. That takes a LOT of code. It's a testament to the completeness of the original Mac OS that in 1984 this was all handled properly, before Windows even brought lower-case letters to the PC side.
+
+http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
+
+    Everything in Multics is case sensitive; Multics permits use of the full upper and lower case ASCII character set.
+
+http://www.multicians.org/mgc.html
+
+    Since the Multics file system distinguished between upper and lower case, external names had to be case sensitive, and without much discussion we chose to have all variable names be case sensitive.
+
+http://www.multicians.org/pl1.html
+
+Strictly speaking, modern Windows filenames could be case-sensitive,
+but they aren't because the `Windows API for opening files`_ `is not case-sensitive`_,
 i.e. the `default call`_ to ``CreateFile`` does not enable the ``FILE_FLAG_POSIX_SEMANTICS`` option.
-(This is to maintain `compatibility with DOS`_ filesystems and CP/M and ultimately to the era of FORTRAN and punch cards.)
-However, Windows' own NTFS filesystem is `case-preserving`_.
-This means that it is possible to mount an NTFS partition with Linux and make a file called "Myfile.txt" in the same directory as "MYFILE.TXT",
-but it will `not be possible to read or modify both of those files`_ using standard Windows software.
+This is to maintain `compatibility with MS-DOS`_ filesystems,
+which was based on 86-DOS,
+which was heavily influenced by CP/M,
+which was heavily influenced by RT-11.
+CP/M may have been influenced by the hardware to use
+or maybe it followed the example of FORTRAN, COBOL, BASIC, LISP, and early punch cards,
+which were not case sensitive.
 
 .. TODO: did CP/M have a case-sensitive filesystem?
 .. Conflicting sources:
@@ -287,18 +308,75 @@ but it will `not be possible to read or modify both of those files`_ using stand
 .. http://www.desertpenguin.org/blog/cpm-zero-page/
 .. It's open source now, so it should be possible to find this out.
 .. http://www.cpm.z80.de/
+.. It should also be noted that all alphabetic lower case letters in file 
+.. and drive names are always translated to upper case when they are processed by 
+.. the CCP. 
+.. ...
+.. Further, recall that the CCP always translates lower case characters to upper 
+.. case characters internally. Thus, lower case alphabetics are treated as if 
+.. they are upper case in command nannes and file references. 
+.. https://archive.org/stream/Intro_to_CPM_Feat_and_Facilities/Intro_to_CPM_Feat_and_Facilities_djvu.txt
+.. But CP/M also used ASCII. Weird.
+.. Does that mean that filenames were actually case-insensitive or not?
+.. I think I've got it:
+.. RT-11 implemented a simple and fast file system employing six-character filenames with three-character extensions ("6.3") encoded in RADIX-50, which packed those nine characters into only three 16-bit words (six bytes).
+.. https://en.wikipedia.org/wiki/RT-11
+.. https://en.wikipedia.org/wiki/DEC_Radix-50
+.. http://nemesis.lonestar.org/reference/telecom/codes/radix50.html
+
+.. Mac ＆ Windows users have to have filenames read to them over the phone by support techs. They have to be able to write little sticky notes to their mothers about how to open up the mail program, without worrying about how the filenames are capitalized.
 
 .. _Windows API for opening files: http://msdn.microsoft.com/en-us/library/windows/desktop/aa363858(v=vs.85).aspx
 .. _is not case-sensitive: http://support.microsoft.com/kb/100625
 .. _default call: http://www.nicklowe.org/2012/02/understanding-case-sensitivity-in-windows-obcaseinsensitive-file_case_sensitive_search/
 .. _compatibility with DOS: http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx
+
+
+    In math, many typographical attributes are used to distinguish names.
+    Besides (R-r), math uses boldface for vector quantities, outline-face
+    for sets, Greek letters for angles, etc.  Maxima is terribly
+    impoverished this way, and doesn't even have any conventions for
+    representing such things (e.g. that bold_v displays a boldface v in
+    formatted output).
+    ...
+    Anecdotally, case sensitivity in programs is known to be error-prone for
+    both beginners and experienced users.  Bob Frankston, a Multics alumnus
+    and the co-inventor of VisiCalc, once said it was the biggest mistake
+    that Multics had inflicted on the world.
+https://www.ma.utexas.edu/pipermail/maxima/2003/004483.html
+
+
+    Many of us consider those filesystems which cannot preserve case, but
+    which accept "input" in random case, to be so utterly broken as to be
+    undeserving of any attention whatsoever.  They create a situation where
+    the computer effectively considers the users to be too stupid or blind
+    or whatever to be able to say what we mean accurately.
+
+https://lists.nongnu.org/archive/html/info-cvs/2003-11/msg00127.html
+
+
+However, Windows' own NTFS filesystem is `case-preserving`_.
+This means that it is possible to mount an NTFS partition with Linux
+and make a file called "Myfile.txt" in the same directory as "MYFILE.TXT",
+but it will `not be possible to read or modify both of those files`_ using standard Windows software.
+
 .. _case-preserving: http://en.wikipedia.org/wiki/Case_preservation
 .. _not be possible to read or modify both of those files: http://technet.microsoft.com/en-us/library/cc976809.aspx
 
-`Not everyone`_ considers filename case insensitivity to be a bad thing.
-However, it does have `negative`_ `ramifications`_ for cross-platform development.
+Not everyone considers filename case sensitivity to be a good thing. [#]_ [#]_ [#]_ [#]_
+However, the lack of agreement does have `negative`_ `ramifications`_ for cross-platform development.
 Developers of cross-platform software `make a habit`_ of not relying on case-sensitive filesystem access,
 but this issue still `crops up when porting`_ from Windows to Linux or vice-versa.
+
+.. [#] http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
+.. [#] http://blog.codinghorror.com/the-case-for-case-insensitivity/
+.. [#] http://www.somethinkodd.com/oddthinking/2005/10/27/the-case-for-case-preserving-case-insensitivity/
+.. [#] http://tiamat.tsotech.com/case-sensitivity-sucks
+.. [#] http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
+.. _negative: https://code.google.com/p/tortoisesvn/issues/detail?id=32
+.. _ramifications: http://openfoamwiki.net/index.php/Main_FAQ#Why_isn.27t_there_a_Windows_port_of_OpenFOAM_.3F
+.. _make a habit: http://www.mono-project.com/docs/getting-started/application-portability/#case-sensitivity
+.. _crops up when porting: http://adrienb.fr/blog/wp-content/uploads/2013/04/PortingSourceToLinux.pdf
 
 For example, the Linux port of the `Unity engine`_ has `issues with case-sensitive filesystems`_.
 
@@ -311,11 +389,6 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
     will never fail that some well-intentioned programmer throws a toLower() in
     somewhere and ruins the party.
 
-.. _Not everyone: http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
-.. _negative: https://code.google.com/p/tortoisesvn/issues/detail?id=32
-.. _ramifications: http://openfoamwiki.net/index.php/Main_FAQ#Why_isn.27t_there_a_Windows_port_of_OpenFOAM_.3F
-.. _make a habit: http://www.mono-project.com/docs/getting-started/application-portability/#case-sensitivity
-.. _crops up when porting: http://adrienb.fr/blog/wp-content/uploads/2013/04/PortingSourceToLinux.pdf
 .. _Unity engine: http://unity3d.com/
 .. _issues with case-sensitive filesystems: http://natoshabard.com/post/122670082502/porting-the-unity-editor-to-linux-stuff-i-wish
 

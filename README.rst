@@ -721,14 +721,14 @@ This would be impossibly difficult if GNOME 2 were the desktop environment of a 
 .. [#] https://lwn.net/Articles/433409/
 .. _MATE: http://mate-desktop.org/
 
-Such forks will either `eventually fade away`_,
-continue to `coexist with their parents`_,
-or even `overtake their parent project`_,
-depending on the needs of the users.
+A fork like MATE will either `eventually fade away`_,
+continue to `coexist with its parent`_,
+or even `overtake its parent`_,
+depending on the needs of its users.
 
 .. _eventually fade away: http://crunchbang.org/forums/viewtopic.php?id=38916
-.. _coexist with their parents: http://www.computerworld.com.au/article/457551/dead_database_walking_mysql_creator_why_future_belongs_mariadb/
-.. _overtake their parent project: http://www.softpanorama.org/People/Stallman/history_of_gcc_development.shtml
+.. _coexist with its parent project: https://en.wikipedia.org/wiki/OpenBSD
+.. _overtake its parent: http://www.softpanorama.org/People/Stallman/history_of_gcc_development.shtml
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Crippled multi-user remote access.

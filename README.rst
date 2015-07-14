@@ -594,7 +594,8 @@ that tracks every single time a window is resized. [#]_ [#]_ [#]_
 .. [#] http://www.howtogeek.com/howto/11799/turn-non-resizeable-windows-into-rezieable-windows/
 .. [#] http://www.digitallis.co.uk/pc/ResizeEnable/index.html
 
-::
+The README does not have a good URL,
+so here are some of the salient parts::
 
     =============================================================================================
     What is ResizeEnable
@@ -661,6 +662,10 @@ Another consequence of the single integrated window manager
 is that Windows users are resistant to change user interfaces,
 and so Microsoft tends to be slow to release improvements that require changes to the user interface.
 
+***
+UAC
+***
+
 For example, `users run as administrator by default in Windows XP`_ and earlier.
 When Microsoft fix this problem via `User Account Control`_ when Windows Vista was released,
 the required changes to the window manager were more than a little controversial [#]_ [#]_ [#]_ [#]_,
@@ -678,6 +683,10 @@ a `large number of users are still running Windows XP in 2015`_,
 many of them as administrators.
 
 .. _large number of users are still running Windows XP in 2015: https://redmondmag.com/articles/2015/04/08/windows-xp-usage.aspx
+
+*********
+Windows 8
+*********
 
 As another example,
 the transition from Windows 7 to Windows 8 was controversial,
@@ -722,7 +731,7 @@ This would be impossibly difficult if GNOME 2 were the desktop environment of a 
 .. _MATE: http://mate-desktop.org/
 
 A fork like MATE will either `eventually fade away`_,
-continue to `coexist with its parent`_,
+continue to `coexist with its parent project`_,
 or even `overtake its parent`_,
 depending on the needs of its users.
 

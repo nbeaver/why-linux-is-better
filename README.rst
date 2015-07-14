@@ -344,7 +344,7 @@ and the ASCII null, which is used to terminate strings in C.
 although `length-prefixed strings have drawbacks`_,
 but `Windows uses null-terminated strings`_ too.)
 
-.. _characters than cannot appear: https://stackoverflow.com/questions/1976007/what-characters-are-forbidden-in-windows-and-linux-directory-names
+.. _characters that cannot appear: https://stackoverflow.com/questions/1976007/what-characters-are-forbidden-in-windows-and-linux-directory-names
 .. _using null-terminated strings: https://stackoverflow.com/questions/4418708/whats-the-rationale-for-null-terminated-strings
 .. _the wrong decision: https://queue.acm.org/detail.cfm?id=2010365
 .. _length-prefixed strings have drawbacks: https://www.lysator.liu.se/c/bwk-on-pascal.html
@@ -492,35 +492,38 @@ and read-only files cannot be moved, renamed, or deleted without first removing 
 Architectural benefits of Linux.
 ++++++++++++++++++++++++++++++++
 
------------------------------
-Debugging with default tools.
------------------------------
-
-On Windows, Ctrl-C will usually `copy an error message to the clipboard`_.
-Alternately, you can try to run the command from a terminal and log the output.
+-------------------------------------
+Debugging tools available by default.
+-------------------------------------
 
 .. TODO: Using the informal you here seems to be the only option.
    Everything else I can think of is too awkwardly phrased.
 
-.. _copy an error message to the clipboard: http://weblogs.asp.net/chuckop/110153
+Windows has limited facilities for debugging a running process.
+You can `analyze the wait chain`_, or, failing that, `create a dump file`_.
+
+.. _analyze the wait chain: https://superuser.com/questions/497621/what-is-the-analyze-wait-chain-in-task-manager
+.. _create a dump file: https://support.microsoft.com/en-us/kb/931673
 
 On Linux, you can attach the ``gdb`` debugger `to a running process`_,
 start a logfile that catches all the output,
-and run a backtrace when the program fails (it's better with debugging symbols, though).
+and run a backtrace when the program fails
+(it's better with debugging symbols, though).
 
 .. _to a running process: http://ftp.gnu.org/old-gnu/Manuals/gdb-5.1.1/html_node/gdb_22.html
 
-Alternately, if the process is already unresponsive, you can attach ``strace`` and see what system calls it makes,
+Alternately, if the process is already unresponsive,
+you can attach ``strace`` and see what system calls it makes,
 and whether it receives the kill signals you send it or not.
 
-There are `programs`_ `similar`_ to ``gdb`` and ``strace`` `for Windows`_.
-However, they don't come installed by default,
-whereas both ``strace`` and ``gdb`` come with a standard Linux install,
+There are `plenty of Windows`_ `programs`_ `similar`_ to ``gdb`` and ``strace``,
+but they don't come installed by default,
+whereas both ``strace`` and ``gdb`` come with almost all Linux distributions,
 so system administrators can rely on being able to use them on nearly any Linux box.
 
-.. _similar: http://www.intellectualheaven.com/default.asp?BH=projects&H=strace.htm
+.. _plenty of Windows: http://msdn.microsoft.com/en-us/library/windows/hardware/ff551063(v=vs.85).aspx
 .. _programs: http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx
-.. _for Windows: http://msdn.microsoft.com/en-us/library/windows/hardware/ff551063(v=vs.85).aspx
+.. _similar: http://www.intellectualheaven.com/default.asp?BH=projects&H=strace.htm
 
 -----------------------------
 More permissive file locking.
@@ -528,46 +531,21 @@ More permissive file locking.
 
 .. TODO: Add more sources to this.
 
-Windows applications `lock files they use by default`_, so file access is a nuisance by default.
+Windows applications `lock files they use by default`_, so `file access is a nuisance`_ by default.
 If an application is misbehaving and you want to examine a file it is using,
 this is generally blocked until the application is killed.
 
 .. _lock files they use by default: https://en.wikipedia.org/wiki/File_locking#In_Microsoft_Windows
+.. _file access is a nuisance: https://stackoverflow.com/questions/546504/how-do-i-make-windows-file-locking-more-like-unix-file-locking
 
 By contrast,
 on Linux it is not unusual for two different applications to share read access to a file,
 or one process to read a file another process is writing to,
-since applications can share file access by default.
+since applications do not lock files by default.
 
-----------------------------------------
-Separation of window manager and kernel.
-----------------------------------------
-
-The Windows window manager and kernel are `tightly coupled`_.
-One consequence of this is that Microsoft tends to wait for major version changes to implement kernel changes that rely on user interface changes.
-For example, Microsoft did not implement `User Account Control`_ until Windows Vista was released,
-despite the well-known security problems intrinsic to `using an operating system as administrator`_ all the time.
-
-.. TODO: find a better link than Wikipedia.
-
-.. _tightly coupled: http://en.wikipedia.org/wiki/Window_manager#Microsoft_Windows
-.. _User Account Control: http://technet.microsoft.com/en-us/magazine/2007.06.uac.aspx
-.. _using an operating system as administrator: http://askubuntu.com/questions/16178/why-is-it-bad-to-login-as-root
-
-`Windows remote desktop licensing`_ makes multi-user remote access and sharing of machine resources expensive.
-By design, multiple concurrent sessions are disabled on all but the server version of Windows,
-and `third-party remote desktop software is not permitted`_ to legally `circumvent this limitation`_. [#]_ [#]_ [#]_
-
-.. _Windows remote desktop licensing: http://technet.microsoft.com/en-us/library/cc725933.aspx
-.. _third-party remote desktop software is not permitted: http://superuser.com/questions/784523/tightvnc-while-an-rdp-session-is-running
-.. _circumvent this limitation: http://lifehacker.com/5873717/enable-concurrent-remote-desktop-sessions-in-windows-with-this-patch
-.. [#] "You would think that because Windows XP is multiuser, you could have multiple users running VNC servers. Indeed you can, but you can only use the one that has the currently active user - switch away, and that server goes black, and in my testing, can't even be used again. Windows XP is not really multiuser." http://aplawrence.com/Reviews/tightvnc.html
-.. [#] "Windows, unless you're using Terminal Server (and have the licenses to go with it) doesn't have this capability, and I don't believe that even with Terminal Server, VNC will be able to take advantage of this." http://tightvnc.10971.n7.nabble.com/Multiple-Unique-Sessions-td2060.html
-.. [#] "If you heard about/saw many active desktop sessions in non-server Windows - that was modified OS with swapped termsrv.dll. Licensing does not allow you to modify/swap system files and use non-server system that way and this is ILLEGAL." http://stackoverflow.com/questions/9410091/multi-user-login-remote-desktop-on-windows-linux
-
-Note that this is a licensing issue,
-not a technical limitation of Windows itself,
-but it compromises the utility of the operating system.
+----------------------------
+No choice of window manager.
+----------------------------
 
 The Linux kernel does not require a particular desktop environment,
 or indeed any graphical desktop at all.
@@ -581,13 +559,28 @@ There are are many, many options for `desktop environment`_ and `window manager`
 .. connect a monitor, keyboard, and mouse for the initial setup; then disconnect them and use them elsewhere.
 .. http://windowssecrets.com/top-story/a-cheap-effective-home-server-using-windows-8/
 
-This is in contrast to Windows,
-which must have a graphical desktop and offers only one option.
-This means that accessibility and user interface issues can be hard to fix,
-and often rely on less robust third-party addons.
+Microsoft does not provide the `Windows NT desktop window manager`_ and `Windows NT kernel`_ separately;
+the window manager is a `tightly coupled`_ component of the kernel,
+and as of Windows 8 the `DWM cannot be disabled`_, even for servers.
 
-For example, unlike most Linux desktop environments,
-Windows presents many configuration options in non-resizable dialog boxes.
+.. _Windows NT desktop window manager: https://msdn.microsoft.com/en-us/library/aa969540.aspx
+.. _Windows NT kernel: https://channel9.msdn.com/Shows/Going+Deep/Windows-Part-I-Dave-Probert#53470
+.. _tightly coupled: http://en.wikipedia.org/wiki/Window_manager#Microsoft_Windows
+.. _DWM cannot be disabled: https://msdn.microsoft.com/en-us/library/windows/desktop/hh848042%28v=vs.85%29.aspx
+
+While there are a number of `alternative shells`_ and `visual themes`_ for Windows,
+the underlying windowing system is the same.
+
+.. _alternative shells: https://en.wikipedia.org/wiki/List_of_alternative_shells_for_Windows
+.. _visual themes: https://en.wikipedia.org/wiki/Theme_%28computing%29#Operating_systems
+
+~~~~~~~~~~~~~~~~~
+Usability issues.
+~~~~~~~~~~~~~~~~~
+
+The window manager monoculture means that accessibility improvements
+and user interface customization can be difficult to implement.
+For example, Windows presents many configuration options in non-resizable dialog boxes.
 This can pose user-interface problems,
 especially on high-resolution monitors. [#]_ [#]_
 
@@ -660,6 +653,32 @@ There are some drawbacks to this approach::
     	ResizeEnable can't tell them to move or resize. Yet again, Microsoft ignore their own
     	codebase and reinvent the wheel. And people wonder why their applications are so big..
 
+~~~~~~~~~~~~~~~
+Update inertia.
+~~~~~~~~~~~~~~~
+
+Another consequence of the single integrated window manager
+is that Windows users are resistant to change user interfaces,
+and so Microsoft tends to be slow to release improvements that require changes to the user interface.
+
+For example, `users run as administrator by default in Windows XP`_ and earlier.
+When Microsoft fix this problem via `User Account Control`_ when Windows Vista was released,
+the required changes to the window manager were more than a little controversial [#]_ [#]_ [#]_ [#]_,
+so much so that many users learned to ignore it or turned it off entirely.
+
+.. _User Account Control: http://technet.microsoft.com/en-us/magazine/2007.06.uac.aspx
+.. _users run as administrator by default in Windows XP: https://msdn.microsoft.com/en-us/library/bb530410.aspx#vistauac_topic1
+.. [#] http://www.computerworld.com/article/2477832/desktop-apps/microsoft-exec--we-know-users-hate-uac.html
+.. [#] http://arstechnica.com/security/2008/04/vistas-uac-security-prompt-was-designed-to-annoy-you/
+.. [#] http://windowssecrets.com/woodys-windows/microsoft-claims-windows-7-uac-flaw-is-by-design/
+.. [#] http://windowsitpro.com/blog/microsoft-quotmalware-authors-really-hate-uacquot
+
+Despite Microsoft ending support for Windows XP in April 2014,
+a `large number of users are still running Windows XP in 2015`_,
+many of them as administrators.
+
+.. _large number of users are still running Windows XP in 2015: https://redmondmag.com/articles/2015/04/08/windows-xp-usage.aspx
+
 As another example,
 the transition from Windows 7 to Windows 8 was controversial,
 because the Metro user interface departed substantially from the historical Windows desktop. [#]_ [#]_ [#]_ [#]_ [#]_ [#]_
@@ -678,21 +697,57 @@ citing usability problems. [#]_ [#]_
 .. [#] http://www.forbes.com/sites/adriankingsleyhughes/2013/05/19/why-enterprise-is-avoiding-windows-8/
 .. [#] http://www.nngroup.com/articles/windows-8-disappointing-usability/
 
-These incidents are relevant not because they show that Microsoft makes occasional mistakes,
+These examples are relevant not because they show that Microsoft makes occasional mistakes,
 but to highlight the risks of monoculture and vendor lock-in
 and to provide contrast to the way that the Linux ecosystem maintains checks and balances.
 
-When the GNOME developers made controversial changes for GNOME 3,
+Linux users can, if they wish,
+install a recent kernel and applications
+together with a window manager `under maintenance`_ `since 1987`_,
+and `a non-negligable number do exactly that`_.
+
+.. _under maintenance: https://tracker.debian.org/pkg/twm
+.. _since 1987: https://en.wikipedia.org/wiki/Twm
+.. _a non-negligable number do exactly that: https://qa.debian.org/popcon.php?package=twm
+
+This reflects a general dislike of forced updates.
+When the GNOME developers made controversial changes [#]_ [#]_ [#]_ in GNOME 3,
 a team forked GNOME 2 to become `MATE`_,
 which retained the "traditional desktop metaphor".
 This would be impossibly difficult if GNOME 2 were the desktop environment of a proprietary operating system.
 
+.. [#] http://www.zdnet.com/article/linus-torvalds-would-like-to-see-a-gnome-fork/
+.. [#] https://felipec.wordpress.com/2011/06/16/after-two-weeks-of-using-gnome-3-i-officially-hate-it/
+.. [#] https://lwn.net/Articles/433409/
 .. _MATE: http://mate-desktop.org/
 
-Such forks will either eventually fade away,
-continue to coexist in perpetuity,
-or even overtake their parent project,
+Such forks will either `eventually fade away`_,
+continue to `coexist with their parents`_,
+or even `overtake their parent project`_,
 depending on the needs of the users.
+
+.. _eventually fade away: http://crunchbang.org/forums/viewtopic.php?id=38916
+.. _coexist with their parents: http://www.computerworld.com.au/article/457551/dead_database_walking_mysql_creator_why_future_belongs_mariadb/
+.. _overtake their parent project: http://www.softpanorama.org/People/Stallman/history_of_gcc_development.shtml
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Crippled multi-user remote access.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`Windows remote desktop licensing`_ makes multi-user remote access and sharing of machine resources expensive.
+By design, multiple concurrent sessions are disabled on all but the server version of Windows,
+and `third-party remote desktop software is not permitted`_ to legally `circumvent this limitation`_. [#]_ [#]_ [#]_
+
+.. _Windows remote desktop licensing: http://technet.microsoft.com/en-us/library/cc725933.aspx
+.. _third-party remote desktop software is not permitted: http://superuser.com/questions/784523/tightvnc-while-an-rdp-session-is-running
+.. _circumvent this limitation: http://lifehacker.com/5873717/enable-concurrent-remote-desktop-sessions-in-windows-with-this-patch
+.. [#] "You would think that because Windows XP is multiuser, you could have multiple users running VNC servers. Indeed you can, but you can only use the one that has the currently active user - switch away, and that server goes black, and in my testing, can't even be used again. Windows XP is not really multiuser." http://aplawrence.com/Reviews/tightvnc.html
+.. [#] "Windows, unless you're using Terminal Server (and have the licenses to go with it) doesn't have this capability, and I don't believe that even with Terminal Server, VNC will be able to take advantage of this." http://tightvnc.10971.n7.nabble.com/Multiple-Unique-Sessions-td2060.html
+.. [#] "If you heard about/saw many active desktop sessions in non-server Windows - that was modified OS with swapped termsrv.dll. Licensing does not allow you to modify/swap system files and use non-server system that way and this is ILLEGAL." http://stackoverflow.com/questions/9410091/multi-user-login-remote-desktop-on-windows-linux
+
+Note that this is a licensing issue,
+not a technical limitation of Windows itself,
+but it compromises the utility of the operating system.
 
 Because Linux is multi-user by design, `multiple local instances of the X server`_ are not unusual,
 even with different desktop environments (e.g. GNOME and KDE can coexist on the same Linux box).
@@ -739,7 +794,8 @@ and Canonical (the company behind Ubuntu) is working on a separate but similar e
 .. _Wayland: http://wayland.freedesktop.org/architecture.html
 .. _Mir: http://unity.ubuntu.com/mir/
 
-However, X11 has become so pervasive that versions of it power not only Linux desktops but also the BSD family of operating systems and OS X (`XQuartz`_),
+However, X11 has become so pervasive that versions of it power not only Linux desktops
+but also the BSD family of operating systems and OS X (`XQuartz`_),
 and it's also been `ported to Windows`_ `and Android`_,
 even though they don't use it as a display manager.
 
@@ -753,7 +809,7 @@ Some notes on performance.
 
 So far, we have avoided the topic of performance almost entirely.
 
-This is because measuring and improving performance is a hugely complex topic,
+This is because evaluating and comparing performance is a complex and nuanced topic,
 incorporating at the very least hardware-specific considerations and deep knowledge of every level of software.
 
 It also incorporates psychology,
@@ -763,6 +819,7 @@ since people don't care if software has good performance if they `don't perceive
 
 As a result,
 unqualified generalizations about the performance of software as complex as an operating system are nearly always wrong.
+
 There are some things, however, that we do know about relative performance of the Windows and Linux kernels.
 
 First, an `anonymous Windows kernel developer stated`_ in 2013

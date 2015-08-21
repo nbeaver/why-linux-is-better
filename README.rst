@@ -115,9 +115,9 @@ If you are a Windows user:
   You may heartily disagree with substantial parts of what follows,
   but perhaps it may be useful to you, even so.
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++
-Technical deficiencies of Windows relative to Linux.
-++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++
+Intrinsic technical deficiencies of Windows
++++++++++++++++++++++++++++++++++++++++++++
 
 ------------------------
 Live booting is lacking.
@@ -561,13 +561,13 @@ which was designed as a multi-user system.
 This means that, for example, a read-only folder cannot have files added to it,
 and read-only files cannot be moved, renamed, or deleted without first removing the read-only status.
 
-++++++++++++++++++++++++++++++++
-Architectural benefits of Linux.
-++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++
+Architectural deficiencies of Windows
++++++++++++++++++++++++++++++++++++++
 
--------------------------------------
-Debugging tools available by default.
--------------------------------------
+--------------------------------
+Limited default debugging tools.
+--------------------------------
 
 .. TODO: Using the informal you here seems to be the only option.
    Everything else I can think of is too awkwardly phrased.
@@ -598,9 +598,9 @@ so system administrators can rely on being able to use them on nearly any Linux 
 .. _programs: http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx
 .. _similar: http://www.intellectualheaven.com/default.asp?BH=projects&H=strace.htm
 
------------------------------
-More permissive file locking.
------------------------------
+---------------------------------
+Restrictive default file locking.
+---------------------------------
 
 .. TODO: Add more sources to this.
 
@@ -653,6 +653,7 @@ Usability issues.
 
 The window manager monoculture means that accessibility improvements
 and user interface customization can be difficult to implement.
+
 For example, Windows presents many configuration options in non-resizable dialog boxes.
 This can pose user-interface problems,
 especially on high-resolution monitors. [#]_ [#]_

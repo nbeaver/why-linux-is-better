@@ -268,13 +268,25 @@ Filename case-insensitivity.
 ----------------------------
 
 Linux uses case-sensitive filenames because Unix used case-sensitive filename.
-Unix was probably case-sensitive because teletypes and ASCII are case-sensitive,
-as were the `keyboards on PDP-11 computers`_,
-so `string comparisons were simpler and faster`_ if they didn't occasionally have to convert everything to uppercase or lowercase.
+Unix was case-sensitive because Multics was case-sensitive.
+Multics was case-sensitive because of ASCII.
 
-.. _keyboards on PDP-11 computers: https://pmf.silvrback.com/pdp-11-keyboard
-.. _string comparisons were simpler and faster: http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
+    Everything in Multics is case sensitive; Multics permits use of the full
+    upper and lower case ASCII character set.
 
+http://www.multicians.org/mgc.html
+
+    Since the Multics file system distinguished between upper and lower case,
+    external names had to be case sensitive, and without much discussion we
+    chose to have all variable names be case sensitive.
+
+http://www.multicians.org/pl1.html
+
+This has the additional benefits of making
+`string comparisons simpler and faster`_
+because they don't have to occasionally convert everything to uppercase or lowercase.
+
+.. _string comparisons simpler and faster: http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
 
     Bear in mind that it's MUCH more work for a filesystem to be
     case-insensitive than -sensitive. A filesystem is case-sensitive by
@@ -288,17 +300,6 @@ so `string comparisons were simpler and faster`_ if they didn't occasionally hav
     lower-case letters to the PC side.
 
 http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
-
-    Everything in Multics is case sensitive; Multics permits use of the full
-    upper and lower case ASCII character set.
-
-http://www.multicians.org/mgc.html
-
-    Since the Multics file system distinguished between upper and lower case,
-    external names had to be case sensitive, and without much discussion we
-    chose to have all variable names be case sensitive.
-
-http://www.multicians.org/pl1.html
 
 Strictly speaking, modern Windows filenames could be case-sensitive,
 but they aren't because the `Windows API for opening files`_ `is not case-sensitive`_,

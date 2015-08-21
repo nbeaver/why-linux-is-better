@@ -361,38 +361,56 @@ There are also passionate views to the opposite effect.
 
 https://lists.nongnu.org/archive/html/info-cvs/2003-11/msg00127.html
 
-But what was the technical reason for the RT-11 to use case-insensitive filenames?
-To save memory.
+Laying aside that argument for the moment,
+why did Windows filenames end up case-insensitive?
 
-.. I think I've got it:
-.. RT-11 implemented a simple and fast file system employing six-character filenames with three-character extensions ("6.3") encoded in RADIX-50, which packed those nine characters into only three 16-bit words (six bytes).
-.. https://en.wikipedia.org/wiki/RT-11
-.. https://en.wikipedia.org/wiki/DEC_Radix-50
-.. http://nemesis.lonestar.org/reference/telecom/codes/radix50.html
-.. http://cryptosmith.com/2013/10/19/digitals-rt-11-file-system/
+Strictly speaking, modern Windows filenames could be case-sensitive,
+but they aren't because the `Windows API for opening files`_ `is not case-sensitive`_,
+i.e. the `default call`_ to ``CreateFile``
+does not enable the ``FILE_FLAG_POSIX_SEMANTICS`` option.
+
+.. _Windows API for opening files: http://msdn.microsoft.com/en-us/library/windows/desktop/aa363858(v=vs.85).aspx
+.. _is not case-sensitive: http://support.microsoft.com/kb/100625
+.. _default call: http://www.nicklowe.org/2012/02/understanding-case-sensitivity-in-windows-obcaseinsensitive-file_case_sensitive_search/
 
 However, Windows' own NTFS filesystem is `case-preserving`_.
 This means that it is possible to mount an NTFS partition with Linux
 and make a file called "Myfile.txt" in the same directory as "MYFILE.TXT",
-but it will `not be possible to read or modify both of those files`_ using standard Windows software.
+but it will `not be possible to read or modify both of those files`_,
+at least not with standard Windows software.
 
 .. _case-preserving: http://en.wikipedia.org/wiki/Case_preservation
 .. _not be possible to read or modify both of those files: http://technet.microsoft.com/en-us/library/cc976809.aspx
 
-Not everyone considers filename case sensitivity to be a good thing. [#]_ [#]_ [#]_ [#]_
-However, the lack of agreement does have `negative`_ `ramifications`_ for cross-platform development.
-Developers of cross-platform software `make a habit`_ of not relying on case-sensitive filesystem access,
-but this issue still `crops up when porting`_ from Windows to Linux or vice-versa.
+This behavior exists to maintain `compatibility with MS-DOS`_ filesystems.
+MS-DOS was based on QDOS/86-DOS,
+which was `heavily influenced by CP/M`_
+(another case-insensitive OS [#CPM_case_insensitive]_),
+which in turn was heavily influenced by RT-11,
+a competitor with Unix on the PDP-11.
 
-.. [#] http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
-.. [#] http://blog.codinghorror.com/the-case-for-case-insensitivity/
-.. [#] http://www.somethinkodd.com/oddthinking/2005/10/27/the-case-for-case-preserving-case-insensitivity/
-.. [#] http://tiamat.tsotech.com/case-sensitivity-sucks
-.. [#] http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
-.. _negative: https://code.google.com/p/tortoisesvn/issues/detail?id=32
-.. _ramifications: http://openfoamwiki.net/index.php/Main_FAQ#Why_isn.27t_there_a_Windows_port_of_OpenFOAM_.3F
-.. _make a habit: http://www.mono-project.com/docs/getting-started/application-portability/#case-sensitivity
-.. _crops up when porting: http://adrienb.fr/blog/wp-content/uploads/2013/04/PortingSourceToLinux.pdf
+.. _compatibility with MS-DOS: http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx
+.. _heavily influenced by CP/M: http://dosmandrivel.blogspot.com/2007/08/is-dos-rip-off-of-cpm.html
+
+Why did RT-11 to use case-insensitive filenames?
+Because it didn't use ASCII for filenames,
+it used an encoding called `RADIX-50`_ to save memory.
+It also used three-character extensions.
+
+.. _RADIX-50: http://nemesis.lonestar.org/reference/telecom/codes/radix50.html
+
+    Locating files – files were located via the directory, which resided in a fixed
+    location at the beginning of the hard drive. The directory consisted of a
+    single array of entries, each with a 6.3 character file name formatted in DEC’s
+    Radix-50 format. A file’s directory entry indicated the address of the first
+    block of the file.
+
+http://cryptosmith.com/2013/10/19/digitals-rt-11-file-system/
+
+The lack of agreement on filename case-sensitivity may seem insignificant today,
+but it leads to non-trivial difficulties in cross-platform development. [#]_ [#]_
+Developers of cross-platform software can `make a habit`_ of not relying on case-sensitive filesystem access,
+but problems of this ilk arise when crops up when porting from Windows to Linux or vice-versa. [#]_
 
 For example, the Linux port of the `Unity engine`_ has `issues with case-sensitive filesystems`_.
 
@@ -405,6 +423,17 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
     will never fail that some well-intentioned programmer throws a toLower() in
     somewhere and ruins the party.
 
+.. [#] https://code.google.com/p/tortoisesvn/issues/detail?id=32
+.. [#] http://openfoamwiki.net/index.php/Main_FAQ#Why_isn.27t_there_a_Windows_port_of_OpenFOAM_.3F
+.. _make a habit: http://www.mono-project.com/docs/getting-started/application-portability/#case-sensitivity
+.. [#] http://adrienb.fr/blog/wp-content/uploads/2013/04/PortingSourceToLinux.pdf
+
+           - Linux filesystems are case-sensitive
+           - Windows is not
+           - Not a big issue for deployment (because everyone ships packs of some sort)
+           - But an issue during development, with loose files
+           - Solution 1: Slam all assets to lower case, including directories, then tolower all file lookups (only adjust below root)
+           - Solution 2: Build file cache, look for similarly named files
 .. _Unity engine: http://unity3d.com/
 .. _issues with case-sensitive filesystems: http://natoshabard.com/post/122670082502/porting-the-unity-editor-to-linux-stuff-i-wish
 

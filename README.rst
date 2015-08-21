@@ -305,48 +305,22 @@ http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
 
 Strictly speaking, modern Windows filenames could be case-sensitive,
 but they aren't because the `Windows API for opening files`_ `is not case-sensitive`_,
-i.e. the `default call`_ to ``CreateFile`` does not enable the ``FILE_FLAG_POSIX_SEMANTICS`` option.
-This is to maintain `compatibility with MS-DOS`_ filesystems,
-which was based on 86-DOS,
-which was heavily influenced by CP/M,
-which was heavily influenced by RT-11.
-CP/M may have been influenced by the hardware to use
-or maybe it followed the example of FORTRAN, COBOL, BASIC, LISP, and early punch cards,
-which were not case sensitive.
-
-.. TODO: did CP/M have a case-sensitive filesystem?
-.. Conflicting sources:
-.. "even CP/M was case sensitive"
-.. http://lists.apple.com/archives/unix-porting/2002/May/msg00190.html
-.. "Case insensitivity isn't so hard, especially in encodings like ASCII. DOS did it, CP/M did it."
-.. https://superuser.com/questions/881804/case-sensitive-file-extensions-in-windows-and-linux#comment1176681_881806
-.. "CP/M uses only upper-case for file names and the parameters are meant to represent file names and switches which in CP/M apparently shouldn't be case-sensitive."
-.. http://www.desertpenguin.org/blog/cpm-zero-page/
-.. It's open source now, so it should be possible to find this out.
-.. http://www.cpm.z80.de/
-.. It should also be noted that all alphabetic lower case letters in file 
-.. and drive names are always translated to upper case when they are processed by 
-.. the CCP. 
-.. ...
-.. Further, recall that the CCP always translates lower case characters to upper 
-.. case characters internally. Thus, lower case alphabetics are treated as if 
-.. they are upper case in command nannes and file references. 
-.. https://archive.org/stream/Intro_to_CPM_Feat_and_Facilities/Intro_to_CPM_Feat_and_Facilities_djvu.txt
-.. But CP/M also used ASCII. Weird.
-.. Does that mean that filenames were actually case-insensitive or not?
-.. I think I've got it:
-.. RT-11 implemented a simple and fast file system employing six-character filenames with three-character extensions ("6.3") encoded in RADIX-50, which packed those nine characters into only three 16-bit words (six bytes).
-.. https://en.wikipedia.org/wiki/RT-11
-.. https://en.wikipedia.org/wiki/DEC_Radix-50
-.. http://nemesis.lonestar.org/reference/telecom/codes/radix50.html
-
-.. Mac ＆ Windows users have to have filenames read to them over the phone by support techs. They have to be able to write little sticky notes to their mothers about how to open up the mail program, without worrying about how the filenames are capitalized.
+i.e. the `default call`_ to ``CreateFile``
+does not enable the ``FILE_FLAG_POSIX_SEMANTICS`` option.
 
 .. _Windows API for opening files: http://msdn.microsoft.com/en-us/library/windows/desktop/aa363858(v=vs.85).aspx
 .. _is not case-sensitive: http://support.microsoft.com/kb/100625
 .. _default call: http://www.nicklowe.org/2012/02/understanding-case-sensitivity-in-windows-obcaseinsensitive-file_case_sensitive_search/
-.. _compatibility with DOS: http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx
 
+This is to maintain `compatibility with MS-DOS`_ filesystems,
+which was based on 86-DOS,
+which was heavily influenced by CP/M [#CPM_case_insensitive]_ ,
+which was heavily influenced by RT-11,
+which was a competitor with Unix on the PDP-11.
+
+.. _compatibility with MS-DOS: http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx
+
+People have strong opinions about case-sensitivity in general.
 
     In math, many typographical attributes are used to distinguish names.
     Besides (R-r), math uses boldface for vector quantities, outline-face
@@ -354,11 +328,14 @@ which were not case sensitive.
     impoverished this way, and doesn't even have any conventions for
     representing such things (e.g. that bold_v displays a boldface v in
     formatted output).
-    ...
+
+    [ . . . ]
+
     Anecdotally, case sensitivity in programs is known to be error-prone for
     both beginners and experienced users.  Bob Frankston, a Multics alumnus
     and the co-inventor of VisiCalc, once said it was the biggest mistake
     that Multics had inflicted on the world.
+
 https://www.ma.utexas.edu/pipermail/maxima/2003/004483.html
 
 
@@ -370,6 +347,15 @@ https://www.ma.utexas.edu/pipermail/maxima/2003/004483.html
 
 https://lists.nongnu.org/archive/html/info-cvs/2003-11/msg00127.html
 
+But what was the technical reason for the RT-11 to use case-insensitive filenames?
+To save memory.
+
+.. I think I've got it:
+.. RT-11 implemented a simple and fast file system employing six-character filenames with three-character extensions ("6.3") encoded in RADIX-50, which packed those nine characters into only three 16-bit words (six bytes).
+.. https://en.wikipedia.org/wiki/RT-11
+.. https://en.wikipedia.org/wiki/DEC_Radix-50
+.. http://nemesis.lonestar.org/reference/telecom/codes/radix50.html
+.. http://cryptosmith.com/2013/10/19/digitals-rt-11-file-system/
 
 However, Windows' own NTFS filesystem is `case-preserving`_.
 This means that it is possible to mount an NTFS partition with Linux
@@ -408,10 +394,26 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 .. _Unity engine: http://unity3d.com/
 .. _issues with case-sensitive filesystems: http://natoshabard.com/post/122670082502/porting-the-unity-editor-to-linux-stuff-i-wish
 
+.. [#CPM_case_insensitive] CP/M did this conversion internally.
+
+        It should also be noted that all alphabetic lower case letters in file 
+        and drive names are always translated to upper case when they are processed by 
+        the CCP [Console Command Processor].
+
+        [ . . . ]
+
+        Further, recall that the CCP always translates lower case characters to upper 
+        case characters internally. Thus, lower case alphabetics are treated as if 
+        they are upper case in command names and file references. 
+
+    https://archive.org/stream/Intro_to_CPM_Feat_and_Facilities/Intro_to_CPM_Feat_and_Facilities_djvu.txt
+
+
 -----------------------
 Drive letter assignment
 -----------------------
 
+.. TODO: talk about this.
 .. https://unix.stackexchange.com/questions/93960/why-is-linuxs-filesystem-designed-as-a-single-directory-tree
 .. http://new.office-watch.com/2008/make-a-consistent-drive-letter-or-path-to-a-removable-drive/
 .. http://windowsitpro.com/systems-management/magic-mount-points

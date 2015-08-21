@@ -282,9 +282,11 @@ http://www.multicians.org/mgc.html
 
 http://www.multicians.org/pl1.html
 
-This has the additional benefits of making
+Besides permitting more options filenames,
+this has the additional benefit of making
 `string comparisons simpler and faster`_
-because they don't have to occasionally convert everything to uppercase or lowercase.
+because they don't have to occasionally convert
+to uppercase or lowercase.
 
 .. _string comparisons simpler and faster: http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
 

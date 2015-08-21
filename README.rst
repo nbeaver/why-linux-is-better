@@ -741,8 +741,8 @@ UAC
 ***
 
 For example, `users run as administrator by default in Windows XP`_ and earlier.
-When Microsoft fix this problem via `User Account Control`_ when Windows Vista was released,
-the required changes to the window manager were more than a little controversial [#]_ [#]_ [#]_ [#]_,
+Microsoft fixed this problem via `User Account Control`_ when Windows Vista was released,
+but the required changes to the window manager were more than a little controversial [#]_ [#]_ [#]_ [#]_,
 so much so that many users learned to ignore it or turned it off entirely.
 
 .. _User Account Control: http://technet.microsoft.com/en-us/magazine/2007.06.uac.aspx
@@ -793,7 +793,7 @@ and `a non-negligable number do exactly that`_.
 .. _since 1987: https://en.wikipedia.org/wiki/Twm
 .. _a non-negligable number do exactly that: https://qa.debian.org/popcon.php?package=twm
 
-This reflects a general dislike of forced updates.
+This reflects a general dislike of forced breaking changes.
 When the GNOME developers made controversial changes [#]_ [#]_ [#]_ in GNOME 3,
 a team forked GNOME 2 to become `MATE`_,
 which retained the "traditional desktop metaphor".

@@ -911,9 +911,19 @@ because of how Microsoft functions as a corporation.
 (This developer gave a SHA1 hash of part of the NT kernel as proof,
 which while not incontrovertible is certainly strong evidence he is who he claims to be.)
 
-    Windows is indeed slower than other operating systems in many scenarios, and the gap is worsening. The cause of the problem is social. There's almost none of the improvement for its own sake, for the sake of glory, that you see in the Linux world.
+    Windows is indeed slower than other operating systems in many scenarios,
+    and the gap is worsening. The cause of the problem is social. There's
+    almost none of the improvement for its own sake, for the sake of glory,
+    that you see in the Linux world.
     
-    Granted, occasionally one sees naive people try to make things better. These people almost always fail. We can and do improve performance for specific scenarios that people with the ability to allocate resources believe impact business goals, but this work is Sisyphean. There's no formal or informal program of systemic performance improvement. We started caring about security because pre-SP3 Windows XP was an existential threat to the business. Our low performance is not an existential threat to the business.
+    Granted, occasionally one sees naive people try to make things better.
+    These people almost always fail. We can and do improve performance for
+    specific scenarios that people with the ability to allocate resources
+    believe impact business goals, but this work is Sisyphean. There's no
+    formal or informal program of systemic performance improvement. We started
+    caring about security because pre-SP3 Windows XP was an existential threat
+    to the business. Our low performance is not an existential threat to the
+    business.
 
     -- Anonymous Windows NT kernel developer
     
@@ -926,7 +936,9 @@ Contrast with Microsoft's `"Linux Myths" article`_ from 1999.
 
     Reality: Windows NT 4.0 Outperforms Linux On Common Customer Workloads
 
-    The Linux community claims to have improved performance and scalability in the latest versions of the Linux Kernel (2.2), however it's clear that Linux remains inferior to the Windows NT® 4.0 operating system.
+    The Linux community claims to have improved performance and scalability in
+    the latest versions of the Linux Kernel (2.2), however it's clear that
+    Linux remains inferior to the Windows NT® 4.0 operating system.
 
 .. _"Linux Myths" article: https://web.archive.org/web/20000303020855/http://www.microsoft.com/NTServer/nts/news/msnw/LinuxMyths.asp
 
@@ -940,7 +952,13 @@ When Valve `ported Left 4 Dead 2 to Linux`_ in 2012,
 they discovered that OpenGL on Windows and Linux
 achieved a higher framerate than Direct3D on Windows.
 
-    After this work, Left 4 Dead 2 is running at 315 FPS on Linux. That the Linux version runs faster than the Windows version (270.6) seems a little counter-intuitive, given the greater amount of time we have spent on the Windows version. However, it does speak to the underlying efficiency of the kernel and OpenGL. Interestingly, in the process of working with hardware vendors we also sped up the OpenGL implementation on Windows. Left 4 Dead 2 is now running at 303.4 FPS with that configuration.
+    After this work, Left 4 Dead 2 is running at 315 FPS on Linux. That the
+    Linux version runs faster than the Windows version (270.6) seems a little
+    counter-intuitive, given the greater amount of time we have spent on the
+    Windows version. However, it does speak to the underlying efficiency of the
+    kernel and OpenGL. Interestingly, in the process of working with hardware
+    vendors we also sped up the OpenGL implementation on Windows. Left 4 Dead 2
+    is now running at 303.4 FPS with that configuration.
 
     -- Valve Linux Team
 
@@ -1155,7 +1173,13 @@ Windows configuration generally requires navigating deeply nested GUIs and ticki
 This has equivalent security problems to blindly running commands in a terminal,
 but is much less efficient.
 
-    Graphical user interfaces (GUIs) are helpful for many tasks, but they are not good for all tasks. I have long felt that most computers today do not use electricity. They instead seem to be powered by the "pumping" motion of the mouse! Computers were supposed to free us from manual labor, but how many times have you performed some task you felt sure the computer should be able to do? You ended up doing the work by tediously working the mouse. Pointing and clicking, pointing and clicking.
+    Graphical user interfaces (GUIs) are helpful for many tasks, but they are
+    not good for all tasks. I have long felt that most computers today do not
+    use electricity. They instead seem to be powered by the "pumping" motion of
+    the mouse! Computers were supposed to free us from manual labor, but how
+    many times have you performed some task you felt sure the computer should
+    be able to do? You ended up doing the work by tediously working the mouse.
+    Pointing and clicking, pointing and clicking.
 
     -- William E. Shotts, Jr. "`Learning the shell`_"
 

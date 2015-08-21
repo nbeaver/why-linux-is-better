@@ -305,41 +305,53 @@ to uppercase or lowercase.
 
 http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
 
-Strictly speaking, modern Windows filenames could be case-sensitive,
-but they aren't because the `Windows API for opening files`_ `is not case-sensitive`_,
-i.e. the `default call`_ to ``CreateFile``
-does not enable the ``FILE_FLAG_POSIX_SEMANTICS`` option.
+However, there is no shortage of opinions that this was a bad choice. [#]_ [#]_ [#]_ [#]_ [#]_ [#]_
 
-.. _Windows API for opening files: http://msdn.microsoft.com/en-us/library/windows/desktop/aa363858(v=vs.85).aspx
-.. _is not case-sensitive: http://support.microsoft.com/kb/100625
-.. _default call: http://www.nicklowe.org/2012/02/understanding-case-sensitivity-in-windows-obcaseinsensitive-file_case_sensitive_search/
+.. [#] https://www.ma.utexas.edu/pipermail/maxima/2003/004483.html
 
-This is to maintain `compatibility with MS-DOS`_ filesystems,
-which was based on 86-DOS,
-which was heavily influenced by CP/M [#CPM_case_insensitive]_ ,
-which was heavily influenced by RT-11,
-which was a competitor with Unix on the PDP-11.
+           Anecdotally, case sensitivity in programs is known to be error-prone for
+           both beginners and experienced users.  Bob Frankston, a Multics alumnus
+           and the co-inventor of VisiCalc, once said it was the biggest mistake
+           that Multics had inflicted on the world.
 
-.. _compatibility with MS-DOS: http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx
+.. [#] http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
 
-People have strong opinions about case-sensitivity in general.
+           Mac ＆ Windows users have to have filenames read to them over the phone by
+           support techs. They have to be able to write little sticky notes to their
+           mothers about how to open up the mail program, without worrying about how the
+           filenames are capitalized. Haven't you ever fumed over a URL with initial-caps
+           in the folder names in the path, having to fiddle with capitalization until you
+           get a response that's anything but a 404? Haven't you ever been secretly
+           pleased that e-mail addresses aren't case-sensitive?
 
-    In math, many typographical attributes are used to distinguish names.
-    Besides (R-r), math uses boldface for vector quantities, outline-face
-    for sets, Greek letters for angles, etc.  Maxima is terribly
-    impoverished this way, and doesn't even have any conventions for
-    representing such things (e.g. that bold_v displays a boldface v in
-    formatted output).
+.. [#] http://blog.codinghorror.com/the-case-for-case-insensitivity/
 
-    [ . . . ]
+           One of the most pernicious problems with C-based languages is that they're
+           case-sensitive. While this decision may have made sense in 1972 when the
+           language was created, one wonders why the sins of Kernighan and Ritchie have
+           been blindly perpetuated for the last thirty-three years.
 
-    Anecdotally, case sensitivity in programs is known to be error-prone for
-    both beginners and experienced users.  Bob Frankston, a Multics alumnus
-    and the co-inventor of VisiCalc, once said it was the biggest mistake
-    that Multics had inflicted on the world.
+           Unless you have extremely compelling reasons to make something case-sensitive,
+           case insensitivity is a much more human being friendly design choice. Designing
+           software that's easier for machines is questionable at best.
 
-https://www.ma.utexas.edu/pipermail/maxima/2003/004483.html
+.. [#] http://www.somethinkodd.com/oddthinking/2005/10/27/the-case-for-case-preserving-case-insensitivity/
 
+           There is no longer any excuse for making humans learn and handle the quirks of
+           the way computers store upper- and lower-case characters. Instead, software
+           should handle the quirks of human language.
+
+.. [#] http://tiamat.tsotech.com/case-sensitivity-sucks
+
+           Since it appears to have manifested out of opinion rather than necessity, it
+           could be said case-sensitivity is the worst way that modern technology sucks.
+
+.. [#] http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
+
+           This is really stupid, it causes a ton of problems and there is no longer any
+           good reason to have case sensitivity in an OS.
+
+There are also passionate views to the opposite effect.
 
     Many of us consider those filesystems which cannot preserve case, but
     which accept "input" in random case, to be so utterly broken as to be

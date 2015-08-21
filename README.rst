@@ -275,15 +275,28 @@ so `string comparisons were simpler and faster`_ if they didn't occasionally hav
 .. _keyboards on PDP-11 computers: https://pmf.silvrback.com/pdp-11-keyboard
 .. _string comparisons were simpler and faster: http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
 
-    Bear in mind that it's MUCH more work for a filesystem to be case-insensitive than -sensitive. A filesystem is case-sensitive by default, in the simplest case; it can only be made case-INsensitive through a lot of extra engineering. In UNIX, all the system has to do is sort on the ASCII values of the first letters of the filenames. In the Mac OS and Windows, the filesystem has to be smart enough to create synonyms of various letters — A for a, and so on — and sort accordingly. That takes a LOT of code. It's a testament to the completeness of the original Mac OS that in 1984 this was all handled properly, before Windows even brought lower-case letters to the PC side.
+
+    Bear in mind that it's MUCH more work for a filesystem to be
+    case-insensitive than -sensitive. A filesystem is case-sensitive by
+    default, in the simplest case; it can only be made case-INsensitive through
+    a lot of extra engineering. In UNIX, all the system has to do is sort on
+    the ASCII values of the first letters of the filenames. In the Mac OS and
+    Windows, the filesystem has to be smart enough to create synonyms of
+    various letters — A for a, and so on — and sort accordingly. That takes a
+    LOT of code. It's a testament to the completeness of the original Mac OS
+    that in 1984 this was all handled properly, before Windows even brought
+    lower-case letters to the PC side.
 
 http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
 
-    Everything in Multics is case sensitive; Multics permits use of the full upper and lower case ASCII character set.
+    Everything in Multics is case sensitive; Multics permits use of the full
+    upper and lower case ASCII character set.
 
 http://www.multicians.org/mgc.html
 
-    Since the Multics file system distinguished between upper and lower case, external names had to be case sensitive, and without much discussion we chose to have all variable names be case sensitive.
+    Since the Multics file system distinguished between upper and lower case,
+    external names had to be case sensitive, and without much discussion we
+    chose to have all variable names be case sensitive.
 
 http://www.multicians.org/pl1.html
 

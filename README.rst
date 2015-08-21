@@ -282,13 +282,15 @@ http://www.multicians.org/mgc.html
 
 http://www.multicians.org/pl1.html
 
-Besides permitting more options filenames,
-this has the additional benefit of making
-`string comparisons simpler and faster`_
+This has some intuitive appeal;
+it is useful to be able to distinguish between
+the abbreviation for United State ("US")
+and the first-person plural objective pronoun ("us"),
+for example.
+It also provideds more possibilities for filenames,
+and makes filename comparisons simpler and faster
 because they don't have to occasionally convert
 to uppercase or lowercase.
-
-.. _string comparisons simpler and faster: http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
 
     Bear in mind that it's MUCH more work for a filesystem to be
     case-insensitive than -sensitive. A filesystem is case-sensitive by

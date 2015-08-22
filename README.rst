@@ -287,6 +287,9 @@ it is useful to be able to distinguish between
 the abbreviation for United State ("US")
 and the first-person plural objective pronoun ("us"),
 for example.
+
+.. Talk more? E.g. Rob/rob, Job/job, Lot/lot, Miami Marlins vs Miami marlins, Target sale vs target sale, Scrabble/scrabble, drake/Drake
+
 It also provideds more possibilities for filenames,
 and makes filename comparisons simpler and faster
 because they don't have to occasionally convert

@@ -428,6 +428,10 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
 .. [#] https://code.google.com/p/tortoisesvn/issues/detail?id=32
 .. [#] http://openfoamwiki.net/index.php/Main_FAQ#Why_isn.27t_there_a_Windows_port_of_OpenFOAM_.3F
+
+           The OpenFOAM-sources need a fully case-sensitive file-system and can't even be
+           unpacked properly on a Windows system
+
 .. _make a habit: http://www.mono-project.com/docs/getting-started/application-portability/#case-sensitivity
 .. [#] http://adrienb.fr/blog/wp-content/uploads/2013/04/PortingSourceToLinux.pdf
 

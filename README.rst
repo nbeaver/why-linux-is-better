@@ -174,6 +174,23 @@ since that is almost always the way it is installed.
 
 .. _desktop version of Linux pre-installed: https://help.ubuntu.com/community/UbuntuPre-installed
 
+----------------------------------------
+Virtual machine limitations and drivers.
+----------------------------------------
+
+Similar to live booting,
+Linux is often run as a virtual machine,
+and consequently it is well-adapted to changes in hardware.
+
+For example, an existing Linux partition on a physical hard drive
+can, with some care, be virtualized and run on another machine,
+or even simply transferred to a USB enclosure and booted directly,
+a `virtue which Windows does not share`_,
+due both to `licensing and driver problems`_.
+
+.. _virtue which Windows does not share: https://www.virtualbox.org/wiki/Migrate_Windows
+.. _licensing and driver problems: https://askubuntu.com/questions/174581/is-there-any-way-to-boot-windows-7-partition-in-virtual-machine
+
 ---------------------
 Maximum path lengths.
 ---------------------

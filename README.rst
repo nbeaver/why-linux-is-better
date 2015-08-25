@@ -631,20 +631,34 @@ have `implemented work-arounds`_.
 .. _implemented work-arounds: http://legacy.python.org/dev/peps/pep-0397/
 .. _cannot indicate it is version 2 or 3: http://stackoverflow.com/questions/7574453/shebang-notation-python-scripts-on-windows-and-linux
 
---------------------------------
-Read-only permissions semantics.
---------------------------------
+--------------------------------------------
+Ineffectual read-only permissions semantics.
+--------------------------------------------
 
-Read-only files on Windows `can be moved, renamed, or deleted`_.
-`Folders cannot have a read-only status`_.
+Permissions are a big topic in multi-user computing,
+and both Linux and Windows have adapted over time,
+each with various advantages and disadvantages. [#unix_groups]_ [#ntfs_permissions_flaw]_
+
+However, here is a specific example
+of a relatively simple, single-user permissions feature:
+it is sometimes desirable to set old files as read-only,
+so that they are still easily accessible,
+but are less likely to be accidentally deleted, moved, or modified.
+
+Unfortunately, while the contents of read-only files on Windows cannot be changed,
+the files themselves `can be moved, renamed, or deleted`_,
+because `folders cannot have a read-only status`_.
 
 .. _can be moved, renamed, or deleted: http://windows.microsoft.com/en-us/windows7/prevent-changes-to-a-file-by-setting-it-to-read-only
-.. _Folders cannot have a read-only status: http://windows.microsoft.com/en-us/windows-vista/prevent-changes-to-a-file-or-folder-read-only
+.. _folders cannot have a read-only status: http://windows.microsoft.com/en-us/windows-vista/prevent-changes-to-a-file-or-folder-read-only
 
-Linux, by contrast, inherits a sophisticated permissions model from Unix,
-which was designed as a multi-user system.
-This means that, for example, a read-only folder cannot have files added to it,
-and read-only files cannot be moved, renamed, or deleted without first removing the read-only status.
+In Linux, by contrast, a read-only directory cannot have files added to it,
+and files in such a directory cannot be moved, renamed, or deleted
+without first removing the read-only status from the directory they are in.
+Modifications of the contents of the files depend on the the individual file permissions.
+
+.. [#unix_groups] Unix permissions, for example, are not a panacea: https://unix.stackexchange.com/questions/164303/single-user-for-sharing-vs-multiple-users
+.. [#ntfs_permissions_flaw] NTFS permissions have their own issues, e.g. https://serverfault.com/questions/31709/how-to-workaround-the-ntfs-move-copy-design-flaw
 
 +++++++++++++++++++++++++++++++++++++
 Architectural deficiencies of Windows

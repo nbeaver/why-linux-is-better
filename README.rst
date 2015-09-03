@@ -539,6 +539,10 @@ Windows software uses various workarounds,
 such as removing the colon entirely
 or replacing it with a similar-looking Unicode character. [#]_ [#]_ [#]_ [#]_ [#]_ [#]_ [#]_
 
+(It should be acknowledged that on Linux
+the names of directories in ``$PATH`` cannot contain colons either,
+but such restrictions do not apply to filenames.)
+
 .. [#] https://stackoverflow.com/questions/7874111/convert-datetime-now-to-a-valid-windows-filename
 .. [#] https://stackoverflow.com/questions/11037831/filename-timestamp-in-windows-cmd-batch-script
 .. [#] https://stackoverflow.com/questions/1642677/generate-unique-file-name-with-timestamp-in-batch-script
@@ -546,11 +550,6 @@ or replacing it with a similar-looking Unicode character. [#]_ [#]_ [#]_ [#]_ [#
 .. [#] https://serverfault.com/questions/292014/preferred-format-of-file-names-which-include-a-timestamp
 .. [#] https://serverfault.com/questions/16706/current-date-in-the-file-name
 .. [#] https://programmers.stackexchange.com/questions/61683/standard-format-for-using-a-timestamp-as-part-of-a-filename
-
-
-(It should be acknowledged that on Linux
-the names of directories in ``$PATH`` cannot contain colons either,
-but such restrictions do not apply to filenames.)
 
 .. [#C_strings] The wisdom of this decision is a matter of some debate.
 
@@ -738,16 +737,16 @@ and run a backtrace when the program fails
 
 Alternately, if the process is already unresponsive,
 you can attach ``strace`` and see what system calls it makes,
-and whether it receives the kill signals you send it or not.
+and observe how it responds to various kill signals.
 
-There are `plenty of Windows`_ `programs`_ `similar`_ to ``gdb`` and ``strace``,
+There are plenty of Windows programs similar to ``gdb`` and ``strace``, [#]_ [#]_ [#]_
 but they don't come installed by default,
 whereas both ``strace`` and ``gdb`` come with almost all Linux distributions,
 so system administrators can rely on being able to use them on nearly any Linux box.
 
-.. _plenty of Windows: http://msdn.microsoft.com/en-us/library/windows/hardware/ff551063(v=vs.85).aspx
-.. _programs: http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx
-.. _similar: http://www.intellectualheaven.com/default.asp?BH=projects&H=strace.htm
+.. [#] http://msdn.microsoft.com/en-us/library/windows/hardware/ff551063(v=vs.85).aspx
+.. [#] http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx
+.. [#] http://www.intellectualheaven.com/default.asp?BH=projects&H=strace.htm
 
 ---------------------------------
 Restrictive default file locking.
@@ -763,8 +762,9 @@ this is generally blocked until the application is killed.
 .. _file access is a nuisance: https://stackoverflow.com/questions/546504/how-do-i-make-windows-file-locking-more-like-unix-file-locking
 
 By contrast,
-on Linux it is not unusual for two different applications to share read access to a file,
-or one process to read a file another process is writing to,
+on Linux it is not unusual for two different applications
+to share read access to the same file,
+or for one process to read a file while another process is writing to it,
 since applications do not lock files by default.
 
 ----------------------------
@@ -812,14 +812,14 @@ especially on high-resolution monitors. [#]_ [#]_
 .. [#] http://windows.microsoft.com/en-us/windows/working-with-windows#1TC=windows-7&section_3
 .. [#] http://answers.microsoft.com/en-us/windows/forum/windows_7-desktop/cannot-resize-small-windows/160862cf-6e52-4a99-9365-d380491a067d
 
-The usual solution to this problem is to download and run a third-party background process
+One solution to this problem is to download and run a third-party background process
 that tracks every single time a window is resized. [#]_ [#]_ [#]_
 
 .. [#] http://www.thewindowsclub.com/resize-non-resizable-windows
 .. [#] http://www.howtogeek.com/howto/11799/turn-non-resizeable-windows-into-rezieable-windows/
 .. [#] http://www.digitallis.co.uk/pc/ResizeEnable/index.html
 
-The README does not have a good URL,
+The README is not directly linkable via URL,
 so here are some of the salient parts::
 
     =============================================================================================
@@ -898,16 +898,18 @@ so much so that many users learned to ignore it or turned it off entirely.
 
 .. _User Account Control: http://technet.microsoft.com/en-us/magazine/2007.06.uac.aspx
 .. _users run as administrator by default in Windows XP: https://msdn.microsoft.com/en-us/library/bb530410.aspx#vistauac_topic1
-.. [#] http://www.computerworld.com/article/2477832/desktop-apps/microsoft-exec--we-know-users-hate-uac.html
-.. [#] http://arstechnica.com/security/2008/04/vistas-uac-security-prompt-was-designed-to-annoy-you/
-.. [#] http://windowssecrets.com/woodys-windows/microsoft-claims-windows-7-uac-flaw-is-by-design/
-.. [#] http://windowsitpro.com/blog/microsoft-quotmalware-authors-really-hate-uacquot
 
 Despite Microsoft ending support for Windows XP in April 2014,
 a `large number of users are still running Windows XP in 2015`_,
 many of them as administrators.
 
 .. _large number of users are still running Windows XP in 2015: https://redmondmag.com/articles/2015/04/08/windows-xp-usage.aspx
+
+.. [#] http://www.computerworld.com/article/2477832/desktop-apps/microsoft-exec--we-know-users-hate-uac.html
+.. [#] http://arstechnica.com/security/2008/04/vistas-uac-security-prompt-was-designed-to-annoy-you/
+.. [#] http://windowssecrets.com/woodys-windows/microsoft-claims-windows-7-uac-flaw-is-by-design/
+.. [#] http://windowsitpro.com/blog/microsoft-quotmalware-authors-really-hate-uacquot
+
 
 *********
 Windows 8
@@ -917,19 +919,9 @@ As another example,
 the transition from Windows 7 to Windows 8 was controversial,
 because the Metro user interface departed substantially from the historical Windows desktop. [#]_ [#]_ [#]_ [#]_ [#]_ [#]_
 
-.. [#] http://www.washingtonpost.com/blogs/the-switch/wp/2014/02/14/8-things-i-hate-about-windows-8-1/
-.. [#] http://www.forbes.com/sites/tonybradley/2014/03/19/im-sorry-the-windows-8-hate-just-doesnt-make-sense/
-.. [#] http://www.smh.com.au/digital-life/computers/hate-windows-8-microsoft-replacing-it-with-windows-9-20140122-317fo.html
-.. [#] http://bgr.com/2013/12/04/windows-8-hatred-explained/
-.. [#] http://www.maximumpc.com/article/features/8_things_we_hate_about_windows_841
-.. [#] http://answers.microsoft.com/en-us/windows/forum/windows_8-windows_install/i-hate-windows-8/cd2d9fec-9d95-42ba-9e41-727419459465
-
 Enterprise customers, in particular,
 refused to upgrade from Windows 7,
 citing usability problems. [#]_ [#]_
-
-.. [#] http://www.forbes.com/sites/adriankingsleyhughes/2013/05/19/why-enterprise-is-avoiding-windows-8/
-.. [#] http://www.nngroup.com/articles/windows-8-disappointing-usability/
 
 These examples are relevant not because they show that Microsoft makes occasional mistakes,
 but to highlight the risks of monoculture and vendor lock-in
@@ -948,11 +940,9 @@ This reflects a general dislike of forced breaking changes.
 When the GNOME developers made controversial changes [#]_ [#]_ [#]_ in GNOME 3,
 a team forked GNOME 2 to become `MATE`_,
 which retained the "traditional desktop metaphor".
-This would be impossibly difficult if GNOME 2 were the desktop environment of a proprietary operating system.
+This would be impossibly difficult if GNOME 2
+were the desktop environment of a proprietary operating system.
 
-.. [#] http://www.zdnet.com/article/linus-torvalds-would-like-to-see-a-gnome-fork/
-.. [#] https://felipec.wordpress.com/2011/06/16/after-two-weeks-of-using-gnome-3-i-officially-hate-it/
-.. [#] https://lwn.net/Articles/433409/
 .. _MATE: http://mate-desktop.org/
 
 A fork like MATE will either `eventually fade away`_,
@@ -964,29 +954,44 @@ depending on the needs of its users.
 .. _coexist with its parent project: https://en.wikipedia.org/wiki/OpenBSD
 .. _overtake its parent: http://www.softpanorama.org/People/Stallman/history_of_gcc_development.shtml
 
+.. [#] http://www.washingtonpost.com/blogs/the-switch/wp/2014/02/14/8-things-i-hate-about-windows-8-1/
+.. [#] http://www.forbes.com/sites/tonybradley/2014/03/19/im-sorry-the-windows-8-hate-just-doesnt-make-sense/
+.. [#] http://www.smh.com.au/digital-life/computers/hate-windows-8-microsoft-replacing-it-with-windows-9-20140122-317fo.html
+.. [#] http://bgr.com/2013/12/04/windows-8-hatred-explained/
+.. [#] http://www.maximumpc.com/article/features/8_things_we_hate_about_windows_841
+.. [#] http://answers.microsoft.com/en-us/windows/forum/windows_8-windows_install/i-hate-windows-8/cd2d9fec-9d95-42ba-9e41-727419459465
+.. [#] http://www.forbes.com/sites/adriankingsleyhughes/2013/05/19/why-enterprise-is-avoiding-windows-8/
+.. [#] http://www.nngroup.com/articles/windows-8-disappointing-usability/
+.. [#] http://www.zdnet.com/article/linus-torvalds-would-like-to-see-a-gnome-fork/
+.. [#] https://felipec.wordpress.com/2011/06/16/after-two-weeks-of-using-gnome-3-i-officially-hate-it/
+.. [#] https://lwn.net/Articles/433409/
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Crippled multi-user remote access.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`Windows remote desktop licensing`_ makes multi-user remote access and sharing of machine resources expensive.
-By design, multiple concurrent sessions are disabled on all but the server version of Windows,
-and `third-party remote desktop software is not permitted`_ to legally `circumvent this limitation`_. [#]_ [#]_ [#]_
+`Windows remote desktop licensing`_ makes multi-user remote access
+and sharing of machine resources expensive.
+By design, multiple concurrent sessions are disabled
+on all but the server version of Windows,
+and `third-party remote desktop software is not permitted`_
+to legally `circumvent this limitation`_. [#]_ [#]_ [#]_
 
 .. _Windows remote desktop licensing: http://technet.microsoft.com/en-us/library/cc725933.aspx
 .. _third-party remote desktop software is not permitted: http://superuser.com/questions/784523/tightvnc-while-an-rdp-session-is-running
 .. _circumvent this limitation: http://lifehacker.com/5873717/enable-concurrent-remote-desktop-sessions-in-windows-with-this-patch
-.. [#] "You would think that because Windows XP is multiuser, you could have multiple users running VNC servers. Indeed you can, but you can only use the one that has the currently active user - switch away, and that server goes black, and in my testing, can't even be used again. Windows XP is not really multiuser." http://aplawrence.com/Reviews/tightvnc.html
-.. [#] "Windows, unless you're using Terminal Server (and have the licenses to go with it) doesn't have this capability, and I don't believe that even with Terminal Server, VNC will be able to take advantage of this." http://tightvnc.10971.n7.nabble.com/Multiple-Unique-Sessions-td2060.html
-.. [#] "If you heard about/saw many active desktop sessions in non-server Windows - that was modified OS with swapped termsrv.dll. Licensing does not allow you to modify/swap system files and use non-server system that way and this is ILLEGAL." http://stackoverflow.com/questions/9410091/multi-user-login-remote-desktop-on-windows-linux
 
 Note that this is a licensing issue,
 not a technical limitation of Windows itself,
 but it compromises the utility of the operating system.
 
-Because Linux is multi-user by design, `multiple local instances of the X server`_ are not unusual,
-even with different desktop environments (e.g. GNOME and KDE can coexist on the same Linux box).
+Because Linux is multi-user by design,
+`multiple local instances of the X server`_ are not unusual,
+even with different desktop environments
+(e.g. GNOME and KDE can coexist on the same Linux box).
 X sessions can be accessed remotely using e.g. `VNC`_ or `X over SSH`_.
-It is common for two different users to work remotely at the same time on the same machine.
+It is common for two different users to work remotely
+at the same time on the same machine.
 
 .. _multiple local instances of the X server: http://journalxtra.com/linux/desktop/multiple-desktops-on-one-linux-pc-now-thats-greedy/
 .. _VNC: https://wiki.debian.org/VNCviewer
@@ -997,8 +1002,10 @@ Even on single-user machines this capability of the X server is useful to e.g. r
 
 .. _multiseat: https://wiki.archlinux.org/index.php/xorg_multiseat
 
-Also, sometimes Linux users will forego the X server entirely and log in from a text-only `virtual terminal`_ (a.k.a ``tty``).
-This is important to be able to do if the X server crashes or cannot start.
+Also, sometimes Linux users will forego the X server entirely
+and log in from a text-only `virtual terminal`_ (a.k.a ``tty``).
+This is important to be able to do
+if the X server crashes or cannot start.
 
 .. _virtual terminal: http://en.wikipedia.org/wiki/Virtual_console
 
@@ -1006,7 +1013,8 @@ Because the Linux kernel does not rely on the X server to function,
 the X server can be restarted without rebooting.
 
 If a crash is unrecoverable and it becomes necessary to reboot the kernel,
-one can do so cleanly even if the X server is unresponsive by using the "`Magic Alt-SysRq keys`_",
+one can do so cleanly even if the X server is unresponsive
+by using the "`Magic Alt-SysRq keys`_",
 key combinations which send instructions to the kernel.
 
 .. _Magic Alt-SysRq keys: https://www.kernel.org/doc/Documentation/sysrq.txt
@@ -1028,7 +1036,8 @@ and Canonical (the company behind Ubuntu) is working on a separate but similar e
 .. _Wayland: http://wayland.freedesktop.org/architecture.html
 .. _Mir: http://unity.ubuntu.com/mir/
 
-However, X11 has become so pervasive that versions of it power not only Linux desktops
+However, X11 has become so pervasive
+that versions of it power not only Linux desktops
 but also the BSD family of operating systems and OS X (`XQuartz`_),
 and it's also been `ported to Windows`_ `and Android`_,
 even though they don't use it as a display manager.
@@ -1037,30 +1046,41 @@ even though they don't use it as a display manager.
 .. _ported to Windows: http://sourceforge.net/projects/xming/
 .. _and Android: https://play.google.com/store/apps/details?id=net.sourceforge.x11basic
 
+.. [#] "You would think that because Windows XP is multiuser, you could have multiple users running VNC servers. Indeed you can, but you can only use the one that has the currently active user - switch away, and that server goes black, and in my testing, can't even be used again. Windows XP is not really multiuser." http://aplawrence.com/Reviews/tightvnc.html
+.. [#] "Windows, unless you're using Terminal Server (and have the licenses to go with it) doesn't have this capability, and I don't believe that even with Terminal Server, VNC will be able to take advantage of this." http://tightvnc.10971.n7.nabble.com/Multiple-Unique-Sessions-td2060.html
+.. [#] "If you heard about/saw many active desktop sessions in non-server Windows - that was modified OS with swapped termsrv.dll. Licensing does not allow you to modify/swap system files and use non-server system that way and this is ILLEGAL." http://stackoverflow.com/questions/9410091/multi-user-login-remote-desktop-on-windows-linux
+
 --------------------------
 Some notes on performance.
 --------------------------
 
 So far, we have avoided the topic of performance almost entirely.
 
-This is because evaluating and comparing performance is a complex and nuanced topic,
-incorporating at the very least hardware-specific considerations and deep knowledge of every level of software.
+This is because evaluating and comparing performance
+is a complex and nuanced topic,
+incorporating at the very least hardware-specific considerations
+and deep knowledge of every level of software.
 
 It also incorporates psychology,
-since people don't care if software has good performance if they `don't perceive it to have good performance`_.
+since people don't care if software has good performance
+if they `don't perceive it to have good performance`_.
 
 .. _don't perceive it to have good performance: https://developers.google.com/speed/articles/usability-latency
 
 As a result,
-unqualified generalizations about the performance of software as complex as an operating system are nearly always wrong.
+unqualified generalizations about the performance
+of complex software such as an operating system
+are nearly always wrong.
 
-There are some things, however, that we do know about relative performance of the Windows and Linux kernels.
+There are some things, however, that we do know
+about relative performance of the Windows and Linux kernels.
 
 First, an `anonymous Windows kernel developer stated`_ in 2013
 that he believes that Windows has fallen behind in performance
 because of how Microsoft functions as a corporation.
 (This developer gave a SHA1 hash of part of the NT kernel as proof,
-which while not incontrovertible is certainly strong evidence he is who he claims to be.)
+which while not incontrovertible is certainly strong evidence
+that he is who he claims to be.)
 
     Windows is indeed slower than other operating systems in many scenarios,
     and the gap is worsening. The cause of the problem is social. There's
@@ -1125,18 +1145,21 @@ Configuration and software packaging.
 Default software.
 -----------------
 
-Linux distributions have many powerful development tools installed by default,
+Linux distributions have development tools installed by default,
 such as a C compiler (usually ``gcc``),
 build automation (e.g. ``make``),
-and usually more than one shell (e.g. ``bash``, ``dash``, and ``csh``).
+text utilities (``diff``, ``patch``, ``grep``, ``find``, etc.),
+and more than one shell (e.g. ``bash``, ``dash``, and ``csh``).
 In fact, they are required to provide these tools by the `POSIX standard`_.
 Standards like POSIX make writing and using portable software easier,
 and standard POSIX tools are unlikely to become obsolete.
 
 .. _POSIX standard: http://pubs.opengroup.org/onlinepubs/009696699/utilities/contents.html
 
-On Windows, by contrast, neither the `C compiler and build system`_
-nor the currently favored Windows shell (`PowerShell`_) are installed by default.
+On Windows, by contrast,
+neither the `C compiler and build system`_
+nor the currently favored Windows shell (`PowerShell`_)
+are installed by default.
 
 .. _C compiler and build system: http://msdn.microsoft.com/en-us/vstudio/
 .. _PowerShell: http://technet.microsoft.com/en-us/library/hh847837.aspx
@@ -1148,8 +1171,10 @@ Registries and dotfiles.
 On Windows, configuration files are not centralized in the user's home directory.
 Most of the things that users care about
 --- not losing configuration between installs ---
-are scattered around as ``.INI`` text files in various directories or in the `Windows Registry`_.
-This makes configuration less robust and harder to adapt to the needs of specific users.
+are scattered around as ``.INI`` text files
+in various directories or in the `Windows Registry`_.
+This makes configuration less robust
+and harder to adapt to the needs of specific users.
 Windows developers have noted the `many other drawbacks`_ `of the registry`_.
 
 .. _Windows Registry: http://msdn.microsoft.com/en-us/library/ms970651.aspx
@@ -1163,51 +1188,70 @@ However, there are a variety of possibilities depending on the needs of the peop
 
 .. _package manager: `Package manager with signed binaries.`_
 
-System administrators, for example, care about system-level configuration files, generally text files in ``/etc/``.
+System administrators, for example,
+care about system-level configuration files,
+generally text files in ``/etc/``.
 Text files are simple to edit for ad-hoc debugging and automation,
 easy to diff,
 easy to backup or version control,
 and robust against corruption.
 
-User level configuration is stored in dotfiles (hidden folders or files) in the user's home directory.
-There are good arguments to the effect that making dotfiles responsible for configuration `is problematic`_.
-Configuration files would make much more sense stored in a dedicated configuration folder in the user's home directory,
+User level configuration is stored in dotfiles (hidden folders or files)
+in the user's home directory.
+There are good arguments to the effect that
+making dotfiles responsible for configuration `is problematic`_.
+Configuration files would make much more sense
+if stored in a dedicated configuration folder in the user's home directory,
 and indeed some applications are `beginning to standardize on this`_.
 In the meantime, however, dotfiles do the job, cluttered as they are,
-since each user's files and configuration is isolated to his or her home directory.
+since each user's files and configuration
+is isolated to his or her home directory.
 
 .. _is problematic: https://plus.google.com/+RobPikeTheHuman/posts/R58WgWwN9jp
 .. _beginning to standardize on this: http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
-Centralized databases like the Windows Registry are usually unnecessary for configuration.
+Centralized databases like the Windows Registry
+are usually unnecessary for configuration.
 Applications for which text files are a bad choice,
-e.g. ones which need random access to large amounts of structured data or which require atomic updates,
+e.g. ones which need random access to large amounts of structured data
+or which require atomic updates,
 can use, for example, `an SQLite database`_ in the user's home directory.
 In a similar vein, the GNOME desktop provides `dconf`_,
-which is probably the closest thing to a Windows Registry that Linux has.
+which is probably the closest thing to a Windows Registry
+that Linux has.
 
 .. _dconf: https://wiki.gnome.org/Projects/dconf
 .. _an SQLite database: http://kb.mozillazine.org/Places.sqlite
 
-Moreover, using ordinary files instead of a database for application configuration has many benefits.
+Moreover, using ordinary files instead of a database
+for application configuration has many benefits.
 Since many configuration files on Linux are `textual`_,
 they are easy to modify,
 back up,
 and ``diff`` or merge,
-which means users can share and benefit from others' customized configurations and accommodate upstream changes.
+which means users can share and benefit from others' customized configurations
+and more easily accommodate upstream changes.
 
 .. _textual: http://catb.org/~esr/writings/taoup/html/textualitychapter.html
 
-It also means that migrating to a different Linux distribution is not as painful as starting from scratch,
+It also means that migrating to a different Linux distribution
+is not as painful as starting from scratch,
 since many applications keep the configuration formats relatively stable
 and merging in the customizations is usually straightforward.
-During major Debian upgrades, for example, administrators can choose to adopt new configuration files,
-keep the old ones, or ``diff`` and merge the files into a hybrid.
+During major Debian upgrades, for example,
+administrators can choose to
+adopt new configuration files,
+keep the old ones,
+or ``diff`` and merge the files into a hybrid.
 
-In short, configuration on Linux is better adapted to the needs of its users than on Windows.
-Ordinary users have the package manager or applications themselves for managing configuration,
-developers who like to keep their configuration under version control can use tools like `GNU Stow`_,
-and system administrators can use any of many dedicated configuration management tools like
+In short, configuration on Linux
+is better adapted to the needs of its users than on Windows.
+Ordinary users have the package manager
+or applications themselves for managing configuration,
+developers who like to keep their configuration under version control
+can use tools like `GNU Stow`_,
+and system administrators can use
+dedicated configuration management tools like
 `Puppet`_, `Chef`_, `Ansible`_, `SaltStack`_, etc.
 
 .. _GNU Stow: http://www.gnu.org/software/stow/
@@ -1220,8 +1264,10 @@ and system administrators can use any of many dedicated configuration management
 Package manager with signed binaries.
 -------------------------------------
 
-Windows Installer is a software package manager in the sense of installing and uninstalling software,
-but it does not provide the salient features of current major Linux packaging systems,
+Windows Installer is a software package manager
+in the sense of installing and uninstalling software,
+but it does not provide the salient features
+of modern Linux packaging systems,
 such as:
 
 - securely retrieving the package from a trusted remote or local repository,
@@ -1240,8 +1286,10 @@ such as:
 
 Now, there is an open-source package manager for Windows, `Chocolatey`_,
 that is under active development.
-However, thus far the Chocolatey repository is not as comprehensive as Linux repositories.
-Here are some examples of packages which are not in the Chocolatey repository (as of July 2015).
+However, thus far the Chocolatey repository
+is not as comprehensive as Linux repositories.
+Here are some examples of packages
+which are not in the Chocolatey repository (as of July 2015).
 
 - `Apophysis`_ fractal flame editor `* <http://chocolatey.org/packages?q=apophysis>`__
 - `xyscan`_ data extractor `* <https://chocolatey.org/packages?q=xyscan>`__
@@ -1260,10 +1308,14 @@ Here are some examples of packages which are not in the Chocolatey repository (a
 .. _Unison: http://www.cis.upenn.edu/~bcpierce/unison/
 .. _xchat: http://xchat.org/download/
 
-(This list isn't particularly significant, it's just example open-source software that I happen to use which has a Windows version.)
+(This list isn't particularly significant,
+it's just example open-source software that I happen to use
+which has a Windows version.)
 
-Also, the Chocolatey development team acknowledges it `does not currently have package moderation or package signing`_ in place yet,
-which is significant for overcoming Window's issue with `installing software from untrusted sources`_.
+Also, the Chocolatey development team acknowledges
+that it `does not currently have package moderation or package signing`_ in place yet,
+which is significant for overcoming Window's issue
+with `installing software from untrusted sources`_.
 
 .. _does not currently have package moderation or package signing: https://chocolatey.org/about
 .. _installing software from untrusted sources: `Malware.`_
@@ -1284,28 +1336,44 @@ Debian's ``deb``-based ``apt`` and ``dpkg``,
 Arch Linux's ``pacman``,
 and so on.
 This is one reason Linux users are less susceptible to malware:
-they generally install packages that are cryptographically signed by the maintainers,
-not opaque executables from a website which may or may not use secure HTTP.
-Even inexperienced users can safely install and uninstall software if it is all from a trusted repository.
+they generally install packages
+that are cryptographically signed by the maintainers,
+not opaque executables from a website
+which may or may not use secure HTTP.
+Even inexperienced users can safely install and uninstall software
+if it is all from a trusted repository.
 
 Package managers have other benefits,
-such as avoiding dependency hell while saving the disk space of duplicated libraries.
+such as avoiding dependency hell
+while saving the disk space of duplicated libraries.
 Package managers have decent (though not perfect) security,
 and provide the ability to upgrade all software at once with a single command
 (or button if you use one of the many available GUIs).
 Instead of requiring all application developers to re-implement automatic updates,
-packaging makes secure, regular updates much more accessible and convenient for users and developers.
+packaging makes secure, regular updates
+much more accessible and convenient for users and developers.
 
-Package mangers can make backups easier by decoupling installed applications from stored personal files.
-Want to remember which programs you have installed without backing up every single binary?
-Just save the output of ``dpkg -L`` or its equivalent as a text file of installed packages,
+Package mangers can make backups easier
+by decoupling installed applications from stored personal files.
+
+Want to remember which programs you have installed
+without backing up every single binary?
+Just save the output of ``dpkg -L`` or its equivalent
+as a text file of installed packages,
 and voilà, you can restore them later.
 
-If your backup fails or you just want to switch to a different Linux distribution with the same package manager,
-you can easily get back your installed software by feeding your package manager the package list.
-All you need is a fresh Linux install and a good internet connection.
-Meanwhile, you can keep your home directory backed up using cloud storage or physical drives (ideally both),
-and the backup software doesn't need to run as root since it's only accessing your home directory.
+If your backup fails
+or you just want to switch
+to a different Linux distribution
+with the same package manager,
+you can easily get back your installed software
+by feeding your package manager the package list.
+All you need is a fresh Linux install
+and a good internet connection.
+Meanwhile, you can keep your home directory backed up
+using cloud storage or physical drives (ideally both),
+and the backup software doesn't need to run as root
+since it's only accessing your home directory.
 
 Packaging also makes distributing scripts with library dependencies easier.
 For example, installing ``python`` and ``matplotlib`` is simple on Linux,
@@ -1318,11 +1386,17 @@ Fixing configuration problems with commands instead of GUIs.
 ------------------------------------------------------------
 
 Graphical user interfaces are excellent for some kinds of software,
-but they are clumsy and error-prone for rapidly fixing configuration problems.
-Many Linux config problems can be fixed by editing a line in a text file or running a few commands in a terminal.
-Windows configuration generally requires navigating deeply nested GUIs and ticking various checkboxes.
-This has equivalent security problems to blindly running commands in a terminal,
-but is much less efficient.
+but they are clumsy and error-prone
+for rapidly fixing configuration problems.
+Many Linux config problems can be fixed
+by editing a line in a text file
+or running a few commands in a terminal.
+Windows configuration generally requires navigating deeply nested GUIs
+and ticking various checkboxes.
+This has similar security problems
+to blindly running commands in a terminal,
+but in a way that is much less efficient
+for doing routine configuration tasks.
 
     Graphical user interfaces (GUIs) are helpful for many tasks, but they are
     not good for all tasks. I have long felt that most computers today do not
@@ -1336,8 +1410,11 @@ but is much less efficient.
 
 .. _Learning the shell: http://linuxcommand.org/learning_the_shell.php
 
-In addition, using GUIs for configuration makes user support and documentation significantly more time-consuming.
-Text is easier to automate, store, transmit, and search for than screenshots or ad-hoc notations like Tools -> Options -> General Options -> ...
+In addition, using GUIs for configuration
+makes user support and documentation significantly more time-consuming.
+Text is easier to automate, store, transmit, index, and search
+than screenshots or ad-hoc notations
+like ``Tools -> Options -> General Options -> ...``
 
 .. TODO: discuss specific comparisons of fixing comparable configuration issue on Linux and Windows.
 
@@ -1346,10 +1423,13 @@ For example, want to see which displays you're connected to? Run ``xrandr``.
 Want to see what USB devices are connected? Run ``lsusb``.
 Want to restart your networking daemon? Run ``sudo /etc/init.d/networking restart``.
 
-Another benefit of textuality is ease of using search engines to find similar problems.
+Another benefit of textuality
+is using search engines to find similar problems.
 Many a Linux user has thought they had found a new bug,
-only to run a quick web search that turned up dozens of users with the same issue.
-(The `Arch Linux BBS forum`_ and bug tracker, for example, tends to be `ahead of the curve`_ on bug reports.)
+only to run a quick web search
+that turned up dozens of users with the same issue.
+(The `Arch Linux BBS forum`_ and bug tracker, for example,
+tends to be `ahead of the curve`_ on bug reports.)
 
 .. TODO: Find a better example of Arch Linux being ahead of the curve.
 
@@ -1358,57 +1438,66 @@ only to run a quick web search that turned up dozens of users with the same issu
 
 Finally, software configuration can be kept or removed easily.
 When uninstalling a software package on Debian Linux,
-the user may either also remove the configuration (with ``apt-get purge``)
-or leave the configuration in place when the application is installed again (with ``apt-get remove``).
+the user may either also wipe the system configuration (via ``apt-get purge``)
+or leave the configuration in place when the application is installed again (via ``apt-get remove``).
 
 ----------------------
 Remote administration.
 ----------------------
 
-Accessing a Windows machine remotely generally requires remote desktop software.
+Accessing a Windows machine remotely
+generally requires remote desktop software.
 While it is possible to install an SSH server,
 this must installed and configured on each machine;
-there is no built-in secure shell access on a vanilla Windows box.
+there is no built-in secure shell access
+on a vanilla Windows box.
 
 In addition, Windows machines `do not respond to`_ ``ping`` (ICMP) by default.
-Arguably, this is the `wrong`_ `choice`_.
+Arguably, this is the wrong choice. [#firewall_icmp]_  [#block_icmp]_
 
 .. _do not respond to: http://msdn.microsoft.com/en-us/library/ms912869(v=winembedded.5).aspx
-.. _wrong: http://security.stackexchange.com/questions/22711/is-it-a-bad-idea-for-a-firewall-to-block-icmp
-.. _choice: http://serverfault.com/questions/84963/why-not-block-icmp
 
-By contrast, nearly all Linux machines respond to ``ping`` and most allow ``ssh`` for remote access.
-Combined with the use of text files for configuration and the simplicity of package management,
-many tech support and remote administration tasks are easier and faster to resolve when accessing a remote machine running Linux.
+By contrast, nearly all Linux machines respond to ``ping``
+and most allow ``ssh`` for remote access.
+Combined with the use of text files for configuration
+and the simplicity of package management,
+many tech support and remote administration tasks
+are easier and faster to resolve
+when accessing a remote machine running Linux.
+
+.. [#firewall_icmp] http://security.stackexchange.com/questions/22711/is-it-a-bad-idea-for-a-firewall-to-block-icmp
+.. [#block_icmp] http://serverfault.com/questions/84963/why-not-block-icmp
 
 ++++++++++++++++++
 Cultural problems.
 ++++++++++++++++++
 
-It might appear at this point that we are throwing objectivity to the wind,
+It might appear at this point
+that we are throwing objectivity to the wind,
 but these are practical issues caused by cultural differences,
-not subjective criticism of the Linux/Unix culture vs. the Microsoft Windows culture.
+not subjective criticism of Linux/Unix culture vs. Microsoft Windows culture.
 
 --------------------
 Public bug trackers.
 --------------------
 
-Windows and proprietary software in general do not usually maintain a public bug tracker,
-although there are exceptions [#]_ [#]_ [#]_.
-Software companies have strong incentives to keep their issue tracking systems internal due to things like customer confidentiality,
+Windows and proprietary software in general
+do not usually maintain a public bug tracker,
+although there are exceptions [#microsoft_connect]_ [#adobe_bugs]_ [#foldit_bugs]_.
+Software companies have strong incentives
+to keep their issue tracking systems internal
+due to things like
+customer confidentiality,
 security,
 and public relations.
 
-.. [#] https://connect.microsoft.com/
-.. [#] https://bugbase.adobe.com/
-.. [#] http://fold.it/portal/node/986241
-
 Because bug trackers for proprietary software are not public,
-it can be hard to for a user to discern if their problem is shared by others,
+it can be hard to for a user to discern
+if their problem is shared by others,
 what they can do to fix it,
 and whether or not a bug has been fixed in the latest version.
 
-Most companies devote a lot of staff to user support for this reason.
+For this reason, many companies maintin a large user support staff.
 The inefficiencies and pitfalls of this are evident
 to anyone who's had to set up their home internet connection before.
 Some companies complement user support with user forums,
@@ -1416,9 +1505,15 @@ which have the same `issues with signal-to-noise ratio`_ that most forums have.
 
 .. _issues with signal-to-noise ratio: http://blog.codinghorror.com/civilized-discourse-construction-kit/
 
-By contrast, projects like the Linux kernel and the Debian project maintain accountability and clarity by publically tracking and acknowledging bugs,
-even when it is embarrassing to do so [#brown_paper_bag_release]_ [#runs_rm_r_as_root]_.
+By contrast, projects like the Linux kernel and the Debian project
+maintain accountability and clarity
+by publically tracking and acknowledging bugs,
+even when it is embarrassing to do so
+[#brown_paper_bag_release]_ [#runs_rm_r_as_root]_.
 
+.. [#microsoft_connect] https://connect.microsoft.com/
+.. [#adobe_bugs] https://bugbase.adobe.com/
+.. [#foldit_bugs] http://fold.it/portal/node/986241
 .. [#brown_paper_bag_release] http://lwn.net/1999/0204/kernel.php3
 .. [#runs_rm_r_as_root] https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=155873
 
@@ -1429,31 +1524,43 @@ even when it is embarrassing to do so [#brown_paper_bag_release]_ [#runs_rm_r_as
 Debugging habits.
 -----------------
 
-By `requiring`_ or encouraging `reboots`_ for installing software or changing configuration,
-Windows encourages bad habits such as restarting software to make a bug go away,
+By `requiring`_ or encouraging `reboots`_
+for installing software or changing configuration,
+Windows encourages bad habits
+such as restarting software to make a bug go away,
 or avoiding using parts of an application as a work-around,
 rather than reproducing and reporting bugs.
 
 .. _requiring: http://www.howtogeek.com/182817/htg-explains-why-does-windows-want-to-reboot-so-often/
 .. _reboots: http://www.howtogeek.com/howto/31204/why-do-application-installs-make-you-reboot-and-close-other-apps/
 
-In the long run, this hurts both proprietary and open-source software running on Windows.
-It is also one reason why developing solely for Windows because of the larger user base may not always be a good choice.
+In the long run,
+this hurts both proprietary and open-source software
+on the Windows platform.
+It is also one reason why developing solely for Windows
+because of the larger user base
+may not always be a good choice.
 
 --------
 Malware.
 --------
 
-In principle, Linux and Windows users are equally `susceptible to malware`_.
-Android, for example, runs on the Linux kernel, and there is plenty of malware written that targets it.
+In principle, Linux and Windows users
+are equally `susceptible to malware`_.
+Android, for example, runs on the Linux kernel,
+and there is plenty of malware that targets it.
 
 .. http://www.linux.org/threads/android-malware.7836/
 .. http://www.firstpost.com/business/gunpoder-new-android-malware-targets-users-not-residing-china-2339516.html
 
-In practice, though, Windows users are `more likely`_ to inadvertently install malware,
-primarily because of the way they install non-malicious software (see `notes on package management`_).
-Requiring every computer user to do the work of package maintainers is harmful in a variety of ways;
-it tends to encourage a cargo-cult mentality to security instead of systematic root-cause analysis.
+In practice, though, Windows users are `more likely`_
+to inadvertently install malware,
+primarily because of the way they install non-malicious software
+(see `notes on package management`_).
+Requiring every computer user to do the work of package maintainers
+is harmful in a variety of ways;
+it tends to encourage a cargo-cult mentality toward security
+instead of systematic root-cause analysis.
 
 .. _susceptible to malware: http://www.linux.com/learn/tutorials/284124-myth-busting-is-linux-immune-to-viruses
 .. _more likely: http://unix.stackexchange.com/questions/2751/the-myths-about-malware-in-unix-linux
@@ -1468,16 +1575,18 @@ As a result,
 .. _falsely attribute: http://www.combofix.org/suspect-a-malware-infection-heres-the-right-way-to-remove-it.php
 .. _software misbehavior to malware: http://lifehacker.com/5958001/the-5-biggest-myths-about-slow-pcs-and-how-you-can-actually-fix-them
 
-Some users may even attribute problems arising from failing hardware to malware instead.
+Some users may even attribute problems arising from failing hardware to malware.
 
 This also has consequences for developers.
 Because few Linux users experience problems due to malware,
 they will report bugs caused by the actual applications,
 not ones caused by malware.
 
-Linux has a better security model which uses secure package installation by default,
+Most Linux distributions have a better security model
+which uses secure package installation by default,
 but allows installing software from other sources as well,
-unlike the overly restrictive app-store model.
+unlike the overly restrictive app-store model
+seen in more recent versions of Windows.
 
 Finally, because Linux is a ubiquitous server operating system,
 its security is under constant attack,

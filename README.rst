@@ -115,9 +115,9 @@ If you are a Windows user:
   You may heartily disagree with substantial parts of what follows,
   but perhaps it may be useful to you, even so.
 
-+++++++++++++++++++++++++++++++++++++++++++
-Intrinsic technical deficiencies of Windows
-+++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Intrinsic technical deficiencies of the Windows NT operating system
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ------------------------
 Live booting is lacking.
@@ -146,15 +146,18 @@ but installing software and drivers is still `sometimes a challenge`_.
 .. _WinBuilder: http://winbuilder.net/
 .. _sometimes a challenge: http://www.irongeek.com/i.php?page=security/winbuilder-win7pe-se-tutorial
 
-The absence of fully functional live versions of Windows makes it difficult to use for, e.g,
+The absence of fully functional live versions of Windows
+makes it difficult to use for, e.g,
 determining if a bug is due to hardware or software problems,
 recovering data from a machine with filesystem corruption or bad disk sectors,
-and testing out different versions of an OS without committing a partition of a hard disk to a permanent installation.
+and testing out different versions of an OS
+without committing a partition of a hard disk to a permanent installation.
 
 `Live versions`_ of Linux are full operating systems,
 able to mount and repartition disks,
 connect to the internet and run a web browser,
-and (for `persistent live USB flash drives`_) retain settings and data on the next boot-up.
+and (for `persistent live USB flash drives`_)
+retain settings and data on the next boot-up.
 
 .. _Live versions: http://www.linux.com/directory/Distributions/livecd
 .. _persistent live USB flash drives: http://askubuntu.com/questions/295701/what-would-be-the-differences-between-a-persistent-usb-live-session-and-a-instal
@@ -182,7 +185,7 @@ Similar to live booting,
 Linux is often run as a virtual machine,
 and consequently it is well-adapted to changes in hardware.
 
-For example, an existing Linux partition on a physical hard drive
+An existing Linux partition on a physical hard drive
 can, with some care, be virtualized and run on another machine,
 or even simply transferred to a USB enclosure and booted directly,
 a `virtue which Windows does not share`_,
@@ -197,7 +200,8 @@ Maximum path lengths.
 
 Windows path lengths `are limited to 260 characters`_, including filename.
 (In practice, it is often more like `199 characters`_.)
-This is `not a flaw in NTFS`_ or Windows per se, but in the `non-Unicode version of the Windows API`_.
+This is `not a flaw in NTFS`_ or Windows per se,
+but in the `non-Unicode version of the Windows API`_.
 
 .. _are limited to 260 characters: http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx#maxpath
 .. _not a flaw in NTFS: http://msdn.microsoft.com/en-us/library/ee681827%28VS.85%29.aspx#limits
@@ -206,7 +210,9 @@ This is `not a flaw in NTFS`_ or Windows per se, but in the `non-Unicode version
 .. _have not done so: http://blogs.msdn.com/b/bclteam/archive/2007/02/13/long-paths-in-net-part-1-of-3-kim-hamilton.aspx
 
 This problem can be avoided by using Unicode versions of the API calls,
-but many applications (e.g. `Windows Explorer`_, `.NET`_ and `consequently Powershell`_) have not done so.
+but many applications
+(e.g. `Windows Explorer`_, `.NET`_ and `consequently Powershell`_)
+have not done so.
 
 .. _Windows Explorer: https://www.gibixonline.com/post/2009/08/23/Explorer-still-limited-by-MAX_PATH
 .. _.NET: http://blogs.msdn.com/b/bclteam/archive/2007/02/13/long-paths-in-net-part-1-of-3-kim-hamilton.aspx
@@ -250,8 +256,11 @@ You can check it by running::
 
     $ getconf PATH_MAX /
 
-However, `this limit is not enforced`_ by any filesystems that Linux runs on,
-and consequently some ``libc`` implementations were for a while `susceptible to buffer overflow`_ when trying to resolve canonical file paths.
+However, `this limit is not enforced`_
+by any filesystems that Linux runs on,
+and consequently some ``libc`` implementations
+were for a while `susceptible to buffer overflow`_
+when trying to resolve canonical file paths.
 
 .. _4096 chars in typical kernels and filesystems: http://unix.stackexchange.com/questions/28997/on-deep-created-directories
 .. _this limit is not enforced: http://insanecoding.blogspot.com/2007/11/pathmax-simply-isnt.html
@@ -259,7 +268,8 @@ and consequently some ``libc`` implementations were for a while `susceptible to 
 
 The 2008 POSIX revision has `addressed the issue`_,
 but prior to this the Linux kernel had to make non-standard modifications to avoid overflow,
-and `warned about the problem`_ in the ``realpath (3)`` man page of the Linux Programmer's Manual.
+and `warned about the problem`_
+in the ``realpath (3)`` man page of the Linux Programmer's Manual.
 
 .. _addressed the issue: https://www.securecoding.cert.org/confluence/display/seccode/FIO02-C.+Canonicalize+path+names+originating+from+tainted+sources
 .. _warned about the problem: http://linux.die.net/man/3/realpath
@@ -284,7 +294,8 @@ This is why Linus Torvalds `chose an unusually high`_ timer interrupt frequency 
 Filename case-insensitivity.
 ----------------------------
 
-Linux uses case-sensitive filenames because Unix used case-sensitive filename.
+Linux uses case-sensitive filenames
+because Unix used case-sensitive filename.
 Unix was case-sensitive because Multics was case-sensitive.
 Multics was case-sensitive because of ASCII.
 
@@ -512,7 +523,8 @@ which is used to terminate strings in C. [#C_strings]_
 
 Windows has the same restrictions,
 as well as many other `restrictions which are considerably more complex`_
-and are partly the result of `backwards compatibility with operating systems from the early 1970s`_.
+and are partly the result
+of `backwards compatibility with operating systems from the early 1970s`_.
 
 .. _backwards compatibility with operating systems from the early 1970s: http://bitquabit.com/post/zombie-operating-systems-and-aspnet-mvc/
 .. _restrictions which are considerably more complex: https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx#naming_conventions
@@ -717,9 +729,13 @@ Modifications of the contents of the files depend on the the individual file per
 .. [#unix_groups] Unix permissions, for example, are not a panacea: https://unix.stackexchange.com/questions/164303/single-user-for-sharing-vs-multiple-users
 .. [#ntfs_permissions_flaw] NTFS permissions have their own issues, e.g. https://serverfault.com/questions/31709/how-to-workaround-the-ntfs-move-copy-design-flaw
 
-+++++++++++++++++++++++++++++++++++++
-Architectural deficiencies of Windows
-+++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++
+Architectural deficiencies of the Windows platform
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+These are limitations of the Windows platform
+which are not intrinsic to the operationg system,
+but nevertheless cause problems.
 
 --------------------------------
 Limited default debugging tools.
@@ -760,9 +776,12 @@ Restrictive default file locking.
 
 .. TODO: Add more sources to this.
 
-Windows applications `lock files they use by default`_, so `file access is a nuisance`_ by default.
-If an application is misbehaving and you want to examine a file it is using,
-this is generally blocked until the application is killed.
+Windows applications `lock files they use by default`_,
+so `file access is a nuisance`_ by default.
+If an application is misbehaving
+and you want to examine a file it is using,
+this is generally blocked
+until the application is killed.
 
 .. _lock files they use by default: https://en.wikipedia.org/wiki/File_locking#In_Microsoft_Windows
 .. _file access is a nuisance: https://stackoverflow.com/questions/546504/how-do-i-make-windows-file-locking-more-like-unix-file-locking
@@ -770,7 +789,8 @@ this is generally blocked until the application is killed.
 By contrast,
 on Linux it is not unusual for two different applications
 to share read access to the same file,
-or for one process to read a file while another process is writing to it,
+or for one process to read a file
+while another process is writing to it,
 since applications do not lock files by default.
 
 ----------------------------
@@ -780,7 +800,8 @@ No choice of window manager.
 The Linux kernel does not require a particular desktop environment,
 or indeed any graphical desktop at all.
 However, Linux desktop users generally run graphical user interfaces managed by the X server.
-There are are many, many options for `desktop environment`_ and `window manager`_ on Linux.
+There are are many, many options
+for `desktop environment`_ and `window manager`_ on Linux.
 
 .. _desktop environment: http://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments
 .. _window manager: http://en.wikipedia.org/wiki/Comparison_of_X_window_managers
@@ -804,9 +825,9 @@ the underlying windowing system is the same.
 .. _alternative shells: https://en.wikipedia.org/wiki/List_of_alternative_shells_for_Windows
 .. _visual themes: https://en.wikipedia.org/wiki/Theme_%28computing%29#Operating_systems
 
-~~~~~~~~~~~~~~~~~
-Usability issues.
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Non-resizable dialog boxes.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The window manager monoculture means that accessibility improvements
 and user interface customization can be difficult to implement.

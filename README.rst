@@ -412,7 +412,7 @@ a competitor with Unix on the PDP-11.
 .. _compatibility with MS-DOS: http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx
 .. _heavily influenced by CP/M: http://dosmandrivel.blogspot.com/2007/08/is-dos-rip-off-of-cpm.html
 
-Why did RT-11 to use case-insensitive filenames?
+Why did RT-11 use case-insensitive filenames?
 Because it didn't use ASCII for filenames,
 it used an encoding called `RADIX-50`_ to save memory.
 It also used three-character extensions.

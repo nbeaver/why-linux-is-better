@@ -463,15 +463,15 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
 .. [#CPM_case_insensitive] CP/M did this conversion internally.
 
-        It should also be noted that all alphabetic lower case letters in file 
-        and drive names are always translated to upper case when they are processed by 
+        It should also be noted that all alphabetic lower case letters in file
+        and drive names are always translated to upper case when they are processed by
         the CCP [Console Command Processor].
 
         [ . . . ]
 
-        Further, recall that the CCP always translates lower case characters to upper 
-        case characters internally. Thus, lower case alphabetics are treated as if 
-        they are upper case in command names and file references. 
+        Further, recall that the CCP always translates lower case characters to upper
+        case characters internally. Thus, lower case alphabetics are treated as if
+        they are upper case in command names and file references
 
     https://archive.org/stream/Intro_to_CPM_Feat_and_Facilities/Intro_to_CPM_Feat_and_Facilities_djvu.txt
 
@@ -832,9 +832,9 @@ so here are some of the salient parts::
     =============================================================================================
     Why was it written?
     =============================================================================================
-    It was written following a request from a friend. He runs his PC at a screen resolution above 
+    It was written following a request from a friend. He runs his PC at a screen resolution above
     1280x1024, and was fed up with having to pick items from a list that could only display three
-    items because the window didn't take into account the screen resolution, hence only occupying 
+    items because the window didn't take into account the screen resolution, hence only occupying
     about 20% of the desktop 'real-estate'.
     
     
@@ -857,7 +857,7 @@ There are some drawbacks to this approach::
     =============================================================================================
     Known problems
     =============================================================================================
-    1) Most applications will respond to having their windows resized ok. Well, applications that 
+    1) Most applications will respond to having their windows resized ok. Well, applications that
     	have followed the guidelines will. <grin>
     2) Some applications have, shall we say, problems, when their window has been resized and all
     	sort of visual chaos will be revealed.
@@ -865,7 +865,7 @@ There are some drawbacks to this approach::
     4) Certain windows will 'jiggle' as you attempt to resize them, seemingly resizing and then
     	snapping back to their original size. This is annoying, but we're not sure what is
     	causing it.
-    5) Some versions of Internet Explorer, coupled with certain version of Windows98/NT seemed to 
+    5) Some versions of Internet Explorer, coupled with certain version of Windows98/NT seemed to
     	crash with v1.0 of ResizeEnable. We don't have that setup on any of our test machines
     	so we can't test it. But, we have done a little bit more work so ResizeEnable is a
     	bit more choosy as to which windows it can work with. So it -might- not crash anymore.
@@ -873,7 +873,7 @@ There are some drawbacks to this approach::
     	Internet Explorer 6. We're not Microsoft pushers, but Internet Explorer 6 has better
     	error reporting and shouldn't just explode without warning.
     6) Some Microsoft applications have dialogs that can be resized, but none of their contents
-    	move. This is down to the fact that the contents of the dialog ARE NOT STANDARD 
+    	move. This is down to the fact that the contents of the dialog ARE NOT STANDARD
     	MICROSOFT CONTROLS! They are some bastardisation written specially for the application.
     	They may look like normal buttons/drop downs, but they sure as heck aren't! Hence,
     	ResizeEnable can't tell them to move or resize. Yet again, Microsoft ignore their own

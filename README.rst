@@ -325,16 +325,14 @@ to uppercase or lowercase.
 
 http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
 
-However, there is no shortage of opinions that this was a bad choice. [#]_ [#]_ [#]_ [#]_ [#]_ [#]_
-
-.. [#] https://www.ma.utexas.edu/pipermail/maxima/2003/004483.html
+However, there is no shortage of opinions that this was a bad choice.
 
            Anecdotally, case sensitivity in programs is known to be error-prone for
            both beginners and experienced users.  Bob Frankston, a Multics alumnus
            and the co-inventor of VisiCalc, once said it was the biggest mistake
            that Multics had inflicted on the world.
 
-.. [#] http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
+https://www.ma.utexas.edu/pipermail/maxima/2003/004483.html
 
            Mac ＆ Windows users have to have filenames read to them over the phone by
            support techs. They have to be able to write little sticky notes to their
@@ -344,7 +342,7 @@ However, there is no shortage of opinions that this was a bad choice. [#]_ [#]_ 
            get a response that's anything but a 404? Haven't you ever been secretly
            pleased that e-mail addresses aren't case-sensitive?
 
-.. [#] http://blog.codinghorror.com/the-case-for-case-insensitivity/
+http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
 
            One of the most pernicious problems with C-based languages is that they're
            case-sensitive. While this decision may have made sense in 1972 when the
@@ -355,21 +353,23 @@ However, there is no shortage of opinions that this was a bad choice. [#]_ [#]_ 
            case insensitivity is a much more human being friendly design choice. Designing
            software that's easier for machines is questionable at best.
 
-.. [#] http://www.somethinkodd.com/oddthinking/2005/10/27/the-case-for-case-preserving-case-insensitivity/
+http://blog.codinghorror.com/the-case-for-case-insensitivity/
 
            There is no longer any excuse for making humans learn and handle the quirks of
            the way computers store upper- and lower-case characters. Instead, software
            should handle the quirks of human language.
 
-.. [#] http://tiamat.tsotech.com/case-sensitivity-sucks
+http://tiamat.tsotech.com/case-sensitivity-sucks
 
            Since it appears to have manifested out of opinion rather than necessity, it
            could be said case-sensitivity is the worst way that modern technology sucks.
 
-.. [#] http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
+http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
 
            This is really stupid, it causes a ton of problems and there is no longer any
            good reason to have case sensitivity in an OS.
+
+http://www.somethinkodd.com/oddthinking/2005/10/27/the-case-for-case-preserving-case-insensitivity/
 
 There are also passionate views to the opposite effect.
 
@@ -427,10 +427,16 @@ It also used three-character extensions.
 
 http://cryptosmith.com/2013/10/19/digitals-rt-11-file-system/
 
-The lack of agreement on filename case-sensitivity may seem insignificant today,
-but it leads to non-trivial difficulties in cross-platform development. [#]_ [#]_
-Developers of cross-platform software can `make a habit`_ of not relying on case-sensitive filesystem access,
-but problems of this ilk arise when crops up when porting from Windows to Linux or vice-versa. [#]_
+The lack of agreement on filename case-sensitivity
+may seem insignificant today,
+but it leads to non-trivial difficulties
+in cross-platform development. [#tortoise_svn_case_sensitivity]_ [#openfoam_no_windows_port]_
+Developers of cross-platform software can `make a habit`_
+of not relying on case-sensitive filesystem access,
+but problems of this ilk crop up
+when porting from Windows to Linux or vice-versa. [#valve_porting_source_to_linux]_
+
+.. _make a habit: http://www.mono-project.com/docs/getting-started/application-portability/#case-sensitivity
 
 For example, the Linux port of the `Unity engine`_ has `issues with case-sensitive filesystems`_.
 
@@ -443,14 +449,16 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
     will never fail that some well-intentioned programmer throws a toLower() in
     somewhere and ruins the party.
 
-.. [#] https://code.google.com/p/tortoisesvn/issues/detail?id=32
-.. [#] http://openfoamwiki.net/index.php/Main_FAQ#Why_isn.27t_there_a_Windows_port_of_OpenFOAM_.3F
+.. _Unity engine: http://unity3d.com/
+.. _issues with case-sensitive filesystems: http://natoshabard.com/post/122670082502/porting-the-unity-editor-to-linux-stuff-i-wish
+
+.. [#tortoise_svn_case_sensitivity] https://code.google.com/p/tortoisesvn/issues/detail?id=32
+.. [#openfoam_no_windows_port] http://openfoamwiki.net/index.php/Main_FAQ#Why_isn.27t_there_a_Windows_port_of_OpenFOAM_.3F
 
            The OpenFOAM-sources need a fully case-sensitive file-system and can't even be
            unpacked properly on a Windows system
 
-.. _make a habit: http://www.mono-project.com/docs/getting-started/application-portability/#case-sensitivity
-.. [#] http://adrienb.fr/blog/wp-content/uploads/2013/04/PortingSourceToLinux.pdf
+.. [#valve_porting_source_to_linux] http://adrienb.fr/blog/wp-content/uploads/2013/04/PortingSourceToLinux.pdf
 
            - Linux filesystems are case-sensitive
            - Windows is not
@@ -458,8 +466,6 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
            - But an issue during development, with loose files
            - Solution 1: Slam all assets to lower case, including directories, then tolower all file lookups (only adjust below root)
            - Solution 2: Build file cache, look for similarly named files
-.. _Unity engine: http://unity3d.com/
-.. _issues with case-sensitive filesystems: http://natoshabard.com/post/122670082502/porting-the-unity-editor-to-linux-stuff-i-wish
 
 .. [#CPM_case_insensitive] CP/M did this conversion internally.
 
@@ -807,17 +813,10 @@ and user interface customization can be difficult to implement.
 
 For example, Windows presents many configuration options in non-resizable dialog boxes.
 This can pose user-interface problems,
-especially on high-resolution monitors. [#]_ [#]_
-
-.. [#] http://windows.microsoft.com/en-us/windows/working-with-windows#1TC=windows-7&section_3
-.. [#] http://answers.microsoft.com/en-us/windows/forum/windows_7-desktop/cannot-resize-small-windows/160862cf-6e52-4a99-9365-d380491a067d
+especially on high-resolution monitors. [#changing_size_of_window]_ [#cannot_resize_small_windows]_
 
 One solution to this problem is to download and run a third-party background process
-that tracks every single time a window is resized. [#]_ [#]_ [#]_
-
-.. [#] http://www.thewindowsclub.com/resize-non-resizable-windows
-.. [#] http://www.howtogeek.com/howto/11799/turn-non-resizeable-windows-into-rezieable-windows/
-.. [#] http://www.digitallis.co.uk/pc/ResizeEnable/index.html
+that tracks every single time a window is resized. [#resize_non_resizable_windows]_ [#turn_non_resizable_windows]_ [#ResizeEnable]_
 
 The README is not directly linkable via URL,
 so here are some of the salient parts::
@@ -878,6 +877,12 @@ There are some drawbacks to this approach::
     	They may look like normal buttons/drop downs, but they sure as heck aren't! Hence,
     	ResizeEnable can't tell them to move or resize. Yet again, Microsoft ignore their own
     	codebase and reinvent the wheel. And people wonder why their applications are so big..
+
+.. [#changing_size_of_window] http://windows.microsoft.com/en-us/windows/working-with-windows#1TC=windows-7&section_3
+.. [#cannot_resize_small_windows] http://answers.microsoft.com/en-us/windows/forum/windows_7-desktop/cannot-resize-small-windows/160862cf-6e52-4a99-9365-d380491a067d
+.. [#resize_non_resizable_windows] http://www.thewindowsclub.com/resize-non-resizable-windows
+.. [#turn_non_resizable_windows] http://www.howtogeek.com/howto/11799/turn-non-resizeable-windows-into-rezieable-windows/
+.. [#ResizeEnable] http://www.digitallis.co.uk/pc/ResizeEnable/index.html
 
 ~~~~~~~~~~~~~~~
 Update inertia.

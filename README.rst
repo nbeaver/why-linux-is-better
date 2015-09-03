@@ -495,38 +495,90 @@ Filename restrictions
 ---------------------
 
 In Linux and other Unix-derived operating systems,
-the only `characters that cannot appear`_ in the name of a file or directory are
-the slash ``/``, which is used to delimit paths,
-and the ASCII null, which is used to terminate strings in C.
-(Arguably, `using null-terminated strings`_ instead of length-prefixed strings was `the wrong decision`_,
-although `length-prefixed strings have drawbacks`_,
-but `Windows uses null-terminated strings`_ too.)
+the only `characters that cannot appear`_
+in the name of a file or directory
+are the slash ``/``,
+which is used to delimit paths,
+and the ASCII null ``\0``,
+which is used to terminate strings in C. [#C_strings]_
 
 .. _characters that cannot appear: https://stackoverflow.com/questions/1976007/what-characters-are-forbidden-in-windows-and-linux-directory-names
-.. _using null-terminated strings: https://stackoverflow.com/questions/4418708/whats-the-rationale-for-null-terminated-strings
-.. _the wrong decision: https://queue.acm.org/detail.cfm?id=2010365
-.. _length-prefixed strings have drawbacks: https://www.lysator.liu.se/c/bwk-on-pascal.html
-.. _Windows uses null-terminated strings: http://blogs.msdn.com/b/oldnewthing/archive/2009/10/08/9904646.aspx
 
 Windows has the same restrictions,
-as well as many other `restrictions which are considerably more complex`_.
+as well as many other `restrictions which are considerably more complex`_
+and are partly the result of `backwards compatibility with operating systems from the early 1970s`_.
 
+.. _backwards compatibility with operating systems from the early 1970s: http://bitquabit.com/post/zombie-operating-systems-and-aspnet-mvc/
 .. _restrictions which are considerably more complex: https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx#naming_conventions
 
-One example of problems this causes is in timestamps.
-Since filenames cannot contain colons,
-an e.g. 8601 timestamp such as ``1970-01-01T00:00:00Z`` is not a legal filename.
-Windows software uses various workarounds, such as removing it or replacing it with a dash or similar-looking Unicode character.
+This has had long-term consequences,
+such as imposing some `surprising restrictions on URLs`_
+in Microsoft's web application framework, ASP.net
+(these were `relaxed in a later version`_).
+
+.. _surprising restrictions on URLs: https://stackoverflow.com/questions/987105/asp-net-mvc-routing-vs-reserved-filenames-in-windows
+.. _relaxed in a later version: http://haacked.com/archive/2010/04/29/allowing-reserved-filenames-in-URLs.aspx/
+
+Windows also does not permit filenames to contain colons,
+due to their use in delimiting drive names like ``C:\``.
+This causes issues in sharing files across platforms.
+
+    For example, a UNIX file name can use a colon (:), but a Windows file name
+    cannot use a colon (:). If a UNIX user attempts to create a file with a Windows
+    illegal character on a Windows Services for UNIX network file system (NFS)
+    share, the attempt is unsuccessful and the UNIX client computer receives an
+    input or output error.
 
 https://support.microsoft.com/en-us/kb/289627
-https://serverfault.com/questions/16706/current-date-in-the-file-name
-https://stackoverflow.com/questions/1642677/generate-unique-file-name-with-timestamp-in-batch-script
-https://programmers.stackexchange.com/questions/61683/standard-format-for-using-a-timestamp-as-part-of-a-filename
 
-Another example was a bag in ASP.
-.. TODO: explain more
+This also makes filenames containing timestamps somewhat inconvenient.
+Since filenames cannot contain colons,
+an ISO 8601 timestamp such as ``1970-01-01T00:00:00Z``
+cannot be part of a legal filename.
+Windows software uses various workarounds,
+such as removing the colon entirely
+or replacing it with a similar-looking Unicode character. [#]_ [#]_ [#]_ [#]_ [#]_ [#]_ [#]_
 
-https://stackoverflow.com/questions/987105/asp-net-mvc-routing-vs-reserved-filenames-in-windows
+.. [#] https://stackoverflow.com/questions/7874111/convert-datetime-now-to-a-valid-windows-filename
+.. [#] https://stackoverflow.com/questions/11037831/filename-timestamp-in-windows-cmd-batch-script
+.. [#] https://stackoverflow.com/questions/1642677/generate-unique-file-name-with-timestamp-in-batch-script
+.. [#] https://serverfault.com/questions/16706/current-date-in-the-file-name
+.. [#] https://serverfault.com/questions/292014/preferred-format-of-file-names-which-include-a-timestamp
+.. [#] https://serverfault.com/questions/16706/current-date-in-the-file-name
+.. [#] https://programmers.stackexchange.com/questions/61683/standard-format-for-using-a-timestamp-as-part-of-a-filename
+
+
+(It should be acknowledged that on Linux
+the names of directories in ``$PATH`` cannot contain colons either,
+but such restrictions do not apply to filenames.)
+
+.. [#C_strings] The wisdom of this decision is a matter of some debate.
+
+   Dennis Ritchie has explained the `rationale for using a null-terminator`_:
+
+       In BCPL, the first packed byte contains the number of characters in the string;
+       in B, there is no count and strings are terminated by a special character,
+       which B spelled ```*e'``. This change was made partially to avoid the limitation on
+       the length of a string caused by holding the count in an 8- or 9-bit slot, and
+       partly because maintaining the count seemed, in our experience, less convenient
+       than using a terminator.
+
+   `Null-terminated strings do have some drawbacks`_,
+   such as making certain optimizations more difficult,
+   and exposing unwary programs to buffer overflow bugs.
+
+   On the other hand, length-prefixed strings such as those in Pascal
+   tend to have their own difficulties,
+   `such as storing strings of arbitrary length`_.
+
+   In any case, both Linux and `Windows use null-terminated strings`_,
+   as do other modern operating systems.
+
+.. _rationale for using a null-terminator: https://stackoverflow.com/questions/4418708/whats-the-rationale-for-null-terminated-strings
+.. _Null-terminated strings do have some drawbacks: https://queue.acm.org/detail.cfm?id=2010365
+.. _such as storing strings of arbitrary length: https://www.lysator.liu.se/c/bwk-on-pascal.html
+.. _Windows use null-terminated strings: http://blogs.msdn.com/b/oldnewthing/archive/2009/10/08/9904646.aspx
+
 
 ------------------------------
 Limited choice in filesystems.

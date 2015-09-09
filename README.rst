@@ -497,15 +497,89 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 Drive letter assignment
 -----------------------
 
-.. TODO: talk about this.
+Drive letters for removable media like floppy disks and flash drives
+are still used in Windows NT.
+However, the drive letter is not necessarily the same next time,
+which causes many practical problems,
+such as finding recently used files.
+
+    I have a problem with Word when working with documents on my flash drive.
+    If I insert the drive days later and try to use the recently used file
+    list, Word sometimes says it can’t find the document.
+
+    I’ve worked out that when I insert the flash drive it’s not always using
+    the same drive letter – it’s F or G drive but occasionally even later in
+    the alphabet.
+
+    How can I change the flash drive letter or, even better, make it appear as
+    the same drive letter each time?
+
+http://new.office-watch.com/2008/make-a-consistent-drive-letter-or-path-to-a-removable-drive/
+
+This is solvable using NTFS mount points,
+but Windows doesn't do it by default.
+
+Linux, on the other hand, uses the single-rooted UNIX filesystem hierarchy,
+assigning all drives (including removable media)
+to configurable mount points.
+For flash drives, that means they live under ``/media/``,
+are assigned a directory based on their label,
+and that directory won't change unless the partition label changes
+or they are manually mounted somewhere else.
+
 .. https://unix.stackexchange.com/questions/93960/why-is-linuxs-filesystem-designed-as-a-single-directory-tree
 .. http://new.office-watch.com/2008/make-a-consistent-drive-letter-or-path-to-a-removable-drive/
-.. http://windowsitpro.com/systems-management/magic-mount-points
+
+    For UNIX users, the concept of mount points is old hat—something that UNIX and
+    other OSs, such as Novell NetWare, have used for years. However, in the Windows
+    space, mount points are a relatively new concept.
+
+    [ . . . ]
+
+    Integrating local and remote disk resources into a unified and singular
+    directory tree greatly simplifies file-system traversal and makes the traversal
+    transparent to the administrator, application, and user.
+
+    [ . . . ]
+
+    Because the Windows storage-management paradigm has always relied heavily on
+    alphabetic drive-letter designations, mount points—with their lack of
+    dependence on drive-letter associations—are especially valuable.
+
+http://windowsitpro.com/systems-management/magic-mount-points
+
+There is a limitation for NTFS mount points: recycle bin doesn't work.
+
+    The problem is the recycle bin.  This "undo" option is maintained with a hidden
+    system file that is on the partition that holds the files being deleted.
+    Unfortuantely, when the command to delete a folder is given, the system
+    attempts to delete the folder using the mount point folder's Master File Table,
+    and not the subfolder's Master File Table.  The mount point folder's MFT
+    doesn't host the record, and an access denied message is kicked back to you for
+    having the temerity to try and recycle a directory which apparently doesn't
+    even exist!  The only solution for this is to not recycle subfolders and
+    directories, but to outright delete them.
+
+http://getyouriton.blogspot.com/2009/08/serious-gotchas-with-mounted-drives-or.html
+
+http://flippingbits.typepad.com/blog/2011/09/best-practices-for-windows-mounts-points.html
+
 .. http://support.2brightsparks.com/knowledgebase/articles/211485-assigning-a-drive-letter-to-external-usb
 .. http://www.tmsbackup.com/cms/index.php?id=652
-.. http://new.office-watch.com/2008/make-a-consistent-drive-letter-or-path-to-a-removable-drive/
 .. http://www.techrepublic.com/blog/the-enterprise-cloud/use-mount-points-if-you-run-out-of-windows-drive-letters/
+.. https://stackoverflow.com/questions/4652545/windows-what-happens-if-i-finish-drive-letters-they-are-26
+.. https://technet.microsoft.com/en-us/library/cc938934.aspx
+.. https://serverfault.com/questions/83165/mount-drive-with-two-drive-letters-instead-of-one
+.. https://support.microsoft.com/en-us/kb/307889
 
+http://www.zdnet.com/article/dear-microsoft-its-time-to-stop-using-drive-letters-and-whacks/
+
+.. https://support.microsoft.com/en-us/kb/947021
+
+    Volume mount points are robust against system changes that occur when devices
+    are added or removed from a computer. 
+
+https://technet.microsoft.com/en-us/library/Cc938934.aspx
 
 ---------------------
 Filename restrictions

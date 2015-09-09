@@ -334,10 +334,9 @@ http://www.multicians.org/mgc.html
 http://www.multicians.org/pl1.html
 
 This has some intuitive appeal;
-it is useful to be able to distinguish between
+it is useful to be able to distinguish between, say,
 the abbreviation for United State ("US")
-and the first-person plural objective pronoun ("us"),
-for example.
+and the first-person plural objective pronoun ("us").
 
 .. Talk more? E.g. Rob/rob, Job/job, Lot/lot, Miami Marlins vs Miami marlins, Target sale vs target sale, Scrabble/scrabble, drake/Drake
 
@@ -359,7 +358,9 @@ to uppercase or lowercase.
 
 http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
 
-However, there is no shortage of opinions that this was a bad choice.
+However, there is no shortage of opinions that case-sensitive filenames
+-- and even case-sensitivity in general --
+was a bad decision.
 
            Anecdotally, case sensitivity in programs is known to be error-prone for
            both beginners and experienced users.  Bob Frankston, a Multics alumnus

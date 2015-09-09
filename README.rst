@@ -729,6 +729,14 @@ Realistically, though, `defragmentation isn't that important for NTFS`_, either.
 .. _do not require defragmentation: http://www.tldp.org/LDP/sag/html/filesystems.html#FRAGMENTATION
 .. _defragmentation isn't that important for NTFS: http://blogs.msdn.com/b/e7/archive/2009/01/25/disk-defragmentation-background-and-engineering-the-windows-7-improvements.aspx
 
+Finally, Linux permits unprivileged users to run their own filesystems via FUSE.
+This has many practical benefits,
+such as accessing cloud storage as if it were an ordinary directory.
+
+There is a project to bring FUSE to Windows,
+but it is no longer maintained
+and its various forks are not as mature as the Linux implementation.
+
 ------------------
 UTF-16, not UTF-8.
 ------------------

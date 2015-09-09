@@ -601,7 +601,7 @@ http://www.zdnet.com/article/dear-microsoft-its-time-to-stop-using-drive-letters
 .. https://support.microsoft.com/en-us/kb/947021
 
     Volume mount points are robust against system changes that occur when devices
-    are added or removed from a computer. 
+    are added or removed from a computer.
 
 https://technet.microsoft.com/en-us/library/Cc938934.aspx
 

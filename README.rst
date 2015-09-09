@@ -1666,6 +1666,25 @@ rather than reproducing and reporting bugs.
 .. _requiring: http://www.howtogeek.com/182817/htg-explains-why-does-windows-want-to-reboot-so-often/
 .. _reboots: http://www.howtogeek.com/howto/31204/why-do-application-installs-make-you-reboot-and-close-other-apps/
 
+In 2000, when Hotmail switched from FreeBSD to Windows server,
+a white paper noted this problem, which persists 15 years later:
+
+    Windows operations still involves too many reboots. Sometimes they are
+    unnecessary, but operators reboot a system rather than take the time to
+    debug it. For example, a service may be hung, and rather than take the time
+    to find and fix the problem, it is often more convenient to reboot. By
+    contrast, UNIX administrators are conditioned to quickly identify the
+    failing service and simply restart it; they are helped in this by the
+    greater transparency of UNIX and the small number of interdependencies.
+    Some reboots are demanded by an application installation, and are not
+    strictly necessary.
+
+    --- David Brooks, Microsoft Hotmail Migration Technical Case Study
+
+http://www.theregister.co.uk/2002/11/21/ms_paper_touts_unix/
+
+https://web.archive.org/web/20030206115538/http://remus.softimage.net/hotmail.html
+
 In the long run,
 this hurts both proprietary and open-source software
 on the Windows platform.

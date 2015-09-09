@@ -174,13 +174,20 @@ able to mount and repartition disks,
 connect to the internet and run a web browser,
 and (for `persistent live USB flash drives`_)
 retain settings and data on the next boot-up.
+This makes live versions of Linux useful for
+recovering files from damaged hard drives,
+making bootable backups of an entire drive,
+scanning a disk for malware without loading a potentially compromised operating system,
+distinguishing hardware problems from softwre problems,
+and other tasks requiring a temporary operating system.
 
 .. _Live versions: http://www.linux.com/directory/Distributions/livecd
 .. _persistent live USB flash drives: http://askubuntu.com/questions/295701/what-would-be-the-differences-between-a-persistent-usb-live-session-and-a-instal
 
 Some live Linux distributions, such as `Puppy Linux`_,
 are lightweight enough that they default to `running from a RAM disk`_,
-and consequently have much faster disk I/O than an OS that must access a spinning hard drive.
+and consequently have much faster disk I/O
+than an OS that must access a spinning hard drive.
 (This comes at the cost of disk space being limited by RAM.
 There's no reason you can't mount an internal or external drive to store files, though.)
 

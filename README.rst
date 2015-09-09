@@ -38,25 +38,34 @@ It's easy to opine about one's preferred operating system,
 but harder to give objective, concrete examples.
 
 With the caveat that both Windows and Linux are moving targets,
-this document describes some specific technical reasons to prefer using Linux as a desktop operating system.
+this document describes some specific technical reasons
+to prefer using Linux as a desktop operating system.
 
 These reasons are not exhaustive
 --- and not meant to be ---
 but aim to be representative.
 
-These will not touch on closed vs. open source development,
+This document will not cover servers, phones, or embedded devices.
+
+This document  will not cover closed vs. open source development,
 but will instead focus on functionality.
 There is plenty of discussion of the advantages and disadvantages of open source elsewhere.
-Besides, what is there to discuss when we now know that `even Microsoft loves open source`_?
+
+Besides, what is there to discuss
+when we now know that `even Microsoft loves open source`_?
 
 .. _even Microsoft loves open source: http://www.networkworld.com/article/2216878/windows/microsoft---we-love-open-source-.html
 
-(This discussion will only mention Microsoft and other companies in so far as their actions are directly relevant to the technically capabilities of Windows and Linux.
+(This discussion will only mention Microsoft and other companies
+in so far as their actions are directly relevant
+to the technically capabilities of Windows and Linux.
 As an aside, Microsoft gets a lot of guff in the open-source world,
-but their behavior is typical of almost any company that relies primarily on selling proprietary software and devices for revenue.
+but their behavior is typical of almost any company
+that relies primarily on selling proprietary software and devices for revenue.
 It's just economics, not malice.)
 
-The discussion is intended to be accurate at the cost of possible dryness due to technical detail.
+The discussion is intended to be as accurate as possible,
+at the cost of possible dryness due to technical detail.
 
 I am most familiar with the Debian-based family of Linux distributions,
 so my remarks will necessarily touch on these more,
@@ -67,9 +76,11 @@ including bootloader, kernel, shell, window manager, package manager, etc.
 Similarly, the term "Windows" refers to all default components of modern versions of Microsoft Windows NT,
 including Windows XP, Windows Vista, Windows 7, and Windows 8.
 
-Many of the same arguments in favor of Linux also apply to the BSD family of operating systems
+Many of the same arguments in favor of Linux
+also apply to the BSD family of operating systems
 (and POSIX-compliant operating systems in general),
-but unfortunately I am not familiar enough with any of them to comment specifically.
+but unfortunately I am not familiar enough with any of them
+to comment specifically.
 
 +++++++++++++++
 Why write this?
@@ -79,12 +90,14 @@ Most people use Windows on the desktop because it's the default.
 Few are aware of the benefits of switching to another operating system,
 and even fewer are willing to put in the effort to do so.
 
-A curious Windows user who's interested in Linux will have difficulty finding good reasons via web searches,
+A Windows user interested in trying Linux
+will probably have difficulty finding a coherent reason to do so,
 since comparisons of operating systems are (almost) always vague, uninformed, or opinion-based.
 
 For a variety of reasons,
 people who do use Linux seldom advertise its benefits to their colleagues.
-If they do, they may find it difficult to articulate exactly what the benefits are in a concrete and specific manner,
+If they do, they may find it difficult to articulate
+exactly what the benefits are in a concrete and specific manner,
 especially without putting down Windows users or Windows applications in general.
 
 If you don't use Linux or Windows,
@@ -92,11 +105,13 @@ this document might still be of interest,
 since it discusses issues which are relevant to all operating systems.
 
 If you are a new Linux user,
-this document is intended to inform you about some of the benefits of Linux you may not be aware of,
+this document is intended to inform you
+about some of the benefits of Linux you may not be aware of,
 and to dig deeper if you are interested.
 
 If you are an experienced Linux user,
-this document is a test of the theory that the fastest way to get feedback is to be publically wrong about something people care about.
+this document is a test of the theory that the fastest way to get feedback
+is to be publically wrong about something people care about.
 Corrections and additions are welcome.
 
 If you are a Windows user:
@@ -105,7 +120,8 @@ If you are a Windows user:
   (That would be silly.)
 - This document does not claim that Windows is inferior in every way,
   or even that it is inferior overall.
-- Instead, this is meant to provide insight into why some people choose to use Linux as a desktop operating system,
+- Instead, this is meant to provide insight
+  into why some people choose to use Linux as a desktop operating system,
   despite its shortcomings,
   and possibly to challenge some misconceptions that people have about Linux and Windows.
 - Corrections and additions are, of course, welcome.

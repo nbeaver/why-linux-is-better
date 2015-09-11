@@ -592,6 +592,49 @@ http://www.zdnet.com/article/dear-microsoft-its-time-to-stop-using-drive-letters
 
 https://technet.microsoft.com/en-us/library/Cc938934.aspx
 
+.. [#disk_location]
+
+   Multics appears to be the first operating system with a root directory
+   and a hierarchical filesystem underneath it.
+
+   However, the motivations for such a scheme go back further.
+   One of the most influential time-sharing systems,
+   CTSS, recognized the need for accessing files independent of their disk location.
+
+       All files kept on the disk (and drum) are known to the
+       user only by name: the supervisor disk control module keeps
+       for each user a directory of names and corresponding track
+       locations on the disk.
+
+   https://archive.org/stream/bitsavers_mitctssMAC5_3662592/MAC-TR-16_CTSStecNote_Mar65_djvu.txt
+
+       It is desirable, from the point of view both of programming and
+       of disk administration, that the user have no notion of the absolute
+       location where his files of information are stored in the disk. Rather,
+       the user will refer to his files only by symbolic names and logical mode
+       number.
+
+   https://archive.org/stream/bitsavers_mitctssCTS_3840198/CTSS_ProgrammersGuide_djvu.txt
+
+   Unix was developed on relatively small disk drives,
+   so it was useful to be able mount drives anywhere on the filesystem.
+
+       You know how Ken Thompson and Dennis Ritchie created Unix on a PDP-7 in 1969?
+       Well around 1971 they upgraded to a PDP-11 with a pair of RK05 disk packs (1.5
+       megabytes each) for storage.
+
+       When the operating system grew too big to fit on the first RK05 disk pack (their
+       root filesystem) they let it leak into the second one, which is where all the
+       user home directories lived (which is why the mount was called /usr).  They
+       replicated all the OS directories under there (/bin, /sbin, /lib, /tmp...) and
+       wrote files to those new directories because their original disk was out of
+       space.  When they got a third disk, they mounted it on /home and relocated all
+       the user directories to there so the OS could consume all the space on both
+       disks and grow to THREE WHOLE MEGABYTES (ooooh!).
+
+   http://lists.busybox.net/pipermail/busybox/2010-December/074114.html
+
+
 ---------------------
 Filename restrictions
 ---------------------

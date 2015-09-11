@@ -922,6 +922,11 @@ until the application is killed.
 .. _lock files they use by default: https://en.wikipedia.org/wiki/File_locking#In_Microsoft_Windows
 .. _file access is a nuisance: https://stackoverflow.com/questions/546504/how-do-i-make-windows-file-locking-more-like-unix-file-locking
 
+This gets interesting when the files are hidden thumbnails.
+
+https://superuser.com/questions/537041/action-cant-be-completed-open-in-another-program
+https://support.microsoft.com/en-us/kb/2025703
+
 By contrast,
 on Linux it is not unusual for two different applications
 to share read access to the same file,
@@ -983,8 +988,8 @@ so here are some of the salient parts::
     =============================================================================================
     It's a very ugly system hack that sits in your system tray and attempts to make windows
     that can't usually be resized, resizeable.
-    
-    
+
+
     =============================================================================================
     Why was it written?
     =============================================================================================
@@ -992,8 +997,8 @@ so here are some of the salient parts::
     1280x1024, and was fed up with having to pick items from a list that could only display three
     items because the window didn't take into account the screen resolution, hence only occupying
     about 20% of the desktop 'real-estate'.
-    
-    
+
+
     =============================================================================================
     How does it work?
     =============================================================================================
@@ -1248,7 +1253,7 @@ that he is who he claims to be.)
     and the gap is worsening. The cause of the problem is social. There's
     almost none of the improvement for its own sake, for the sake of glory,
     that you see in the Linux world.
-    
+
     Granted, occasionally one sees naive people try to make things better.
     These people almost always fail. We can and do improve performance for
     specific scenarios that people with the ability to allocate resources
@@ -1259,7 +1264,7 @@ that he is who he claims to be.)
     business.
 
     -- Anonymous Windows NT kernel developer
-    
+
 .. _anonymous Windows kernel developer stated: http://blog.zorinaq.com/?e=74
 
 

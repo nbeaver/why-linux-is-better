@@ -516,142 +516,6 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
     https://archive.org/stream/Intro_to_CPM_Feat_and_Facilities/Intro_to_CPM_Feat_and_Facilities_djvu.txt
 
------------------------------------------
-Limitations on access to external volumes
------------------------------------------
-
-When accessing external volumes such as flash drives,
-Windows assigns different capital letters to each volume
-each corresponding to a different absolute path root.
-This is necessary for backwards compatibility with MS-DOS,
-but it is not without drawbacks.
-
-Perhaps the most obvious problem
-is that there are only 26 letters in the English alphabet.
-But what does this mean in practice?
-
-For example, the drive letter may be different when a drive is reconnected,
-but applications that track recently used files
-will look for files under the old drive letter,
-and be unable to find the files.
-
-    I have a problem with Word when working with documents on my flash drive.
-    If I insert the drive days later and try to use the recently used file
-    list, Word sometimes says it can’t find the document.
-
-    I’ve worked out that when I insert the flash drive it’s not always using
-    the same drive letter – it’s F or G drive but occasionally even later in
-    the alphabet.
-
-    How can I change the flash drive letter or, even better, make it appear as
-    the same drive letter each time?
-
-http://new.office-watch.com/2008/make-a-consistent-drive-letter-or-path-to-a-removable-drive/
-
-Both of these problems can be solved using NTFS mount points,
-but Windows doesn't use them by default.
-There are also other limitations;
-for example, the recycle bin doesn't work as expected.
-
-    The problem is the recycle bin.  This "undo" option is maintained with a hidden
-    system file that is on the partition that holds the files being deleted.
-    Unfortuantely, when the command to delete a folder is given, the system
-    attempts to delete the folder using the mount point folder's Master File Table,
-    and not the subfolder's Master File Table.  The mount point folder's MFT
-    doesn't host the record, and an access denied message is kicked back to you for
-    having the temerity to try and recycle a directory which apparently doesn't
-    even exist!  The only solution for this is to not recycle subfolders and
-    directories, but to outright delete them.
-
-http://getyouriton.blogspot.com/2009/08/serious-gotchas-with-mounted-drives-or.html
-
-This is related to an inconsistency
-of the Windows operating system:
-the NTFS filesystem has a root directory,
-but Windows itself has no unique root directory.
-
-(*My Computer* roughly corresponds to a root directory in concept,
-and looks like a folder when viewed in Windows Explorer,
-but there is no actual *My Computer* folder anywhere on the filesystem.)
-
-Unix, on the other hand,
-has a unique root directory
-and mounts drives (including removable media)_
-as directories on the filesystem. [#disk_location]_
-
-On Linux, flash drives are mounted under ``/media/``,
-are assigned a directory based on their label,
-and the assigned directory won't change unless the partition label changes
-or the drive is manually mounted somewhere else.
-For graphical file managers,
-each flash drive has its own trash folders,
-one per user.
-
-https://superuser.com/questions/169980/what-is-trash-and-trash-1000
-
-https://unix.stackexchange.com/questions/93960/why-is-linuxs-filesystem-designed-as-a-single-directory-tree
-
-.. http://www.tmsbackup.com/cms/index.php?id=652
-.. http://www.techrepublic.com/blog/the-enterprise-cloud/use-mount-points-if-you-run-out-of-windows-drive-letters/
-.. https://stackoverflow.com/questions/4652545/windows-what-happens-if-i-finish-drive-letters-they-are-26
-.. https://technet.microsoft.com/en-us/library/cc938934.aspx
-.. https://serverfault.com/questions/83165/mount-drive-with-two-drive-letters-instead-of-one
-.. https://support.microsoft.com/en-us/kb/307889
-
-http://www.zdnet.com/article/dear-microsoft-its-time-to-stop-using-drive-letters-and-whacks/
-
-.. https://support.microsoft.com/en-us/kb/947021
-
-    Volume mount points are robust against system changes that occur when devices
-    are added or removed from a computer.
-
-https://technet.microsoft.com/en-us/library/Cc938934.aspx
-
-.. [#disk_location]
-
-   Multics, the predecessor to Unix,
-   appears to be the first operating system with a root directory
-   and a hierarchical filesystem underneath it.
-
-   .. TODO: source
-
-   However, the motivations for such a scheme go back further.
-   One of the most influential time-sharing systems,
-   CTSS, recognized the need for accessing files independent of their disk location.
-
-       All files kept on the disk (and drum) are known to the
-       user only by name: the supervisor disk control module keeps
-       for each user a directory of names and corresponding track
-       locations on the disk.
-
-   https://archive.org/stream/bitsavers_mitctssMAC5_3662592/MAC-TR-16_CTSStecNote_Mar65_djvu.txt
-
-       It is desirable, from the point of view both of programming and
-       of disk administration, that the user have no notion of the absolute
-       location where his files of information are stored in the disk. Rather,
-       the user will refer to his files only by symbolic names and logical mode
-       number.
-
-   https://archive.org/stream/bitsavers_mitctssCTS_3840198/CTSS_ProgrammersGuide_djvu.txt
-
-   Unix was developed on relatively small disk drives,
-   so it was useful to be able mount drives anywhere on the filesystem.
-
-       You know how Ken Thompson and Dennis Ritchie created Unix on a PDP-7 in 1969?
-       Well around 1971 they upgraded to a PDP-11 with a pair of RK05 disk packs (1.5
-       megabytes each) for storage.
-
-       When the operating system grew too big to fit on the first RK05 disk pack (their
-       root filesystem) they let it leak into the second one, which is where all the
-       user home directories lived (which is why the mount was called /usr).  They
-       replicated all the OS directories under there (/bin, /sbin, /lib, /tmp...) and
-       wrote files to those new directories because their original disk was out of
-       space.  When they got a third disk, they mounted it on /home and relocated all
-       the user directories to there so the OS could consume all the space on both
-       disks and grow to THREE WHOLE MEGABYTES (ooooh!).
-
-   http://lists.busybox.net/pipermail/busybox/2010-December/074114.html
-
 
 ---------------------
 Filename restrictions
@@ -895,6 +759,142 @@ Architectural deficiencies of the Windows platform
 These are limitations of the Windows platform
 which are not intrinsic to the operationg system,
 but nevertheless cause problems.
+
+-----------------------------------------
+Limitations on access to external volumes
+-----------------------------------------
+
+When accessing external volumes such as flash drives,
+Windows assigns different capital letters to each volume
+each corresponding to a different absolute path root.
+This is necessary for backwards compatibility with MS-DOS,
+but it is not without drawbacks.
+
+Perhaps the most obvious problem
+is that there are only 26 letters in the English alphabet.
+But what does this mean in practice?
+
+For example, the drive letter may be different when a drive is reconnected,
+but applications that track recently used files
+will look for files under the old drive letter,
+and be unable to find the files.
+
+    I have a problem with Word when working with documents on my flash drive.
+    If I insert the drive days later and try to use the recently used file
+    list, Word sometimes says it can’t find the document.
+
+    I’ve worked out that when I insert the flash drive it’s not always using
+    the same drive letter – it’s F or G drive but occasionally even later in
+    the alphabet.
+
+    How can I change the flash drive letter or, even better, make it appear as
+    the same drive letter each time?
+
+http://new.office-watch.com/2008/make-a-consistent-drive-letter-or-path-to-a-removable-drive/
+
+Both of these problems can be solved using NTFS mount points,
+but Windows doesn't use them by default.
+There are also other limitations;
+for example, the recycle bin doesn't work as expected.
+
+    The problem is the recycle bin.  This "undo" option is maintained with a hidden
+    system file that is on the partition that holds the files being deleted.
+    Unfortuantely, when the command to delete a folder is given, the system
+    attempts to delete the folder using the mount point folder's Master File Table,
+    and not the subfolder's Master File Table.  The mount point folder's MFT
+    doesn't host the record, and an access denied message is kicked back to you for
+    having the temerity to try and recycle a directory which apparently doesn't
+    even exist!  The only solution for this is to not recycle subfolders and
+    directories, but to outright delete them.
+
+http://getyouriton.blogspot.com/2009/08/serious-gotchas-with-mounted-drives-or.html
+
+This is related to an inconsistency
+of the Windows operating system:
+the NTFS filesystem has a root directory,
+but Windows itself has no unique root directory.
+
+(*My Computer* roughly corresponds to a root directory in concept,
+and looks like a folder when viewed in Windows Explorer,
+but there is no actual *My Computer* folder anywhere on the filesystem.)
+
+Unix, on the other hand,
+has a unique root directory
+and mounts drives (including removable media)_
+as directories on the filesystem. [#disk_location]_
+
+On Linux, flash drives are mounted under ``/media/``,
+are assigned a directory based on their label,
+and the assigned directory won't change unless the partition label changes
+or the drive is manually mounted somewhere else.
+For graphical file managers,
+each flash drive has its own trash folders,
+one per user.
+
+https://superuser.com/questions/169980/what-is-trash-and-trash-1000
+
+https://unix.stackexchange.com/questions/93960/why-is-linuxs-filesystem-designed-as-a-single-directory-tree
+
+.. http://www.tmsbackup.com/cms/index.php?id=652
+.. http://www.techrepublic.com/blog/the-enterprise-cloud/use-mount-points-if-you-run-out-of-windows-drive-letters/
+.. https://stackoverflow.com/questions/4652545/windows-what-happens-if-i-finish-drive-letters-they-are-26
+.. https://technet.microsoft.com/en-us/library/cc938934.aspx
+.. https://serverfault.com/questions/83165/mount-drive-with-two-drive-letters-instead-of-one
+.. https://support.microsoft.com/en-us/kb/307889
+
+http://www.zdnet.com/article/dear-microsoft-its-time-to-stop-using-drive-letters-and-whacks/
+
+.. https://support.microsoft.com/en-us/kb/947021
+
+    Volume mount points are robust against system changes that occur when devices
+    are added or removed from a computer.
+
+https://technet.microsoft.com/en-us/library/Cc938934.aspx
+
+.. [#disk_location]
+
+   Multics, the predecessor to Unix,
+   appears to be the first operating system with a root directory
+   and a hierarchical filesystem underneath it.
+
+   .. TODO: source
+
+   However, the motivations for such a scheme go back further.
+   One of the most influential time-sharing systems,
+   CTSS, recognized the need for accessing files independent of their disk location.
+
+       All files kept on the disk (and drum) are known to the
+       user only by name: the supervisor disk control module keeps
+       for each user a directory of names and corresponding track
+       locations on the disk.
+
+   https://archive.org/stream/bitsavers_mitctssMAC5_3662592/MAC-TR-16_CTSStecNote_Mar65_djvu.txt
+
+       It is desirable, from the point of view both of programming and
+       of disk administration, that the user have no notion of the absolute
+       location where his files of information are stored in the disk. Rather,
+       the user will refer to his files only by symbolic names and logical mode
+       number.
+
+   https://archive.org/stream/bitsavers_mitctssCTS_3840198/CTSS_ProgrammersGuide_djvu.txt
+
+   Unix was developed on relatively small disk drives,
+   so it was useful to be able mount drives anywhere on the filesystem.
+
+       You know how Ken Thompson and Dennis Ritchie created Unix on a PDP-7 in 1969?
+       Well around 1971 they upgraded to a PDP-11 with a pair of RK05 disk packs (1.5
+       megabytes each) for storage.
+
+       When the operating system grew too big to fit on the first RK05 disk pack (their
+       root filesystem) they let it leak into the second one, which is where all the
+       user home directories lived (which is why the mount was called /usr).  They
+       replicated all the OS directories under there (/bin, /sbin, /lib, /tmp...) and
+       wrote files to those new directories because their original disk was out of
+       space.  When they got a third disk, they mounted it on /home and relocated all
+       the user directories to there so the OS could consume all the space on both
+       disks and grow to THREE WHOLE MEGABYTES (ooooh!).
+
+   http://lists.busybox.net/pipermail/busybox/2010-December/074114.html
 
 --------------------------------
 Limited default debugging tools.

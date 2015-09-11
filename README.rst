@@ -516,18 +516,24 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
     https://archive.org/stream/Intro_to_CPM_Feat_and_Facilities/Intro_to_CPM_Feat_and_Facilities_djvu.txt
 
+-----------------------------------------
+Limitations on access to external volumes
+-----------------------------------------
 
------------------------
-Drive letter assignment
------------------------
+When accessing external volumes such as flash drives,
+Windows assigns different capital letters to each volume
+each corresponding to a different absolute path root.
+This is necessary for backwards compatibility with MS-DOS,
+but it is not without drawbacks.
 
-The Windows filesystem has no unique root directory,
-but instead assigns different capital letters to each volume.
-This has many drawbacks.
+Perhaps the most obvious problem
+is that there are only 26 letters in the English alphabet.
+But what does this mean in practice?
 
-For example, the drive letter may be different when the drive is reconnected,
-so applications that track recently used files
-will have trouble finding them on that drive.
+For example, the drive letter may be different when a drive is reconnected,
+but applications that track recently used files
+will look for files under the old drive letter,
+and be unable to find the files.
 
     I have a problem with Word when working with documents on my flash drive.
     If I insert the drive days later and try to use the recently used file
@@ -542,9 +548,9 @@ will have trouble finding them on that drive.
 
 http://new.office-watch.com/2008/make-a-consistent-drive-letter-or-path-to-a-removable-drive/
 
-This can be solved using NTFS mount points,
-but Windows doesn't use them for flash drives by default.
-There are also other limitations for mount points;
+Both of these problems can be solved using NTFS mount points,
+but Windows doesn't use them by default.
+There are also other limitations;
 for example, the recycle bin doesn't work as expected.
 
     The problem is the recycle bin.  This "undo" option is maintained with a hidden
@@ -559,6 +565,15 @@ for example, the recycle bin doesn't work as expected.
 
 http://getyouriton.blogspot.com/2009/08/serious-gotchas-with-mounted-drives-or.html
 
+This is related to an inconsistency
+of the Windows operating system:
+the NTFS filesystem has a root directory,
+but Windows itself has no unique root directory.
+
+(*My Computer* roughly corresponds to a root directory in concept,
+and looks like a folder when viewed in Windows Explorer,
+but there is no actual *My Computer* folder anywhere on the filesystem.)
+
 Unix, on the other hand,
 has a unique root directory
 and mounts drives (including removable media)_
@@ -567,7 +582,7 @@ as directories on the filesystem. [#disk_location]_
 On Linux, flash drives are mounted under ``/media/``,
 are assigned a directory based on their label,
 and the assigned directory won't change unless the partition label changes
-or the drives are manually mounted somewhere else.
+or the drive is manually mounted somewhere else.
 For graphical file managers,
 each flash drive has its own trash folders,
 one per user.
@@ -683,13 +698,13 @@ https://support.microsoft.com/en-us/kb/289627
 This also makes filenames containing timestamps somewhat inconvenient.
 Since filenames cannot contain colons,
 an ISO 8601 timestamp such as ``1970-01-01T00:00:00Z``
-cannot be part of a legal filename.
+cannot be part of a valid filename.
 Windows software uses various workarounds,
 such as removing the colon entirely
 or replacing it with a similar-looking Unicode character. [#]_ [#]_ [#]_ [#]_ [#]_ [#]_ [#]_
 
 (It should be acknowledged that on Linux
-the names of directories in ``$PATH`` cannot contain colons either,
+the names of directories in ``$PATH`` cannot contain colons either, [#colons_in_PATH]_
 but such restrictions do not apply to filenames.)
 
 .. [#] https://stackoverflow.com/questions/7874111/convert-datetime-now-to-a-valid-windows-filename
@@ -699,6 +714,7 @@ but such restrictions do not apply to filenames.)
 .. [#] https://serverfault.com/questions/292014/preferred-format-of-file-names-which-include-a-timestamp
 .. [#] https://serverfault.com/questions/16706/current-date-in-the-file-name
 .. [#] https://programmers.stackexchange.com/questions/61683/standard-format-for-using-a-timestamp-as-part-of-a-filename
+.. [#colons_in_PATH] https://stackoverflow.com/questions/14661373/how-to-escape-colon-in-path-on-unix
 
 .. [#C_strings] The wisdom of this decision is a matter of some debate.
 

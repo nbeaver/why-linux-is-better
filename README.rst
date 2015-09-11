@@ -542,39 +542,10 @@ will have trouble finding them on that drive.
 
 http://new.office-watch.com/2008/make-a-consistent-drive-letter-or-path-to-a-removable-drive/
 
-This is solvable using NTFS mount points,
-but Windows doesn't do it by default.
-
-Linux, on the other hand, uses the single-rooted UNIX filesystem hierarchy,
-assigning all drives (including removable media)
-to configurable mount points.
-For flash drives, that means they live under ``/media/``,
-are assigned a directory based on their label,
-and that directory won't change unless the partition label changes
-or they are manually mounted somewhere else.
-
-.. https://unix.stackexchange.com/questions/93960/why-is-linuxs-filesystem-designed-as-a-single-directory-tree
-.. http://new.office-watch.com/2008/make-a-consistent-drive-letter-or-path-to-a-removable-drive/
-
-    For UNIX users, the concept of mount points is old hat—something that UNIX and
-    other OSs, such as Novell NetWare, have used for years. However, in the Windows
-    space, mount points are a relatively new concept.
-
-    [ . . . ]
-
-    Integrating local and remote disk resources into a unified and singular
-    directory tree greatly simplifies file-system traversal and makes the traversal
-    transparent to the administrator, application, and user.
-
-    [ . . . ]
-
-    Because the Windows storage-management paradigm has always relied heavily on
-    alphabetic drive-letter designations, mount points—with their lack of
-    dependence on drive-letter associations—are especially valuable.
-
-http://windowsitpro.com/systems-management/magic-mount-points
-
-There is a limitation for NTFS mount points: recycle bin doesn't work.
+This can be solved using NTFS mount points,
+but Windows doesn't use them for flash drives by default.
+There are also other limitations for mount points;
+for example, the recycle bin doesn't work as expected.
 
     The problem is the recycle bin.  This "undo" option is maintained with a hidden
     system file that is on the partition that holds the files being deleted.

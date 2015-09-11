@@ -561,8 +561,8 @@ http://getyouriton.blogspot.com/2009/08/serious-gotchas-with-mounted-drives-or.h
 
 Unix, on the other hand,
 has a unique root directory
-and mounts drives (including removable media)
-as directories on the filesystem. [#disk_location]
+and mounts drives (including removable media)_
+as directories on the filesystem. [#disk_location]_
 
 On Linux, flash drives are mounted under ``/media/``,
 are assigned a directory based on their label,
@@ -594,8 +594,11 @@ https://technet.microsoft.com/en-us/library/Cc938934.aspx
 
 .. [#disk_location]
 
-   Multics appears to be the first operating system with a root directory
+   Multics, the predecessor to Unix,
+   appears to be the first operating system with a root directory
    and a hierarchical filesystem underneath it.
+
+   .. TODO: source
 
    However, the motivations for such a scheme go back further.
    One of the most influential time-sharing systems,
@@ -763,9 +766,13 @@ Finally, Linux permits unprivileged users to run their own filesystems via FUSE.
 This has many practical benefits,
 such as accessing cloud storage as if it were an ordinary directory.
 
+.. TODO: source
+
 There is a project to bring FUSE to Windows,
 but it is no longer maintained
 and its various forks are not as mature as the Linux implementation.
+
+.. TODO: source
 
 ------------------
 UTF-16, not UTF-8.

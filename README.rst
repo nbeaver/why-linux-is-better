@@ -559,9 +559,23 @@ for example, the recycle bin doesn't work as expected.
 
 http://getyouriton.blogspot.com/2009/08/serious-gotchas-with-mounted-drives-or.html
 
-http://flippingbits.typepad.com/blog/2011/09/best-practices-for-windows-mounts-points.html
+Unix, on the other hand,
+has a unique root directory
+and mounts drives (including removable media)
+as directories on the filesystem. [#disk_location]
 
-.. http://support.2brightsparks.com/knowledgebase/articles/211485-assigning-a-drive-letter-to-external-usb
+On Linux, flash drives are mounted under ``/media/``,
+are assigned a directory based on their label,
+and the assigned directory won't change unless the partition label changes
+or the drives are manually mounted somewhere else.
+For graphical file managers,
+each flash drive has its own trash folders,
+one per user.
+
+https://superuser.com/questions/169980/what-is-trash-and-trash-1000
+
+https://unix.stackexchange.com/questions/93960/why-is-linuxs-filesystem-designed-as-a-single-directory-tree
+
 .. http://www.tmsbackup.com/cms/index.php?id=652
 .. http://www.techrepublic.com/blog/the-enterprise-cloud/use-mount-points-if-you-run-out-of-windows-drive-letters/
 .. https://stackoverflow.com/questions/4652545/windows-what-happens-if-i-finish-drive-letters-they-are-26

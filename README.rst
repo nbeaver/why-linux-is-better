@@ -521,11 +521,13 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 Drive letter assignment
 -----------------------
 
-Drive letters for removable media like floppy disks and flash drives
-are still used in Windows NT.
-However, the drive letter is not necessarily the same next time,
-which causes many practical problems,
-such as finding recently used files.
+The Windows filesystem has no unique root directory,
+but instead assigns different capital letters to each volume.
+This has many drawbacks.
+
+For example, the drive letter may be different when the drive is reconnected,
+so applications that track recently used files
+will have trouble finding them on that drive.
 
     I have a problem with Word when working with documents on my flash drive.
     If I insert the drive days later and try to use the recently used file

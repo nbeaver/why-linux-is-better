@@ -794,7 +794,7 @@ because `folders cannot have a read-only status`_.
 In Linux, by contrast, a read-only directory cannot have files added to it,
 and files in such a directory cannot be moved, renamed, or deleted
 without first removing the read-only status from the directory they are in.
-Modifications of the contents of the files depend on the the individual file permissions.
+Modifications of the contents of the files depend on the individual file permissions.
 
 .. [#unix_groups] Unix permissions, for example, are not a panacea: https://unix.stackexchange.com/questions/164303/single-user-for-sharing-vs-multiple-users
 .. [#ntfs_permissions_flaw] NTFS permissions have their own issues, e.g. https://serverfault.com/questions/31709/how-to-workaround-the-ntfs-move-copy-design-flaw
@@ -804,8 +804,9 @@ Architectural deficiencies of the Windows platform
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 
 These are limitations of the Windows platform
-which are not intrinsic to the operationg system,
-but nevertheless cause problems.
+which are not intrinsic to the operating system,
+but are the result of default behavior
+or restrictions on the Windows ecosystem.
 
 -----------------------------------------
 Limitations on access to external volumes

@@ -1032,6 +1032,8 @@ or for one process to read a file
 while another process is writing to it,
 since applications do not lock files by default.
 
+.. TODO: CR LF \r\n newlines?
+
 -----------------------------------------
 Lack of control over desktop environment.
 -----------------------------------------
@@ -1070,7 +1072,7 @@ This is not without difficulties, however.
       slaves and its parent process and for the communication to/from the dbus
       deamon. On Windows there are no Unix domain sockets. They could be emulated
       by tcp sockets with the costs of slower bandwidth and additional patches to
-      deal with Unix domain socket files exchanged between processes. 
+      deal with Unix domain socket files exchanged between processes.
 
     --- Ralf Habacker, KDE developer
 
@@ -1079,10 +1081,14 @@ http://lxer.com/module/newswire/view/79007/
 There is Windows software for
 tiling window managers, [#tiling_window_managers]_
 virtual desktops, [#virtual_desktops]_
+focus follows mouse, [#focus_follows_mouse]_
 and special effects to rival Compiz. [#cube_desktop]_
 
 .. [#tiling_window_managers] https://github.com/fuhsjr00/bug.n
 .. [#virtual_desktops] http://virtuawin.sourceforge.net/
+.. [#focus_follows_mouse]
+   http://milosophical.me/blog/2010/03/10/ms-windows-focus-follows-mouse-registry-hacks.html
+   https://superuser.com/questions/368688/on-windows-7-is-there-any-way-to-make-the-scrollwheels-focus-follow-the-mouse
 .. [#cube_desktop] http://www.thinkinbytes.com/en/products/cubedesktop
 
 Given all these choices and customization options,
@@ -1979,3 +1985,5 @@ seen in more recent versions of Windows.
 Finally, because Linux is a ubiquitous server operating system,
 its security is under constant attack,
 and Linux desktop users benefit from fixes to the vulnerabilities.
+
+.. TODO: addendum of commonly cited, but incorrect, advantages?

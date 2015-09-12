@@ -692,26 +692,34 @@ and its various forks are not as mature as the Linux implementation.
 UTF-16, not UTF-8.
 ------------------
 
-If the Windows API were designed today, it would most likely use `UTF-8`_.
-The Unicode Consortium primarily `recommends UTF-16`_ for compatibility with Java and the Windows API.
-Some `practical reasons for preferring UTF-8`_:
+`UTF-8 has many practical advantages`_ over UTF-16.
 
-.. _UTF-8: http://www.cl.cam.ac.uk/~mgk25/ucs/utf-8-history.txt
-.. _recommends UTF-16: http://www.unicode.org/faq/programming.html#2
-.. _practical reasons for preferring UTF-8: https://annevankesteren.nl/2009/09/utf-8-reasons
-
-- It is a superset of ASCII, so it is backwards-compatible with existing text files.
-- `Zero bytes do not appear`_ at any point in a valid UTF-8 representation, so ``strcpy()`` still works.
-- It is `self-synchronizing`_, i.e. it is possible to resynchronize after a lost or corrupted code point without re-reading the entire string.
-- It is more portable because it does not require a `byte-order mark`_ and is less likely to be mistaken for other encodings.
+- It is a superset of ASCII,
+  so it is backwards-compatible with existing text files.
+- `Zero bytes do not appear`_ at any point in a valid UTF-8 representation,
+  so ``strcpy()`` still works.
+- It is `self-synchronizing`_, i.e. it is possible to resynchronize
+  after a lost or corrupted code point without re-reading the entire string.
+- It is more portable because it does not require a `byte-order mark`_
+  and is less likely to be mistaken for other encodings.
 - Internet Explorer has been known to have `security issues with UTF-16`_.
 
+.. _UTF-8 has many practical advantages: https://annevankesteren.nl/2009/09/utf-8-reasons
 .. _Zero bytes do not appear: https://docs.python.org/2/howto/unicode.html#encodings
 .. _self-synchronizing: http://research.swtch.com/utf8
 .. _byte-order mark: http://www.unicode.org/faq/utf_bom.html
 .. _security issues with UTF-16: http://permalink.gmane.org/gmane.ietf.charsets/372
 
-In principle, UTF-16 would have the advantage of constant time addressing of single characters,
+If the Windows API were designed today,
+it would probably use `UTF-8`_.
+The Unicode Consortium primarily `recommends UTF-16`_
+for compatibility with Java and the Windows API.
+
+.. _UTF-8: http://www.cl.cam.ac.uk/~mgk25/ucs/utf-8-history.txt
+.. _recommends UTF-16: http://www.unicode.org/faq/programming.html#2
+
+In principle, UTF-16 would have the advantage
+of constant time addressing of single characters,
 but in practice most programming languages do not provide data types for this,
 with the `exception of Go and rust`_.
 

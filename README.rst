@@ -1111,15 +1111,32 @@ in the same way that the Windows API is.
 Non-resizable dialog boxes.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The window manager monoculture means that accessibility improvements
+The single Windows UI library
+means that accessibility improvements
 and user interface customization can be difficult to implement.
 
-For example, Windows presents many configuration options in non-resizable dialog boxes.
+For example, many dialog boxes are non-resizable by default,
+i.e. ``WS_THICKFRAME`` must be enabled by the application.
+
+    In some cases, you want to display something in a response window but you also
+    want this window to be resizable in order to let the user resize this window to
+    display the info the way he or she wants. Normally, response windows are not
+    resizable and this is also the Microsoft standard behaviour.
+
+    --- Eric Aling
+
+http://eric.aling.tripod.com/PB/tips/pbtip39.htm
+
 This can pose user-interface problems,
-especially on high-resolution monitors. [#changing_size_of_window]_ [#cannot_resize_small_windows]_
+especially on high-resolution monitors.
+[#changing_size_of_window]_
+[#cannot_resize_small_windows]_
 
 One solution to this problem is to download and run a third-party background process
-that tracks every single time a window is resized. [#resize_non_resizable_windows]_ [#turn_non_resizable_windows]_ [#ResizeEnable]_
+that tracks every single time a window is resized.
+[#resize_non_resizable_windows]_
+[#turn_non_resizable_windows]_
+[#ResizeEnable]_
 
 The README is not directly linkable via URL,
 so here are some of the salient parts::

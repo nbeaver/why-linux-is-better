@@ -1242,15 +1242,18 @@ Windows 8
 
 As another example,
 the transition from Windows 7 to Windows 8 was controversial,
-because the Metro user interface departed substantially from the historical Windows desktop. [#]_ [#]_ [#]_ [#]_ [#]_ [#]_
+because the Metro user interface departed substantially
+from the historical Windows desktop. [#]_ [#]_ [#]_ [#]_ [#]_ [#]_
 
 Enterprise customers, in particular,
 refused to upgrade from Windows 7,
 citing usability problems. [#]_ [#]_
 
-These examples are relevant not because they show that Microsoft makes occasional mistakes,
+These examples are relevant
+not because they show that Microsoft makes occasional mistakes,
 but to highlight the risks of monoculture and vendor lock-in
-and to provide contrast to the way that the Linux ecosystem maintains checks and balances.
+and to provide contrast to the way
+that the Linux ecosystem maintains checks and balances.
 
 Linux users can, if they wish,
 install a recent kernel and up-to-date applications
@@ -1344,19 +1347,23 @@ key combinations which send instructions to the kernel.
 
 .. _Magic Alt-SysRq keys: https://www.kernel.org/doc/Documentation/sysrq.txt
 
-(Windows has Ctrl-Alt-Delete, but requires a responding display manager to allow the user to cleanly reboot.)
+(Windows has Ctrl-Alt-Delete,
+but requires a responding display manager
+to allow the user to cleanly reboot.)
 
-There is a plethora of `window managers`_ and `desktop environments`_ to choose from on Linux,
-even for the same distribution,
+There is a plethora of window managers [#window_managers]_
+and desktop environments [#desktop_environments]_
+to choose from on Linux,
+even on the same distribution,
 making it highly customizable to the system's resources and the user's wishes.
-However, they all use the same X Window System (a.k.a X11) provided by the X server.
-
-.. _window managers: https://wiki.archlinux.org/index.php/Window_manager
-.. _desktop environments: https://wiki.debian.org/DesktopEnvironment
+However, they all use the same X Window System (a.k.a X11)
+provided by the X server, typically X.org.
 
 The X11 system is by no means perfect;
-in fact, many former X11 developers are hard at work on its replacement, `Wayland`_,
-and Canonical (the company behind Ubuntu) is working on a separate but similar endeavor called `Mir`_.
+in fact, many former X11 developers
+are hard at work on its replacement, `Wayland`_,
+and Canonical (the company behind Ubuntu)
+is working on a separate but similar endeavor called `Mir`_.
 
 .. _Wayland: http://wayland.freedesktop.org/architecture.html
 .. _Mir: http://unity.ubuntu.com/mir/
@@ -1371,6 +1378,12 @@ even though they don't use it as a display manager.
 .. _ported to Windows: http://sourceforge.net/projects/xming/
 .. _and Android: https://play.google.com/store/apps/details?id=net.sourceforge.x11basic
 
+.. [#window_managers]
+   https://wiki.archlinux.org/index.php/Window_manager
+   http://en.wikipedia.org/wiki/Comparison_of_X_window_managers
+.. [#desktop_environments]
+   https://wiki.debian.org/DesktopEnvironment
+   http://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments
 .. [#] "You would think that because Windows XP is multiuser, you could have multiple users running VNC servers. Indeed you can, but you can only use the one that has the currently active user - switch away, and that server goes black, and in my testing, can't even be used again. Windows XP is not really multiuser." http://aplawrence.com/Reviews/tightvnc.html
 .. [#] "Windows, unless you're using Terminal Server (and have the licenses to go with it) doesn't have this capability, and I don't believe that even with Terminal Server, VNC will be able to take advantage of this." http://tightvnc.10971.n7.nabble.com/Multiple-Unique-Sessions-td2060.html
 .. [#] "If you heard about/saw many active desktop sessions in non-server Windows - that was modified OS with swapped termsrv.dll. Licensing does not allow you to modify/swap system files and use non-server system that way and this is ILLEGAL." http://stackoverflow.com/questions/9410091/multi-user-login-remote-desktop-on-windows-linux

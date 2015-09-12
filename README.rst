@@ -729,8 +729,10 @@ with the `exception of Go and rust`_.
 File extensions are the sole determiner of filetype.
 ----------------------------------------------------
 
-On Windows, the file extension is the sole determiner of what happens when opening a file.
-This makes it easier to dupe a Windows user into `unintentionally running malware`_.
+On Windows, the file extension is the sole determiner
+of what happens when opening a file.
+This makes it easier to dupe a Windows user
+into `unintentionally running malware`_.
 
 .. _unintentionally running malware: http://windows.microsoft.com/en-us/windows-vista/recognizing-dangerous-file-types
 
@@ -745,15 +747,18 @@ but only one application gets to open them by default.
 .. _a lot of different file formats: http://filext.com/file-extension/dat
 
 On Linux, `filetypes are determined`_ by a combination of
-filesystem metadata,
+filesystem metadata (e.g. execute permissions),
 heuristics based on file signatures (a.k.a "magic numbers"),
-and sometimes file extension.
+and ``.desktop`` configuration files with mimetype information
+(which includes file extensions).
+
+.. TODO: cite
 
 .. _filetypes are determined: http://www.howtogeek.com/192628/mime-types-explained-why-linux-and-mac-os-x-dont-need-file-extensions/
-.. TODO: add more links about how Linux decides file formats.
 
 A file's executable status is separate from its file extension,
-and an executable text file written in a scripting language can indicate how to run it using the `first-line shebang convention`_,
+and an executable text file written in a scripting language
+can control how it is run via the `first-line shebang convention`_,
 e.g. ``#!/usr/bin/env python3 -i``.
 
 Windows does not support shebang lines,

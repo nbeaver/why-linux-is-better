@@ -1004,9 +1004,38 @@ or for one process to read a file
 while another process is writing to it,
 since applications do not lock files by default.
 
-----------------------------
-No choice of window manager.
-----------------------------
+-----------------------------------------
+Lack of control over desktop environment.
+-----------------------------------------
+
+Windows has many ways to customize its appearance;
+there are many `alternative shells`_ and `visual themes`_,
+and it's possible to `change the login shell`_
+or `run without explorer.exe at all`_.
+
+.. _alternative shells: https://en.wikipedia.org/wiki/List_of_alternative_shells_for_Windows
+.. _visual themes: https://en.wikipedia.org/wiki/Theme_%28computing%29#Operating_systems
+.. _run without explorer.exe at all: http://lightquick.co.uk/running-windows-without-explorer.exe.html
+.. _change the login shell: https://superuser.com/questions/108265/how-do-you-replace-the-logon-shell-with-iexplore
+
+It's even possible to run the KDE desktop environment on Windows.
+
+https://windows.kde.org/
+
+http://lxer.com/module/newswire/view/79007/
+
+However, ultimately Microsoft controls the Windows API,
+such as how low-level libraries ``user32.dll`` and ``gdi32.dll`` respond to function calls.
+As a result, Microsoft can exert control over the Windows desktop environment,
+such as making it `impossible to disable the dwm window manager`_ on Windows 8.
+
+.. _impossible to disable the dwm window manager: https://msdn.microsoft.com/en-us/library/windows/desktop/hh848042%28v=vs.85%29.aspx
+
+Projects like Wine are something of a threat to this control,
+since it provides an open-source implementation of libraries such as ``user32.dll``.
+Perhaps that's why `Windows rejects a registry with the Wine configuration key`_.
+
+.. _Windows rejects a registry with the Wine configuration key: https://www.winehq.org/pipermail/wine-devel/2005-February/033868.html
 
 The Linux kernel does not require a particular desktop environment,
 or indeed any graphical desktop at all.
@@ -1016,25 +1045,6 @@ for `desktop environment`_ and `window manager`_ on Linux.
 
 .. _desktop environment: http://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments
 .. _window manager: http://en.wikipedia.org/wiki/Comparison_of_X_window_managers
-
-.. TODO: Make this part more specifically about needing keyboard for initial setup.
-.. connect a monitor, keyboard, and mouse for the initial setup; then disconnect them and use them elsewhere.
-.. http://windowssecrets.com/top-story/a-cheap-effective-home-server-using-windows-8/
-
-Microsoft does not provide the `Windows NT desktop window manager`_ and `Windows NT kernel`_ separately;
-the window manager is a `tightly coupled`_ component of the kernel,
-and as of Windows 8 the `DWM cannot be disabled`_, even for servers.
-
-.. _Windows NT desktop window manager: https://msdn.microsoft.com/en-us/library/aa969540.aspx
-.. _Windows NT kernel: https://channel9.msdn.com/Shows/Going+Deep/Windows-Part-I-Dave-Probert#53470
-.. _tightly coupled: http://en.wikipedia.org/wiki/Window_manager#Microsoft_Windows
-.. _DWM cannot be disabled: https://msdn.microsoft.com/en-us/library/windows/desktop/hh848042%28v=vs.85%29.aspx
-
-While there are a number of `alternative shells`_ and `visual themes`_ for Windows,
-the underlying windowing system is the same.
-
-.. _alternative shells: https://en.wikipedia.org/wiki/List_of_alternative_shells_for_Windows
-.. _visual themes: https://en.wikipedia.org/wiki/Theme_%28computing%29#Operating_systems
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Non-resizable dialog boxes.

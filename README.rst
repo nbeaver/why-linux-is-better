@@ -1018,33 +1018,94 @@ or `run without explorer.exe at all`_.
 .. _run without explorer.exe at all: http://lightquick.co.uk/running-windows-without-explorer.exe.html
 .. _change the login shell: https://superuser.com/questions/108265/how-do-you-replace-the-logon-shell-with-iexplore
 
-It's even possible to run the KDE desktop environment on Windows.
+It's even possible to run the KDE desktop environment on Windows,
+since KDE uses the cross-platform Qt framework.
+
+    The KDE on Windows Initiative is an ongoing project to port the KDE
+    applications to MS Windows. Currently supported versions of Windows are XP,
+    Vista and 7.
 
 https://windows.kde.org/
 
+This is not without difficulties, however.
+
+    The current implementation of KDE is designed in a unix specific way, which is
+    partially different from the Windows way. Examples for this are:
+
+    * Process creating - Using the Unix way of fork and exec.
+
+    * It isn't available on Windows, this difference requires a redesign of the related parts.
+
+    * Its missing Windows api counterparts.
+
+    * KDE uses Unix domain socket for high speed data transfer betwen kioslave
+      slaves and its parent process and for the communication to/from the dbus
+      deamon. On Windows there are no Unix domain sockets. They could be emulated
+      by tcp sockets with the costs of slower bandwidth and additional patches to
+      deal with Unix domain socket files exchanged between processes. 
+
+    --- Ralf Habacker, KDE developer
+
 http://lxer.com/module/newswire/view/79007/
 
-However, ultimately Microsoft controls the Windows API,
-such as how low-level libraries ``user32.dll`` and ``gdi32.dll`` respond to function calls.
-As a result, Microsoft can exert control over the Windows desktop environment,
-such as making it `impossible to disable the dwm window manager`_ on Windows 8.
+There is Windows software for
+tiling window managers, [#tiling_window_managers]_
+virtual desktops, [#virtual_desktops]_
+and special effects to rival Compiz. [#cube_desktop]_
 
-.. _impossible to disable the dwm window manager: https://msdn.microsoft.com/en-us/library/windows/desktop/hh848042%28v=vs.85%29.aspx
+.. [#tiling_window_managers] https://github.com/fuhsjr00/bug.n
+.. [#virtual_desktops] http://virtuawin.sourceforge.net/
+.. [#cube_desktop] http://www.thinkinbytes.com/en/products/cubedesktop
 
-Projects like Wine are something of a threat to this control,
-since it provides an open-source implementation of libraries such as ``user32.dll``.
+Given all these choices and customization options,
+what functionality could Windows possibly lack?
+
+Here is the problem:
+the Windows API determines the behavior of libraries like
+``user32.dll``, ``gdi32.dll``, and ``comctl32.dll``.
+Everything in hardware goes through the Windows API,
+including keystrokes, mouse clicks, and graphics.
+However, Windows must also obey licensing requirements,
+such as copyrighted content protection.
+This means that it is difficult to, say,
+replicate the Flip3D program.
+
+https://stackoverflow.com/questions/3848558/what-is-the-api-to-create-applications-like-flip3d
+
+Something like `Wine`_ could, in principle, work around this,
+since it provides an open-source implementation
+of libraries such as ``user32.dll``.
 Perhaps that's why `Windows rejects a registry with the Wine configuration key`_.
 
+.. _Wine: https://www.winehq.org/about/
 .. _Windows rejects a registry with the Wine configuration key: https://www.winehq.org/pipermail/wine-devel/2005-February/033868.html
 
-The Linux kernel does not require a particular desktop environment,
-or indeed any graphical desktop at all.
-However, Linux desktop users generally run graphical user interfaces managed by the X server.
-There are are many, many options
-for `desktop environment`_ and `window manager`_ on Linux.
+Another example: on Windows 8,
+it is impossible to disable the dwm window manager.
 
-.. _desktop environment: http://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments
-.. _window manager: http://en.wikipedia.org/wiki/Comparison_of_X_window_managers
+    In Windows Vista and Windows 7, desktop composition is disabled in a number of
+    scenarios. In Windows 8, DWM desktop composition is a core operating system
+    component and cannot be disabled. With a few exceptions, desktop composition is
+    always on; it’s started before the user logon and remains active for the
+    duration of a session.
+
+    --- Windows Dev Center documentation
+
+    [ . . . ]
+
+
+    I  understand the choice and it improves the overall experience, but it is
+    going to force us to retire some of our older software, and it tool many years
+    to overcome the problems caused.
+
+    --- Dan Ritchie
+
+https://msdn.microsoft.com/en-us/library/windows/desktop/hh848042%28v=vs.85%29.aspx
+
+Linux also has an API,
+but it is not tied to the desktop environment,
+and is not controlled by a single corporation
+in the same way that the Windows API is.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Non-resizable dialog boxes.

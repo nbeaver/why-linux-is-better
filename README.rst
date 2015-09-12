@@ -445,7 +445,35 @@ There are also passionate views to the opposite effect.
     the computer effectively considers the users to be too stupid or blind
     or whatever to be able to say what we mean accurately.
 
+    --- Greg A. Woods
+
 https://lists.nongnu.org/archive/html/info-cvs/2003-11/msg00127.html
+
+    Why oh why on Earth engineers at Microsoft decided to make Windows case
+    insensitve and then use camel case anyway, wherever possible?
+
+    It makes case-sensitive systems and their sysadmins cry :-(
+
+    --- u/bwosc
+
+https://www.reddit.com/r/sysadmin/comments/2w6c8g/case_insensitive_windows_rant/
+
+    Why are computer file names and conventions and protocols so messed up? It's
+    bizarre -- and Microsoft has been one of the worst offenders with one of the
+    most powerful positions and opportunities to make it a better filename-naming
+    world.
+
+    [ . . . ]
+
+    And, Microsoft dares to allow mixed case naming, but does case insensitive
+    handling of file names... don't even get me started about some of the bizarre
+    results and buggy behavior I've traced to that. I only wish I'd had a
+    chargeback code for all of the time I've spent fixing and debugging systems
+    that all come back to the file naming. Sigh, again.
+
+    --- yagu
+
+http://slashdot.org/comments.pl?sid=190747&cid=15690704
 
 Laying aside that argument for the moment,
 why did Windows filenames end up case-insensitive?

@@ -992,7 +992,7 @@ until the application is killed.
 .. _lock files they use by default: https://en.wikipedia.org/wiki/File_locking#In_Microsoft_Windows
 .. _file access is a nuisance: https://stackoverflow.com/questions/546504/how-do-i-make-windows-file-locking-more-like-unix-file-locking
 
-This gets interesting when the files are hidden thumbnails.
+This becomes particularly interesting when the files are hidden thumbnails.
 
 https://superuser.com/questions/537041/action-cant-be-completed-open-in-another-program
 https://support.microsoft.com/en-us/kb/2025703

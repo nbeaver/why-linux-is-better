@@ -371,7 +371,7 @@ and the first-person plural objective pronoun ("us").
 
 .. Talk more? E.g. Rob/rob, Job/job, Lot/lot, Miami Marlins vs Miami marlins, Target sale vs target sale, Scrabble/scrabble, drake/Drake
 
-It also provideds more possibilities for filenames,
+It also allows more possibilities for filenames,
 and makes filename comparisons simpler and faster
 because they don't have to occasionally convert
 to uppercase or lowercase.
@@ -389,51 +389,51 @@ to uppercase or lowercase.
 
 http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
 
-However, there is no shortage of opinions that case-sensitive filenames
+However, there is also no shortage of opinions that case-sensitive filenames
 -- and even case-sensitivity in general --
 was a bad decision.
 
-           Anecdotally, case sensitivity in programs is known to be error-prone for
-           both beginners and experienced users.  Bob Frankston, a Multics alumnus
-           and the co-inventor of VisiCalc, once said it was the biggest mistake
-           that Multics had inflicted on the world.
+    Anecdotally, case sensitivity in programs is known to be error-prone for
+    both beginners and experienced users.  Bob Frankston, a Multics alumnus
+    and the co-inventor of VisiCalc, once said it was the biggest mistake
+    that Multics had inflicted on the world.
 
 https://www.ma.utexas.edu/pipermail/maxima/2003/004483.html
 
-           Mac ＆ Windows users have to have filenames read to them over the phone by
-           support techs. They have to be able to write little sticky notes to their
-           mothers about how to open up the mail program, without worrying about how the
-           filenames are capitalized. Haven't you ever fumed over a URL with initial-caps
-           in the folder names in the path, having to fiddle with capitalization until you
-           get a response that's anything but a 404? Haven't you ever been secretly
-           pleased that e-mail addresses aren't case-sensitive?
+    Mac ＆ Windows users have to have filenames read to them over the phone by
+    support techs. They have to be able to write little sticky notes to their
+    mothers about how to open up the mail program, without worrying about how the
+    filenames are capitalized. Haven't you ever fumed over a URL with initial-caps
+    in the folder names in the path, having to fiddle with capitalization until you
+    get a response that's anything but a 404? Haven't you ever been secretly
+    pleased that e-mail addresses aren't case-sensitive?
 
 http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
 
-           One of the most pernicious problems with C-based languages is that they're
-           case-sensitive. While this decision may have made sense in 1972 when the
-           language was created, one wonders why the sins of Kernighan and Ritchie have
-           been blindly perpetuated for the last thirty-three years.
+    One of the most pernicious problems with C-based languages is that they're
+    case-sensitive. While this decision may have made sense in 1972 when the
+    language was created, one wonders why the sins of Kernighan and Ritchie have
+    been blindly perpetuated for the last thirty-three years.
 
-           Unless you have extremely compelling reasons to make something case-sensitive,
-           case insensitivity is a much more human being friendly design choice. Designing
-           software that's easier for machines is questionable at best.
+    Unless you have extremely compelling reasons to make something case-sensitive,
+    case insensitivity is a much more human being friendly design choice. Designing
+    software that's easier for machines is questionable at best.
 
 http://blog.codinghorror.com/the-case-for-case-insensitivity/
 
-           There is no longer any excuse for making humans learn and handle the quirks of
-           the way computers store upper- and lower-case characters. Instead, software
-           should handle the quirks of human language.
+    There is no longer any excuse for making humans learn and handle the quirks of
+    the way computers store upper- and lower-case characters. Instead, software
+    should handle the quirks of human language.
 
 http://tiamat.tsotech.com/case-sensitivity-sucks
 
-           Since it appears to have manifested out of opinion rather than necessity, it
-           could be said case-sensitivity is the worst way that modern technology sucks.
+    Since it appears to have manifested out of opinion rather than necessity, it
+    could be said case-sensitivity is the worst way that modern technology sucks.
 
 http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
 
-           This is really stupid, it causes a ton of problems and there is no longer any
-           good reason to have case sensitivity in an OS.
+    This is really stupid, it causes a ton of problems and there is no longer any
+    good reason to have case sensitivity in an OS.
 
 http://www.somethinkodd.com/oddthinking/2005/10/27/the-case-for-case-preserving-case-insensitivity/
 
@@ -632,6 +632,8 @@ but such restrictions do not apply to filenames.)
 
    In any case, both Linux and `Windows use null-terminated strings`_,
    as do other modern operating systems.
+
+.. ``` TODO: remove this hack to fix vim's syntax highlighting bug
 
 .. _rationale for using a null-terminator: https://stackoverflow.com/questions/4418708/whats-the-rationale-for-null-terminated-strings
 .. _Null-terminated strings do have some drawbacks: https://queue.acm.org/detail.cfm?id=2010365

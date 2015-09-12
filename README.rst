@@ -822,7 +822,8 @@ Perhaps the most obvious problem
 is that there are only 26 letters in the English alphabet.
 But what does this mean in practice?
 
-For example, the drive letter may be different when a drive is reconnected,
+One result is that the assigned drive letter may be different
+when a drive is reconnected,
 but applications that track recently used files
 will look for files under the old drive letter,
 and be unable to find the files.
@@ -840,10 +841,18 @@ and be unable to find the files.
 
 http://new.office-watch.com/2008/make-a-consistent-drive-letter-or-path-to-a-removable-drive/
 
-Both of these problems can be solved using NTFS mount points,
-but Windows doesn't use them by default.
-There are also other limitations;
-for example, the recycle bin doesn't work as expected.
+Fortunately, there is a solution: NTFS mount points.
+
+    Volume mount points are robust against system changes that occur when devices
+    are added or removed from a computer.
+
+https://technet.microsoft.com/en-us/library/Cc938934.aspx
+
+Unfortunately, Windows doesn't use mount points by default
+for external hard drives or flash drives,
+possibly because mount points can behave differently than a user might expect.
+For example, the recycle bin does not work as expected
+on files accessed through mount points.
 
     The problem is the recycle bin.  This "undo" option is maintained with a hidden
     system file that is on the partition that holds the files being deleted.
@@ -857,47 +866,37 @@ for example, the recycle bin doesn't work as expected.
 
 http://getyouriton.blogspot.com/2009/08/serious-gotchas-with-mounted-drives-or.html
 
-This is related to an inconsistency
-of the Windows operating system:
+Not all of this behavior is because of backwards compatibility;
+some of it is due to a design choice of the Windows operating system:
 the NTFS filesystem has a root directory,
-but Windows itself has no unique root directory.
+but Windows itself has no single root directory.
 
 (*My Computer* roughly corresponds to a root directory in concept,
 and looks like a folder when viewed in Windows Explorer,
 but there is no actual *My Computer* folder anywhere on the filesystem.)
 
+http://www.zdnet.com/article/dear-microsoft-its-time-to-stop-using-drive-letters-and-whacks/
+
 Unix, on the other hand,
-has a unique root directory
+has a unique root directory called ``/``
 and mounts drives (including removable media)_
-as directories on the filesystem. [#disk_location]_
-
-On Linux, flash drives are mounted under ``/media/``,
-are assigned a directory based on their label,
-and the assigned directory won't change unless the partition label changes
-or the drive is manually mounted somewhere else.
-For graphical file managers,
-each flash drive has its own trash folders,
-one per user.
-
-https://superuser.com/questions/169980/what-is-trash-and-trash-1000
+as directories under the root. [#disk_location]_
 
 https://unix.stackexchange.com/questions/93960/why-is-linuxs-filesystem-designed-as-a-single-directory-tree
 
-.. http://www.tmsbackup.com/cms/index.php?id=652
-.. http://www.techrepublic.com/blog/the-enterprise-cloud/use-mount-points-if-you-run-out-of-windows-drive-letters/
-.. https://stackoverflow.com/questions/4652545/windows-what-happens-if-i-finish-drive-letters-they-are-26
-.. https://technet.microsoft.com/en-us/library/cc938934.aspx
-.. https://serverfault.com/questions/83165/mount-drive-with-two-drive-letters-instead-of-one
-.. https://support.microsoft.com/en-us/kb/307889
+On Linux, flash drives are mounted under ``/media/``
+and are assigned a directory based on their label.
+If the drive is removed and re-mounted again,
+the path to the drive will be the same as before
+unless the partition label has been changed
+or the drive is manually mounted elsewhere.
 
-http://www.zdnet.com/article/dear-microsoft-its-time-to-stop-using-drive-letters-and-whacks/
+File managers on Linux also handle deleting files on flash drives.
+When a file on an external drive is put into the trash,
+it goes into a user-specific hidden folder on the drive itself,
+not the trash in the user's home directory.
 
-.. https://support.microsoft.com/en-us/kb/947021
-
-    Volume mount points are robust against system changes that occur when devices
-    are added or removed from a computer.
-
-https://technet.microsoft.com/en-us/library/Cc938934.aspx
+https://superuser.com/questions/169980/what-is-trash-and-trash-1000
 
 .. [#disk_location]
 

@@ -194,7 +194,7 @@ This makes live versions of Linux useful for
 recovering files from damaged hard drives,
 making bootable backups of an entire drive,
 scanning a disk for malware without loading a potentially compromised operating system,
-distinguishing hardware problems from softwre problems,
+distinguishing hardware problems from software problems,
 and other tasks requiring a temporary operating system.
 
 .. _Live versions: http://www.linux.com/directory/Distributions/livecd
@@ -1747,7 +1747,7 @@ if their problem is shared by others,
 what they can do to fix it,
 and whether or not a bug has been fixed in the latest version.
 
-For this reason, many companies maintin a large user support staff.
+For this reason, many companies maintain a large user support staff.
 The inefficiencies and pitfalls of this are evident
 to anyone who's had to set up their home internet connection before.
 Some companies complement user support with user forums,

@@ -142,9 +142,12 @@ If you are a Windows user:
 Intrinsic technical deficiencies of the Windows NT operating system
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-------------------------
-Live booting is lacking.
-------------------------
+This is a list of examples specific limitations
+that are the result of the Windows kernel or API.
+
+-------------------------
+Live booting limitations.
+-------------------------
 
 Windows LiveCDs, `though they do exist`_,
 are hampered by licensing restrictions and technical limitations.
@@ -164,10 +167,16 @@ but it is `only able to make`_ a LiveCD for Windows XP or Windows Server 2003.
 
 There is also the `WinBuilder`_ project,
 which is the closest to a fully-functional LiveCD of modern Windows versions,
-but installing software and drivers is still `sometimes a challenge`_.
+but installing software and drivers is still sometimes a challenge.
 
 .. _WinBuilder: http://winbuilder.net/
-.. _sometimes a challenge: http://www.irongeek.com/i.php?page=security/winbuilder-win7pe-se-tutorial
+
+    If the Virtual Machine fails don’t worry too much. Just because the Virtual
+    Machine fails to boot right does not mean your boot media won’t work, I’ve
+    seen odd results depending on the amount of memory the VM has and what
+    drivers I load.
+
+http://www.irongeek.com/i.php?page=security/winbuilder-win7pe-se-tutorial
 
 The absence of fully functional live versions of Windows
 makes it difficult to use for, e.g,

@@ -92,17 +92,24 @@ and even fewer are willing to put in the effort to do so.
 
 A Windows user interested in trying Linux
 will probably have difficulty finding a coherent reason to do so,
-since comparisons of operating systems are (almost) always vague, uninformed, or opinion-based.
+since comparisons of operating systems
+tend to be vague, uninformed, or opinion-based.
 
-For a variety of reasons,
-people who do use Linux seldom advertise its benefits to their colleagues.
-If they do, they may find it difficult to articulate
-exactly what the benefits are in a concrete and specific manner,
-especially without putting down Windows users or Windows applications in general.
+Even people who know and use Linux by choice
+may not do a good job of explaining its benefits to their colleagues
+especially without putting down Windows users
+or Windows applications in general.
 
-If you don't use Linux or Windows,
-this document might still be of interest,
-since it discusses issues which are relevant to all operating systems.
+Also, there are many open source alternatives to Linux on the desktop,
+including a binary-compatible clone of Windows called `ReactOS`_.
+If it were just a matter of being open source,
+why bother with the additional effort to learn Linux?
+
+.. _ReactOS: https://reactos.org/
+
+Even if you don't use Linux or Windows,
+it's useful to know where Linux has an edge,
+since these issues are relevant to all operating systems.
 
 If you are a new Linux user,
 this document is intended to inform you

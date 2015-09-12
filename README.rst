@@ -216,9 +216,9 @@ since that is almost always the way it is installed.
 
 .. _desktop version of Linux pre-installed: https://help.ubuntu.com/community/UbuntuPre-installed
 
-----------------------------------------
-Virtual machine limitations and drivers.
-----------------------------------------
+--------------------------------------
+Virtualization and driver limitations.
+--------------------------------------
 
 Similar to live booting,
 Linux is often run as a virtual machine,
@@ -226,12 +226,27 @@ and consequently it is well-adapted to changes in hardware.
 
 An existing Linux partition on a physical hard drive
 can, with some care, be virtualized and run on another machine,
-or even simply transferred to a USB enclosure and booted directly,
-a `virtue which Windows does not share`_,
-due both to `licensing and driver problems`_.
+a virtue which Windows does not share.
 
-.. _virtue which Windows does not share: https://www.virtualbox.org/wiki/Migrate_Windows
-.. _licensing and driver problems: https://askubuntu.com/questions/174581/is-there-any-way-to-boot-windows-7-partition-in-virtual-machine
+    Windows installations, unlike Linux, cannot easily be moved from one
+    hardware to another. This is not just due to Microsoft's activation
+    mechanism but the fact that the installed kernel and drivers depend on the
+    actual hardware.
+
+https://www.virtualbox.org/wiki/Migrate_Windows
+
+    The problem lies with Windows, in that its driver settings, particularly
+    for storage devices, are not portable. Unless you modify the Windows
+    registry to force start storage drivers for both the physical and virtual
+    machines, you will mostly likely end up with a ``0x0000007B`` STOP blue
+    screen error each time which will require a restore or modifying the
+    registry to fix.
+
+https://askubuntu.com/questions/174581/is-there-any-way-to-boot-windows-7-partition-in-virtual-machine
+
+It's even possible to transfer a Linux install to a USB enclosure
+and boot it directly on another machine of the same architecture,
+although the kernel will lack proprietary drivers (e.g. some wifi cards).
 
 ---------------------
 Maximum path lengths.

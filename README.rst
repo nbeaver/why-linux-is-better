@@ -1388,6 +1388,9 @@ achieved a higher framerate than Direct3D on Windows.
 Configuration and software packaging.
 +++++++++++++++++++++++++++++++++++++
 
+While these topics could be included under architectural limitations,
+they are large enough to deserve their own section.
+
 -----------------
 Default software.
 -----------------

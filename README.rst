@@ -640,10 +640,9 @@ but such restrictions do not apply to filenames.)
 .. _such as storing strings of arbitrary length: https://www.lysator.liu.se/c/bwk-on-pascal.html
 .. _Windows use null-terminated strings: http://blogs.msdn.com/b/oldnewthing/archive/2009/10/08/9904646.aspx
 
-
-------------------------------
-Limited choice in filesystems.
-------------------------------
+---------------------------
+Limited filesystem support.
+---------------------------
 
 Windows has built-in support for its own NTFS filesystem,
 UDF (used for some CDs and DVDs),
@@ -667,7 +666,9 @@ For the system partition,
 Linux users can choose among the usual ext3 journaling filesystem
 or
 up-and-coming filesystems like `Btrfs`_.
-Unlike FAT and NTFS filesystems, ext3 and Btrfs `do not require defragmentation`_.
+Unlike FAT and NTFS filesystems,
+ext3 and Btrfs `do not require defragmentation`_
+to maintain good performance.
 Realistically, though, `defragmentation isn't that important for NTFS`_, either.
 
 .. _Btrfs: https://btrfs.wiki.kernel.org/index.php/Main_Page

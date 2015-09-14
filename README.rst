@@ -591,9 +591,9 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
     https://archive.org/stream/Intro_to_CPM_Feat_and_Facilities/Intro_to_CPM_Feat_and_Facilities_djvu.txt
 
 
----------------------
-Filename restrictions
----------------------
+----------------------
+Filename restrictions.
+----------------------
 
 In Linux and other Unix-derived operating systems,
 the only `characters that cannot appear`_
@@ -712,7 +712,7 @@ up-and-coming filesystems like `Btrfs`_.
 Unlike FAT and NTFS filesystems,
 ext3 and Btrfs `do not require defragmentation`_
 to maintain good performance.
-Realistically, though, `defragmentation isn't that important for NTFS`_, either.
+(Realistically, though, `defragmentation isn't that important for NTFS`_, either.)
 
 .. _Btrfs: https://btrfs.wiki.kernel.org/index.php/Main_Page
 .. _NTFS and FAT: http://technet.microsoft.com/en-us/magazine/2007.11.desktopfiles.aspx
@@ -827,12 +827,12 @@ it is sometimes desirable to set old files as read-only,
 so that they are still easily accessible,
 but are less likely to be accidentally deleted, moved, or modified.
 
-Unfortunately, while the contents of read-only files on Windows cannot be changed,
-the files themselves `can be moved, renamed, or deleted`_,
-because `folders cannot have a read-only status`_.
+On Windows, the content of a read-only file cannot be altered,
+but the file itself `can be moved, renamed, or deleted`_,
+because the `folder it is in cannot have a read-only status`_.
 
 .. _can be moved, renamed, or deleted: http://windows.microsoft.com/en-us/windows7/prevent-changes-to-a-file-by-setting-it-to-read-only
-.. _folders cannot have a read-only status: http://windows.microsoft.com/en-us/windows-vista/prevent-changes-to-a-file-or-folder-read-only
+.. _folder it is in cannot have a read-only status: http://windows.microsoft.com/en-us/windows-vista/prevent-changes-to-a-file-or-folder-read-only
 
 In Linux, by contrast, a read-only directory cannot have files added to it,
 and files in such a directory cannot be moved, renamed, or deleted
@@ -856,8 +856,8 @@ Limitations on access to external volumes
 -----------------------------------------
 
 When accessing external volumes such as flash drives,
-Windows assigns different capital letters to each volume
-each corresponding to a different absolute path root.
+Windows assigns different capital letters to each volume,
+each letter corresponding to a different absolute path root.
 This is necessary for backwards compatibility with MS-DOS,
 but it is not without drawbacks.
 
@@ -865,9 +865,10 @@ Perhaps the most obvious problem
 is that there are only 26 letters in the English alphabet.
 But what does this mean in practice?
 
-One result is that the assigned drive letter may be different
-when a drive is reconnected,
-but applications that track recently used files
+One consequence is that the assigned drive letter
+may be different when a drive is reconnected.
+This means that, for example,
+applications that track recently used files
 will look for files under the old drive letter,
 and be unable to find the files.
 
@@ -891,11 +892,26 @@ Fortunately, there is a solution: NTFS mount points.
 
 https://technet.microsoft.com/en-us/library/Cc938934.aspx
 
+    If you're running out of drive letters, one trick is to use a mount point
+    for each logical drive that you are going to bring into Windows; this way,
+    performance can be contained to a logical drive and still conform to your
+    drive letter standards.
+
+    [ . . . ]
+
+    There are many scenarios in which you would want a large number of drives,
+    such as multiple databases for Microsoft SQL Server or Exchange Server
+    installations. Exchange databases are notorious for needing their own
+    drives per mailbox store and, if you provision out well, you will quickly
+    run out of drive letters.
+
+    --- Rick Vanover
+
+http://www.techrepublic.com/blog/the-enterprise-cloud/use-mount-points-if-you-run-out-of-windows-drive-letters/
+
 Unfortunately, Windows doesn't use mount points by default
 for external hard drives or flash drives,
-possibly because mount points can behave differently than a user might expect.
-For example, the recycle bin does not work as expected
-on files accessed through mount points.
+possibly because mount points behave slightly differently than drive letters.
 
     The problem is the recycle bin.  This "undo" option is maintained with a hidden
     system file that is on the partition that holds the files being deleted.
@@ -909,23 +925,40 @@ on files accessed through mount points.
 
 http://getyouriton.blogspot.com/2009/08/serious-gotchas-with-mounted-drives-or.html
 
-Not all of this behavior is because of backwards compatibility;
-some of it is due to a design choice of the Windows operating system:
-the NTFS filesystem has a root directory,
-but Windows itself has no single root directory.
+While NTFS filesystems have a root directory,
+Windows has no unique root directory;
+instead, each drive has its own root.
 
-(*My Computer* roughly corresponds to a root directory in concept,
+https://stackoverflow.com/questions/151860/root-folder-equivalent-in-windows
+
+*My Computer* roughly corresponds to a root directory in concept,
 and looks like a folder when viewed in Windows Explorer,
-but there is no actual *My Computer* folder anywhere on the filesystem.)
+but there is no *My Computer* folder anywhere on the filesystem.
+Instead, *My Computer* is a virtual folder.
 
-http://www.zdnet.com/article/dear-microsoft-its-time-to-stop-using-drive-letters-and-whacks/
+    Unlike file system folders, users cannot create new virtual folders
+    themselves.  They can only install ones created by non-Microsoft
+    developers. The number of virtual folders is thus normally much fewer than
+    the number of file system folders.
+
+    [ . . . ]
+
+    The file systems of the various disk drives can be seen to be subsets of
+    the larger namespace hierarchy. The roots of these file systems are
+    subfolders of the My Computer folder. My Computer also includes the roots
+    of any mapped network drives.
+
+https://msdn.microsoft.com/en-us/library/cc144090%28VS.85%29.aspx
 
 Unix, on the other hand,
 has a unique root directory called ``/``
-and mounts drives (including removable media)_
-as directories under the root. [#disk_location]_
+and mounts drives (including removable media)
+as directories anywhere on the hierarchy. [#disk_location]_
+This provides uniform access and permission controls to storage volumes
+without requiring new syntax or knowledge of the underlying hardware.
 
 https://unix.stackexchange.com/questions/93960/why-is-linuxs-filesystem-designed-as-a-single-directory-tree
+
 
 On Linux, flash drives are mounted under ``/media/``
 and are assigned a directory based on their label.
@@ -945,9 +978,10 @@ https://superuser.com/questions/169980/what-is-trash-and-trash-1000
 
    Multics, the predecessor to Unix,
    appears to be the first operating system with a root directory
+   (called ``>`` instead of ``/``)
    and a hierarchical filesystem underneath it.
 
-   .. TODO: source
+   http://www.multicians.org/mgr.html#root
 
    However, the motivations for such a scheme go back further.
    One of the most influential time-sharing systems,

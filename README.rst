@@ -1121,13 +1121,14 @@ Everything in hardware goes through the Windows API,
 including keystrokes, mouse clicks, and graphics.
 Thus, the API can be used to restrict what programs can do. [#wine_dlls]_
 
-This is not a theoretical problem;
-by conforming to Intel's High-bandwidth Digital Content Protection,
-Windows prevents implementing applications similar to Flip3D.
+This is not a theoretical problem.
+Because of Intel's High-bandwidth Digital Content Protection,
+Windows applications cannot use the graphics card
+to manipulate windows the way Flip3D does.
 
 https://stackoverflow.com/questions/3848558/what-is-the-api-to-create-applications-like-flip3d
 
-To give another example of limited user control over the Windows desktop,
+Sometimes it isn't the API, either;
 on Windows 8 it is impossible to disable the dwm window compositor.
 
     In Windows Vista and Windows 7, desktop composition is disabled in a number of
@@ -1201,8 +1202,8 @@ The single Windows UI library
 means that accessibility improvements
 and user interface customization can be difficult to implement.
 
-For example, many dialog boxes are non-resizable by default,
-i.e. ``WS_THICKFRAME`` must be enabled by the application.
+For example, dialog boxes are non-resizable by default,
+i.e. ``WS_THICKFRAME`` is not enabled by default.
 
     In some cases, you want to display something in a response window but you also
     want this window to be resizable in order to let the user resize this window to
@@ -1213,10 +1214,24 @@ i.e. ``WS_THICKFRAME`` must be enabled by the application.
 
 http://eric.aling.tripod.com/PB/tips/pbtip39.htm
 
+    Unlike regular windows, most dialog boxes can't be maximized, minimized, or
+    resized. They can, however, be moved.
+
+http://windows.microsoft.com/en-us/windows/working-with-windows#1TC=windows-7&section_9
+
 This can pose user-interface problems,
 especially on high-resolution monitors.
-[#changing_size_of_window]_
-[#cannot_resize_small_windows]_
+
+    It feels so silly to have three acres of screen real estate but be fighting
+    to see three characters hidden by dot-dot-dot in a window not much bigger
+    than a postit note.
+
+https://answers.microsoft.com/en-us/windows/forum/windows_7-desktop/cannot-resize-small-windows/160862cf-6e52-4a99-9365-d380491a067d
+
+On Linux, dialog boxes from ``xmessage`` or ``zenity`` are resizable.
+
+.. TOOD: source
+.. TODO: is it even possible to prevent resizing?
 
 One solution to this problem is to download and run a third-party background process
 that tracks every single time a window is resized.
@@ -1284,8 +1299,6 @@ There are some drawbacks to this approach::
     	ResizeEnable can't tell them to move or resize. Yet again, Microsoft ignore their own
     	codebase and reinvent the wheel. And people wonder why their applications are so big..
 
-.. [#changing_size_of_window] http://windows.microsoft.com/en-us/windows/working-with-windows#1TC=windows-7&section_3
-.. [#cannot_resize_small_windows] http://answers.microsoft.com/en-us/windows/forum/windows_7-desktop/cannot-resize-small-windows/160862cf-6e52-4a99-9365-d380491a067d
 .. [#resize_non_resizable_windows] http://www.thewindowsclub.com/resize-non-resizable-windows
 .. [#turn_non_resizable_windows] http://www.howtogeek.com/howto/11799/turn-non-resizeable-windows-into-rezieable-windows/
 .. [#ResizeEnable] http://www.digitallis.co.uk/pc/ResizeEnable/index.html
@@ -1358,7 +1371,7 @@ and a non-negligable number do exactly that. [#twm_debian]_ [#twm_1987]_ [#twm_p
 .. [#twm_popcon] https://qa.debian.org/popcon.php?package=twm
 
 This reflects a general distrust of mandatory backward-incompatible updates.
-When the GNOME developers made controversial changes in GNOME 3, [#gnome_3_fork]_ [#gnome_3_hate]_ [#gnome_3_grumpy]_ 
+When the GNOME developers made controversial changes in GNOME 3, [#gnome_3_fork]_ [#gnome_3_hate]_ [#gnome_3_grumpy]_
 a team forked GNOME 2 to become `MATE`_,
 which retained the "traditional desktop metaphor".
 A fork would be impossible if GNOME 2's source code were proprietary.

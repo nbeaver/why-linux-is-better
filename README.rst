@@ -639,7 +639,8 @@ an ISO 8601 timestamp such as ``1970-01-01T00:00:00Z``
 cannot be part of a valid filename.
 Windows software uses various workarounds,
 such as removing the colon entirely
-or replacing it with a similar-looking Unicode character. [#]_ [#]_ [#]_ [#]_ [#]_ [#]_ [#]_
+or replacing it with a similar-looking Unicode character.
+[#]_ [#]_ [#]_ [#]_ [#]_ [#]_ [#]_
 
 (It should be acknowledged that on Linux
 the names of directories in ``$PATH`` cannot contain colons either, [#colons_in_PATH]_
@@ -1118,12 +1119,11 @@ the Windows API determines the behavior of libraries like
 ``user32.dll``, ``gdi32.dll``, and ``comctl32.dll``.
 Everything in hardware goes through the Windows API,
 including keystrokes, mouse clicks, and graphics.
+Thus, the API can be used to restrict what programs can do. [#wine_dlls]_
 
-However, Windows must obey licensing requirements,
-such as copyrighted content protection.
-This means that there are artificial barriers
-to writing certains kinds of programs,
-such as something similar to Flip3D.
+This is not a theoretical problem;
+by conforming to Intel's High-bandwidth Digital Content Protection,
+Windows prevents implementing applications similar to Flip3D.
 
 https://stackoverflow.com/questions/3848558/what-is-the-api-to-create-applications-like-flip3d
 
@@ -1183,6 +1183,15 @@ in the same way that the Windows API is.
        --- Ralf Habacker, KDE developer
 
    http://lxer.com/module/newswire/view/79007/
+
+.. [#wine_dlls]
+   In principle, running `Wine`_ on Windows
+   could work around restrictions on the Windows API
+   since Wine provides an open-source implementation
+   of libraries such as ``user32.dll``.
+   To fully accomplish this would require replacing Windows entirely, however.
+
+   .. _Wine: https://www.winehq.org/about/
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Non-resizable dialog boxes.
@@ -1287,7 +1296,7 @@ Update inertia.
 
 Another consequence of the single integrated window manager
 is that Windows users are resistant to change user interfaces,
-and so Microsoft tends to be slow to release improvements that require changes to the user interface.
+so improvements that require changes to the user interface are often delayed.
 
 ***
 UAC
@@ -1295,8 +1304,8 @@ UAC
 
 For example, `users run as administrator by default in Windows XP`_ and earlier.
 Microsoft fixed this problem via `User Account Control`_ when Windows Vista was released,
-but the required changes to the window manager were more than a little controversial [#]_ [#]_ [#]_ [#]_,
-so much so that many users learned to ignore it or turned it off entirely.
+but the required changes to the user interface were controversial [#]_ [#]_ [#]_ [#]_,
+and many users learned to ignore it or turned it off entirely.
 
 .. _User Account Control: http://technet.microsoft.com/en-us/magazine/2007.06.uac.aspx
 .. _users run as administrator by default in Windows XP: https://msdn.microsoft.com/en-us/library/bb530410.aspx#vistauac_topic1
@@ -1317,14 +1326,21 @@ many of them as administrators.
 Windows 8
 *********
 
-As another example,
-the transition from Windows 7 to Windows 8 was controversial,
-because the Metro user interface departed substantially
-from the historical Windows desktop. [#]_ [#]_ [#]_ [#]_ [#]_ [#]_
+The transition from Windows 7 to Windows 8 was controversial,
+in part because the Metro user interface departed substantially
+from the previous versions of Windows.
+[#windows_8_hate_1]_
+[#windows_8_defense]_
+[#windows_9]_
+[#windows_8_polarizing]_
+[#windows_8_hate_2]_
+[#windows_8_hate_3]_
 
 Enterprise customers, in particular,
 refused to upgrade from Windows 7,
-citing usability problems. [#]_ [#]_
+citing usability problems.
+[#windows_8_enterprise]_
+[#windows_8_disappointing]_
 
 These examples are relevant
 not because they show that Microsoft makes occasional mistakes,
@@ -1334,19 +1350,18 @@ that the Linux ecosystem maintains checks and balances.
 
 Linux users can, if they wish,
 install a recent kernel and up-to-date applications
-together with a window manager `under maintenance`_ `since 1987`_,
-and `a non-negligable number do exactly that`_.
+together with a window manager that hasn't changed much since 1987,
+and a non-negligable number do exactly that. [#twm_debian]_ [#twm_1987]_ [#twm_popcon]_
 
-.. _under maintenance: https://tracker.debian.org/pkg/twm
-.. _since 1987: https://en.wikipedia.org/wiki/Twm
-.. _a non-negligable number do exactly that: https://qa.debian.org/popcon.php?package=twm
+.. [#twm_debian] https://tracker.debian.org/pkg/twm
+.. [#twm_1987] https://en.wikipedia.org/wiki/Twm
+.. [#twm_popcon] https://qa.debian.org/popcon.php?package=twm
 
-This reflects a general dislike of forced breaking changes.
-When the GNOME developers made controversial changes [#]_ [#]_ [#]_ in GNOME 3,
+This reflects a general distrust of mandatory backward-incompatible updates.
+When the GNOME developers made controversial changes in GNOME 3, [#gnome_3_fork]_ [#gnome_3_hate]_ [#gnome_3_grumpy]_ 
 a team forked GNOME 2 to become `MATE`_,
 which retained the "traditional desktop metaphor".
-This would be impossibly difficult if GNOME 2
-were the desktop environment of a proprietary operating system.
+A fork would be impossible if GNOME 2's source code were proprietary.
 
 .. _MATE: http://mate-desktop.org/
 
@@ -1359,17 +1374,17 @@ depending on the needs of its users.
 .. _coexist with its parent project: https://en.wikipedia.org/wiki/OpenBSD
 .. _overtake its parent: http://www.softpanorama.org/People/Stallman/history_of_gcc_development.shtml
 
-.. [#] http://www.washingtonpost.com/blogs/the-switch/wp/2014/02/14/8-things-i-hate-about-windows-8-1/
-.. [#] http://www.forbes.com/sites/tonybradley/2014/03/19/im-sorry-the-windows-8-hate-just-doesnt-make-sense/
-.. [#] http://www.smh.com.au/digital-life/computers/hate-windows-8-microsoft-replacing-it-with-windows-9-20140122-317fo.html
-.. [#] http://bgr.com/2013/12/04/windows-8-hatred-explained/
-.. [#] http://www.maximumpc.com/article/features/8_things_we_hate_about_windows_841
-.. [#] http://answers.microsoft.com/en-us/windows/forum/windows_8-windows_install/i-hate-windows-8/cd2d9fec-9d95-42ba-9e41-727419459465
-.. [#] http://www.forbes.com/sites/adriankingsleyhughes/2013/05/19/why-enterprise-is-avoiding-windows-8/
-.. [#] http://www.nngroup.com/articles/windows-8-disappointing-usability/
-.. [#] http://www.zdnet.com/article/linus-torvalds-would-like-to-see-a-gnome-fork/
-.. [#] https://felipec.wordpress.com/2011/06/16/after-two-weeks-of-using-gnome-3-i-officially-hate-it/
-.. [#] https://lwn.net/Articles/433409/
+.. [#windows_8_hate_1] http://www.washingtonpost.com/blogs/the-switch/wp/2014/02/14/8-things-i-hate-about-windows-8-1/
+.. [#windows_8_defense] http://www.forbes.com/sites/tonybradley/2014/03/19/im-sorry-the-windows-8-hate-just-doesnt-make-sense/
+.. [#windows_9] http://www.smh.com.au/digital-life/computers/hate-windows-8-microsoft-replacing-it-with-windows-9-20140122-317fo.html
+.. [#windows_8_polarizing] http://bgr.com/2013/12/04/windows-8-hatred-explained/
+.. [#windows_8_hate_2] http://www.maximumpc.com/article/features/8_things_we_hate_about_windows_841
+.. [#windows_8_hate_3] http://answers.microsoft.com/en-us/windows/forum/windows_8-windows_install/i-hate-windows-8/cd2d9fec-9d95-42ba-9e41-727419459465
+.. [#windows_8_enterprise] http://www.forbes.com/sites/adriankingsleyhughes/2013/05/19/why-enterprise-is-avoiding-windows-8/
+.. [#windows_8_disappointing] http://www.nngroup.com/articles/windows-8-disappointing-usability/
+.. [#gnome_3_fork] http://www.zdnet.com/article/linus-torvalds-would-like-to-see-a-gnome-fork/
+.. [#gnome_3_hate] https://felipec.wordpress.com/2011/06/16/after-two-weeks-of-using-gnome-3-i-officially-hate-it/
+.. [#gnome_3_grumpy] https://lwn.net/Articles/433409/
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Crippled multi-user remote access.
@@ -1380,7 +1395,7 @@ and sharing of machine resources expensive.
 By design, multiple concurrent sessions are disabled
 on all but the server version of Windows,
 and `third-party remote desktop software is not permitted`_
-to legally `circumvent this limitation`_. [#]_ [#]_ [#]_
+to legally `circumvent this limitation`_. [#windows_xp_not_multiuser]_ [#tightvnc_multiple_unique_sessions]_ [#multiple_sessions_illegal]_
 
 .. _Windows remote desktop licensing: http://technet.microsoft.com/en-us/library/cc725933.aspx
 .. _third-party remote desktop software is not permitted: http://superuser.com/questions/784523/tightvnc-while-an-rdp-session-is-running
@@ -1415,7 +1430,9 @@ if the X server crashes or cannot start.
 .. _virtual terminal: http://en.wikipedia.org/wiki/Virtual_console
 
 Because the Linux kernel does not rely on the X server to function,
-the X server can be restarted without rebooting.
+the `X server can be restarted without rebooting`_.
+
+.. _X server can be restarted without rebooting: https://askubuntu.com/questions/1220/how-can-i-restart-x-server-from-the-command-line
 
 If a crash is unrecoverable and it becomes necessary to reboot the kernel,
 one can do so cleanly even if the X server is unresponsive
@@ -1461,9 +1478,31 @@ even though they don't use it as a display manager.
 .. [#desktop_environments]
    https://wiki.debian.org/DesktopEnvironment
    http://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments
-.. [#] "You would think that because Windows XP is multiuser, you could have multiple users running VNC servers. Indeed you can, but you can only use the one that has the currently active user - switch away, and that server goes black, and in my testing, can't even be used again. Windows XP is not really multiuser." http://aplawrence.com/Reviews/tightvnc.html
-.. [#] "Windows, unless you're using Terminal Server (and have the licenses to go with it) doesn't have this capability, and I don't believe that even with Terminal Server, VNC will be able to take advantage of this." http://tightvnc.10971.n7.nabble.com/Multiple-Unique-Sessions-td2060.html
-.. [#] "If you heard about/saw many active desktop sessions in non-server Windows - that was modified OS with swapped termsrv.dll. Licensing does not allow you to modify/swap system files and use non-server system that way and this is ILLEGAL." http://stackoverflow.com/questions/9410091/multi-user-login-remote-desktop-on-windows-linux
+.. [#windows_xp_not_multiuser]
+
+       You would think that because Windows XP is multiuser, you could have
+       multiple users running VNC servers. Indeed you can, but you can only use
+       the one that has the currently active user - switch away, and that
+       server goes black, and in my testing, can't even be used again. Windows
+       XP is not really multiuser.
+
+   http://aplawrence.com/Reviews/tightvnc.html
+.. [#tightvnc_multiple_unique_sessions]
+
+       Windows, unless you're using Terminal Server (and have the licenses to
+       go with it) doesn't have this capability, and I don't believe that even
+       with Terminal Server, VNC will be able to take advantage of this.
+
+   http://ehc.ac/p/vnc-tight/mailman/message/25780367/
+
+.. [#multiple_sessions_illegal]
+
+       If you heard about/saw many active desktop sessions in non-server
+       Windows - that was modified OS with swapped termsrv.dll. Licensing does
+       not allow you to modify/swap system files and use non-server system that
+       way and this is ILLEGAL.
+
+   http://stackoverflow.com/questions/9410091/multi-user-login-remote-desktop-on-windows-linux
 
 --------------------------
 Some notes on performance.
@@ -1692,12 +1731,21 @@ such as:
 - adding and removing third-party repositories,
 - changelogs,
 - `optional fully automatic non-interactive installation`_,
-- `mandatory cryptographic signing of packages`_, [#]_
+- `mandatory cryptographic signing of packages`_, [#windows_package_signing]_
 - backporting security fixes to stable versions,
 - licensing metadata,
 - and `sophisticated dependency management`_.
 
-.. [#] Windows provides the means to cryptographically sign ``.exe`` and ``.msi`` installers, but it is not required for installation. "The Windows installer verifies signatures on .msi packages. If a package has an invalid signature, the installer warns users before it installs the package." http://download.microsoft.com/download/a/f/7/af7777e5-7dcd-4800-8a0a-b18336565f5b/best_practices.doc
+.. [#windows_package_signing] Windows provides the means to cryptographically sign
+   ``.exe`` and ``.msi`` installers,
+   but it is not required for installation.
+
+       The Windows installer verifies signatures on .msi packages. If a package
+       has an invalid signature, the installer warns users before it installs
+       the package.
+
+   http://download.microsoft.com/download/a/f/7/af7777e5-7dcd-4800-8a0a-b18336565f5b/best_practices.doc
+
 .. _mandatory cryptographic signing of packages: http://purplefloyd.wordpress.com/2009/02/05/signing-deb-packages/
 .. _sophisticated dependency management: https://www.debian.org/doc/debian-policy/ch-relationships.html
 .. _optional fully automatic non-interactive installation: http://debian-handbook.info/browse/wheezy/sect.automatic-upgrades.html

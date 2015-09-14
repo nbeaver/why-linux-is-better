@@ -60,9 +60,9 @@ when we now know that `even Microsoft loves open source`_?
 in so far as their actions are directly relevant
 to the technically capabilities of Windows and Linux.
 As an aside, Microsoft gets a lot of guff in the open-source world,
-but their behavior is typical of almost any company
-that relies primarily on selling proprietary software and devices for revenue.
-It's just economics, not malice.)
+but its behavior is typical for a corporation
+whose a bottom line relies on sales of proprietary software and devices.
+It's economics, not malice.)
 
 The discussion is intended to be as accurate as possible,
 at the cost of possible dryness due to technical detail.
@@ -340,7 +340,7 @@ This is why Linus Torvalds `chose an unusually high`_ timer interrupt frequency 
     if it's really only been up for ten), but if it is off by just a factor of
     two, it might be overlooked.
 
-    -- Linus Torvalds
+    --- Linus Torvalds, *Selectable Frequency of the Timer Interrupt* (2005)
 
 .. _chose an unusually high: https://lkml.org/lkml/2005/7/8/263
 
@@ -389,16 +389,10 @@ to uppercase or lowercase.
 
 http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
 
-However, there is also no shortage of opinions that case-sensitive filenames
+However, there is also no shortage of opinions
+that enforcing filename case-sensitivity
 -- and even case-sensitivity in general --
 was a bad decision.
-
-    Anecdotally, case sensitivity in programs is known to be error-prone for
-    both beginners and experienced users.  Bob Frankston, a Multics alumnus
-    and the co-inventor of VisiCalc, once said it was the biggest mistake
-    that Multics had inflicted on the world.
-
-https://www.ma.utexas.edu/pipermail/maxima/2003/004483.html
 
     Mac ＆ Windows users have to have filenames read to them over the phone by
     support techs. They have to be able to write little sticky notes to their
@@ -408,16 +402,31 @@ https://www.ma.utexas.edu/pipermail/maxima/2003/004483.html
     get a response that's anything but a 404? Haven't you ever been secretly
     pleased that e-mail addresses aren't case-sensitive?
 
+    --- Brian Tiemann *On Unix File System's Case Sensitivity* (2001)
+
 http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
+
+    Anecdotally, case sensitivity in programs is known to be error-prone for
+    both beginners and experienced users.  Bob Frankston, a Multics alumnus
+    and the co-inventor of VisiCalc, once said it was the biggest mistake
+    that Multics had inflicted on the world.
+
+    --- Stavros Macrakis (2003)
+
+https://www.ma.utexas.edu/pipermail/maxima/2003/004483.html
 
     One of the most pernicious problems with C-based languages is that they're
     case-sensitive. While this decision may have made sense in 1972 when the
     language was created, one wonders why the sins of Kernighan and Ritchie have
     been blindly perpetuated for the last thirty-three years.
 
+    [ . . . ]
+
     Unless you have extremely compelling reasons to make something case-sensitive,
     case insensitivity is a much more human being friendly design choice. Designing
     software that's easier for machines is questionable at best.
+
+    --- Jeff Atwood, *The Case For Case Insensitivity* (2005)
 
 http://blog.codinghorror.com/the-case-for-case-insensitivity/
 
@@ -425,15 +434,21 @@ http://blog.codinghorror.com/the-case-for-case-insensitivity/
     the way computers store upper- and lower-case characters. Instead, software
     should handle the quirks of human language.
 
+    --- Brian Hauer, *Case-sensitivity is the past trolling us* (2014)
+
 http://tiamat.tsotech.com/case-sensitivity-sucks
 
     Since it appears to have manifested out of opinion rather than necessity, it
     could be said case-sensitivity is the worst way that modern technology sucks.
 
+    --- Greg Raiz (2007)
+
 http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
 
-    This is really stupid, it causes a ton of problems and there is no longer any
-    good reason to have case sensitivity in an OS.
+    This is really stupid, it causes a ton of problems and there is no longer
+    any good reason to have case sensitivity in an OS.
+
+    --- Julian, OddThinking (2005)
 
 http://www.somethinkodd.com/oddthinking/2005/10/27/the-case-for-case-preserving-case-insensitivity/
 
@@ -445,7 +460,7 @@ There are also passionate views to the opposite effect.
     the computer effectively considers the users to be too stupid or blind
     or whatever to be able to say what we mean accurately.
 
-    --- Greg A. Woods
+    --- Greg A. Woods (2003)
 
 https://lists.nongnu.org/archive/html/info-cvs/2003-11/msg00127.html
 
@@ -454,7 +469,7 @@ https://lists.nongnu.org/archive/html/info-cvs/2003-11/msg00127.html
 
     It makes case-sensitive systems and their sysadmins cry :-(
 
-    --- u/bwosc
+    --- u/bwosc (2015)
 
 https://www.reddit.com/r/sysadmin/comments/2w6c8g/case_insensitive_windows_rant/
 
@@ -471,7 +486,7 @@ https://www.reddit.com/r/sysadmin/comments/2w6c8g/case_insensitive_windows_rant/
     chargeback code for all of the time I've spent fixing and debugging systems
     that all come back to the file naming. Sigh, again.
 
-    --- yagu
+    --- yagu (2006)
 
 http://slashdot.org/comments.pl?sid=190747&cid=15690704
 

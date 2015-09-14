@@ -1090,42 +1090,12 @@ Lack of control over desktop environment.
 Windows has many ways to customize its appearance;
 there are many `alternative shells`_ and `visual themes`_,
 and it's possible to `change the login shell`_
-or `run without explorer.exe at all`_.
+or `run without explorer.exe at all`_. [#KDE_on_Windows]_
 
 .. _alternative shells: https://en.wikipedia.org/wiki/List_of_alternative_shells_for_Windows
 .. _visual themes: https://en.wikipedia.org/wiki/Theme_%28computing%29#Operating_systems
 .. _run without explorer.exe at all: http://lightquick.co.uk/running-windows-without-explorer.exe.html
 .. _change the login shell: https://superuser.com/questions/108265/how-do-you-replace-the-logon-shell-with-iexplore
-
-It's even possible to run the KDE desktop environment on Windows,
-since KDE uses the cross-platform Qt framework.
-
-    The KDE on Windows Initiative is an ongoing project to port the KDE
-    applications to MS Windows. Currently supported versions of Windows are XP,
-    Vista and 7.
-
-https://windows.kde.org/
-
-This is not without difficulties, however.
-
-    The current implementation of KDE is designed in a unix specific way, which is
-    partially different from the Windows way. Examples for this are:
-
-    * Process creating - Using the Unix way of fork and exec.
-
-    * It isn't available on Windows, this difference requires a redesign of the related parts.
-
-    * Its missing Windows api counterparts.
-
-    * KDE uses Unix domain socket for high speed data transfer betwen kioslave
-      slaves and its parent process and for the communication to/from the dbus
-      deamon. On Windows there are no Unix domain sockets. They could be emulated
-      by tcp sockets with the costs of slower bandwidth and additional patches to
-      deal with Unix domain socket files exchanged between processes.
-
-    --- Ralf Habacker, KDE developer
-
-http://lxer.com/module/newswire/view/79007/
 
 There is Windows software for
 tiling window managers, [#tiling_window_managers]_
@@ -1148,23 +1118,17 @@ the Windows API determines the behavior of libraries like
 ``user32.dll``, ``gdi32.dll``, and ``comctl32.dll``.
 Everything in hardware goes through the Windows API,
 including keystrokes, mouse clicks, and graphics.
-However, Windows must also obey licensing requirements,
+
+However, Windows must obey licensing requirements,
 such as copyrighted content protection.
-This means that it is difficult to, say,
-replicate the Flip3D program.
+This means that there are artificial barriers
+to writing certains kinds of programs,
+such as something similar to Flip3D.
 
 https://stackoverflow.com/questions/3848558/what-is-the-api-to-create-applications-like-flip3d
 
-Something like `Wine`_ could, in principle, work around this,
-since it provides an open-source implementation
-of libraries such as ``user32.dll``.
-Perhaps that's why `Windows rejects a registry with the Wine configuration key`_.
-
-.. _Wine: https://www.winehq.org/about/
-.. _Windows rejects a registry with the Wine configuration key: https://www.winehq.org/pipermail/wine-devel/2005-February/033868.html
-
-Another example: on Windows 8,
-it is impossible to disable the dwm window manager.
+To give another example of limited user control over the Windows desktop,
+on Windows 8 it is impossible to disable the dwm window compositor.
 
     In Windows Vista and Windows 7, desktop composition is disabled in a number of
     scenarios. In Windows 8, DWM desktop composition is a core operating system
@@ -1174,12 +1138,11 @@ it is impossible to disable the dwm window manager.
 
     --- Windows Dev Center documentation
 
-    [ . . . ]
-
+This was not without controversy.
 
     I  understand the choice and it improves the overall experience, but it is
-    going to force us to retire some of our older software, and it tool many years
-    to overcome the problems caused.
+    going to force us to retire some of our older software, and it tool [sic]
+    many years to overcome the problems caused.
 
     --- Dan Ritchie
 
@@ -1189,6 +1152,37 @@ Linux also has an API,
 but it is not tied to the desktop environment,
 and is not controlled by a single corporation
 in the same way that the Windows API is.
+
+.. [#KDE_on_Windows]
+   It's even possible to run the KDE desktop environment on Windows,
+   since KDE uses the cross-platform Qt framework.
+
+       The KDE on Windows Initiative is an ongoing project to port the KDE
+       applications to MS Windows. Currently supported versions of Windows are XP,
+       Vista and 7.
+
+   https://windows.kde.org/
+
+   This is not without difficulties, however.
+
+       The current implementation of KDE is designed in a unix specific way, which is
+       partially different from the Windows way. Examples for this are:
+
+       * Process creating - Using the Unix way of fork and exec.
+
+       * It isn't available on Windows, this difference requires a redesign of the related parts.
+
+       * Its missing Windows api counterparts.
+
+       * KDE uses Unix domain socket for high speed data transfer betwen kioslave
+         slaves and its parent process and for the communication to/from the dbus
+         deamon. On Windows there are no Unix domain sockets. They could be emulated
+         by tcp sockets with the costs of slower bandwidth and additional patches to
+         deal with Unix domain socket files exchanged between processes.
+
+       --- Ralf Habacker, KDE developer
+
+   http://lxer.com/module/newswire/view/79007/
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Non-resizable dialog boxes.

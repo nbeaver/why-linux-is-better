@@ -1104,13 +1104,6 @@ virtual desktops, [#virtual_desktops]_
 focus follows mouse, [#focus_follows_mouse]_
 and special effects to rival Compiz. [#cube_desktop]_
 
-.. [#tiling_window_managers] https://github.com/fuhsjr00/bug.n
-.. [#virtual_desktops] http://virtuawin.sourceforge.net/
-.. [#focus_follows_mouse]
-   http://milosophical.me/blog/2010/03/10/ms-windows-focus-follows-mouse-registry-hacks.html
-   https://superuser.com/questions/368688/on-windows-7-is-there-any-way-to-make-the-scrollwheels-focus-follow-the-mouse
-.. [#cube_desktop] http://www.thinkinbytes.com/en/products/cubedesktop
-
 Given all these choices and customization options,
 what functionality could Windows possibly lack?
 
@@ -1154,6 +1147,12 @@ but it is not tied to the desktop environment,
 and is not controlled by a single corporation
 in the same way that the Windows API is.
 
+.. [#tiling_window_managers] https://github.com/fuhsjr00/bug.n
+.. [#virtual_desktops] http://virtuawin.sourceforge.net/
+.. [#focus_follows_mouse]
+   http://milosophical.me/blog/2010/03/10/ms-windows-focus-follows-mouse-registry-hacks.html
+   https://superuser.com/questions/368688/on-windows-7-is-there-any-way-to-make-the-scrollwheels-focus-follow-the-mouse
+.. [#cube_desktop] http://www.thinkinbytes.com/en/products/cubedesktop
 .. [#KDE_on_Windows]
    It's even possible to run the KDE desktop environment on Windows,
    since KDE uses the cross-platform Qt framework.
@@ -1542,7 +1541,7 @@ are nearly always wrong.
 There are some things, however, that we do know
 about relative performance of the Windows and Linux kernels.
 
-First, an `anonymous Windows kernel developer stated`_ in 2013
+First, an anonymous Windows kernel developer stated in 2013
 that he believes that Windows has fallen behind in performance
 because of how Microsoft functions as a corporation.
 (This developer gave a SHA1 hash of part of the NT kernel as proof,
@@ -1565,7 +1564,7 @@ that he is who he claims to be.)
 
     -- Anonymous Windows NT kernel developer
 
-.. _anonymous Windows kernel developer stated: http://blog.zorinaq.com/?e=74
+http://blog.zorinaq.com/?e=74
 
 
 Contrast with Microsoft's `"Linux Myths" article`_ from 1999.

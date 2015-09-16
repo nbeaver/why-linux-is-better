@@ -1306,9 +1306,9 @@ There are some drawbacks to this approach::
 Update inertia.
 ~~~~~~~~~~~~~~~
 
-Another consequence of the single integrated window manager
-is that Windows users are resistant to change user interfaces,
-so improvements that require changes to the user interface are often delayed.
+Another consequence of tying the desktop environment to the operating system version
+and providing a single desktop environment for a given version of Windows
+is that improvements that require changes to the user interface are often delayed.
 
 ***
 UAC
@@ -1360,13 +1360,13 @@ but to highlight the risks of monoculture and vendor lock-in
 and to provide contrast to the way
 that the Linux ecosystem maintains checks and balances.
 
-Linux users can, if they wish,
-install a recent kernel and up-to-date applications
-together with a window manager that hasn't changed much since 1987,
-and a non-negligable number do exactly that. [#twm_debian]_ [#twm_1987]_ [#twm_popcon]_
+Linux users can run the latest kernel and applications
+on a window manager that hasn't changed much since 1987, [#twm_debian]_ [#twm_1987]_
+and some of them actually do so by choice. [#twm_user_by_choice]_ [#twm_popcon]_
 
 .. [#twm_debian] https://tracker.debian.org/pkg/twm
 .. [#twm_1987] https://en.wikipedia.org/wiki/Twm
+.. [#twm_user_by_choice] https://unix.stackexchange.com/questions/131106/is-twm-still-a-viable-window-manager#comment209905_131120
 .. [#twm_popcon] https://qa.debian.org/popcon.php?package=twm
 
 This reflects a general distrust of mandatory backward-incompatible updates.
@@ -1619,32 +1619,52 @@ such as a C compiler (usually ``gcc``),
 build automation (e.g. ``make``),
 text utilities (``diff``, ``patch``, ``grep``, ``find``, etc.),
 and more than one shell (e.g. ``bash``, ``dash``, and ``csh``).
-In fact, they are required to provide these tools by the `POSIX standard`_.
+
+In fact, the `POSIX standard`_ requires that these be available.
 Standards like POSIX make writing and using portable software easier,
 and standard POSIX tools are unlikely to become obsolete.
 
 .. _POSIX standard: http://pubs.opengroup.org/onlinepubs/009696699/utilities/contents.html
 
 On Windows, by contrast,
-neither the `C compiler and build system`_
-nor the currently favored Windows shell (`PowerShell`_)
-are installed by default.
+there is no default set of tools that match the POSIX utilities
+(though certainly not for lack of trying).
+[#]_ [#]_ [#]_ [#]_ [#]_
 
-.. _C compiler and build system: http://msdn.microsoft.com/en-us/vstudio/
+The `Windows C compiler and build system`_
+is not installed by default,
+even though a zero-price Community version is available.
+
+There is a scriptable shell on all version of Windows (``CMD.EXE``)
+but the currently favored Windows shell (`PowerShell`_)
+was not available by default until Windows 8.
+
+.. _Windows C compiler and build system: http://msdn.microsoft.com/en-us/vstudio/
 .. _PowerShell: http://technet.microsoft.com/en-us/library/hh847837.aspx
 
-------------------------
-Registries and dotfiles.
-------------------------
+.. [#] https://technet.microsoft.com/en-us/library/cc754351.aspx
+.. [#] https://superuser.com/questions/495360/does-windows-8-still-implement-posix
+.. [#] https://stackoverflow.com/questions/4746043/where-does-microsoft-windows-7-posix-implementation-currently-stand
+.. [#] http://brianreiter.org/2010/08/24/the-sad-history-of-the-microsoft-posix-subsystem/
+.. [#] https://superuser.com/questions/293023/unix-command-line-utilities-for-windows-x64
+
+--------------------------------------------------
+Software configuration: registries and text files.
+--------------------------------------------------
 
 On Windows, configuration files are not centralized in the user's home directory.
-Most of the things that users care about
---- not losing configuration between installs ---
-are scattered around as ``.INI`` text files
-in various directories or in the `Windows Registry`_.
+The data that matters
+--- that retains configuration when upgrading or recovering from data loss ---
+is scattered around as ``.INI`` text files in unpredictable directories
+or in the `Windows Registry`_.
+In general, there is insufficient separation amongst an application's
+configuration and plugins,
+history and log files,
+and data that is cached for performance.
+
 This makes configuration less robust
 and harder to adapt to the needs of specific users.
-Windows developers have noted the `many other drawbacks`_ `of the registry`_.
+Windows developers have noted the `many other drawbacks`_ `of the registry`_ in particular.
 
 .. _Windows Registry: http://msdn.microsoft.com/en-us/library/ms970651.aspx
 .. _many other drawbacks: https://rwmj.wordpress.com/2010/02/18/why-the-windows-registry-sucks-technically/
@@ -1653,31 +1673,35 @@ Windows developers have noted the `many other drawbacks`_ `of the registry`_.
 On Linux, most configuration can be done graphically
 within applications or configuration managers provided by the desktop environment.
 A lot of it is handled by the `package manager`_.
-However, there are a variety of possibilities depending on the needs of the people using it.
+However, there are a variety of possibilities
+depending on the needs of the people using it.
 
 .. _package manager: `Package manager with signed binaries.`_
 
 System administrators, for example,
 care about system-level configuration files,
 generally text files in ``/etc/``.
-Text files are simple to edit for ad-hoc debugging and automation,
+Text files are simple to edit
+for ad-hoc debugging and automation,
 easy to diff,
 easy to backup or version control,
 and robust against corruption.
 
-User level configuration is stored in dotfiles (hidden folders or files)
+User level configuration is stored in dotfiles
+(hidden folders or files)
 in the user's home directory.
 There are good arguments to the effect that
 making dotfiles responsible for configuration `is problematic`_.
 Configuration files would make much more sense
 if stored in a dedicated configuration folder in the user's home directory,
 and indeed some applications are `beginning to standardize on this`_.
-In the meantime, however, dotfiles do the job, cluttered as they are,
-since each user's files and configuration
-is isolated to his or her home directory.
 
 .. _is problematic: https://plus.google.com/+RobPikeTheHuman/posts/R58WgWwN9jp
 .. _beginning to standardize on this: http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
+
+In the meantime, however, dotfiles do the job, cluttered as they are,
+since each user's files and configuration
+is isolated to his or her home directory.
 
 Centralized databases like the Windows Registry
 are usually unnecessary for configuration.
@@ -2054,8 +2078,8 @@ In practice, though, Windows users are `more likely`_
 to inadvertently install malware,
 primarily because of the way they install non-malicious software
 (see `notes on package management`_).
-Requiring every computer user to do the work of package maintainers
-is harmful in a variety of ways;
+Finding trustworthy sources for software is non-trivial,
+and requiring ordinary users to do it is harmful in a variety of ways;
 it tends to encourage a cargo-cult mentality toward security
 instead of systematic root-cause analysis.
 
@@ -2072,7 +2096,11 @@ As a result,
 .. _falsely attribute: http://www.combofix.org/suspect-a-malware-infection-heres-the-right-way-to-remove-it.php
 .. _software misbehavior to malware: http://lifehacker.com/5958001/the-5-biggest-myths-about-slow-pcs-and-how-you-can-actually-fix-them
 
-Some users may even attribute problems arising from failing hardware to malware.
+Some users may even attribute problems arising from failing hardware to malware. [#]_ [#]_ [#]_
+
+.. [#] https://dniinoi.wordpress.com/2008/03/26/the-myth-behind-virus-attack-and-hardware/
+.. [#] https://security.stackexchange.com/questions/65153/is-there-any-virus-that-can-cause-physical-damage
+.. [#] http://askbobrankin.com/can_a_virus_really_destroy_your_hard_drive.html
 
 This also has consequences for developers.
 Because few Linux users experience problems due to malware,

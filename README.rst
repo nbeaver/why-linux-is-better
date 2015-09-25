@@ -402,7 +402,7 @@ was a bad decision.
     get a response that's anything but a 404? Haven't you ever been secretly
     pleased that e-mail addresses aren't case-sensitive?
 
-    --- Brian Tiemann *On Unix File System's Case Sensitivity* (2001)
+    --- Brian Tiemann, *On Unix File System's Case Sensitivity* (2001)
 
 http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
 
@@ -465,7 +465,7 @@ There are also passionate views to the opposite effect.
 https://lists.nongnu.org/archive/html/info-cvs/2003-11/msg00127.html
 
     Why oh why on Earth engineers at Microsoft decided to make Windows case
-    insensitve and then use camel case anyway, wherever possible?
+    insensitve [sic] and then use camel case anyway, wherever possible?
 
     It makes case-sensitive systems and their sysadmins cry :-(
 

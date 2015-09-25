@@ -511,12 +511,14 @@ at least not with standard Windows software.
 .. _case-preserving: http://en.wikipedia.org/wiki/Case_preservation
 .. _not be possible to read or modify both of those files: http://technet.microsoft.com/en-us/library/cc976809.aspx
 
-This behavior exists to maintain `compatibility with MS-DOS`_ filesystems.
-MS-DOS was based on QDOS/86-DOS,
+This API behavior exists to maintain `compatibility with MS-DOS`_ filesystems.
+MS-DOS was built on QDOS/86-DOS,
 which was `heavily influenced by CP/M`_
 (another case-insensitive OS [#CPM_case_insensitive]_),
 which in turn was heavily influenced by RT-11,
 a competitor with Unix on the PDP-11.
+
+.. TODO: source that RT-11 influenced CP/M.
 
 .. _compatibility with MS-DOS: http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx
 .. _heavily influenced by CP/M: http://dosmandrivel.blogspot.com/2007/08/is-dos-rip-off-of-cpm.html
@@ -525,6 +527,7 @@ Why did RT-11 use case-insensitive filenames?
 Because it didn't use ASCII for filenames,
 it used an encoding called `RADIX-50`_ to save memory.
 It also used three-character extensions.
+.. TODO: source that says it saved memory.
 
 .. _RADIX-50: http://nemesis.lonestar.org/reference/telecom/codes/radix50.html
 
@@ -535,6 +538,10 @@ It also used three-character extensions.
     block of the file.
 
 http://cryptosmith.com/2013/10/19/digitals-rt-11-file-system/
+
+Radix-50 is not used much anymore,
+probably because it omits many characters (e.g. ``_`` and ``-``),
+but its lack of case-sensitivity endures to this day.
 
 The lack of agreement on filename case-sensitivity
 may seem insignificant today,

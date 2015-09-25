@@ -540,7 +540,7 @@ The lack of agreement on filename case-sensitivity
 may seem insignificant today,
 but it leads to non-trivial difficulties
 in cross-platform development. [#tortoise_svn_case_sensitivity]_ [#openfoam_no_windows_port]_
-Developers of cross-platform software can `make a habit`_
+Developers of cross-platform software try to `make a habit`_
 of not relying on case-sensitive filesystem access,
 but problems of this ilk crop up
 when porting from Windows to Linux or vice-versa. [#valve_porting_source_to_linux]_
@@ -951,17 +951,17 @@ Instead, *My Computer* is a virtual folder.
 
 https://msdn.microsoft.com/en-us/library/cc144090%28VS.85%29.aspx
 
-Unix, on the other hand,
-has a unique root directory called ``/``
-and mounts drives (including removable media)
-as directories anywhere on the hierarchy. [#disk_location]_
+Unix-based operating systems, on the other hand,
+have a unique root directory called ``/`` [#disk_location]_
+and can mount drives (including removable media)
+as directories anywhere on the hierarchy.
 This provides uniform access and permission controls to storage volumes
-without requiring new syntax or knowledge of the underlying hardware.
+without requiring new syntax [#the_hideous_name]_
+or knowledge of the underlying hardware.
 
 https://unix.stackexchange.com/questions/93960/why-is-linuxs-filesystem-designed-as-a-single-directory-tree
 
-
-On Linux, flash drives are mounted under ``/media/``
+On Linux, flash drives are mounted under ``/media/`` [#removable_media_mountpoint]_
 and are assigned a directory based on their label.
 If the drive is removed and re-mounted again,
 the path to the drive will be the same as before
@@ -1020,6 +1020,38 @@ https://superuser.com/questions/169980/what-is-trash-and-trash-1000
        disks and grow to THREE WHOLE MEGABYTES (ooooh!).
 
    http://lists.busybox.net/pipermail/busybox/2010-December/074114.html
+
+.. [#removable_media_mountpoint]
+
+   The ``/media/`` directory is part of the Filesystem Hierarchy Standard,
+   which is used for almost all Linux distributions,
+   but is not part of the POSIX standard.
+
+   https://unix.stackexchange.com/questions/98751/is-the-filesystem-hierarchy-standard-a-unix-standard-or-a-gnu-linux-standard
+
+   The ``/media/`` directory is relatively recent invention,
+   and is intended to avoid conflict with other conventions.
+
+       Historically there have been a number of other different places used to
+       mount removable media such as ``/cdrom``, ``/mnt`` or ``/mnt/cdrom``.
+       Placing the mount points for all removable media directly in the root
+       directory would potentially result in a large number of extra
+       directories in ``/``.  Although the use of subdirectories in ``/mnt`` as
+       a mount point has recently been common, it conflicts with a much older
+       tradition of using ``/mnt`` directly as a temporary mount point. 
+
+   http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s11.html
+
+   Currently, ``udisks2`` mounts flash drives under ``/media/$USER/``.
+
+   https://askubuntu.com/questions/214646/how-to-configure-the-default-automount-location
+
+.. [#the_hideous_name]
+   Rob Pike and P. J. Weinberger discuss the history of naming practices
+   and the drawback of introducing new syntax in "The Hideous Name".
+
+   http://doc.cat-v.org/bell_labs/the_hideous_name/
+
 
 --------------------------------
 Limited default debugging tools.

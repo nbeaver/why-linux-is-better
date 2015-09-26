@@ -2097,9 +2097,6 @@ https://web.archive.org/web/20030206115538/http://remus.softimage.net/hotmail.ht
 In the long run,
 this hurts both proprietary and open-source software
 on the Windows platform.
-It is also one reason why developing solely for Windows
-because of the larger user base
-may not always be a good choice.
 
 --------
 Malware.
@@ -2128,15 +2125,13 @@ instead of systematic root-cause analysis.
 
 As a result,
 
-#. Windows users must spend `considerable time and effort`_ detecting and removing malware.
-#. Windows users may `falsely attribute`_ `software misbehavior to malware`_.
+- Windows users must spend `considerable time and effort`_ detecting and removing malware.
+- Windows users may `falsely attribute`_ `software misbehavior to malware`_.
+- Some Windows users may even confuse failing hardware with malware. [#]_ [#]_ [#]_
 
 .. _considerable time and effort: https://www.microsoft.com/security/portal/mmpc/shared/ransomware.aspx
 .. _falsely attribute: http://www.combofix.org/suspect-a-malware-infection-heres-the-right-way-to-remove-it.php
 .. _software misbehavior to malware: http://lifehacker.com/5958001/the-5-biggest-myths-about-slow-pcs-and-how-you-can-actually-fix-them
-
-Some users may even attribute problems arising from failing hardware to malware. [#]_ [#]_ [#]_
-
 .. [#] https://dniinoi.wordpress.com/2008/03/26/the-myth-behind-virus-attack-and-hardware/
 .. [#] https://security.stackexchange.com/questions/65153/is-there-any-virus-that-can-cause-physical-damage
 .. [#] http://askbobrankin.com/can_a_virus_really_destroy_your_hard_drive.html

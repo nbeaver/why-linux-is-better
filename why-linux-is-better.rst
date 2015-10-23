@@ -1,1 +1,1 @@
-See `<README.rst>`_.
+See `<readme.rst>`_.

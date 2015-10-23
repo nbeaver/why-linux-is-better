@@ -349,7 +349,7 @@ Filename case-insensitivity.
 ----------------------------
 
 Linux uses case-sensitive filenames
-because Unix used case-sensitive filename.
+because Unix used case-sensitive filenames.
 Unix was case-sensitive because Multics was case-sensitive.
 Multics was case-sensitive because of ASCII.
 
@@ -527,6 +527,7 @@ Why did RT-11 use case-insensitive filenames?
 Because it didn't use ASCII for filenames,
 it used an encoding called `RADIX-50`_ to save memory.
 It also used three-character extensions.
+
 .. TODO: source that says it saved memory.
 
 .. _RADIX-50: http://nemesis.lonestar.org/reference/telecom/codes/radix50.html

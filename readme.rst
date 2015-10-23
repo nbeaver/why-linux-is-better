@@ -51,15 +51,16 @@ This document  will not cover closed vs. open source development,
 but will instead focus on functionality.
 There is plenty of discussion of the advantages and disadvantages of open source elsewhere.
 
-Besides, what is there to discuss
-when we now know that `even Microsoft loves open source`_?
+(Besides, what is there to discuss
+when we now know that `even Microsoft loves open source`_?)
 
 .. _even Microsoft loves open source: http://www.networkworld.com/article/2216878/windows/microsoft---we-love-open-source-.html
 
-(This discussion will only mention Microsoft and other companies
+This discussion will only mention Microsoft and other companies
 in so far as their actions are directly relevant
 to the technically capabilities of Windows and Linux.
-As an aside, Microsoft gets a lot of guff in the open-source world,
+
+(As an aside, Microsoft gets a lot of guff in the open-source world,
 but its behavior is typical for a corporation
 whose a bottom line relies on sales of proprietary software and devices.
 It's economics, not malice.)
@@ -73,7 +74,8 @@ but I have tried to include other distributions when possible.
 
 In this document, the term "Linux" is shorthand for the entire distribution,
 including bootloader, kernel, shell, window manager, package manager, etc.
-Similarly, the term "Windows" refers to all default components of modern versions of Microsoft Windows NT,
+Similarly, the term "Windows"
+refers to all default components of modern versions of Microsoft Windows NT,
 including Windows XP, Windows Vista, Windows 7, and Windows 8.
 
 Many of the same arguments in favor of Linux
@@ -130,7 +132,8 @@ If you are a Windows user:
 - Instead, this is meant to provide insight
   into why some people choose to use Linux as a desktop operating system,
   despite its shortcomings,
-  and possibly to challenge some misconceptions that people have about Linux and Windows.
+  and possibly to challenge some misconceptions
+  that people have about Linux and Windows.
 - Corrections and additions are, of course, welcome.
   Windows developers are ones who know the most about its flaws and strengths.
 - Finally, definitions of better and worse are necessarily subjective,

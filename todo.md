@@ -1,3 +1,3 @@
-- [*] Make it a complete reStructuredText document.
+- [x] Make it a complete reStructuredText document.
 - [ ] Look for similar projects.
 - [ ] Decide if some arguments are too subjective.

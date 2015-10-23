@@ -10,6 +10,10 @@ Objective reasons to prefer Linux to Windows
 
 .. _Creative Commons Attribution 4.0 International License: http://creativecommons.org/licenses/by/4.0/
 
+.. |--| unicode:: U+2013   .. en dash
+.. |---| unicode:: U+2014  .. em dash, trimming surrounding whitespace
+   :trim:
+
 .. contents::
 
 ++++++++++++
@@ -42,7 +46,7 @@ this document describes some specific technical reasons
 to prefer using Linux as a desktop operating system.
 
 These reasons are not exhaustive
---- and not meant to be ---
+|---| and not meant to be |---|
 but aim to be representative.
 
 This document will not cover servers, phones, or embedded devices.
@@ -793,7 +797,7 @@ into `unintentionally running malware`_.
 
 Also, if the file extensions for different filetypes happen to collide,
 as they inevitably do
---- recall that filenames are not case-sensitive ---
+|---| it doesn't help that filenames are case-insensitive |---|
 one program must take default precedence over the other for that file extension.
 
 For example, there `a lot of different file formats`_ with a ``.dat`` file extension,
@@ -1697,7 +1701,7 @@ Software configuration: registries and text files.
 
 On Windows, configuration files are not centralized in the user's home directory.
 The data that matters
---- that retains configuration when upgrading or recovering from data loss ---
+|---| that retains configuration when upgrading or recovering from data loss |---|
 is scattered around as ``.INI`` text files in unpredictable directories
 or in the `Windows Registry`_.
 In general, there is insufficient separation amongst an application's

@@ -1004,7 +1004,7 @@ not the trash in the user's home directory.
 
    However, the motivations for such a scheme go back further.
    One of the most influential time-sharing systems,
-   CTSS, recognized the need for accessing files independent of their disk location.
+   CTSS, recognized the need for accessing files independently of their disk location.
 
        All files kept on the disk (and drum) are known to the
        user only by name: the supervisor disk control module keeps

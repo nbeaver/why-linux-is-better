@@ -1122,7 +1122,16 @@ until the application is killed.
 
 This becomes particularly interesting when the files are hidden thumbnails.
 
+    This is a known problem with Windows 7 related thumbnail caching which
+    locks hidden files, thus preventing deletion or moving them.
+
 https://superuser.com/questions/537041/action-cant-be-completed-open-in-another-program
+
+    The folder rename operation fails because thumbcache.dll still has an open
+    handle to the local thumbs.db file and does not currently implement a
+    mechanism to release the handle to the file in a more dynamic and timely
+    fashion.
+
 https://support.microsoft.com/en-us/kb/2025703
 
 By contrast,

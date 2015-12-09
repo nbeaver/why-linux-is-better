@@ -2132,8 +2132,10 @@ are equally `susceptible to malware`_.
 Android, for example, runs on the Linux kernel,
 and there is plenty of malware that targets it.
 
+.. TODO: link to these articles.
 .. http://www.linux.org/threads/android-malware.7836/
 .. http://www.firstpost.com/business/gunpoder-new-android-malware-targets-users-not-residing-china-2339516.html
+.. http://www.hackinglinuxexposed.com/articles/20020924.html
 
 In practice, though, Windows users are `more likely`_
 to inadvertently install malware,

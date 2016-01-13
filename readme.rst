@@ -689,6 +689,10 @@ but such restrictions do not apply to filenames.)
    tend to have their own difficulties,
    `such as storing strings of arbitrary length`_.
 
+   There is extensive discussion here:
+
+   https://utcc.utoronto.ca/~cks/space/blog/programming/CNullStringsDefense
+
    In any case, both Linux and `Windows use null-terminated strings`_,
    as do other modern operating systems.
 

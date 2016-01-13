@@ -2140,6 +2140,7 @@ and there is plenty of malware that targets it.
 .. http://www.linux.org/threads/android-malware.7836/
 .. http://www.firstpost.com/business/gunpoder-new-android-malware-targets-users-not-residing-china-2339516.html
 .. http://www.hackinglinuxexposed.com/articles/20020924.html
+.. http://www.geekzone.co.nz/foobar/6229
 
 In practice, though, Windows users are `more likely`_
 to inadvertently install malware,

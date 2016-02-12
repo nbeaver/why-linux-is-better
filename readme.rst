@@ -149,7 +149,7 @@ If you are a Windows user:
 Intrinsic technical deficiencies of the Windows NT operating system
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-This is a list of examples specific limitations
+This is a list of examples of specific limitations
 that are the result of the Windows kernel or API.
 
 -------------------------
@@ -161,13 +161,17 @@ are hampered by licensing restrictions and technical limitations.
 
 .. _though they do exist: http://en.wikipedia.org/wiki/Windows_Preinstallation_Environment
 
-For example, `until Windows 8`_, desktop versions of Windows could not boot from a USB.
-(And while running a live USB of Windows 8, it is still not possible mount internal hard disks.)
+For example, `until Windows 8`_, desktop versions of Windows
+could not boot from a USB.
+(And while running a live USB of Windows 8,
+it is still not possible to mount internal hard disks.)
 
 .. _until Windows 8: http://technet.microsoft.com/en-us/library/hh831833.aspx
 
-The `BartPE LiveCD building program`_ is 3rd party software that will run on any version of Windows,
-but it is `only able to make`_ a LiveCD for Windows XP or Windows Server 2003.
+The `BartPE LiveCD building program`_
+is 3rd party software that will run on any version of Windows,
+but it is `only able to make`_ a LiveCD
+for Windows XP or Windows Server 2003.
 
 .. _BartPE LiveCD building program: http://en.wikipedia.org/wiki/BartPE
 .. _only able to make: http://www.betaarchive.com/forum/viewtopic.php?t=22258
@@ -200,7 +204,8 @@ retain settings and data on the next boot-up.
 This makes live versions of Linux useful for
 recovering files from damaged hard drives,
 making bootable backups of an entire drive,
-scanning a disk for malware without loading a potentially compromised operating system,
+scanning a disk for malware
+without loading a potentially compromised operating system,
 distinguishing hardware problems from software problems,
 and other tasks requiring a temporary operating system.
 
@@ -849,7 +854,7 @@ and ``.desktop`` configuration files with mimetype information
 
 .. _filetypes are determined: http://www.howtogeek.com/192628/mime-types-explained-why-linux-and-mac-os-x-dont-need-file-extensions/
 
-A file's executable status is separate from its file extension,
+A file's executable status is `separate from its file extension`_,
 and an executable text file written in a scripting language
 can control how it is run via the `first-line shebang convention`_,
 e.g. ``#!/usr/bin/env python3 -i``.
@@ -859,6 +864,7 @@ but languages that emphasize cross-platform compatibility,
 such as Python,
 have `implemented work-arounds`_.
 
+.. _separate from its file extension: http://superuser.com/questions/405972/why-do-i-need-an-execute-bit-in-file-mode-on-unix-file-systems
 .. _first-line shebang convention: http://en.wikipedia.org/wiki/Shebang_(Unix)
 .. _implemented work-arounds: http://legacy.python.org/dev/peps/pep-0397/
 .. _cannot indicate it is version 2 or 3: http://stackoverflow.com/questions/7574453/shebang-notation-python-scripts-on-windows-and-linux
@@ -1208,9 +1214,11 @@ Thus, the API can be used to restrict what programs can do. [#wine_dlls]_
 This is not a theoretical problem.
 Because of Intel's High-bandwidth Digital Content Protection,
 Windows applications cannot use the graphics card
-to manipulate windows the way Flip3D does.
+to manipulate windows the way `Flip3D`_ does.
 
 https://stackoverflow.com/questions/3848558/what-is-the-api-to-create-applications-like-flip3d
+
+.. _Flip3D: https://en.wikipedia.org/wiki/File:Windows7_flip.png
 
 Sometimes it isn't the API, either;
 on Windows 8 it is impossible to disable the dwm window compositor.
@@ -1234,7 +1242,8 @@ This was not without controversy.
 https://msdn.microsoft.com/en-us/library/windows/desktop/hh848042%28v=vs.85%29.aspx
 
 Linux also has an API,
-but it is not tied to the desktop environment,
+but it is based on a standard (POSIX),
+is not tied to the desktop environment,
 and is not controlled by a single corporation
 in the same way that the Windows API is.
 
@@ -1749,14 +1758,17 @@ Software configuration: registries and text files.
 --------------------------------------------------
 
 On Windows, configuration files are not centralized in the user's home directory.
-The data that matters
-|---| that retains configuration when upgrading or recovering from data loss |---|
-is scattered around as ``.INI`` text files in unpredictable directories
+The data that retain configuration when upgrading or recovering from data loss
+are scattered around as ``.INI`` text files in unpredictable directories
 or in the `Windows Registry`_.
-In general, there is insufficient separation amongst an application's
+In principle, applications should put config files in ``%APPDATA%``,
+but in practice many of them put it in the install directory.
+
+Furthermore, ``%APPDATA`` makes no distinction
+amongst an application's
 configuration and plugins,
 history and log files,
-and data that is cached for performance.
+and cached data.
 
 This makes configuration less robust
 and harder to adapt to the needs of specific users.
@@ -1777,6 +1789,7 @@ depending on the needs of the people using it.
 System administrators, for example,
 care about system-level configuration files,
 generally text files in ``/etc/``.
+
 Text files are simple to edit
 for ad-hoc debugging and automation,
 easy to diff,
@@ -1785,19 +1798,17 @@ and robust against corruption.
 
 User level configuration is stored in dotfiles
 (hidden folders or files)
-in the user's home directory.
+in the user's home directory
+
 There are good arguments to the effect that
 making dotfiles responsible for configuration `is problematic`_.
 Configuration files would make much more sense
 if stored in a dedicated configuration folder in the user's home directory,
-and indeed some applications are `beginning to standardize on this`_.
+and many applications follow the `XDG base directory standard`_,
+which is intended to address this problem.
 
 .. _is problematic: https://plus.google.com/+RobPikeTheHuman/posts/R58WgWwN9jp
-.. _beginning to standardize on this: http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
-
-In the meantime, however, dotfiles do the job, cluttered as they are,
-since each user's files and configuration
-is isolated to his or her home directory.
+.. _XDG base directory standard: http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
 Centralized databases like the Windows Registry
 are usually unnecessary for configuration.

@@ -1844,6 +1844,18 @@ adopt new configuration files,
 keep the old ones,
 or ``diff`` and merge the files into a hybrid.
 
+For example, the RSS reader ``lifererea``
+puts the list of RSS feeds in
+``$HOME/.config/liferea/feedlist.opml``,
+favicons (which can be re-downloaded if necessary) in
+``$HOME/.cache/liferea/favicons/``,
+and the SQLite database containing the actual RSS feeds in
+``$HOME/.local/share/liferea/liferea.db``.
+
+This means that backing up the configuration for ``lifereas``
+is as simple as backing up the contents of ``$HOME/.config/liferea/``,
+and no cache files or big databases are included.
+
 In short, configuration on Linux
 is better adapted to the needs of its users than on Windows.
 Ordinary users have the package manager

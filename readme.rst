@@ -611,14 +611,12 @@ Filename restrictions.
 ----------------------
 
 In Linux and other Unix-derived operating systems,
-the only `characters that cannot appear`_
-in the name of a file or directory
+the only characters that may not appear
+in the name of a file or directory [#forbidden_characters]_
 are the slash ``/``,
 which is used to delimit paths,
 and the ASCII null ``\0``,
 which is used to terminate strings in C. [#C_strings]_
-
-.. _characters that cannot appear: https://stackoverflow.com/questions/1976007/what-characters-are-forbidden-in-windows-and-linux-directory-names
 
 Windows has the same restrictions,
 as well as many other `restrictions which are considerably more complex`_
@@ -669,6 +667,36 @@ but such restrictions do not apply to filenames.)
 .. [#] https://serverfault.com/questions/16706/current-date-in-the-file-name
 .. [#] https://programmers.stackexchange.com/questions/61683/standard-format-for-using-a-timestamp-as-part-of-a-filename
 .. [#colons_in_PATH] https://stackoverflow.com/questions/14661373/how-to-escape-colon-in-path-on-unix
+
+.. [#forbidden_characters]
+
+   As discussed in this StackOverflow question:
+
+   https://stackoverflow.com/questions/1976007/what-characters-are-forbidden-in-windows-and-linux-directory-names
+
+       When Steve Bourne was writing his Unix shell (which came to be known as the
+       Bourne shell), he made a directory of 254 files with one-character names, one for each
+       byte value except ``'\0'`` and slash, the two characters that cannot appear in Unix file
+       names. He used that directory for all manner of tests of pattern-matching and tok-
+       enization. (The test directory was of course created by a program.) For years after-
+       wards, that directory was the bane of file-tree-walking programs; it tested them to
+       destruction.
+
+       --- Brian W. Kernighan and Rob Pike, "The Practice of Programming", Chapter 6: Testing, p. 158
+
+   https://books.google.com/books?id=j9T6AgAAQBAJ&lpg=PP1&dq=the%20practice%20of%20programming&pg=PA158#v=onepage&q=When%20Steve%20Bourne
+
+   This is also explicitly stated in the POSIX standard.
+
+       The characters composing the name may be selected from the set of all
+       character values excluding the slash character and the null byte.
+
+   http://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap03.html
+
+       The bytes composing the name shall not contain the <NUL> or <slash>
+       characters.
+
+    http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_170
 
 .. [#C_strings] The wisdom of this decision is a matter of some debate.
 

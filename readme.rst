@@ -679,6 +679,8 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
        naming conventions look and operate like their TOPS-10-counterparts. It
        wasn’t pretty, but it did the job.
 
+       --- Robert X. Cringely, *Accidental Empires, Chapter 4 — Amateur Hour*
+
    http://www.cringely.com/2013/02/18/accidental-empires-chapter-4-amateur-hour/
 
        CP/M and ISIS in operation have some general similarities to interactive
@@ -686,6 +688,8 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
        "TOPS-10" OS. Kildall used such systems to develop and run his
        cross-assemblers and compilers, which became Intel products; and later
        to develop his own products which ran "native" on CP/M systems.
+
+       --- Herbert R. Johnson, *CP/M and Digital Research Inc. (DRI) History*
 
    http://www.retrotechnology.com/dri/d_dri_history.html
 
@@ -707,8 +711,7 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
        author’s possession, as well as conversations with Kip Crosby, to whom I
        am grateful for posting this question over an Internet discussion forum.
 
-   --- Paul E. Ceruzzi, page 238 of "A History of Modern Computing", 2nd. ed.
-   2003, MIT Press.
+       --- Paul E. Ceruzzi, page 238 of "A History of Modern Computing", 2nd. edition published 2003 by MIT Press.
 
 .. [#kildall_RT11]
 
@@ -870,7 +873,7 @@ but such restrictions do not apply to filenames.)
        wards, that directory was the bane of file-tree-walking programs; it tested them to
        destruction.
 
-   --- Brian W. Kernighan and Rob Pike, "The Practice of Programming", Chapter 6: Testing, p. 158
+       --- Brian W. Kernighan and Rob Pike, "The Practice of Programming", Chapter 6: Testing, p. 158
 
    https://books.google.com/books?id=j9T6AgAAQBAJ&lpg=PP1&dq=the%20practice%20of%20programming&pg=PA158#v=onepage&q=When%20Steve%20Bourne
 
@@ -1145,7 +1148,7 @@ https://technet.microsoft.com/en-us/library/Cc938934.aspx
     drives per mailbox store and, if you provision out well, you will quickly
     run out of drive letters.
 
---- Rick Vanover
+    --- Rick Vanover
 
 http://www.techrepublic.com/blog/the-enterprise-cloud/use-mount-points-if-you-run-out-of-windows-drive-letters/
 
@@ -1412,7 +1415,7 @@ on Windows 8 it is impossible to disable the dwm window compositor.
     always on; it’s started before the user logon and remains active for the
     duration of a session.
 
---- Windows Dev Center documentation
+    --- Windows Dev Center documentation
 
 https://msdn.microsoft.com/en-us/library/windows/desktop/hh848042%28v=vs.85%29.aspx
 
@@ -1422,7 +1425,7 @@ This was not without controversy.
     going to force us to retire some of our older software, and it tool [sic]
     many years to overcome the problems caused.
 
---- Dan Ritchie
+    --- Dan Ritchie
 
 https://msdn.microsoft.com/en-us/library/windows/desktop/hh848042%28v=vs.85%29.aspx
 

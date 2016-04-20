@@ -396,103 +396,9 @@ http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
 However, there is also no shortage of opinions
 that enforcing filename case-sensitivity
 -- and even case-sensitivity in general --
-was a bad decision.
+was a bad decision. [#against_case_sensitivity]_
 
-    Mac ＆ Windows users have to have filenames read to them over the phone by
-    support techs. They have to be able to write little sticky notes to their
-    mothers about how to open up the mail program, without worrying about how the
-    filenames are capitalized. Haven't you ever fumed over a URL with initial-caps
-    in the folder names in the path, having to fiddle with capitalization until you
-    get a response that's anything but a 404? Haven't you ever been secretly
-    pleased that e-mail addresses aren't case-sensitive?
-
-    --- Brian Tiemann, *On Unix File System's Case Sensitivity* (2001)
-
-http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
-
-    Anecdotally, case sensitivity in programs is known to be error-prone for
-    both beginners and experienced users.  Bob Frankston, a Multics alumnus
-    and the co-inventor of VisiCalc, once said it was the biggest mistake
-    that Multics had inflicted on the world.
-
-    --- Stavros Macrakis (2003)
-
-https://www.ma.utexas.edu/pipermail/maxima/2003/004483.html
-
-    One of the most pernicious problems with C-based languages is that they're
-    case-sensitive. While this decision may have made sense in 1972 when the
-    language was created, one wonders why the sins of Kernighan and Ritchie have
-    been blindly perpetuated for the last thirty-three years.
-
-    [ . . . ]
-
-    Unless you have extremely compelling reasons to make something case-sensitive,
-    case insensitivity is a much more human being friendly design choice. Designing
-    software that's easier for machines is questionable at best.
-
-    --- Jeff Atwood, *The Case For Case Insensitivity* (2005)
-
-http://blog.codinghorror.com/the-case-for-case-insensitivity/
-
-    There is no longer any excuse for making humans learn and handle the quirks of
-    the way computers store upper- and lower-case characters. Instead, software
-    should handle the quirks of human language.
-
-    --- Brian Hauer, *Case-sensitivity is the past trolling us* (2014)
-
-http://tiamat.tsotech.com/case-sensitivity-sucks
-
-    Since it appears to have manifested out of opinion rather than necessity, it
-    could be said case-sensitivity is the worst way that modern technology sucks.
-
-    --- Greg Raiz (2007)
-
-http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
-
-    This is really stupid, it causes a ton of problems and there is no longer
-    any good reason to have case sensitivity in an OS.
-
-    --- Julian, OddThinking (2005)
-
-http://www.somethinkodd.com/oddthinking/2005/10/27/the-case-for-case-preserving-case-insensitivity/
-
-There are also passionate views to the opposite effect.
-
-    Many of us consider those filesystems which cannot preserve case, but
-    which accept "input" in random case, to be so utterly broken as to be
-    undeserving of any attention whatsoever.  They create a situation where
-    the computer effectively considers the users to be too stupid or blind
-    or whatever to be able to say what we mean accurately.
-
-    --- Greg A. Woods (2003)
-
-https://lists.nongnu.org/archive/html/info-cvs/2003-11/msg00127.html
-
-    Why oh why on Earth engineers at Microsoft decided to make Windows case
-    insensitve [sic] and then use camel case anyway, wherever possible?
-
-    It makes case-sensitive systems and their sysadmins cry :-(
-
-    --- u/bwosc (2015)
-
-https://www.reddit.com/r/sysadmin/comments/2w6c8g/case_insensitive_windows_rant/
-
-    Why are computer file names and conventions and protocols so messed up? It's
-    bizarre -- and Microsoft has been one of the worst offenders with one of the
-    most powerful positions and opportunities to make it a better filename-naming
-    world.
-
-    [ . . . ]
-
-    And, Microsoft dares to allow mixed case naming, but does case insensitive
-    handling of file names... don't even get me started about some of the bizarre
-    results and buggy behavior I've traced to that. I only wish I'd had a
-    chargeback code for all of the time I've spent fixing and debugging systems
-    that all come back to the file naming. Sigh, again.
-
-    --- yagu (2006)
-
-http://slashdot.org/comments.pl?sid=190747&cid=15690704
+There are also passionate views to the opposite effect. [#against_case_insensitivity]_
 
 Laying aside that argument for the moment,
 why did Windows filenames end up case-insensitive?
@@ -623,6 +529,103 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
    http://www.multicians.org/pl1.html
 
+.. [#against_case_sensitivity]
+
+       Mac ＆ Windows users have to have filenames read to them over the phone by
+       support techs. They have to be able to write little sticky notes to their
+       mothers about how to open up the mail program, without worrying about how the
+       filenames are capitalized. Haven't you ever fumed over a URL with initial-caps
+       in the folder names in the path, having to fiddle with capitalization until you
+       get a response that's anything but a 404? Haven't you ever been secretly
+       pleased that e-mail addresses aren't case-sensitive?
+
+       --- Brian Tiemann, *On Unix File System's Case Sensitivity* (2001)
+
+   http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
+
+       Anecdotally, case sensitivity in programs is known to be error-prone for
+       both beginners and experienced users.  Bob Frankston, a Multics alumnus
+       and the co-inventor of VisiCalc, once said it was the biggest mistake
+       that Multics had inflicted on the world.
+
+       --- Stavros Macrakis (2003)
+
+   https://www.ma.utexas.edu/pipermail/maxima/2003/004483.html
+
+       One of the most pernicious problems with C-based languages is that they're
+       case-sensitive. While this decision may have made sense in 1972 when the
+       language was created, one wonders why the sins of Kernighan and Ritchie have
+       been blindly perpetuated for the last thirty-three years.
+
+       [ . . . ]
+
+       Unless you have extremely compelling reasons to make something case-sensitive,
+       case insensitivity is a much more human being friendly design choice. Designing
+       software that's easier for machines is questionable at best.
+
+       --- Jeff Atwood, *The Case For Case Insensitivity* (2005)
+
+   http://blog.codinghorror.com/the-case-for-case-insensitivity/
+
+       There is no longer any excuse for making humans learn and handle the quirks of
+       the way computers store upper- and lower-case characters. Instead, software
+       should handle the quirks of human language.
+
+       --- Brian Hauer, *Case-sensitivity is the past trolling us* (2014)
+
+   http://tiamat.tsotech.com/case-sensitivity-sucks
+
+       Since it appears to have manifested out of opinion rather than necessity, it
+       could be said case-sensitivity is the worst way that modern technology sucks.
+
+       --- Greg Raiz (2007)
+
+   http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
+
+       This is really stupid, it causes a ton of problems and there is no longer
+       any good reason to have case sensitivity in an OS.
+
+       --- Julian, OddThinking (2005)
+
+   http://www.somethinkodd.com/oddthinking/2005/10/27/the-case-for-case-preserving-case-insensitivity/
+
+.. [#against_case_insensitivity]
+
+       Many of us consider those filesystems which cannot preserve case, but
+       which accept "input" in random case, to be so utterly broken as to be
+       undeserving of any attention whatsoever.  They create a situation where
+       the computer effectively considers the users to be too stupid or blind
+       or whatever to be able to say what we mean accurately.
+
+       --- Greg A. Woods (2003)
+
+   https://lists.nongnu.org/archive/html/info-cvs/2003-11/msg00127.html
+
+       Why oh why on Earth engineers at Microsoft decided to make Windows case
+       insensitve [sic] and then use camel case anyway, wherever possible?
+
+       It makes case-sensitive systems and their sysadmins cry :-(
+
+       --- u/bwosc (2015)
+
+   https://www.reddit.com/r/sysadmin/comments/2w6c8g/case_insensitive_windows_rant/
+
+       Why are computer file names and conventions and protocols so messed up? It's
+       bizarre -- and Microsoft has been one of the worst offenders with one of the
+       most powerful positions and opportunities to make it a better filename-naming
+       world.
+
+       [ . . . ]
+
+       And, Microsoft dares to allow mixed case naming, but does case insensitive
+       handling of file names... don't even get me started about some of the bizarre
+       results and buggy behavior I've traced to that. I only wish I'd had a
+       chargeback code for all of the time I've spent fixing and debugging systems
+       that all come back to the file naming. Sigh, again.
+
+       --- yagu (2006)
+
+   http://slashdot.org/comments.pl?sid=190747&cid=15690704
 
 .. [#MSDOS_case_insensitive]
 

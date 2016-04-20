@@ -365,9 +365,6 @@ because Unix used case-sensitive filenames.
 Unix was case-sensitive because Multics was case-sensitive.
 Multics was case-sensitive because of ASCII. [#Multics_case_sensitive]_
 
-ASCII appears to be the first case-sensitive encoding;
-earlier encodings such as Morse codes and Baudot codes do not distinguish case.
-
 This has some intuitive appeal;
 it is useful to be able to distinguish between, say,
 the abbreviation for United State ("US")
@@ -433,7 +430,7 @@ and also used case-insensitive filenames. [#CPM_case_insensitive]_
 
 http://www.gaby.de/cpm/manuals/archive/cpm22htm/ch1.htm
 
-The CP/M manual does not state explicitly why it uses this convention,
+The CP/M manual does not state explicitly why it uses these conventions,
 but Gary Kildall wrote CP/M on a `DEC`_ `PDP-10 mainframe`_
 running the `TOPS-10`_ operating system
 when he was working at Intel. [#kildall_tops10]_
@@ -466,27 +463,7 @@ which is presumably why it used an 8.3 filename instead of 6.3 filename.) [#8.3_
 
 Similarly, the RT-11 didn't use ASCII for filenames,
 but rather an encoding called RADIX-50,
-which helped to save memory.
-
-    ... files were located via the directory, which resided in a fixed
-    location at the beginning of the hard drive. The directory consisted of a
-    single array of entries, each with a 6.3 character file name formatted in DEC’s
-    Radix-50 format. A file’s directory entry indicated the address of the first
-    block of the file.
-
-http://cryptosmith.com/2013/10/19/digitals-rt-11-file-system/
-
-    RADIX50 is a character coding system used in earlier Digital Equipment
-    Corporation computers, such as the PDP-10, DECsystem-10 and DECsystem-20.
-    It was implemented as a way to pack as many characters into as few bits as
-    possible.
-
-    RADIX50 actually contains 40 codes, or 50 in octal. Because this is not a
-    power of two, the PDP-10 processor had instructions to pack several
-    RADIX-50 words into a single 36-bit word or extract RADIX-50 words from a
-    36-bit word.
-
-http://nemesis.lonestar.org/reference/telecom/codes/radix50.html
+which helped to save memory. [#RADIX50]_
 
 Neither of these encodings are used much anymore,
 but their case-insensitivity,
@@ -766,12 +743,39 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
 .. [#8.3_filename] https://groups.google.com/forum/#!topic/alt.folklore.computers/fqXomGO4I1I
 
+.. [#RADIX50]
+
+       ... files were located via the directory, which resided in a fixed
+       location at the beginning of the hard drive. The directory consisted of a
+       single array of entries, each with a 6.3 character file name formatted in DEC’s
+       Radix-50 format. A file’s directory entry indicated the address of the first
+       block of the file.
+
+   http://cryptosmith.com/2013/10/19/digitals-rt-11-file-system/
+
+       RADIX50 is a character coding system used in earlier Digital Equipment
+       Corporation computers, such as the PDP-10, DECsystem-10 and DECsystem-20.
+       It was implemented as a way to pack as many characters into as few bits as
+       possible.
+
+       RADIX50 actually contains 40 codes, or 50 in octal. Because this is not a
+       power of two, the PDP-10 processor had instructions to pack several
+       RADIX-50 words into a single 36-bit word or extract RADIX-50 words from a
+       36-bit word.
+
+   http://nemesis.lonestar.org/reference/telecom/codes/radix50.html
+
 .. [#tortoise_svn_case_sensitivity] https://code.google.com/p/tortoisesvn/issues/detail?id=32
 
-.. [#openfoam_no_windows_port] http://openfoamwiki.net/index.php/Main_FAQ#Why_isn.27t_there_a_Windows_port_of_OpenFOAM_.3F
+.. [#openfoam_no_windows_port]
 
-           The OpenFOAM-sources need a fully case-sensitive file-system and can't even be
-           unpacked properly on a Windows system
+       One problem is that the file-system NTFS, that is used by most modern
+       Windows Versions, is (by default) only case-preserving (``hello.c`` and
+       ``Hello.C`` are the same file, when in the same folder). The
+       OpenFOAM-sources need a fully case-sensitive file-system and can't even
+       be unpacked properly on a Windows system (see [2]).
+
+   http://openfoamwiki.net/index.php/Main_FAQ#Why_isn.27t_there_a_Windows_port_of_OpenFOAM_.3F
 
 .. [#common_lisp_filenames]
 
@@ -789,12 +793,12 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
 .. [#valve_porting_source_to_linux] http://adrienb.fr/blog/wp-content/uploads/2013/04/PortingSourceToLinux.pdf
 
-           - Linux filesystems are case-sensitive
-           - Windows is not
-           - Not a big issue for deployment (because everyone ships packs of some sort)
-           - But an issue during development, with loose files
-           - Solution 1: Slam all assets to lower case, including directories, then tolower all file lookups (only adjust below root)
-           - Solution 2: Build file cache, look for similarly named files
+       - Linux filesystems are case-sensitive
+       - Windows is not
+       - Not a big issue for deployment (because everyone ships packs of some sort)
+       - But an issue during development, with loose files
+       - Solution 1: Slam all assets to lower case, including directories, then tolower all file lookups (only adjust below root)
+       - Solution 2: Build file cache, look for similarly named files
 
 
 ----------------------
@@ -1986,7 +1990,10 @@ and robust against corruption.
 
 User level configuration is stored in dotfiles
 (hidden folders or files)
-in the user's home directory
+in the user's home directory,
+often under the ``~/.config/`` folder.
+Plugins and logfiles generally go under ``~/.local/share/``,
+and cached dates under ``~/.cache/``.
 
 There are good arguments to the effect that
 making dotfiles responsible for configuration `is problematic`_.

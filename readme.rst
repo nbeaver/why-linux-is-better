@@ -194,13 +194,13 @@ makes it difficult to use for, e.g,
 determining if a bug is due to hardware or software problems,
 recovering data from a machine with filesystem corruption or bad disk sectors,
 and testing out different versions of an OS
-without committing a partition of a hard disk to a permanent installation.
+without making a new hard drive partition.
 
 `Live versions`_ of Linux are full operating systems,
 able to mount and repartition disks,
 connect to the internet and run a web browser,
-and (for `persistent live USB flash drives`_)
-retain settings and data on the next boot-up.
+and even retain settings and data on the next boot-up
+(for `persistent live USB flash drives`_).
 This makes live versions of Linux useful for
 recovering files from damaged hard drives,
 making bootable backups of an entire drive,
@@ -363,18 +363,10 @@ Filename case-insensitivity.
 Linux uses case-sensitive filenames
 because Unix used case-sensitive filenames.
 Unix was case-sensitive because Multics was case-sensitive.
-Multics was case-sensitive because of ASCII.
+Multics was case-sensitive because of ASCII. [#Multics_case_sensitive]_
 
-    Everything in Multics is case sensitive; Multics permits use of the full
-    upper and lower case ASCII character set.
-
-http://www.multicians.org/mgc.html
-
-    Since the Multics file system distinguished between upper and lower case,
-    external names had to be case sensitive, and without much discussion we
-    chose to have all variable names be case sensitive.
-
-http://www.multicians.org/pl1.html
+ASCII appears to be the first case-sensitive encoding;
+earlier encodings such as Morse codes and Baudot codes do not distinguish case.
 
 This has some intuitive appeal;
 it is useful to be able to distinguish between, say,
@@ -523,28 +515,54 @@ at least not with standard Windows software.
 .. _case-preserving: http://en.wikipedia.org/wiki/Case_preservation
 .. _not be possible to read or modify both of those files: http://technet.microsoft.com/en-us/library/cc976809.aspx
 
-This API behavior exists to maintain `compatibility with MS-DOS`_ filesystems.
-MS-DOS was built on QDOS/86-DOS,
-which was `heavily influenced by CP/M`_
-(another case-insensitive OS [#CPM_case_insensitive]_),
-which in turn was heavily influenced by RT-11,
-a competitor with Unix on the PDP-11.
+This API behavior exists to maintain compatibility with MS-DOS filesystems. [#MSDOS_case_insensitive]_
+MS-DOS was built on Tim Paterson's 86-DOS (released in 1980)
+and Marc McDonald's FAT filesystem,
+which were designed for compatibility with CP/M. [#DOS_CPM]_ [#FAT_CPM]_
+CP/M was created in 1973 by Gary Kildall,
+and also used case-insensitive filenames. [#CPM_case_insensitive]_
 
-.. TODO: source that RT-11 influenced CP/M.
+    Lower case ASCII alphabetics are internally translated to upper
+    case to be consistent with CP/M file and device name conventions.
 
-.. _compatibility with MS-DOS: http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx
-.. _heavily influenced by CP/M: http://dosmandrivel.blogspot.com/2007/08/is-dos-rip-off-of-cpm.html
+http://www.gaby.de/cpm/manuals/archive/cpm22htm/ch1.htm
 
-Why did RT-11 use case-insensitive filenames?
-Because it didn't use ASCII for filenames,
-it used an encoding called `RADIX-50`_ to save memory.
-It also used three-character extensions.
+The CP/M manual does not state explicitly why it uses this convention,
+but Gary Kildall wrote CP/M on a `DEC`_ `PDP-10 mainframe`_
+running the `TOPS-10`_ operating system
+when he was working at Intel. [#kildall_tops10]_
+Consequently, there are many similarities between CP/M and TOPS-10,
+including filename case-insensitivity.
 
-.. TODO: source that says it saved memory.
+.. _DEC: https://en.wikipedia.org/wiki/Digital_Equipment_Corporation
+.. _PDP-10 mainframe: https://en.wikipedia.org/wiki/PDP-10
+.. _TOPS-10: https://en.wikipedia.org/wiki/TOPS-10
 
-.. _RADIX-50: http://nemesis.lonestar.org/reference/telecom/codes/radix50.html
+(It should be noted that CP/M has also been compared to RT-11,
+a DEC operating system for the PDP-11 minicomputer
+that is closely related to TOPS-10, [#kildall_RT11]_
+although the influence may not have been as direct.)
 
-    Locating files – files were located via the directory, which resided in a fixed
+Why did TOPS-10 use case-insensitive names?
+Because the DEC SIXBIT encoding used for filenames
+was optimized for its architecture.
+
+    RAD50 was used in FILES-11 and RT-11 disks. It was used to store 3
+    characters in a 16 bit word. SIXBIT was used on TOPS-10 36bit systems to
+    store 6 characters in a word. It also allowed for a fast file name search
+    since the names were all on word boundaries (full filename compair took 2
+    compair, and 1 mask operation 6+3 file names).
+
+https://lkml.org/lkml/2002/7/30/257
+
+(CP/M was written for an eight-byte architecture,
+which is presumably why it used an 8.3 filename instead of 6.3 filename.) [#8.3_filename]_
+
+Similarly, the RT-11 didn't use ASCII for filenames,
+but rather an encoding called RADIX-50,
+which helped to save memory.
+
+    ... files were located via the directory, which resided in a fixed
     location at the beginning of the hard drive. The directory consisted of a
     single array of entries, each with a 6.3 character file name formatted in DEC’s
     Radix-50 format. A file’s directory entry indicated the address of the first
@@ -552,20 +570,31 @@ It also used three-character extensions.
 
 http://cryptosmith.com/2013/10/19/digitals-rt-11-file-system/
 
-Radix-50 is not used much anymore,
-probably because it omits many characters (e.g. ``_`` and ``-``),
-but its lack of case-sensitivity endures to this day.
+    RADIX50 is a character coding system used in earlier Digital Equipment
+    Corporation computers, such as the PDP-10, DECsystem-10 and DECsystem-20.
+    It was implemented as a way to pack as many characters into as few bits as
+    possible.
 
-The lack of agreement on filename case-sensitivity
-may seem insignificant today,
-but it leads to non-trivial difficulties
-in cross-platform development. [#tortoise_svn_case_sensitivity]_ [#openfoam_no_windows_port]_
-Developers of cross-platform software try to `make a habit`_
-of not relying on case-sensitive filesystem access,
+    RADIX50 actually contains 40 codes, or 50 in octal. Because this is not a
+    power of two, the PDP-10 processor had instructions to pack several
+    RADIX-50 words into a single 36-bit word or extract RADIX-50 words from a
+    36-bit word.
+
+http://nemesis.lonestar.org/reference/telecom/codes/radix50.html
+
+Neither of these encodings are used much anymore,
+but their case-insensitivity,
+a useful optimization on 1970s hardware,
+endures to this day.
+
+The lack of agreement on filename case-sensitivity may seem insignificant,
+but it has caused persistent difficulties
+in cross-platform development. [#tortoise_svn_case_sensitivity]_ [#openfoam_no_windows_port]_ [#common_lisp_filenames]_
+Developers of cross-platform software try to `avoid making assumptions about filename case-sensitivity`_,
 but problems of this ilk crop up
 when porting from Windows to Linux or vice-versa. [#valve_porting_source_to_linux]_
 
-.. _make a habit: http://www.mono-project.com/docs/getting-started/application-portability/#case-sensitivity
+.. _avoid making assumptions about filename case-sensitivity: http://www.mono-project.com/docs/getting-started/application-portability/#case-sensitivity
 
 For example, the Linux port of the `Unity engine`_ has `issues with case-sensitive filesystems`_.
 
@@ -581,20 +610,139 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 .. _Unity engine: http://unity3d.com/
 .. _issues with case-sensitive filesystems: http://natoshabard.com/post/122670082502/porting-the-unity-editor-to-linux-stuff-i-wish
 
-.. [#tortoise_svn_case_sensitivity] https://code.google.com/p/tortoisesvn/issues/detail?id=32
-.. [#openfoam_no_windows_port] http://openfoamwiki.net/index.php/Main_FAQ#Why_isn.27t_there_a_Windows_port_of_OpenFOAM_.3F
+.. [#Multics_case_sensitive]
 
-           The OpenFOAM-sources need a fully case-sensitive file-system and can't even be
-           unpacked properly on a Windows system
+       Everything in Multics is case sensitive; Multics permits use of the full
+       upper and lower case ASCII character set.
 
-.. [#valve_porting_source_to_linux] http://adrienb.fr/blog/wp-content/uploads/2013/04/PortingSourceToLinux.pdf
+   http://www.multicians.org/mgc.html
 
-           - Linux filesystems are case-sensitive
-           - Windows is not
-           - Not a big issue for deployment (because everyone ships packs of some sort)
-           - But an issue during development, with loose files
-           - Solution 1: Slam all assets to lower case, including directories, then tolower all file lookups (only adjust below root)
-           - Solution 2: Build file cache, look for similarly named files
+       Since the Multics file system distinguished between upper and lower case,
+       external names had to be case sensitive, and without much discussion we
+       chose to have all variable names be case sensitive.
+
+   http://www.multicians.org/pl1.html
+
+
+.. [#MSDOS_case_insensitive]
+
+       Do not assume case sensitivity. For example, consider the names OSCAR,
+       Oscar, and oscar to be the same, even though some file systems (such as
+       a POSIX-compliant file system) may consider them as different. Note that
+       NTFS supports POSIX semantics for case sensitivity but this is not the
+       default behavior.
+
+   http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx
+
+.. [#DOS_CPM]
+
+       Every operating system has basic functions like reading and writing disk
+       files. The API defines the exact details of how to make it happen and
+       what the results are. For example, to “open” a file in preparation for
+       reading or writing, the application would pass the location of an
+       11-character file name and the function code 15 to CP/M through the
+       “Call 5” mechanism. The very same sequence would also open a file in
+       DOS, while, say, UNIX, did not use function code 15, 11-character file
+       names, or “Call 5” to open a file.
+
+       --- Tim Paterson (2007)
+
+   http://dosmandrivel.blogspot.com/2007/08/is-dos-rip-off-of-cpm.html
+
+       As I noted when I discussed the old MS-DOS wildcard matching rules, MS-DOS
+       worked hard at being compatible with CP/M. And CP/M used 8.3 filenames.
+
+       --- Raymond Chen (2009)
+
+   https://blogs.msdn.microsoft.com/oldnewthing/20090610-00/?p=17953/
+
+.. [#FAT_CPM]
+
+       The FAT file system 's restrictions on naming files and directories are
+       inherited from CP/M. When Paterson was writing 86-DOS one of his primary
+       objectives was to make programs easy to port from CP/M to his new
+       operating system. He therefore adopted CP/M's limits on filenames and
+       extensions so the critical fields of 86-DOS File Control Blocks (FCBs)
+       would look almost exactly like those of CP/M. The sizes of the FCB
+       filename and extension fields were also propagated into the structure of
+       disk directory entries
+
+   http://spider.seds.org/spider/OS2/HPFS/fat.html
+
+.. [#kildall_tops10]
+
+       Gary Kildall developed CP/M on a DEC PDP-10 minicomputer running the
+       TOPS-10 operating system. Not surprisingly, most CP/M commands and file
+       naming conventions look and operate like their TOPS-10-counterparts. It
+       wasn’t pretty, but it did the job.
+
+   http://www.cringely.com/2013/02/18/accidental-empires-chapter-4-amateur-hour/
+
+       CP/M and ISIS in operation have some general similarities to interactive
+       operating systems on minicomputers and mainframes such as the DEC PDP-10
+       "TOPS-10" OS. Kildall used such systems to develop and run his
+       cross-assemblers and compilers, which became Intel products; and later
+       to develop his own products which ran "native" on CP/M systems.
+
+   http://www.retrotechnology.com/dri/d_dri_history.html
+
+       Kildall said that PL/M was ‘‘the base for CP/M,’’ even though the
+       commands were clearly derived from Digital’s, not IBM’s software. For
+       example, specifying the drive in use by a letter; giving file names a
+       period and three-character extension; and using the DIR (Directory)
+       command, PIP, and DDT were DEC features carried over without change. [100]
+
+       [ . . . ]
+
+       99. Gary Kildall, ‘‘CP/M: A Family of 8- and 16-Bit Operating Systems,’’
+       Byte, (June 1981): 216–229. Because of the differences between DEC
+       minicomputers and the 8080 microprocessor, the actual code of CP/M was
+       different and wholly original, even if the syntax and vocabulary were
+       similar.
+
+       100. The above argument is based on PDP-10 and CP/M manuals in the
+       author’s possession, as well as conversations with Kip Crosby, to whom I
+       am grateful for posting this question over an Internet discussion forum.
+
+   --- Paul E. Ceruzzi, page 238 of "A History of Modern Computing", 2nd. ed.
+   2003, MIT Press.
+
+.. [#kildall_RT11]
+
+   From a post on the comp.sys.tandy Usenet group:
+
+       Of course, CP/M itself is an
+       almost exact knock off of DECs PDP-11 OS, RT-11, an operating system that
+       dates back to the early seventies, and RT-11 shows its roots in TOPS-10,
+       which goes back another year or two.  For some reason, all the historians
+       tracing the source of MS-DOS mysteriously stop at CP/M, even when command sets
+       and utility syntaxes are compared side-by-side.  Who had a PIP utility first?
+       Why, DEC, not Digital Research.
+
+       The joke in the seventies that "Digital Research" was a typographical error
+       and the companies real name was "Digital [Equipment Corporation] Rehashed",
+       for RT-11, TOPS-10 and RSTS/E all predated CP/M by a lot and yet have the same
+       command syntax.
+
+   https://groups.google.com/forum/#!msg/comp.sys.tandy/EcfhcRv9gEU/fNu_h9fCe3AJ
+
+   From a post on the alt.folklore.computers Usenet group:
+
+       Maybe we do need Kildall for the next step, but when I saw CP/M
+       version 1 it appeared closest to a dialect of RT-11, so I've always
+       figured that RT-11 was the closest ancestor.  After that, it began
+       to drift.  If I recall correctly, V1's prompt was the DECcish ".",
+       but in V2 it became "> ".  Therefore, it would appear that MS-DOS
+       got its start from CP/M V2.  It's a pity MS-DOS didn't start from
+       RT-11, which had multitasking, interrupt driven I/O, and all the
+       other good stuff that is easy to fit in a well designed 8KB kernel.
+
+   https://groups.google.com/forum/#!topic/alt.folklore.computers/BxRlG1tYv8o
+
+       Gary Kildall's CP/M started out as his own reimplementation of RT-11 for
+       the Intel 8080.
+
+   http://blu.org/mhonarc/discuss/2011/10/msg00112.php
 
 .. [#CPM_case_insensitive] CP/M did this conversion internally.
 
@@ -609,6 +757,38 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
         they are upper case in command names and file references
 
     https://archive.org/stream/Intro_to_CPM_Feat_and_Facilities/Intro_to_CPM_Feat_and_Facilities_djvu.txt
+
+.. [#8.3_filename] https://groups.google.com/forum/#!topic/alt.folklore.computers/fqXomGO4I1I
+
+.. [#tortoise_svn_case_sensitivity] https://code.google.com/p/tortoisesvn/issues/detail?id=32
+
+.. [#openfoam_no_windows_port] http://openfoamwiki.net/index.php/Main_FAQ#Why_isn.27t_there_a_Windows_port_of_OpenFOAM_.3F
+
+           The OpenFOAM-sources need a fully case-sensitive file-system and can't even be
+           unpacked properly on a Windows system
+
+.. [#common_lisp_filenames]
+
+       Issues of alphabetic case in pathnames are a major source of problems.
+       In some file systems, the customary case is lowercase, in some
+       uppercase, in some mixed. Some file systems are case-sensitive (that is,
+       they treat FOO and foo as different file names) and others are not.
+
+   https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node205.html
+
+       The main difficulty in dealing with names of files is that different
+       file systems have different naming formats for files.
+
+   https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node203.html
+
+.. [#valve_porting_source_to_linux] http://adrienb.fr/blog/wp-content/uploads/2013/04/PortingSourceToLinux.pdf
+
+           - Linux filesystems are case-sensitive
+           - Windows is not
+           - Not a big issue for deployment (because everyone ships packs of some sort)
+           - But an issue during development, with loose files
+           - Solution 1: Slam all assets to lower case, including directories, then tolower all file lookups (only adjust below root)
+           - Solution 2: Build file cache, look for similarly named files
 
 
 ----------------------
@@ -687,7 +867,7 @@ but such restrictions do not apply to filenames.)
        wards, that directory was the bane of file-tree-walking programs; it tested them to
        destruction.
 
-       --- Brian W. Kernighan and Rob Pike, "The Practice of Programming", Chapter 6: Testing, p. 158
+   --- Brian W. Kernighan and Rob Pike, "The Practice of Programming", Chapter 6: Testing, p. 158
 
    https://books.google.com/books?id=j9T6AgAAQBAJ&lpg=PP1&dq=the%20practice%20of%20programming&pg=PA158#v=onepage&q=When%20Steve%20Bourne
 
@@ -962,7 +1142,7 @@ https://technet.microsoft.com/en-us/library/Cc938934.aspx
     drives per mailbox store and, if you provision out well, you will quickly
     run out of drive letters.
 
-    --- Rick Vanover
+--- Rick Vanover
 
 http://www.techrepublic.com/blog/the-enterprise-cloud/use-mount-points-if-you-run-out-of-windows-drive-letters/
 
@@ -1094,7 +1274,7 @@ not the trash in the user's home directory.
        directory would potentially result in a large number of extra
        directories in ``/``.  Although the use of subdirectories in ``/mnt`` as
        a mount point has recently been common, it conflicts with a much older
-       tradition of using ``/mnt`` directly as a temporary mount point. 
+       tradition of using ``/mnt`` directly as a temporary mount point.
 
    http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s11.html
 
@@ -1229,7 +1409,9 @@ on Windows 8 it is impossible to disable the dwm window compositor.
     always on; it’s started before the user logon and remains active for the
     duration of a session.
 
-    --- Windows Dev Center documentation
+--- Windows Dev Center documentation
+
+https://msdn.microsoft.com/en-us/library/windows/desktop/hh848042%28v=vs.85%29.aspx
 
 This was not without controversy.
 
@@ -1237,7 +1419,7 @@ This was not without controversy.
     going to force us to retire some of our older software, and it tool [sic]
     many years to overcome the problems caused.
 
-    --- Dan Ritchie
+--- Dan Ritchie
 
 https://msdn.microsoft.com/en-us/library/windows/desktop/hh848042%28v=vs.85%29.aspx
 

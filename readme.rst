@@ -467,6 +467,8 @@ does not enable the ``FILE_FLAG_POSIX_SEMANTICS`` option.
 .. _is not case-sensitive: http://support.microsoft.com/kb/100625
 .. _default call: http://www.nicklowe.org/2012/02/understanding-case-sensitivity-in-windows-obcaseinsensitive-file_case_sensitive_search/
 
+.. http://stackoverflow.com/a/7200533/1608986
+
 However, Windows' own NTFS filesystem is `case-preserving`_.
 This means that it is possible to mount an NTFS partition with Linux
 and make a file called "Myfile.txt" in the same directory as "MYFILE.TXT",
@@ -920,20 +922,21 @@ an ISO 8601 timestamp such as ``1970-01-01T00:00:00Z``
 cannot be part of a valid filename.
 Windows software uses various workarounds,
 such as removing the colon entirely
-or replacing it with a similar-looking Unicode character.
-[#]_ [#]_ [#]_ [#]_ [#]_ [#]_ [#]_
+or replacing it with a similar-looking Unicode character. [#windows_datestamps]_
 
 (It should be acknowledged that on Linux
 the names of directories in ``$PATH`` cannot contain colons either, [#colons_in_PATH]_
 but such restrictions do not apply to filenames.)
 
-.. [#] https://stackoverflow.com/questions/7874111/convert-datetime-now-to-a-valid-windows-filename
-.. [#] https://stackoverflow.com/questions/11037831/filename-timestamp-in-windows-cmd-batch-script
-.. [#] https://stackoverflow.com/questions/1642677/generate-unique-file-name-with-timestamp-in-batch-script
-.. [#] https://serverfault.com/questions/16706/current-date-in-the-file-name
-.. [#] https://serverfault.com/questions/292014/preferred-format-of-file-names-which-include-a-timestamp
-.. [#] https://serverfault.com/questions/16706/current-date-in-the-file-name
-.. [#] https://programmers.stackexchange.com/questions/61683/standard-format-for-using-a-timestamp-as-part-of-a-filename
+.. [#windows_datestamps]
+   https://stackoverflow.com/questions/7874111/convert-datetime-now-to-a-valid-windows-filename
+   https://stackoverflow.com/questions/11037831/filename-timestamp-in-windows-cmd-batch-script
+   https://stackoverflow.com/questions/1642677/generate-unique-file-name-with-timestamp-in-batch-script
+   https://serverfault.com/questions/16706/current-date-in-the-file-name
+   https://serverfault.com/questions/292014/preferred-format-of-file-names-which-include-a-timestamp
+   https://serverfault.com/questions/16706/current-date-in-the-file-name
+   https://programmers.stackexchange.com/questions/61683/standard-format-for-using-a-timestamp-as-part-of-a-filename
+
 .. [#colons_in_PATH] https://stackoverflow.com/questions/14661373/how-to-escape-colon-in-path-on-unix
 
 .. [#forbidden_characters]
@@ -1396,14 +1399,17 @@ Alternately, if the process is already unresponsive,
 you can attach ``strace`` and see what system calls it makes,
 and observe how it responds to various kill signals.
 
-There are plenty of Windows programs similar to ``gdb`` and ``strace``, [#]_ [#]_ [#]_
+There are plenty of Windows programs similar to ``gdb`` and ``strace``, [#gdb_for_Windows]_ [#strace_for_Windows]_
 but they don't come installed by default,
 whereas both ``strace`` and ``gdb`` come with almost all Linux distributions,
 so system administrators can rely on being able to use them on nearly any Linux box.
 
-.. [#] http://msdn.microsoft.com/en-us/library/windows/hardware/ff551063(v=vs.85).aspx
-.. [#] http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx
-.. [#] http://www.intellectualheaven.com/default.asp?BH=projects&H=strace.htm
+.. [#gdb_for_Windows]
+   https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063
+
+.. [#strace_for_Windows]
+   http://www.intellectualheaven.com/default.asp?BH=projects&H=strace.htm
+   http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx
 
 ---------------------------------
 Restrictive default file locking.
@@ -1462,7 +1468,9 @@ There is Windows software for
 tiling window managers, [#tiling_window_managers]_
 virtual desktops, [#virtual_desktops]_
 focus follows mouse, [#focus_follows_mouse]_
-and special effects to rival Compiz. [#cube_desktop]_
+and special effects to rival `Compiz`_. [#cube_desktop]_
+
+.. _Compiz: https://www.youtube.com/watch?v=4QokOwvPxrE
 
 Given all these choices and customization options,
 what functionality could Windows possibly lack?
@@ -1686,7 +1694,7 @@ UAC
 
 For example, `users run as administrator by default in Windows XP`_ and earlier.
 Microsoft fixed this problem via `User Account Control`_ when Windows Vista was released,
-but the required changes to the user interface were controversial [#]_ [#]_ [#]_ [#]_,
+but the required changes to the user interface were controversial, [#UAC_controversy]_
 and many users learned to ignore it or turned it off entirely.
 
 .. _User Account Control: http://technet.microsoft.com/en-us/magazine/2007.06.uac.aspx
@@ -1698,10 +1706,11 @@ many of them as administrators.
 
 .. _large number of users are still running Windows XP in 2015: https://redmondmag.com/articles/2015/04/08/windows-xp-usage.aspx
 
-.. [#] http://www.computerworld.com/article/2477832/desktop-apps/microsoft-exec--we-know-users-hate-uac.html
-.. [#] http://arstechnica.com/security/2008/04/vistas-uac-security-prompt-was-designed-to-annoy-you/
-.. [#] http://windowssecrets.com/woodys-windows/microsoft-claims-windows-7-uac-flaw-is-by-design/
-.. [#] http://windowsitpro.com/blog/microsoft-quotmalware-authors-really-hate-uacquot
+.. [#UAC_controversy]
+   http://www.computerworld.com/article/2477832/desktop-apps/microsoft-exec--we-know-users-hate-uac.html
+   http://arstechnica.com/security/2008/04/vistas-uac-security-prompt-was-designed-to-annoy-you/
+   http://windowssecrets.com/woodys-windows/microsoft-claims-windows-7-uac-flaw-is-by-design/
+   http://windowsitpro.com/blog/microsoft-quotmalware-authors-really-hate-uacquot
 
 
 *********
@@ -1998,8 +2007,7 @@ and standard POSIX tools are unlikely to become obsolete.
 
 On Windows, by contrast,
 there is no default set of tools that match the POSIX utilities
-(though certainly not for lack of trying).
-[#]_ [#]_ [#]_ [#]_ [#]_
+(though certainly not for lack of trying). [#POSIX_for_Windows]_
 
 The `Windows C compiler and build system`_
 is not installed by default,
@@ -2012,11 +2020,12 @@ was not available by default until Windows 8.
 .. _Windows C compiler and build system: http://msdn.microsoft.com/en-us/vstudio/
 .. _PowerShell: http://technet.microsoft.com/en-us/library/hh847837.aspx
 
-.. [#] https://technet.microsoft.com/en-us/library/cc754351.aspx
-.. [#] https://superuser.com/questions/495360/does-windows-8-still-implement-posix
-.. [#] https://stackoverflow.com/questions/4746043/where-does-microsoft-windows-7-posix-implementation-currently-stand
-.. [#] http://brianreiter.org/2010/08/24/the-sad-history-of-the-microsoft-posix-subsystem/
-.. [#] https://superuser.com/questions/293023/unix-command-line-utilities-for-windows-x64
+.. [#POSIX_for_Windows]
+   https://technet.microsoft.com/en-us/library/cc754351.aspx
+   https://superuser.com/questions/495360/does-windows-8-still-implement-posix
+   https://stackoverflow.com/questions/4746043/where-does-microsoft-windows-7-posix-implementation-currently-stand
+   http://brianreiter.org/2010/08/24/the-sad-history-of-the-microsoft-posix-subsystem/
+   https://superuser.com/questions/293023/unix-command-line-utilities-for-windows-x64
 
 --------------------------------------------------
 Software configuration: registries and text files.
@@ -2478,14 +2487,16 @@ As a result,
 
 - Windows users must spend `considerable time and effort`_ detecting and removing malware.
 - Windows users may `falsely attribute`_ `software misbehavior to malware`_.
-- Some Windows users may even confuse failing hardware with malware. [#]_ [#]_ [#]_
+- Some Windows users may even confuse failing hardware with malware. [#not_a_virus]_
 
 .. _considerable time and effort: https://www.microsoft.com/security/portal/mmpc/shared/ransomware.aspx
 .. _falsely attribute: http://www.combofix.org/suspect-a-malware-infection-heres-the-right-way-to-remove-it.php
 .. _software misbehavior to malware: http://lifehacker.com/5958001/the-5-biggest-myths-about-slow-pcs-and-how-you-can-actually-fix-them
-.. [#] https://dniinoi.wordpress.com/2008/03/26/the-myth-behind-virus-attack-and-hardware/
-.. [#] https://security.stackexchange.com/questions/65153/is-there-any-virus-that-can-cause-physical-damage
-.. [#] http://askbobrankin.com/can_a_virus_really_destroy_your_hard_drive.html
+
+.. [#not_a_virus]
+   https://dniinoi.wordpress.com/2008/03/26/the-myth-behind-virus-attack-and-hardware/
+   https://security.stackexchange.com/questions/65153/is-there-any-virus-that-can-cause-physical-damage
+   http://askbobrankin.com/can_a_virus_really_destroy_your_hard_drive.html
 
 This also has consequences for developers.
 Because few Linux users experience problems due to malware,

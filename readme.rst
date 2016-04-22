@@ -363,9 +363,67 @@ Filename case-insensitivity.
 Linux uses case-sensitive filenames
 because Unix used case-sensitive filenames.
 Unix was case-sensitive because Multics was case-sensitive.
-Multics was case-sensitive because of ASCII. [#Multics_case_sensitive]_
+Multics was case-sensitive because the ASCII standard
+included a lowercase alphabet. [#Multics_case_sensitive]_
 
-This has some intuitive appeal;
+Why was ASCII case-sensitive?
+It nearly wasn't.
+
+Early telegraphy codes did not distinguish upper and lowercase
+because it would have slowed transmission speeds prohibitively.
+Encodings with different bit patterns for uppercase and lowercase
+had been proposed as early as 1959, [#Bemer_1959]_
+but is was not widely implemented.
+The IBM 7030 "Stretch" supercomputer used an 8-bit encoding
+that included interleaved uppercase and lowercase alphabets,
+and it was used at Los Alamos in 1961.
+[#Stretch_supercomputer]_
+
+The ASCII committee concluded that 6-bit encodings (64 bit patterns)
+were insufficient to include both control characters and special characters
+in addition to the required 26 alphabetics and 10 numerics,
+so they decided to use a 7-bit code.
+
+    The consideration of a 6-bit, 64-character graphic subset was important
+    to the standards committee. If the ultimate decision was that columns 6
+    and 7 would be for graphics, then columns 2 through 7 would contain
+    Space, 94 graphics, and Delete. But, even with the code providing 94
+    graphics, a major assumption of the standards committee was that data
+    processing applications would, for the foreseeable future, be satisfied with
+    a monocase alphabet (that is, a 64- or less graphic subset) as they had in
+    the past---that 64-character printers would predominate. So it was import-
+    tant to be able to derive a 64-character, monocase alphabet, graphic
+    subset from the code by simple, not complex, logic.
+
+    --- Charles E. Mackenzie, "Coded character sets: history and development" (1980), p.228
+
+In fact, the some of the committee members
+wanted to reserve the remaining to use the remaining space for control characters.
+
+    The conclusion of the preceding paragraph is based on the assump-
+    tion that two alphabets, small letters and capital letters, would be in-
+    cluded in the 7-bit code and that decision had not yet been made. If the
+    decision was ultimately made that columns 6 and 7 would would contain
+    controls, then small letters would not be included in the 7-bit code. ``*``
+
+    ``*`` If the committee did decide for controls in columns 6 and 7, it is still likely that
+    they would have wanted an alphabet of small letters to be provided. Presumably,
+    the small letter alphabet would then have been provided by a caseshift approach.
+
+    --- Ibid, p.232
+
+Thought the comittee first formed in 1961,
+it wasn't until late 1963 that they finally agreed to include a lowercase alphabet.
+
+    At the first meeting of ISO/TC97/SC@ in 1963 October 29-31, a resolu-
+    tion was passed that the lower-case alphabet should be assigned to
+    columns 6 and 7.
+
+    --- Ibid, p. 246
+
+Why is it useful for filenames to include upper and lowercase?
+
+It has some intuitive appeal;
 it is useful to be able to distinguish between, say,
 the abbreviation for United State ("US")
 and the first-person plural objective pronoun ("us").
@@ -505,6 +563,21 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
        chose to have all variable names be case sensitive.
 
    http://www.multicians.org/pl1.html
+
+.. [#Bemer_1959]
+
+       Simple pattern of correspondence should exist between codes assigned to
+       upper and lower case alphabetic characters.
+
+       --- R. W. Bemer
+
+   From page 20 of "A proposal for a generalized card code for 256 characters",
+   Communications of the ACM, Volume 2 Issue 9, Sept. 1959.
+
+   http://dx.doi.org/10.1145/368424.368435
+
+.. [#Stretch_supercomputer]
+   From "Coded character sets: history and development" by Charles E. Mackenzie, 1980.
 
 .. [#against_case_sensitivity]
 

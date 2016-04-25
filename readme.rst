@@ -364,7 +364,7 @@ Linux uses case-sensitive filenames
 because Unix used case-sensitive filenames.
 Unix was case-sensitive because Multics was case-sensitive.
 Multics was case-sensitive because the ASCII standard
-included a lowercase alphabet. [#Multics_case_sensitive]_
+included both an uppercase and a lowercase alphabet. [#Multics_case_sensitive]_
 
 Why was ASCII case-sensitive?
 It nearly wasn't.
@@ -373,8 +373,8 @@ Early telegraphy codes did not distinguish upper and lowercase
 because it would have slowed transmission speeds prohibitively.
 Encodings with different bit patterns for uppercase and lowercase
 had been proposed as early as 1959, [#Bemer_1959]_
-but is was not widely implemented.
-The IBM 7030 "Stretch" supercomputer used an 8-bit encoding
+though they were not widely implemented.
+For example, the IBM 7030 "Stretch" supercomputer used an 8-bit encoding
 that included interleaved uppercase and lowercase alphabets,
 and it was used at Los Alamos in 1961.
 [#Stretch_supercomputer]_
@@ -398,7 +398,7 @@ so they decided to use a 7-bit code.
     --- Charles E. Mackenzie, "Coded character sets: history and development" (1980), p.228
 
 In fact, the some of the committee members
-wanted to reserve the remaining to use the remaining space for control characters.
+wanted to reserve the remaining space for control characters.
 
     The conclusion of the preceding paragraph is based on the assump-
     tion that two alphabets, small letters and capital letters, would be in-
@@ -423,12 +423,11 @@ it wasn't until late 1963 that they finally agreed to include a lowercase alphab
 
 Why is it useful for filenames to include upper and lowercase?
 
-It has some intuitive appeal;
-it is useful to be able to distinguish between, say,
+It can make filenames more intelligible,
+such as distinguishing between
 the abbreviation for United State ("US")
-and the first-person plural objective pronoun ("us").
-
-.. Talk more? E.g. Rob/rob, Job/job, Lot/lot, Miami Marlins vs Miami marlins, Target sale vs target sale, Scrabble/scrabble, drake/Drake
+and the first-person plural objective pronoun ("us")
+in paths such as ``/usr/share/X11/locale/en_US.UTF-8/``.
 
 It also allows more possibilities for filenames,
 and makes filename comparisons simpler and faster
@@ -447,6 +446,8 @@ to uppercase or lowercase.
     lower-case letters to the PC side.
 
 http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
+
+.. http://www.cio.com/article/2868393/linus-torvalds-apples-hfs-is-probably-the-worst-file-system-ever.html
 
 However, there is also no shortage of opinions
 that enforcing filename case-sensitivity
@@ -1801,15 +1802,17 @@ Because Linux is multi-user by design,
 even with different desktop environments
 (e.g. GNOME and KDE can coexist on the same Linux box).
 X sessions can be accessed remotely using e.g. `VNC`_ or `X over SSH`_.
-It is common for two different users to work remotely
-at the same time on the same machine.
+Often, two different users will work remotely
+at the same time on the same machine
+using different desktop environments.
 
 .. _multiple local instances of the X server: http://journalxtra.com/linux/desktop/multiple-desktops-on-one-linux-pc-now-thats-greedy/
 .. _VNC: https://wiki.debian.org/VNCviewer
 .. _X over SSH: https://www.debian.org/doc/manuals/debian-reference/ch07.en.html#_connecting_a_remote_x_client_via_ssh
 
 A `multiseat`_ configuration is also possible if the hardware is available.
-Even on single-user machines this capability of the X server is useful to e.g. run two different desktop environments at the same time.
+Even on single-user machines this capability of the X server is useful
+to e.g. run two different desktop environments at the same time.
 
 .. _multiseat: https://wiki.archlinux.org/index.php/xorg_multiseat
 

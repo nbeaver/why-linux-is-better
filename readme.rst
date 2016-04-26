@@ -2078,7 +2078,7 @@ User level configuration is stored in dotfiles
 in the user's home directory,
 often under the ``~/.config/`` folder.
 Plugins and logfiles generally go under ``~/.local/share/``,
-and cached dates under ``~/.cache/``.
+and cached data under ``~/.cache/``.
 
 There are good arguments to the effect that
 making dotfiles responsible for configuration `is problematic`_.
@@ -2124,7 +2124,7 @@ adopt new configuration files,
 keep the old ones,
 or ``diff`` and merge the files into a hybrid.
 
-For example, the RSS reader ``lifererea``
+For example, the RSS reader ``liferea``
 puts the list of RSS feeds in
 ``$HOME/.config/liferea/feedlist.opml``,
 favicons (which can be re-downloaded if necessary) in
@@ -2132,7 +2132,7 @@ favicons (which can be re-downloaded if necessary) in
 and the SQLite database containing the actual RSS feeds in
 ``$HOME/.local/share/liferea/liferea.db``.
 
-This means that backing up the configuration for ``lifereas``
+This means that backing up the configuration for ``liferea``
 is as simple as backing up the contents of ``$HOME/.config/liferea/``,
 and no cache files or big databases are included.
 

@@ -2182,7 +2182,7 @@ such as:
 .. _sophisticated dependency management: https://www.debian.org/doc/debian-policy/ch-relationships.html
 .. _optional fully automatic non-interactive installation: http://debian-handbook.info/browse/wheezy/sect.automatic-upgrades.html
 
-Now, there is an open-source package manager for Windows, `Chocolatey`_,
+To be sure, there is an open-source package manager for Windows, `Chocolatey`_,
 that is under active development.
 However, thus far the Chocolatey repository
 is not as comprehensive as Linux repositories.
@@ -2327,9 +2327,11 @@ like ``Tools -> Options -> General Options -> ...``
 .. TODO: discuss specific comparisons of fixing comparable configuration issue on Linux and Windows.
 
 The emphasis on textuality also makes diagnosing problems easier.
-For example, want to see which displays you're connected to? Run ``xrandr``.
-Want to see what USB devices are connected? Run ``lsusb``.
-Want to restart your networking daemon? Run ``sudo /etc/init.d/networking restart``.
+For example:
+
+- Want to see which displays you're connected to? Run ``xrandr``.
+- Want to see what USB devices are connected? Run ``lsusb``.
+- Want to restart your networking daemon? Run ``sudo /etc/init.d/networking restart``.
 
 Another benefit of textuality
 is using search engines to find similar problems.

@@ -817,7 +817,14 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
     https://archive.org/stream/Intro_to_CPM_Feat_and_Facilities/Intro_to_CPM_Feat_and_Facilities_djvu.txt
 
-.. [#8.3_filename] https://groups.google.com/forum/#!topic/alt.folklore.computers/fqXomGO4I1I
+.. [#8.3_filename]
+
+       As for the 8.3, look at the format of a CP/M directory entry.  16
+       bytes so they fill a disk block, not RAD50, 8 bytes for name, 3 for
+       extension, and I forget the rest, but it includes pointers to the
+       data.
+
+   https://groups.google.com/d/msg/alt.folklore.computers/fqXomGO4I1I/ub_hJ2WxXHwJ
 
 .. [#RADIX50]
 

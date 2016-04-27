@@ -519,7 +519,7 @@ was optimized for its architecture.
 
 https://lkml.org/lkml/2002/7/30/257
 
-(CP/M was written for an eight-byte architecture,
+(CP/M was written for an eight-bit architecture,
 which is presumably why it used an 8.3 filename instead of 6.3 filename.) [#8.3_filename]_
 
 Similarly, the RT-11 didn't use ASCII for filenames,

@@ -366,23 +366,30 @@ Unix was case-sensitive because Multics was case-sensitive.
 Multics was case-sensitive because the ASCII standard
 included both an uppercase and a lowercase alphabet. [#Multics_case_sensitive]_
 
-Why was ASCII case-sensitive?
-It nearly wasn't.
+Why did ASCII do this?
+It was a close call, and almost didn't happen.
 
-Early telegraphy codes did not distinguish upper and lowercase
-because it would have slowed transmission speeds prohibitively.
+Telegraphy codes used uppercase only,
+or at least did not distinguish upper and lowercase.
+Even ITA2, an international standard from 1930,
+used a 5-bit code with a shift to switch between letters and figures,
+but not upper and lowercase. [#ITA2]_
+Similarly, punched cards used uppercase letters only.
+
 Encodings with different bit patterns for uppercase and lowercase
 had been proposed as early as 1959, [#Bemer_1959]_
 though they were not widely implemented.
 For example, the IBM 7030 "Stretch" supercomputer used an 8-bit encoding
 that included interleaved uppercase and lowercase alphabets,
-and it was used at Los Alamos in 1961.
+and was used at Los Alamos as early as 1961.
 [#Stretch_supercomputer]_
 
-The ASCII committee concluded that 6-bit encodings (64 bit patterns)
+Early on, ASCII committee concluded that 6-bit encodings (64 bit patterns)
 were insufficient to include both control characters and special characters
 in addition to the required 26 alphabetics and 10 numerics,
 so they decided to use a 7-bit code.
+However, ASCII was designed to include a useful 6-bit subset,
+which could only include single alphabet.
 
     The consideration of a 6-bit, 64-character graphic subset was important
     to the standards committee. If the ultimate decision was that columns 6
@@ -412,14 +419,21 @@ wanted to reserve the remaining space for control characters.
 
     --- Ibid, p.232
 
-Thought the comittee first formed in 1961,
-it wasn't until late 1963 that they finally agreed to include a lowercase alphabet.
+Though the comittee first formed in 1961,
+it wasn't until late 1963 that they finally agreed to include a lowercase alphabet,
+largely because of the influence of the
+International Telegraph and Telephone Consultative Committee (CCITT).
 
-    At the first meeting of ISO/TC97/SC@ in 1963 October 29-31, a resolu-
+    At the first meeting of ISO/TC97/SC2 in 1963 October 29-31, a resolu-
     tion was passed that the lower-case alphabet should be assigned to
     columns 6 and 7.
 
     --- Ibid, p. 246
+
+    The ISO proposal, though, did not include the lower case alphabet and the
+    five accent marks that the CCITT considered essential.
+
+    --- Eric Fisher, "The Evolution of Character Codes, 1874-1968", p.22
 
 Why is it useful for filenames to include upper and lowercase?
 
@@ -559,13 +573,36 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
        Everything in Multics is case sensitive; Multics permits use of the full
        upper and lower case ASCII character set.
 
-   http://www.multicians.org/mgc.html
+       Multics command names and programming languages use lowercase by
+       convention, but users are free to use uppercase letters in path names,
+       identifiers, user names, etc.
+
+   http://www.multicians.org/mgc.html#commandlanguage
+
+       Multics was one of the first systems to use upper and lower case letters
+       freely.
+
+   http://www.multicians.org/mga.html#ASCII
+
+       Obviously, BCD had no lower-case characters, and Multics did not use BCD
+       at all, except to output log and crash and tape mount messages from ring
+       0 to the primitive Selectric operator's console.
+
+   http://www.multicians.org/mgb.html#BCD
 
        Since the Multics file system distinguished between upper and lower case,
        external names had to be case sensitive, and without much discussion we
        chose to have all variable names be case sensitive.
 
    http://www.multicians.org/pl1.html
+
+.. [#ITA2]
+
+   See p. 9 of "The Evolution of Character Codes, 1874-1968", Eric Fisher.
+
+   http://trafficways.org/ascii/ascii.pdf
+
+   https://github.com/ericfischer/ascii
 
 .. [#Bemer_1959]
 

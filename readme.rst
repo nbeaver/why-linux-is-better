@@ -1351,6 +1351,13 @@ not the trash in the user's home directory.
 
    http://www.multicians.org/mgr.html#root
 
+       The Unix system owes much to the Multics file system, most notably the
+       directory tree idea.
+
+       --- Douglas McIlroy
+
+   https://www.princeton.edu/~hos/mike/transcripts/mcilroy.htm
+
    However, the motivations for such a scheme go back further.
    One of the most influential time-sharing systems,
    CTSS, recognized the need for accessing files independently of their disk location.

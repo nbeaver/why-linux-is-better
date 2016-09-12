@@ -379,10 +379,11 @@ Similarly, punched cards used uppercase letters only.
 Encodings with different bit patterns for uppercase and lowercase
 had been proposed as early as 1959, [#Bemer_1959]_
 though they were not widely implemented.
-For example, the IBM 7030 "Stretch" supercomputer used an 8-bit encoding
-that included interleaved uppercase and lowercase alphabets,
-and was used at Los Alamos as early as 1961.
+For example, the IBM 7030 "Stretch" supercomputer,
+first installed at Los Alamos National Laboratory in 1961,
+had an 8-bit encoding that interleaved uppercase and lowercase alphabets.
 [#Stretch_supercomputer]_
+However, the 7030's character encoding did not catch on.
 
 Early on, ASCII committee concluded that 6-bit encodings (64 bit patterns)
 were insufficient to include both control characters and special characters

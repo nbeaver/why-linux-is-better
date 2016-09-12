@@ -390,7 +390,7 @@ were insufficient to include both control characters and special characters
 in addition to the required 26 alphabetics and 10 numerics,
 so they decided to use a 7-bit code.
 However, ASCII was designed to include a useful 6-bit subset,
-which could only include single alphabet.
+which could only fit a single alphabet.
 
     The consideration of a 6-bit, 64-character graphic subset was important
     to the standards committee. If the ultimate decision was that columns 6
@@ -535,7 +535,7 @@ was optimized for its architecture.
 https://lkml.org/lkml/2002/7/30/257
 
 (CP/M was written for an eight-bit architecture,
-which is presumably why it used an 8.3 filename instead of 6.3 filename.) [#8.3_filename]_
+which is presumably why it used an 8.3 filename instead of a 6.3 filename.) [#8.3_filename]_
 
 Similarly, the RT-11 didn't use ASCII for filenames,
 but rather an encoding called RADIX-50,
@@ -929,15 +929,15 @@ Filename restrictions.
 In Linux and other Unix-derived operating systems,
 the only characters that may not appear
 in the name of a file or directory [#forbidden_characters]_
-are the slash ``/``,
-which is used to delimit paths,
-and the ASCII null ``\0``,
-which is used to terminate strings in C. [#C_strings]_
+are the slash ``/``
+(which is used to delimit paths)
+and the ASCII null ``\0``
+(which is used to terminate strings in C). [#C_strings]_
 
 Windows has the same restrictions,
 as well as many other `restrictions which are considerably more complex`_
 and are partly the result
-of `backwards compatibility with operating systems from the early 1970s`_.
+of `backwards compatibility with CP/M pseudofiles`_.
 
 .. _backwards compatibility with operating systems from the early 1970s: http://bitquabit.com/post/zombie-operating-systems-and-aspnet-mvc/
 .. _restrictions which are considerably more complex: https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx#naming_conventions
@@ -1145,8 +1145,7 @@ into `unintentionally running malware`_.
 .. _unintentionally running malware: http://windows.microsoft.com/en-us/windows-vista/recognizing-dangerous-file-types
 
 Also, if the file extensions for different filetypes happen to collide,
-as they inevitably do
-|---| it doesn't help that filenames are case-insensitive |---|
+as they inevitably do,
 one program must take default precedence over the other for that file extension.
 
 For example, there `a lot of different file formats`_ with a ``.dat`` file extension,
@@ -1568,7 +1567,7 @@ This was not without controversy.
 https://msdn.microsoft.com/en-us/library/windows/desktop/hh848042%28v=vs.85%29.aspx
 
 Linux also has an API,
-but it is based on a standard (POSIX),
+but it is based on the POSIX standard,
 is not tied to the desktop environment,
 and is not controlled by a single corporation
 in the same way that the Windows API is.
@@ -2239,7 +2238,6 @@ which are not in the Chocolatey repository (as of July 2015).
 - `HEPHAESTUS`_ periodic table for X-ray spectroscopy `* <https://chocolatey.org/packages?q=HEPHAESTUS>`__
 - `EXPGUI`_ XRD analysis `* <https://chocolatey.org/packages?q=EXPGUI>`__
 - `DiffPDF`_ PDF comparison `* <http://chocolatey.org/packages?q=DiffPDF>`__
-- `Unison`_ file synchronizer `* <http://chocolatey.org/packages?q=Unison>`__
 - `xchat`_ IRC client `* <http://chocolatey.org/packages?q=xchat>`__
 
 .. _Chocolatey: http://chocolatey.org/
@@ -2374,6 +2372,7 @@ like ``Tools -> Options -> General Options -> ...``
 The emphasis on textuality also makes diagnosing problems easier.
 For example:
 
+- Want to see what disks and partitions are mounts? Run ``lsblk``.
 - Want to see which displays you're connected to? Run ``xrandr``.
 - Want to see what USB devices are connected? Run ``lsusb``.
 - Want to restart your networking daemon? Run ``sudo /etc/init.d/networking restart``.
@@ -2490,7 +2489,7 @@ rather than reproducing and reporting bugs.
 .. _reboots: http://www.howtogeek.com/howto/31204/why-do-application-installs-make-you-reboot-and-close-other-apps/
 
 In 2000, when Hotmail switched from FreeBSD to Windows server,
-a white paper noted this problem, which persists 15 years later:
+a white paper noted this problem:
 
     Windows operations still involves too many reboots. Sometimes they are
     unnecessary, but operators reboot a system rather than take the time to
@@ -2550,24 +2549,23 @@ As a result,
 .. _falsely attribute: http://www.combofix.org/suspect-a-malware-infection-heres-the-right-way-to-remove-it.php
 .. _software misbehavior to malware: http://lifehacker.com/5958001/the-5-biggest-myths-about-slow-pcs-and-how-you-can-actually-fix-them
 
-.. [#not_a_virus]
-   https://dniinoi.wordpress.com/2008/03/26/the-myth-behind-virus-attack-and-hardware/
-   https://security.stackexchange.com/questions/65153/is-there-any-virus-that-can-cause-physical-damage
-   http://askbobrankin.com/can_a_virus_really_destroy_your_hard_drive.html
-
 This also has consequences for developers.
 Because few Linux users experience problems due to malware,
 they will report bugs caused by the actual applications,
 not ones caused by malware.
 
-Most Linux distributions have a better security model
-which uses secure package installation by default,
-but allows installing software from other sources as well,
-unlike the overly restrictive app-store model
-seen in more recent versions of Windows.
+Most Linux distributions use cryptographically secure package managers
+which is a signifiantly better security model
+than downloading unsigned executables over a network
+and then granting them administrative privileges.
 
 Finally, because Linux is a ubiquitous server operating system,
 its security is under constant attack,
 and Linux desktop users benefit from fixes to the vulnerabilities.
+
+.. [#not_a_virus]
+   https://dniinoi.wordpress.com/2008/03/26/the-myth-behind-virus-attack-and-hardware/
+   https://security.stackexchange.com/questions/65153/is-there-any-virus-that-can-cause-physical-damage
+   http://askbobrankin.com/can_a_virus_really_destroy_your_hard_drive.html
 
 .. TODO: addendum of commonly cited, but incorrect, advantages?

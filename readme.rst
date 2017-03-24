@@ -1746,35 +1746,36 @@ There are some drawbacks to this approach:
 
     - Known problems
 
-    1) Most applications will respond to having their windows resized ok. Well,
-    applications that have followed the guidelines will. <grin>
+    #. Most applications will respond to having their windows resized ok. Well,
+       applications that have followed the guidelines will. <grin>
 
-    2) Some applications have, shall we say, problems, when their window has
-    been resized and all sort of visual chaos will be revealed.
+    #. Some applications have, shall we say, problems, when their window has
+       been resized and all sort of visual chaos will be revealed.
 
-    3) Some applications won't respond at all, which is rather strange!
+    #. Some applications won't respond at all, which is rather strange!
 
-    4) Certain windows will 'jiggle' as you attempt to resize them, seemingly
-    resizing and then snapping back to their original size. This is annoying,
-    but we're not sure what is causing it.
+    #. Certain windows will 'jiggle' as you attempt to resize them, seemingly
+       resizing and then snapping back to their original size. This is
+       annoying, but we're not sure what is causing it.
 
-    5) Some versions of Internet Explorer, coupled with certain version of
-    Windows98/NT seemed to crash with v1.0 of ResizeEnable. We don't have that
-    setup on any of our test machines so we can't test it. But, we have done a
-    little bit more work so ResizeEnable is a bit more choosy as to which
-    windows it can work with. So it -might- not crash anymore.  If it still
-    crashes, then all we can suggest at the moment is that you upgrade to
-    Internet Explorer 6. We're not Microsoft pushers, but Internet Explorer 6
-    has better error reporting and shouldn't just explode without warning.
+    #. Some versions of Internet Explorer, coupled with certain version of
+       Windows98/NT seemed to crash with v1.0 of ResizeEnable. We don't have
+       that setup on any of our test machines so we can't test it.  But, we
+       have done a little bit more work so ResizeEnable is a bit more choosy as
+       to which windows it can work with. So it -might- not crash anymore.  If
+       it still crashes, then all we can suggest at the moment is that you
+       upgrade to Internet Explorer 6. We're not Microsoft pushers, but
+       Internet Explorer 6 has better error reporting and shouldn't just
+       explode without warning.
 
-    6) Some Microsoft applications have dialogs that can be resized, but none
-    of their contents move. This is down to the fact that the contents of the
-    dialog ARE NOT STANDARD MICROSOFT CONTROLS! They are some bastardisation
-    written specially for the application.  They may look like normal
-    buttons/drop downs, but they sure as heck aren't! Hence, ResizeEnable can't
-    tell them to move or resize. Yet again, Microsoft ignore their own codebase
-    and reinvent the wheel. And people wonder why their applications are so
-    big..
+    #. Some Microsoft applications have dialogs that can be resized, but none
+       of their contents move. This is down to the fact that the contents of
+       the dialog ARE NOT STANDARD MICROSOFT CONTROLS! They are some
+       bastardisation written specially for the application.  They may look
+       like normal buttons/drop downs, but they sure as heck aren't! Hence,
+       ResizeEnable can't tell them to move or resize. Yet again, Microsoft
+       ignore their own codebase and reinvent the wheel. And people wonder why
+       their applications are so big..
 
 .. [#resize_non_resizable_windows] http://www.thewindowsclub.com/resize-non-resizable-windows
 .. [#turn_non_resizable_windows] http://www.howtogeek.com/howto/11799/turn-non-resizeable-windows-into-rezieable-windows/

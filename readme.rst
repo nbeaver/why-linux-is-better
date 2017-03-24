@@ -964,7 +964,7 @@ as well as many other `restrictions which are considerably more complex`_
 and are partly the result
 of `backwards compatibility with CP/M pseudofiles`_.
 
-.. _backwards compatibility with operating systems from the early 1970s: http://bitquabit.com/post/zombie-operating-systems-and-aspnet-mvc/
+.. _backwards compatibility with CP/M pseudofiles: http://bitquabit.com/post/zombie-operating-systems-and-aspnet-mvc/
 .. _restrictions which are considerably more complex: https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx#naming_conventions
 
 This has had long-term consequences,
@@ -1714,16 +1714,12 @@ that watches for window creation and mouse click events.
 The README is not directly linkable via URL,
 so here are some of the salient parts:
 
-    =====================
-    What is ResizeEnable?
-    =====================
+    - What is ResizeEnable?
 
     It's a very ugly system hack that sits in your system tray and attempts to
     make windows that can't usually be resized, resizeable.
 
-    ===================
-    Why was it written?
-    ===================
+    - Why was it written?
 
     It was written following a request from a friend. He runs his PC at a
     screen resolution above 1280x1024, and was fed up with having to pick items
@@ -1731,10 +1727,7 @@ so here are some of the salient parts:
     take into account the screen resolution, hence only occupying about 20% of
     the desktop 'real-estate'.
 
-
-    =================
-    How does it work?
-    =================
+    - How does it work?
 
     ResizeEnable sits in the background and attaches itself into Windows via
     three 'Hooks'.  The first hook is so that it can see which windows are
@@ -1751,9 +1744,7 @@ so here are some of the salient parts:
 
 There are some drawbacks to this approach:
 
-    ==============
-    Known problems
-    ==============
+    - Known problems
 
     1) Most applications will respond to having their windows resized ok. Well,
     applications that have followed the guidelines will. <grin>

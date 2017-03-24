@@ -293,7 +293,8 @@ Is ``MAX_PATH`` an actual problem in real software?
 .. _not an issue in well-written software: http://blogs.msdn.com/b/oldnewthing/archive/2007/03/01/1775759.aspx
 .. _are long enough: http://blog.codinghorror.com/filesystem-paths-how-long-is-too-long/
 
-Judging by the number of bug reports and complaints, the answer appears to be yes.
+Judging by the number of bug reports and complaints,
+the answer appears to be yes.
 
 #. https://github.com/joyent/node/issues/6960
 #. https://gcc.gnu.org/bugzilla/show_bug.cgi?id=61922
@@ -397,15 +398,15 @@ so they decided to use a 7-bit code.
 However, ASCII was designed to include a useful 6-bit subset,
 which could only fit a single alphabet.
 
-    The consideration of a 6-bit, 64-character graphic subset was important
-    to the standards committee. If the ultimate decision was that columns 6
-    and 7 would be for graphics, then columns 2 through 7 would contain
-    Space, 94 graphics, and Delete. But, even with the code providing 94
-    graphics, a major assumption of the standards committee was that data
-    processing applications would, for the foreseeable future, be satisfied with
-    a monocase alphabet (that is, a 64- or less graphic subset) as they had in
-    the past---that 64-character printers would predominate. So it was import-
-    tant to be able to derive a 64-character, monocase alphabet, graphic
+    The consideration of a 6-bit, 64-character graphic subset was important to
+    the standards committee. If the ultimate decision was that columns 6 and 7
+    would be for graphics, then columns 2 through 7 would contain Space, 94
+    graphics, and Delete. But, even with the code providing 94 graphics, a
+    major assumption of the standards committee was that data processing
+    applications would, for the foreseeable future, be satisfied with a
+    monocase alphabet (that is, a 64- or less graphic subset) as they had in
+    the past---that 64-character printers would predominate. So it was
+    important to be able to derive a 64-character, monocase alphabet, graphic
     subset from the code by simple, not complex, logic.
 
     --- Charles E. Mackenzie, "Coded character sets: history and development"
@@ -420,9 +421,10 @@ wanted to reserve the remaining space for control characters.
     decision was ultimately made that columns 6 and 7 would would contain
     controls, then small letters would not be included in the 7-bit code. ``*``
 
-    ``*`` If the committee did decide for controls in columns 6 and 7, it is still likely that
-    they would have wanted an alphabet of small letters to be provided. Presumably,
-    the small letter alphabet would then have been provided by a caseshift approach.
+    ``*`` If the committee did decide for controls in columns 6 and 7, it is
+    still likely that they would have wanted an alphabet of small letters to be
+    provided. Presumably, the small letter alphabet would then have been
+    provided by a caseshift approach.
 
     --- Ibid, p.232
 
@@ -568,14 +570,14 @@ when porting from Windows to Linux or vice-versa. [#valve_porting_source_to_linu
 
 For example, the Linux port of the `Unity engine`_ has `issues with case-sensitive filesystems`_.
 
-    Unity does not properly run on a case-sensitive file system (which is something
-    that Unity users have discovered if they’ve tried to install and run Unity on a
-    case-sensitive HFS+ file system).  This is primarily due to Unity’s asset
-    database, and how it stores paths to map them to GUID values.  Of course we
-    tried to be smart in the early days, but if you don’t set up a way to actually
-    verify that what you’re doing works on a case-sensitive file system, then it
-    will never fail that some well-intentioned programmer throws a toLower() in
-    somewhere and ruins the party.
+    Unity does not properly run on a case-sensitive file system (which is
+    something that Unity users have discovered if they’ve tried to install and
+    run Unity on a case-sensitive HFS+ file system).  This is primarily due to
+    Unity’s asset database, and how it stores paths to map them to GUID values.
+    Of course we tried to be smart in the early days, but if you don’t set up a
+    way to actually verify that what you’re doing works on a case-sensitive
+    file system, then it will never fail that some well-intentioned programmer
+    throws a toLower() in somewhere and ruins the party.
 
 .. _Unity engine: http://unity3d.com/
 .. _issues with case-sensitive filesystems: http://natoshabard.com/post/122670082502/porting-the-unity-editor-to-linux-stuff-i-wish
@@ -1523,6 +1525,12 @@ https://superuser.com/questions/537041/action-cant-be-completed-open-in-another-
     fashion.
 
 https://support.microsoft.com/en-us/kb/2025703
+
+    The other common mistake was for linux developers to assume you can
+    delete/move a file while it’s open. This doesn’t work on Windows, because
+    Windows locks the file when it’s open.
+
+https://npf.io/2017/03/3.5yrs-500k-lines-of-go/
 
 By contrast,
 on Linux it is not unusual for two different applications

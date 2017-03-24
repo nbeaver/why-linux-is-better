@@ -53,7 +53,8 @@ This document will not cover servers, phones, or embedded devices.
 
 This document  will not cover closed vs. open source development,
 but will instead focus on functionality.
-There is plenty of discussion of the advantages and disadvantages of open source elsewhere.
+There is plenty of discussion
+of the advantages and disadvantages of open source elsewhere.
 
 (Besides, what is there to discuss
 when we now know that `even Microsoft loves open source`_?)
@@ -217,7 +218,8 @@ are lightweight enough that they default to `running from a RAM disk`_,
 and consequently have much faster disk I/O
 than an OS that must access a spinning hard drive.
 (This comes at the cost of disk space being limited by RAM.
-There's no reason you can't mount an internal or external drive to store files, though.)
+There's no reason you can't mount an internal or external drive
+to store files, though.)
 
 .. _Puppy Linux: http://puppylinux.org/
 .. _running from a RAM disk: https://en.wikipedia.org/wiki/List_of_Linux_distributions_that_run_from_RAM
@@ -309,7 +311,8 @@ Judging by the number of bug reports and complaints, the answer appears to be ye
 #. http://sumedha.blogspot.com/2011/01/svn-checkout-fails-windows-max-path.html
 #. http://forums.mozillazine.org/viewtopic.php?f=29&t=263489
 
-But the bigger issue is that many Windows developers are `so used to`_ `working around`_ the problem
+But the bigger issue
+is that many Windows developers are `so used to`_ `working around`_ the problem
 that it has become deeply entrenched and may `never be fixed`_.
 
 .. _so used to: http://blogs.msdn.com/b/tomholl/archive/2007/02/04/enterprise-library-and-the-curse-of-max-path.aspx
@@ -332,18 +335,20 @@ when trying to resolve canonical file paths.
 .. _this limit is not enforced: http://insanecoding.blogspot.com/2007/11/pathmax-simply-isnt.html
 .. _susceptible to buffer overflow: http://stackoverflow.com/questions/1171833/how-to-get-the-absolute-path-of-a-file-programmatically-with-out-realpath-unde
 
-The 2008 POSIX revision has `addressed the issue`_,
-but prior to this the Linux kernel had to make non-standard modifications to avoid overflow,
-and `warned about the problem`_
-in the ``realpath (3)`` man page of the Linux Programmer's Manual.
+The 2008 POSIX revision has `addressed the issue`_, but prior to this
+the Linux kernel had to make non-standard modifications to avoid overflow,
+and `warned about the problem`_ in the ``realpath (3)`` man page
+of the Linux Programmer's Manual.
 
 .. _addressed the issue: https://www.securecoding.cert.org/confluence/display/seccode/FIO02-C.+Canonicalize+path+names+originating+from+tainted+sources
 .. _warned about the problem: http://linux.die.net/man/3/realpath
 
-This illustrates that while the Linux kernel developers scrupulously avoid breaking external compatibility,
+This illustrates that while the Linux kernel developers
+scrupulously avoid breaking external compatibility,
 they also intentionally expose false assumptions,
 since false assumptions tend to cause hard-to-fix bugs.
-This is why Linus Torvalds `chose an unusually high`_ timer interrupt frequency for Linux:
+This is why Linus Torvalds
+`chose an unusually high`_ timer interrupt frequency for Linux:
 
     I chose 1000 originally partly as a way to make sure that people that
     assumed HZ was 100 would get a swift kick in the pants. That meant making
@@ -403,7 +408,8 @@ which could only fit a single alphabet.
     tant to be able to derive a 64-character, monocase alphabet, graphic
     subset from the code by simple, not complex, logic.
 
-    --- Charles E. Mackenzie, "Coded character sets: history and development" (1980), p.228
+    --- Charles E. Mackenzie, "Coded character sets: history and development"
+    (1980), p.228
 
 In fact, the some of the committee members
 wanted to reserve the remaining space for control characters.
@@ -421,7 +427,8 @@ wanted to reserve the remaining space for control characters.
     --- Ibid, p.232
 
 Though the comittee first formed in 1961,
-it wasn't until late 1963 that they finally agreed to include a lowercase alphabet,
+it wasn't until late 1963
+that they finally agreed to include a lowercase alphabet,
 largely because of the influence of the
 International Telegraph and Telephone Consultative Committee (CCITT).
 
@@ -469,13 +476,15 @@ that enforcing filename case-sensitivity
 -- and even case-sensitivity in general --
 was a bad decision. [#against_case_sensitivity]_
 
-There are also passionate views to the opposite effect. [#against_case_insensitivity]_
+There are also passionate views
+to the opposite effect. [#against_case_insensitivity]_
 
 Laying aside that argument for the moment,
 why did Windows filenames end up case-insensitive?
 
 Strictly speaking, modern Windows filenames could be case-sensitive,
-but they aren't because the `Windows API for opening files`_ `is not case-sensitive`_,
+but they aren't
+because the `Windows API for opening files`_ `is not case-sensitive`_,
 i.e. the `default call`_ to ``CreateFile``
 does not enable the ``FILE_FLAG_POSIX_SEMANTICS`` option.
 
@@ -535,7 +544,8 @@ was optimized for its architecture.
 https://lkml.org/lkml/2002/7/30/257
 
 (CP/M was written for an eight-bit architecture,
-which is presumably why it used an 8.3 filename instead of a 6.3 filename.) [#8.3_filename]_
+which is presumably why it used an 8.3 filename
+instead of a 6.3 filename.) [#8.3_filename]_
 
 Similarly, the RT-11 didn't use ASCII for filenames,
 but rather an encoding called RADIX-50,
@@ -549,6 +559,7 @@ endures to this day.
 The lack of agreement on filename case-sensitivity may seem insignificant,
 but it has caused persistent difficulties
 in cross-platform development. [#tortoise_svn_case_sensitivity]_ [#openfoam_no_windows_port]_ [#common_lisp_filenames]_
+
 Developers of cross-platform software try to `avoid making assumptions about filename case-sensitivity`_,
 but problems of this ilk crop up
 when porting from Windows to Linux or vice-versa. [#valve_porting_source_to_linux]_
@@ -622,13 +633,14 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
 .. [#against_case_sensitivity]
 
-       Mac ＆ Windows users have to have filenames read to them over the phone by
-       support techs. They have to be able to write little sticky notes to their
-       mothers about how to open up the mail program, without worrying about how the
-       filenames are capitalized. Haven't you ever fumed over a URL with initial-caps
-       in the folder names in the path, having to fiddle with capitalization until you
-       get a response that's anything but a 404? Haven't you ever been secretly
-       pleased that e-mail addresses aren't case-sensitive?
+       Mac ＆ Windows users have to have filenames read to them over the phone
+       by support techs. They have to be able to write little sticky notes to
+       their mothers about how to open up the mail program, without worrying
+       about how the filenames are capitalized. Haven't you ever fumed over a
+       URL with initial-caps in the folder names in the path, having to fiddle
+       with capitalization until you get a response that's anything but a 404?
+       Haven't you ever been secretly pleased that e-mail addresses aren't
+       case-sensitive?
 
        --- Brian Tiemann, *On Unix File System's Case Sensitivity* (2001)
 
@@ -643,38 +655,40 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
    https://www.ma.utexas.edu/pipermail/maxima/2003/004483.html
 
-       One of the most pernicious problems with C-based languages is that they're
-       case-sensitive. While this decision may have made sense in 1972 when the
-       language was created, one wonders why the sins of Kernighan and Ritchie have
-       been blindly perpetuated for the last thirty-three years.
+       One of the most pernicious problems with C-based languages is that
+       they're case-sensitive. While this decision may have made sense in 1972
+       when the language was created, one wonders why the sins of Kernighan and
+       Ritchie have been blindly perpetuated for the last thirty-three years.
 
        [ . . . ]
 
-       Unless you have extremely compelling reasons to make something case-sensitive,
-       case insensitivity is a much more human being friendly design choice. Designing
-       software that's easier for machines is questionable at best.
+       Unless you have extremely compelling reasons to make something
+       case-sensitive, case insensitivity is a much more human being friendly
+       design choice. Designing software that's easier for machines is
+       questionable at best.
 
        --- Jeff Atwood, *The Case For Case Insensitivity* (2005)
 
    http://blog.codinghorror.com/the-case-for-case-insensitivity/
 
-       There is no longer any excuse for making humans learn and handle the quirks of
-       the way computers store upper- and lower-case characters. Instead, software
-       should handle the quirks of human language.
+       There is no longer any excuse for making humans learn and handle the
+       quirks of the way computers store upper- and lower-case characters.
+       Instead, software should handle the quirks of human language.
 
        --- Brian Hauer, *Case-sensitivity is the past trolling us* (2014)
 
    http://tiamat.tsotech.com/case-sensitivity-sucks
 
-       Since it appears to have manifested out of opinion rather than necessity, it
-       could be said case-sensitivity is the worst way that modern technology sucks.
+       Since it appears to have manifested out of opinion rather than
+       necessity, it could be said case-sensitivity is the worst way that
+       modern technology sucks.
 
        --- Greg Raiz (2007)
 
    http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
 
-       This is really stupid, it causes a ton of problems and there is no longer
-       any good reason to have case sensitivity in an OS.
+       This is really stupid, it causes a ton of problems and there is no
+       longer any good reason to have case sensitivity in an OS.
 
        --- Julian, OddThinking (2005)
 
@@ -701,18 +715,19 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
    https://www.reddit.com/r/sysadmin/comments/2w6c8g/case_insensitive_windows_rant/
 
-       Why are computer file names and conventions and protocols so messed up? It's
-       bizarre -- and Microsoft has been one of the worst offenders with one of the
-       most powerful positions and opportunities to make it a better filename-naming
-       world.
+       Why are computer file names and conventions and protocols so messed up?
+       It's bizarre -- and Microsoft has been one of the worst offenders with
+       one of the most powerful positions and opportunities to make it a better
+       filename-naming world.
 
        [ . . . ]
 
-       And, Microsoft dares to allow mixed case naming, but does case insensitive
-       handling of file names... don't even get me started about some of the bizarre
-       results and buggy behavior I've traced to that. I only wish I'd had a
-       chargeback code for all of the time I've spent fixing and debugging systems
-       that all come back to the file naming. Sigh, again.
+       And, Microsoft dares to allow mixed case naming, but does case
+       insensitive handling of file names... don't even get me started about
+       some of the bizarre results and buggy behavior I've traced to that. I
+       only wish I'd had a chargeback code for all of the time I've spent
+       fixing and debugging systems that all come back to the file naming.
+       Sigh, again.
 
        --- yagu (2006)
 
@@ -743,8 +758,9 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
    http://dosmandrivel.blogspot.com/2007/08/is-dos-rip-off-of-cpm.html
 
-       As I noted when I discussed the old MS-DOS wildcard matching rules, MS-DOS
-       worked hard at being compatible with CP/M. And CP/M used 8.3 filenames.
+       As I noted when I discussed the old MS-DOS wildcard matching rules,
+       MS-DOS worked hard at being compatible with CP/M. And CP/M used 8.3
+       filenames.
 
        --- Raymond Chen (2009)
 
@@ -808,18 +824,18 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
    From a post on the comp.sys.tandy Usenet group:
 
-       Of course, CP/M itself is an
-       almost exact knock off of DECs PDP-11 OS, RT-11, an operating system that
-       dates back to the early seventies, and RT-11 shows its roots in TOPS-10,
-       which goes back another year or two.  For some reason, all the historians
-       tracing the source of MS-DOS mysteriously stop at CP/M, even when command sets
-       and utility syntaxes are compared side-by-side.  Who had a PIP utility first?
-       Why, DEC, not Digital Research.
+       Of course, CP/M itself is an almost exact knock off of DECs PDP-11 OS,
+       RT-11, an operating system that dates back to the early seventies, and
+       RT-11 shows its roots in TOPS-10, which goes back another year or two.
+       For some reason, all the historians tracing the source of MS-DOS
+       mysteriously stop at CP/M, even when command sets and utility syntaxes
+       are compared side-by-side.  Who had a PIP utility first?  Why, DEC, not
+       Digital Research.
 
-       The joke in the seventies that "Digital Research" was a typographical error
-       and the companies real name was "Digital [Equipment Corporation] Rehashed",
-       for RT-11, TOPS-10 and RSTS/E all predated CP/M by a lot and yet have the same
-       command syntax.
+       The joke in the seventies that "Digital Research" was a typographical
+       error and the companies real name was "Digital [Equipment Corporation]
+       Rehashed", for RT-11, TOPS-10 and RSTS/E all predated CP/M by a lot and
+       yet have the same command syntax.
 
    https://groups.google.com/forum/#!msg/comp.sys.tandy/EcfhcRv9gEU/fNu_h9fCe3AJ
 
@@ -844,14 +860,14 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 .. [#CPM_case_insensitive] CP/M did this conversion internally.
 
         It should also be noted that all alphabetic lower case letters in file
-        and drive names are always translated to upper case when they are processed by
-        the CCP [Console Command Processor].
+        and drive names are always translated to upper case when they are
+        processed by the CCP [Console Command Processor].
 
         [ . . . ]
 
-        Further, recall that the CCP always translates lower case characters to upper
-        case characters internally. Thus, lower case alphabetics are treated as if
-        they are upper case in command names and file references
+        Further, recall that the CCP always translates lower case characters to
+        upper case characters internally. Thus, lower case alphabetics are
+        treated as if they are upper case in command names and file references
 
     https://archive.org/stream/Intro_to_CPM_Feat_and_Facilities/Intro_to_CPM_Feat_and_Facilities_djvu.txt
 
@@ -867,22 +883,22 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 .. [#RADIX50]
 
        ... files were located via the directory, which resided in a fixed
-       location at the beginning of the hard drive. The directory consisted of a
-       single array of entries, each with a 6.3 character file name formatted in DEC’s
-       Radix-50 format. A file’s directory entry indicated the address of the first
-       block of the file.
+       location at the beginning of the hard drive. The directory consisted of
+       a single array of entries, each with a 6.3 character file name formatted
+       in DEC’s Radix-50 format. A file’s directory entry indicated the address
+       of the first block of the file.
 
    http://cryptosmith.com/2013/10/19/digitals-rt-11-file-system/
 
        RADIX50 is a character coding system used in earlier Digital Equipment
-       Corporation computers, such as the PDP-10, DECsystem-10 and DECsystem-20.
-       It was implemented as a way to pack as many characters into as few bits as
-       possible.
+       Corporation computers, such as the PDP-10, DECsystem-10 and
+       DECsystem-20.  It was implemented as a way to pack as many characters
+       into as few bits as possible.
 
-       RADIX50 actually contains 40 codes, or 50 in octal. Because this is not a
-       power of two, the PDP-10 processor had instructions to pack several
-       RADIX-50 words into a single 36-bit word or extract RADIX-50 words from a
-       36-bit word.
+       RADIX50 actually contains 40 codes, or 50 in octal. Because this is not
+       a power of two, the PDP-10 processor had instructions to pack several
+       RADIX-50 words into a single 36-bit word or extract RADIX-50 words from
+       a 36-bit word.
 
    http://nemesis.lonestar.org/reference/telecom/codes/radix50.html
 
@@ -915,10 +931,17 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 .. [#valve_porting_source_to_linux] http://adrienb.fr/blog/wp-content/uploads/2013/04/PortingSourceToLinux.pdf
 
        - Linux filesystems are case-sensitive
+
        - Windows is not
-       - Not a big issue for deployment (because everyone ships packs of some sort)
+
+       - Not a big issue for deployment (because everyone ships packs of some
+         sort)
+
        - But an issue during development, with loose files
-       - Solution 1: Slam all assets to lower case, including directories, then tolower all file lookups (only adjust below root)
+
+       - Solution 1: Slam all assets to lower case, including directories, then
+         tolower all file lookups (only adjust below root)
+
        - Solution 2: Build file cache, look for similarly named files
 
 
@@ -955,10 +978,10 @@ due to their use in delimiting drive names like ``C:\``.
 This causes issues in sharing files across platforms.
 
     For example, a UNIX file name can use a colon (:), but a Windows file name
-    cannot use a colon (:). If a UNIX user attempts to create a file with a Windows
-    illegal character on a Windows Services for UNIX network file system (NFS)
-    share, the attempt is unsuccessful and the UNIX client computer receives an
-    input or output error.
+    cannot use a colon (:). If a UNIX user attempts to create a file with a
+    Windows illegal character on a Windows Services for UNIX network file
+    system (NFS) share, the attempt is unsuccessful and the UNIX client
+    computer receives an input or output error.
 
 https://support.microsoft.com/en-us/kb/289627
 
@@ -991,15 +1014,17 @@ but such restrictions do not apply to filenames.)
 
    https://stackoverflow.com/questions/1976007/what-characters-are-forbidden-in-windows-and-linux-directory-names
 
-       When Steve Bourne was writing his Unix shell (which came to be known as the
-       Bourne shell), he made a directory of 254 files with one-character names, one for each
-       byte value except ``'\0'`` and slash, the two characters that cannot appear in Unix file
-       names. He used that directory for all manner of tests of pattern-matching and tok-
-       enization. (The test directory was of course created by a program.) For years after-
-       wards, that directory was the bane of file-tree-walking programs; it tested them to
-       destruction.
+       When Steve Bourne was writing his Unix shell (which came to be known as
+       the Bourne shell), he made a directory of 254 files with one-character
+       names, one for each byte value except ``'\0'`` and slash, the two
+       characters that cannot appear in Unix file names. He used that directory
+       for all manner of tests of pattern-matching and tok- enization. (The
+       test directory was of course created by a program.) For years after-
+       wards, that directory was the bane of file-tree-walking programs; it
+       tested them to destruction.
 
-       --- Brian W. Kernighan and Rob Pike, "The Practice of Programming", Chapter 6: Testing, p. 158
+       --- Brian W. Kernighan and Rob Pike, "The Practice of Programming",
+       Chapter 6: Testing, p. 158
 
    https://books.google.com/books?id=j9T6AgAAQBAJ&lpg=PP1&dq=the%20practice%20of%20programming&pg=PA158#v=onepage&q=When%20Steve%20Bourne
 
@@ -1019,12 +1044,12 @@ but such restrictions do not apply to filenames.)
 
    Dennis Ritchie has explained the `rationale for using a null-terminator`_:
 
-       In BCPL, the first packed byte contains the number of characters in the string;
-       in B, there is no count and strings are terminated by a special character,
-       which B spelled ```*e'``. This change was made partially to avoid the limitation on
-       the length of a string caused by holding the count in an 8- or 9-bit slot, and
-       partly because maintaining the count seemed, in our experience, less convenient
-       than using a terminator.
+       In BCPL, the first packed byte contains the number of characters in the
+       string; in B, there is no count and strings are terminated by a special
+       character, which B spelled ```*e'``. This change was made partially to
+       avoid the limitation on the length of a string caused by holding the
+       count in an 8- or 9-bit slot, and partly because maintaining the count
+       seemed, in our experience, less convenient than using a terminator.
 
    `Null-terminated strings do have some drawbacks`_,
    such as making certain optimizations more difficult,
@@ -1057,11 +1082,13 @@ UDF (used for some CDs and DVDs),
 and the legacy FAT16/FAT32/exFAT family.
 All other filesystems require installation of `third-party software`_.
 
-Linux has drivers for `almost all file systems`_ that can be legally mounted without paying royalties,
+Linux has drivers for `almost all file systems`_
+that can be legally mounted without paying royalties,
 including ones that don't see much use nowadays, like `Amiga file systems`_.
 It can also mount FAT and NTFS filesystems,
-despite Microsoft's lucrative patent licensing deals and `ongoing`_ `litigation`_
-against Android manufacturers and `other companies`_ that use the Linux kernel's FAT drivers.
+despite Microsoft's lucrative patent licensing deals
+and `ongoing`_ `litigation`_ against Android manufacturers
+and `other companies`_ that use the Linux kernel's FAT drivers.
 
 .. _third-party software: http://www.ext2fsd.com/
 .. _almost all file systems: https://wiki.archlinux.org/index.php/file_systems
@@ -1072,19 +1099,19 @@ against Android manufacturers and `other companies`_ that use the Linux kernel's
 
 For the system partition,
 Linux users can choose among the usual ext3 journaling filesystem
-or
-up-and-coming filesystems like `Btrfs`_.
+or up-and-coming filesystems like `Btrfs`_.
 Unlike FAT and NTFS filesystems,
-ext3 and Btrfs `do not require defragmentation`_
-to maintain good performance.
-(Realistically, though, `defragmentation isn't that important for NTFS`_, either.)
+ext3 and Btrfs `do not require defragmentation`_ to maintain good performance.
+(Realistically, though,
+`defragmentation isn't that important for NTFS`_, either.)
 
 .. _Btrfs: https://btrfs.wiki.kernel.org/index.php/Main_Page
 .. _NTFS and FAT: http://technet.microsoft.com/en-us/magazine/2007.11.desktopfiles.aspx
 .. _do not require defragmentation: http://www.tldp.org/LDP/sag/html/filesystems.html#FRAGMENTATION
 .. _defragmentation isn't that important for NTFS: http://blogs.msdn.com/b/e7/archive/2009/01/25/disk-defragmentation-background-and-engineering-the-windows-7-improvements.aspx
 
-Finally, Linux permits unprivileged users to run their own filesystems via FUSE.
+Finally, Linux permits unprivileged users
+to run their own filesystems via FUSE.
 This has many practical benefits,
 such as accessing cloud storage as if it were an ordinary directory.
 
@@ -1205,7 +1232,8 @@ because the `folder it is in cannot have a read-only status`_.
 In Linux, by contrast, a read-only directory cannot have files added to it,
 and files in such a directory cannot be moved, renamed, or deleted
 without first removing the read-only status from the directory they are in.
-Modifications of the contents of the files depend on the individual file permissions.
+Modifications of the contents of the files
+depend on the individual file permissions.
 
 .. [#unix_groups] Unix permissions, for example, are not a panacea: https://unix.stackexchange.com/questions/164303/single-user-for-sharing-vs-multiple-users
 .. [#ntfs_permissions_flaw] NTFS permissions have their own issues, e.g. https://serverfault.com/questions/31709/how-to-workaround-the-ntfs-move-copy-design-flaw
@@ -1255,8 +1283,8 @@ http://new.office-watch.com/2008/make-a-consistent-drive-letter-or-path-to-a-rem
 
 Fortunately, there is a solution: NTFS mount points.
 
-    Volume mount points are robust against system changes that occur when devices
-    are added or removed from a computer.
+    Volume mount points are robust against system changes that occur when
+    devices are added or removed from a computer.
 
 https://technet.microsoft.com/en-us/library/Cc938934.aspx
 
@@ -1281,15 +1309,15 @@ Unfortunately, Windows doesn't use mount points by default
 for external hard drives or flash drives,
 possibly because mount points behave slightly differently than drive letters.
 
-    The problem is the recycle bin.  This "undo" option is maintained with a hidden
-    system file that is on the partition that holds the files being deleted.
-    Unfortuantely, when the command to delete a folder is given, the system
-    attempts to delete the folder using the mount point folder's Master File Table,
-    and not the subfolder's Master File Table.  The mount point folder's MFT
-    doesn't host the record, and an access denied message is kicked back to you for
-    having the temerity to try and recycle a directory which apparently doesn't
-    even exist!  The only solution for this is to not recycle subfolders and
-    directories, but to outright delete them.
+    The problem is the recycle bin.  This "undo" option is maintained with a
+    hidden system file that is on the partition that holds the files being
+    deleted.  Unfortuantely, when the command to delete a folder is given, the
+    system attempts to delete the folder using the mount point folder's Master
+    File Table, and not the subfolder's Master File Table.  The mount point
+    folder's MFT doesn't host the record, and an access denied message is
+    kicked back to you for having the temerity to try and recycle a directory
+    which apparently doesn't even exist!  The only solution for this is to not
+    recycle subfolders and directories, but to outright delete them.
 
 http://getyouriton.blogspot.com/2009/08/serious-gotchas-with-mounted-drives-or.html
 
@@ -1360,7 +1388,8 @@ not the trash in the user's home directory.
 
    However, the motivations for such a scheme go back further.
    One of the most influential time-sharing systems,
-   CTSS, recognized the need for accessing files independently of their disk location.
+   CTSS, recognized the need for accessing files
+   independently of their disk location.
 
        All files kept on the disk (and drum) are known to the
        user only by name: the supervisor disk control module keeps
@@ -1380,18 +1409,19 @@ not the trash in the user's home directory.
    Unix was developed on relatively small disk drives,
    so it was useful to be able mount drives anywhere on the filesystem.
 
-       You know how Ken Thompson and Dennis Ritchie created Unix on a PDP-7 in 1969?
-       Well around 1971 they upgraded to a PDP-11 with a pair of RK05 disk packs (1.5
-       megabytes each) for storage.
+       You know how Ken Thompson and Dennis Ritchie created Unix on a PDP-7 in
+       1969?  Well around 1971 they upgraded to a PDP-11 with a pair of RK05
+       disk packs (1.5 megabytes each) for storage.
 
-       When the operating system grew too big to fit on the first RK05 disk pack (their
-       root filesystem) they let it leak into the second one, which is where all the
-       user home directories lived (which is why the mount was called /usr).  They
-       replicated all the OS directories under there (/bin, /sbin, /lib, /tmp...) and
-       wrote files to those new directories because their original disk was out of
-       space.  When they got a third disk, they mounted it on /home and relocated all
-       the user directories to there so the OS could consume all the space on both
-       disks and grow to THREE WHOLE MEGABYTES (ooooh!).
+       When the operating system grew too big to fit on the first RK05 disk
+       pack (their root filesystem) they let it leak into the second one, which
+       is where all the user home directories lived (which is why the mount was
+       called /usr).  They replicated all the OS directories under there (/bin,
+       /sbin, /lib, /tmp...) and wrote files to those new directories because
+       their original disk was out of space.  When they got a third disk, they
+       mounted it on /home and relocated all the user directories to there so
+       the OS could consume all the space on both disks and grow to THREE WHOLE
+       MEGABYTES (ooooh!).
 
    http://lists.busybox.net/pipermail/busybox/2010-December/074114.html
 
@@ -1454,7 +1484,8 @@ and observe how it responds to various kill signals.
 There are plenty of Windows programs similar to ``gdb`` and ``strace``, [#gdb_for_Windows]_ [#strace_for_Windows]_
 but they don't come installed by default,
 whereas both ``strace`` and ``gdb`` come with almost all Linux distributions,
-so system administrators can rely on being able to use them on nearly any Linux box.
+so system administrators can rely on being able to use them
+with nearly any Linux box.
 
 .. [#gdb_for_Windows]
    https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063
@@ -1546,11 +1577,11 @@ https://stackoverflow.com/questions/3848558/what-is-the-api-to-create-applicatio
 Sometimes it isn't the API, either;
 on Windows 8 it is impossible to disable the dwm window compositor.
 
-    In Windows Vista and Windows 7, desktop composition is disabled in a number of
-    scenarios. In Windows 8, DWM desktop composition is a core operating system
-    component and cannot be disabled. With a few exceptions, desktop composition is
-    always on; it’s started before the user logon and remains active for the
-    duration of a session.
+    In Windows Vista and Windows 7, desktop composition is disabled in a number
+    of scenarios. In Windows 8, DWM desktop composition is a core operating
+    system component and cannot be disabled. With a few exceptions, desktop
+    composition is always on; it’s started before the user logon and remains
+    active for the duration of a session.
 
     --- Windows Dev Center documentation
 
@@ -1583,27 +1614,30 @@ in the same way that the Windows API is.
    since KDE uses the cross-platform Qt framework.
 
        The KDE on Windows Initiative is an ongoing project to port the KDE
-       applications to MS Windows. Currently supported versions of Windows are XP,
-       Vista and 7.
+       applications to MS Windows. Currently supported versions of Windows are
+       XP, Vista and 7.
 
    https://windows.kde.org/
 
    This is not without difficulties, however.
 
-       The current implementation of KDE is designed in a unix specific way, which is
-       partially different from the Windows way. Examples for this are:
+       The current implementation of KDE is designed in a unix specific way,
+       which is partially different from the Windows way. Examples for this
+       are:
 
        * Process creating - Using the Unix way of fork and exec.
 
-       * It isn't available on Windows, this difference requires a redesign of the related parts.
+       * It isn't available on Windows, this difference requires a redesign of
+         the related parts.
 
        * Its missing Windows api counterparts.
 
-       * KDE uses Unix domain socket for high speed data transfer betwen kioslave
-         slaves and its parent process and for the communication to/from the dbus
-         deamon. On Windows there are no Unix domain sockets. They could be emulated
-         by tcp sockets with the costs of slower bandwidth and additional patches to
-         deal with Unix domain socket files exchanged between processes.
+       * KDE uses Unix domain socket for high speed data transfer betwen
+         kioslave slaves and its parent process and for the communication
+         to/from the dbus deamon. On Windows there are no Unix domain sockets.
+         They could be emulated by tcp sockets with the costs of slower
+         bandwidth and additional patches to deal with Unix domain socket files
+         exchanged between processes.
 
        --- Ralf Habacker, KDE developer
 
@@ -1635,10 +1669,11 @@ i.e. ``WS_THICKFRAME`` is not enabled by default.
 .. TOOD: source
 .. TODO: is it even possible to prevent resizing?
 
-    In some cases, you want to display something in a response window but you also
-    want this window to be resizable in order to let the user resize this window to
-    display the info the way he or she wants. Normally, response windows are not
-    resizable and this is also the Microsoft standard behaviour.
+    In some cases, you want to display something in a response window but you
+    also want this window to be resizable in order to let the user resize this
+    window to display the info the way he or she wants. Normally, response
+    windows are not resizable and this is also the Microsoft standard
+    behaviour.
 
     --- Eric Aling, April 13, 2000
 
@@ -1669,64 +1704,78 @@ that watches for window creation and mouse click events.
 [#ResizeEnable]_
 
 The README is not directly linkable via URL,
-so here are some of the salient parts::
+so here are some of the salient parts:
 
-    =============================================================================================
-    What is ResizeEnable
-    =============================================================================================
-    It's a very ugly system hack that sits in your system tray and attempts to make windows
-    that can't usually be resized, resizeable.
+    =====================
+    What is ResizeEnable?
+    =====================
 
+    It's a very ugly system hack that sits in your system tray and attempts to
+    make windows that can't usually be resized, resizeable.
 
-    =============================================================================================
+    ===================
     Why was it written?
-    =============================================================================================
-    It was written following a request from a friend. He runs his PC at a screen resolution above
-    1280x1024, and was fed up with having to pick items from a list that could only display three
-    items because the window didn't take into account the screen resolution, hence only occupying
-    about 20% of the desktop 'real-estate'.
+    ===================
+
+    It was written following a request from a friend. He runs his PC at a
+    screen resolution above 1280x1024, and was fed up with having to pick items
+    from a list that could only display three items because the window didn't
+    take into account the screen resolution, hence only occupying about 20% of
+    the desktop 'real-estate'.
 
 
-    =============================================================================================
+    =================
     How does it work?
-    =============================================================================================
-    ResizeEnable sits in the background and attaches itself into Windows via three 'Hooks'.
-    The first hook is so that it can see which windows are created/destroyed, in which it attempts
-    to alter the window's style so that it can be resized.
-    The second hook intercepts all messages for every single window to see if it is a message
-    associated with resizing a window that it has previously altered the style of. If the message
-    is associated with sizing, it then resizes all the child windows (Buttons, Edit boxes and so on)
-    simply by scaling them to fit the new windows size. Its ugly, but most of the time it works ok.
-    The third hook spots whether the mouse has been pressed in the 'sizing area' of a window and
-    takes care of doing all the work of resizing the window. This hook didn't exist in v1.0 but
-    has been added to make even more windows resize properly.
+    =================
 
-There are some drawbacks to this approach::
+    ResizeEnable sits in the background and attaches itself into Windows via
+    three 'Hooks'.  The first hook is so that it can see which windows are
+    created/destroyed, in which it attempts to alter the window's style so that
+    it can be resized.  The second hook intercepts all messages for every
+    single window to see if it is a message associated with resizing a window
+    that it has previously altered the style of. If the message is associated
+    with sizing, it then resizes all the child windows (Buttons, Edit boxes and
+    so on) simply by scaling them to fit the new windows size. Its ugly, but
+    most of the time it works ok.  The third hook spots whether the mouse has
+    been pressed in the 'sizing area' of a window and takes care of doing all
+    the work of resizing the window. This hook didn't exist in v1.0 but has
+    been added to make even more windows resize properly.
 
-    =============================================================================================
+There are some drawbacks to this approach:
+
+    ==============
     Known problems
-    =============================================================================================
-    1) Most applications will respond to having their windows resized ok. Well, applications that
-    	have followed the guidelines will. <grin>
-    2) Some applications have, shall we say, problems, when their window has been resized and all
-    	sort of visual chaos will be revealed.
+    ==============
+
+    1) Most applications will respond to having their windows resized ok. Well,
+    applications that have followed the guidelines will. <grin>
+
+    2) Some applications have, shall we say, problems, when their window has
+    been resized and all sort of visual chaos will be revealed.
+
     3) Some applications won't respond at all, which is rather strange!
-    4) Certain windows will 'jiggle' as you attempt to resize them, seemingly resizing and then
-    	snapping back to their original size. This is annoying, but we're not sure what is
-    	causing it.
-    5) Some versions of Internet Explorer, coupled with certain version of Windows98/NT seemed to
-    	crash with v1.0 of ResizeEnable. We don't have that setup on any of our test machines
-    	so we can't test it. But, we have done a little bit more work so ResizeEnable is a
-    	bit more choosy as to which windows it can work with. So it -might- not crash anymore.
-    	If it still crashes, then all we can suggest at the moment is that you upgrade to
-    	Internet Explorer 6. We're not Microsoft pushers, but Internet Explorer 6 has better
-    	error reporting and shouldn't just explode without warning.
-    6) Some Microsoft applications have dialogs that can be resized, but none of their contents
-    	move. This is down to the fact that the contents of the dialog ARE NOT STANDARD
-    	MICROSOFT CONTROLS! They are some bastardisation written specially for the application.
-    	They may look like normal buttons/drop downs, but they sure as heck aren't! Hence,
-    	ResizeEnable can't tell them to move or resize. Yet again, Microsoft ignore their own
-    	codebase and reinvent the wheel. And people wonder why their applications are so big..
+
+    4) Certain windows will 'jiggle' as you attempt to resize them, seemingly
+    resizing and then snapping back to their original size. This is annoying,
+    but we're not sure what is causing it.
+
+    5) Some versions of Internet Explorer, coupled with certain version of
+    Windows98/NT seemed to crash with v1.0 of ResizeEnable. We don't have that
+    setup on any of our test machines so we can't test it. But, we have done a
+    little bit more work so ResizeEnable is a bit more choosy as to which
+    windows it can work with. So it -might- not crash anymore.  If it still
+    crashes, then all we can suggest at the moment is that you upgrade to
+    Internet Explorer 6. We're not Microsoft pushers, but Internet Explorer 6
+    has better error reporting and shouldn't just explode without warning.
+
+    6) Some Microsoft applications have dialogs that can be resized, but none
+    of their contents move. This is down to the fact that the contents of the
+    dialog ARE NOT STANDARD MICROSOFT CONTROLS! They are some bastardisation
+    written specially for the application.  They may look like normal
+    buttons/drop downs, but they sure as heck aren't! Hence, ResizeEnable can't
+    tell them to move or resize. Yet again, Microsoft ignore their own codebase
+    and reinvent the wheel. And people wonder why their applications are so
+    big..
 
 .. [#resize_non_resizable_windows] http://www.thewindowsclub.com/resize-non-resizable-windows
 .. [#turn_non_resizable_windows] http://www.howtogeek.com/howto/11799/turn-non-resizeable-windows-into-rezieable-windows/

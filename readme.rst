@@ -735,6 +735,21 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
    http://slashdot.org/comments.pl?sid=190747&cid=15690704
 
+       The old DOS/Mac people thought case insensitivity was a "helpful"
+       idea, and that was understandable - but wrong - even back in the 80's.
+       They are still living with the end result of that horrendously bad
+       decision decades later. They've _tried_ to fix their bad decisions,
+       and have never been able to (except, apparently, in iOS where somebody
+       finally had a glimmer of a clue).
+
+       --- Linux Torvalds (2018)
+
+   https://patchwork.kernel.org/cover/10717177/
+
+   .. https://lists.openwall.net/linux-ext4/2018/12/08/16
+
+   .. https://www.spinics.net/lists/linux-fsdevel/msg136876.html
+
 .. [#MSDOS_case_insensitive]
 
        Do not assume case sensitivity. For example, consider the names OSCAR,

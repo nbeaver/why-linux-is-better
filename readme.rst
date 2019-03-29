@@ -415,9 +415,9 @@ which could only fit a single alphabet.
 In fact, the some of the committee members
 wanted to reserve the remaining space for control characters.
 
-    The conclusion of the preceding paragraph is based on the assump-
-    tion that two alphabets, small letters and capital letters, would be in-
-    cluded in the 7-bit code and that decision had not yet been made. If the
+    The conclusion of the preceding paragraph is based on the assumption
+    that two alphabets, small letters and capital letters, would be included
+    in the 7-bit code and that decision had not yet been made. If the
     decision was ultimately made that columns 6 and 7 would would contain
     controls, then small letters would not be included in the 7-bit code. ``*``
 
@@ -434,8 +434,8 @@ that they finally agreed to include a lowercase alphabet,
 largely because of the influence of the
 International Telegraph and Telephone Consultative Committee (CCITT).
 
-    At the first meeting of ISO/TC97/SC2 in 1963 October 29-31, a resolu-
-    tion was passed that the lower-case alphabet should be assigned to
+    At the first meeting of ISO/TC97/SC2 in 1963 October 29-31, a resolution
+    was passed that the lower-case alphabet should be assigned to
     columns 6 and 7.
 
     --- Ibid, p. 246
@@ -1021,9 +1021,9 @@ but such restrictions do not apply to filenames.)
        names, one for each byte value except ``'\0'`` and slash, the two
        characters that cannot appear in Unix file names. He used that directory
        for all manner of tests of pattern-matching and tok- enization. (The
-       test directory was of course created by a program.) For years after-
-       wards, that directory was the bane of file-tree-walking programs; it
-       tested them to destruction.
+       test directory was of course created by a program.) For years
+       afterwards, that directory was the bane of file-tree-walking programs;
+       it tested them to destruction.
 
        --- Brian W. Kernighan and Rob Pike, "The Practice of Programming",
        Chapter 6: Testing, p. 158

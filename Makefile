@@ -7,3 +7,6 @@ readme.html : readme.rst Makefile
 
 clean :
 	rm -f readme.html
+
+linkchecker: readme.html
+	linkchecker --check-extern --timeout=5 --output=html readme.html

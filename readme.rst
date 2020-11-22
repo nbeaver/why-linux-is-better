@@ -125,7 +125,7 @@ and to dig deeper if you are interested.
 
 If you are an experienced Linux user,
 this document is a test of the theory that the fastest way to get feedback
-is to be publically wrong about something people care about.
+is to be publicly wrong about something people care about.
 Corrections and additions are welcome.
 
 If you are a Windows user:
@@ -428,7 +428,7 @@ wanted to reserve the remaining space for control characters.
 
     --- Ibid, p.232
 
-Though the comittee first formed in 1961,
+Though the committee first formed in 1961,
 it wasn't until late 1963
 that they finally agreed to include a lowercase alphabet,
 largely because of the influence of the
@@ -1557,6 +1557,31 @@ since applications do not lock files by default.
 .. TODO: CR LF \r\n newlines?
 
 -----------------------------------------
+Lack of granular execution access control
+-----------------------------------------
+
+Windows does not have a similar concept to `sudo`_/`doas`_/`please`_
+(`sudo`, but with regex). Users cannot run arbitrary commands as a given
+user without knowledge of the alternate user's password (see
+`runas`).
+
+This creates difficulty for large multi-user systems when assigning
+roles without administrator access. Performing tasks that need to step
+outside of low privilege is not a simple matter without divulging the
+alternative user's credentials.
+
+Unix systems support the SUID execute bit (normally mode 4755) on a
+binary which, when executed switches process ownership to the file
+owner, not the user that executed it. This is sorely lacking in
+Windows and would change the access landscape if it were implemented,
+many organisations could then solve many issues where users execute
+programs as a privileged user when they wouldn't otherwise need to.
+
+.. _sudo: https://www.sudo.ws/
+.. _doas: https://man.openbsd.org/doas
+.. _please: https://gitlab.com/edneville/please
+
+-----------------------------------------
 Lack of control over desktop environment.
 -----------------------------------------
 
@@ -2525,7 +2550,7 @@ which have the same `issues with signal-to-noise ratio`_ that most forums have.
 
 By contrast, projects like the Linux kernel and the Debian project
 maintain accountability and clarity
-by publically tracking and acknowledging bugs,
+by publicly tracking and acknowledging bugs,
 even when it is embarrassing to do so
 [#brown_paper_bag_release]_ [#runs_rm_r_as_root]_.
 
@@ -2619,7 +2644,7 @@ they will report bugs caused by the actual applications,
 not ones caused by malware.
 
 Most Linux distributions use cryptographically secure package managers
-which is a signifiantly better security model
+which is a significantly better security model
 than downloading unsigned executables over a network
 and then granting them administrative privileges.
 

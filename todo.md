@@ -1,0 +1,1 @@
+- [ ] Add a section for "wrong defaults", i.e. things that can be fixed but aren't by default.

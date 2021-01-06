@@ -412,7 +412,7 @@ which could only fit a single alphabet.
     --- Charles E. Mackenzie, "Coded character sets: history and development"
     (1980), p.228
 
-In fact, the some of the committee members
+In fact, some of the committee members
 wanted to reserve the remaining space for control characters.
 
     The conclusion of the preceding paragraph is based on the assumption

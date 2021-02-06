@@ -1,1 +1,2 @@
 - [ ] Add a section for "wrong defaults", i.e. things that can be fixed but aren't by default.
+- [ ] Talk about drawback of using backslash (`\`) for the path separator on Windows.

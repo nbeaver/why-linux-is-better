@@ -107,10 +107,11 @@ may not do a good job of explaining its benefits to their colleagues
 especially without putting down Windows users
 or Windows applications in general.
 
-Also, there are many open source alternatives to Linux on the desktop,
-including a binary-compatible clone of Windows called `ReactOS`_.
-If it were just a matter of being open source,
-why bother with the additional effort to learn Linux?
+Also, there are many open source alternatives to Linux on the desktop
+being developed, including a binary-compatible clone of Windows called
+`ReactOS`_.  If it were just a matter of being open source, shouldn't
+the community invest more effort into making these alternatives usable
+for end-users?
 
 .. _ReactOS: https://reactos.org/
 

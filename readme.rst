@@ -8,7 +8,7 @@ Objective reasons to prefer Linux to Windows
 :Date: September 20, 2014
 :Copyright: This document is released under a `Creative Commons Attribution 4.0 International License`_.
 
-.. _Creative Commons Attribution 4.0 International License: http://creativecommons.org/licenses/by/4.0/
+.. _Creative Commons Attribution 4.0 International License: https://creativecommons.org/licenses/by/4.0/
 
 .. |--| unicode:: U+2013   .. en dash
 .. |---| unicode:: U+2014  .. em dash, trimming surrounding whitespace
@@ -36,7 +36,7 @@ Clichés like these are vague and wishy-washy,
 and they are founded on anecdotes and hearsay.
 They cause `endless, unnecessary debates`_ and make a muddle of the facts.
 
-.. _endless, unnecessary debates: http://linux.slashdot.org/
+.. _endless, unnecessary debates: https://linux.slashdot.org/
 
 It's easy to opine about one's preferred operating system,
 but harder to give objective, concrete examples.
@@ -59,7 +59,7 @@ of the advantages and disadvantages of open source elsewhere.
 (Besides, what is there to discuss
 when we now know that `even Microsoft loves open source`_?)
 
-.. _even Microsoft loves open source: http://www.networkworld.com/article/2216878/windows/microsoft---we-love-open-source-.html
+.. _even Microsoft loves open source: https://www.networkworld.com/article/2216878/microsoft---we-love-open-source-.html
 
 This discussion will only mention Microsoft and other companies
 in so far as their actions are directly relevant
@@ -160,35 +160,35 @@ Live booting limitations.
 Windows LiveCDs, `though they do exist`_,
 are hampered by licensing restrictions and technical limitations.
 
-.. _though they do exist: http://en.wikipedia.org/wiki/Windows_Preinstallation_Environment
+.. _though they do exist: https://en.wikipedia.org/wiki/Windows_Preinstallation_Environment
 
 For example, `until Windows 8`_, desktop versions of Windows
 could not boot from a USB.
 (And while running a live USB of Windows 8,
 it is still not possible to mount internal hard disks.)
 
-.. _until Windows 8: http://technet.microsoft.com/en-us/library/hh831833.aspx
+.. _until Windows 8: https://technet.microsoft.com/en-us/library/hh831833.aspx
 
 The `BartPE LiveCD building program`_
 is 3rd party software that will run on any version of Windows,
 but it is `only able to make`_ a LiveCD
 for Windows XP or Windows Server 2003.
 
-.. _BartPE LiveCD building program: http://en.wikipedia.org/wiki/BartPE
-.. _only able to make: http://www.betaarchive.com/forum/viewtopic.php?t=22258
+.. _BartPE LiveCD building program: https://en.wikipedia.org/wiki/BartPE
+.. _only able to make: https://www.betaarchive.com/forum/viewtopic.php?t=22258
 
 There is also the `WinBuilder`_ project,
 which is the closest to a fully-functional LiveCD of modern Windows versions,
 but installing software and drivers is still sometimes a challenge.
 
-.. _WinBuilder: http://winbuilder.net/
+.. _WinBuilder: https://documentation.help/Win-Builder/wboverview.html
 
     If the Virtual Machine fails don’t worry too much. Just because the Virtual
     Machine fails to boot right does not mean your boot media won’t work, I’ve
     seen odd results depending on the amount of memory the VM has and what
     drivers I load.
 
-http://www.irongeek.com/i.php?page=security/winbuilder-win7pe-se-tutorial
+https://www.irongeek.com/i.php?page=security/winbuilder-win7pe-se-tutorial
 
 The absence of fully functional live versions of Windows
 makes it difficult to use for, e.g,
@@ -210,8 +210,8 @@ without loading a potentially compromised operating system,
 distinguishing hardware problems from software problems,
 and other tasks requiring a temporary operating system.
 
-.. _Live versions: http://www.linux.com/directory/Distributions/livecd
-.. _persistent live USB flash drives: http://askubuntu.com/questions/295701/what-would-be-the-differences-between-a-persistent-usb-live-session-and-a-instal
+.. _Live versions: https://www.linux.com/news/livecd-boot-benchmarks-round-1-popular-livecds/
+.. _persistent live USB flash drives: https://askubuntu.com/questions/295701/what-would-be-the-differences-between-a-persistent-usb-live-session-and-a-instal
 
 Some live Linux distributions, such as `Puppy Linux`_,
 are lightweight enough that they default to `running from a RAM disk`_,
@@ -221,7 +221,7 @@ than an OS that must access a spinning hard drive.
 There's no reason you can't mount an internal or external drive
 to store files, though.)
 
-.. _Puppy Linux: http://puppylinux.org/
+.. _Puppy Linux: https://wikka.puppylinux.com/HomePage
 .. _running from a RAM disk: https://en.wikipedia.org/wiki/List_of_Linux_distributions_that_run_from_RAM
 
 Very little hardware comes with a `desktop version of Linux pre-installed`_,
@@ -239,7 +239,7 @@ Linux is often run as a virtual machine,
 and consequently it is well-adapted to changes in hardware.
 
 An existing Linux partition on a physical hard drive
-can, with some care, be virtualized and run on another machine,
+can, with some care, be virtualized and ran on another machine,
 a virtue which Windows does not share.
 
     Windows installations, unlike Linux, cannot easily be moved from one
@@ -271,11 +271,11 @@ Windows path lengths `are limited to 260 characters`_, including filename.
 This is `not a flaw in NTFS`_ or Windows per se,
 but in the `non-Unicode version of the Windows API`_.
 
-.. _are limited to 260 characters: http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx#maxpath
-.. _not a flaw in NTFS: http://msdn.microsoft.com/en-us/library/ee681827%28VS.85%29.aspx#limits
-.. _non-Unicode version of the Windows API: http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx#maxpath
-.. _199 characters: http://stackoverflow.com/a/265817
-.. _have not done so: http://blogs.msdn.com/b/bclteam/archive/2007/02/13/long-paths-in-net-part-1-of-3-kim-hamilton.aspx
+.. _are limited to 260 characters: https://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx#maxpath
+.. _not a flaw in NTFS: https://msdn.microsoft.com/en-us/library/ee681827%28VS.85%29.aspx#limits
+.. _non-Unicode version of the Windows API: https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx#maxpath
+.. _199 characters: https://stackoverflow.com/a/265817
+.. _have not done so: https://blogs.msdn.com/b/bclteam/archive/2007/02/13/long-paths-in-net-part-1-of-3-kim-hamilton.aspx
 
 This problem can be avoided by using Unicode versions of the API calls,
 but many applications
@@ -283,42 +283,42 @@ but many applications
 have not done so.
 
 .. _Windows Explorer: https://www.gibixonline.com/post/2009/08/23/Explorer-still-limited-by-MAX_PATH
-.. _.NET: http://blogs.msdn.com/b/bclteam/archive/2007/02/13/long-paths-in-net-part-1-of-3-kim-hamilton.aspx
+.. _.NET: https://blogs.msdn.com/b/bclteam/archive/2007/02/13/long-paths-in-net-part-1-of-3-kim-hamilton.aspx
 .. _consequently Powershell: https://connect.microsoft.com/PowerShell/feedback/details/276235/path-length-limitations
 
 Of course, most OS restrictions are `not an issue in well-written software`_.
 Maybe Windows paths `are long enough`_.
 Is ``MAX_PATH`` an actual problem in real software?
 
-.. _not an issue in well-written software: http://blogs.msdn.com/b/oldnewthing/archive/2007/03/01/1775759.aspx
-.. _are long enough: http://blog.codinghorror.com/filesystem-paths-how-long-is-too-long/
+.. _not an issue in well-written software: https://blogs.msdn.com/b/oldnewthing/archive/2007/03/01/1775759.aspx
+.. _are long enough: https://blog.codinghorror.com/filesystem-paths-how-long-is-too-long/
 
 Judging by the number of bug reports and complaints,
 the answer appears to be yes.
 
 #. https://github.com/joyent/node/issues/6960
 #. https://gcc.gnu.org/bugzilla/show_bug.cgi?id=61922
-#. http://llvm.org/bugs/show_bug.cgi?id=20440
+#. https://llvm.org/bugs/show_bug.cgi?id=20440
 #. https://bugs.eclipse.org/bugs/show_bug.cgi?id=164186
-#. http://bugs.python.org/issue19636
+#. https://bugs.python.org/issue19636
 #. https://bugs.r-project.org/bugzilla3/show_bug.cgi?id=14228
-#. http://social.msdn.microsoft.com/forums/vstudio/en-US/e4a8ee8d-b25d-4b47-8c0c-88329bbece7d/please-increase-maxpath-to-32767
-#. http://stackoverflow.com/questions/1880321/why-does-the-260-character-path-length-limit-exist-in-windows
-#. http://stackoverflow.com/questions/1065993/has-windows-7-fixed-the-255-character-file-path-limit
-#. http://stackoverflow.com/questions/833291/is-there-an-equivalent-to-winapis-max-path-under-linux-unix
-#. http://stackoverflow.com/questions/1858907/svn-command-line-utility-will-not-work-if-full-file-name-is-longer-then-256-char
+#. https://social.msdn.microsoft.com/forums/vstudio/en-US/e4a8ee8d-b25d-4b47-8c0c-88329bbece7d/please-increase-maxpath-to-32767
+#. https://stackoverflow.com/questions/1880321/why-does-the-260-character-path-length-limit-exist-in-windows
+#. https://stackoverflow.com/questions/1065993/has-windows-7-fixed-the-255-character-file-path-limit
+#. https://stackoverflow.com/questions/833291/is-there-an-equivalent-to-winapis-max-path-under-linux-unix
+#. https://stackoverflow.com/questions/1858907/svn-command-line-utility-will-not-work-if-full-file-name-is-longer-then-256-char
 #. https://www.itefix.net/content/rsync-file-name-too-long-91
-#. http://sqlite.1065341.n5.nabble.com/Path-Length-Limit-on-Windows-td70642.html
-#. http://sumedha.blogspot.com/2011/01/svn-checkout-fails-windows-max-path.html
+#. https://web.archive.org/web/20161112033727/http://sqlite.1065341.n5.nabble.com/Path-Length-Limit-on-Windows-td70642.html
+#. https://sumedha.blogspot.com/2011/01/svn-checkout-fails-windows-max-path.html
 #. http://forums.mozillazine.org/viewtopic.php?f=29&t=263489
 
 But the bigger issue
 is that many Windows developers are `so used to`_ `working around`_ the problem
 that it has become deeply entrenched and may `never be fixed`_.
 
-.. _so used to: http://blogs.msdn.com/b/tomholl/archive/2007/02/04/enterprise-library-and-the-curse-of-max-path.aspx
-.. _working around: http://stackoverflow.com/a/11212007
-.. _never be fixed: http://visualstudio.uservoice.com/forums/121579-visual-studio/suggestions/2156195-fix-260-character-file-name-length-limitation
+.. _so used to: https://blogs.msdn.com/b/tomholl/archive/2007/02/04/enterprise-library-and-the-curse-of-max-path.aspx
+.. _working around: https://stackoverflow.com/a/11212007
+.. _never be fixed: https://archive.md/y6to3
 
 The Linux kernel does have an adjustable pathname length limit;
 it's `4096 chars in typical kernels and filesystems`_.
@@ -332,9 +332,9 @@ and consequently some ``libc`` implementations
 were for a while `susceptible to buffer overflow`_
 when trying to resolve canonical file paths.
 
-.. _4096 chars in typical kernels and filesystems: http://unix.stackexchange.com/questions/28997/on-deep-created-directories
-.. _this limit is not enforced: http://insanecoding.blogspot.com/2007/11/pathmax-simply-isnt.html
-.. _susceptible to buffer overflow: http://stackoverflow.com/questions/1171833/how-to-get-the-absolute-path-of-a-file-programmatically-with-out-realpath-unde
+.. _4096 chars in typical kernels and filesystems: https://unix.stackexchange.com/questions/28997/on-deep-created-directories
+.. _this limit is not enforced: https://insanecoding.blogspot.com/2007/11/pathmax-simply-isnt.html
+.. _susceptible to buffer overflow: https://stackoverflow.com/questions/1171833/how-to-get-the-absolute-path-of-a-file-programmatically-with-out-realpath-unde
 
 The 2008 POSIX revision has `addressed the issue`_, but prior to this
 the Linux kernel had to make non-standard modifications to avoid overflow,
@@ -342,7 +342,7 @@ and `warned about the problem`_ in the ``realpath (3)`` man page
 of the Linux Programmer's Manual.
 
 .. _addressed the issue: https://www.securecoding.cert.org/confluence/display/seccode/FIO02-C.+Canonicalize+path+names+originating+from+tainted+sources
-.. _warned about the problem: http://linux.die.net/man/3/realpath
+.. _warned about the problem: https://linux.die.net/man/3/realpath
 
 This illustrates that while the Linux kernel developers
 scrupulously avoid breaking external compatibility,
@@ -471,7 +471,7 @@ to uppercase or lowercase.
 
 http://xahlee.info/UnixResource_dir/_/fileCaseSens.html
 
-.. http://www.cio.com/article/2868393/linus-torvalds-apples-hfs-is-probably-the-worst-file-system-ever.html
+https://archive.md/6AhY9
 
 However, there is also no shortage of opinions
 that enforcing filename case-sensitivity
@@ -490,11 +490,11 @@ because the `Windows API for opening files`_ `is not case-sensitive`_,
 i.e. the `default call`_ to ``CreateFile``
 does not enable the ``FILE_FLAG_POSIX_SEMANTICS`` option.
 
-.. _Windows API for opening files: http://msdn.microsoft.com/en-us/library/windows/desktop/aa363858(v=vs.85).aspx
-.. _is not case-sensitive: http://support.microsoft.com/kb/100625
-.. _default call: http://www.nicklowe.org/2012/02/understanding-case-sensitivity-in-windows-obcaseinsensitive-file_case_sensitive_search/
+.. _Windows API for opening files: https://msdn.microsoft.com/en-us/library/windows/desktop/aa363858(v=vs.85).aspx
+.. _is not case-sensitive: https://support.microsoft.com/kb/100625
+.. _default call: https://archive.md/lKUeP
 
-.. http://stackoverflow.com/a/7200533/1608986
+.. https://stackoverflow.com/a/7200533/1608986
 
 However, Windows' own NTFS filesystem is `case-preserving`_.
 This means that it is possible to mount an NTFS partition with Linux
@@ -502,8 +502,8 @@ and make a file called "Myfile.txt" in the same directory as "MYFILE.TXT",
 but it will `not be possible to read or modify both of those files`_,
 at least not with standard Windows software.
 
-.. _case-preserving: http://en.wikipedia.org/wiki/Case_preservation
-.. _not be possible to read or modify both of those files: http://technet.microsoft.com/en-us/library/cc976809.aspx
+.. _case-preserving: https://en.wikipedia.org/wiki/Case_preservation
+.. _not be possible to read or modify both of those files: https://technet.microsoft.com/en-us/library/cc976809.aspx
 
 This API behavior exists to maintain compatibility with MS-DOS filesystems. [#MSDOS_case_insensitive]_
 MS-DOS was built on Tim Paterson's 86-DOS (released in 1980)
@@ -566,7 +566,7 @@ Developers of cross-platform software try to `avoid making assumptions about fil
 but problems of this ilk crop up
 when porting from Windows to Linux or vice-versa. [#valve_porting_source_to_linux]_
 
-.. _avoid making assumptions about filename case-sensitivity: http://www.mono-project.com/docs/getting-started/application-portability/#case-sensitivity
+.. _avoid making assumptions about filename case-sensitivity: https://www.mono-project.com/docs/getting-started/application-portability/#case-sensitivity
 
 For example, the Linux port of the `Unity engine`_ has `issues with case-sensitive filesystems`_.
 
@@ -579,8 +579,8 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
     file system, then it will never fail that some well-intentioned programmer
     throws a toLower() in somewhere and ruins the party.
 
-.. _Unity engine: http://unity3d.com/
-.. _issues with case-sensitive filesystems: http://natoshabard.com/post/122670082502/porting-the-unity-editor-to-linux-stuff-i-wish
+.. _Unity engine: https://unity.com/
+.. _issues with case-sensitive filesystems: https://archive.md/fJIRp
 
 .. [#Multics_case_sensitive]
 
@@ -591,30 +591,30 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
        convention, but users are free to use uppercase letters in path names,
        identifiers, user names, etc.
 
-   http://www.multicians.org/mgc.html#commandlanguage
+   https://www.multicians.org/mgc.html#commandlanguage
 
        Multics was one of the first systems to use upper and lower case letters
        freely.
 
-   http://www.multicians.org/mga.html#ASCII
+   https://www.multicians.org/mga.html#ASCII
 
        Obviously, BCD had no lower-case characters, and Multics did not use BCD
        at all, except to output log and crash and tape mount messages from ring
        0 to the primitive Selectric operator's console.
 
-   http://www.multicians.org/mgb.html#BCD
+   https://www.multicians.org/mgb.html#BCD
 
        Since the Multics file system distinguished between upper and lower case,
        external names had to be case sensitive, and without much discussion we
        chose to have all variable names be case sensitive.
 
-   http://www.multicians.org/pl1.html
+   https://www.multicians.org/pl1.html
 
 .. [#ITA2]
 
    See p. 9 of "The Evolution of Character Codes, 1874-1968", Eric Fisher.
 
-   http://trafficways.org/ascii/ascii.pdf
+   https://web.archive.org/web/20170318185346/http://trafficways.org/ascii/ascii.pdf
 
    https://github.com/ericfischer/ascii
 
@@ -628,7 +628,7 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
    From page 20 of "A proposal for a generalized card code for 256 characters",
    Communications of the ACM, Volume 2 Issue 9, Sept. 1959.
 
-   http://dx.doi.org/10.1145/368424.368435
+   https://dl.acm.org/doi/10.1145/368424.368435
 
 .. [#Stretch_supercomputer]
    From "Coded character sets: history and development" by Charles E. Mackenzie, 1980.
@@ -655,7 +655,9 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
        --- Stavros Macrakis (2003)
 
-   https://www.ma.utexas.edu/pipermail/maxima/2003/004483.html
+   
+    Source is down 
+            .. https://www.ma.utexas.edu/pipermail/maxima/2003/004483.html
 
        One of the most pernicious problems with C-based languages is that
        they're case-sensitive. While this decision may have made sense in 1972
@@ -671,7 +673,7 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
        --- Jeff Atwood, *The Case For Case Insensitivity* (2005)
 
-   http://blog.codinghorror.com/the-case-for-case-insensitivity/
+   https://blog.codinghorror.com/the-case-for-case-insensitivity/
 
        There is no longer any excuse for making humans learn and handle the
        quirks of the way computers store upper- and lower-case characters.
@@ -679,7 +681,7 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
        --- Brian Hauer, *Case-sensitivity is the past trolling us* (2014)
 
-   http://tiamat.tsotech.com/case-sensitivity-sucks
+   https://tiamat.tsotech.com/case-sensitivity-sucks
 
        Since it appears to have manifested out of opinion rather than
        necessity, it could be said case-sensitivity is the worst way that
@@ -687,14 +689,14 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
        --- Greg Raiz (2007)
 
-   http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
+   https://web.archive.org/web/20160407013757/http://www.raizlabs.com/graiz/2007/02/11/linuxunix-case-sensitivity/
 
        This is really stupid, it causes a ton of problems and there is no
        longer any good reason to have case sensitivity in an OS.
 
        --- Julian, OddThinking (2005)
 
-   http://www.somethinkodd.com/oddthinking/2005/10/27/the-case-for-case-preserving-case-insensitivity/
+   https://www.somethinkodd.com/oddthinking/2005/10/27/the-case-for-case-preserving-case-insensitivity/
 
 .. [#against_case_insensitivity]
 
@@ -733,7 +735,7 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
        --- yagu (2006)
 
-   http://slashdot.org/comments.pl?sid=190747&cid=15690704
+   https://slashdot.org/comments.pl?sid=190747&cid=15690704
 
        The old DOS/Mac people thought case insensitivity was a "helpful"
        idea, and that was understandable - but wrong - even back in the 80's.
@@ -758,7 +760,7 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
        NTFS supports POSIX semantics for case sensitivity but this is not the
        default behavior.
 
-   http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx
+   https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx
 
 .. [#DOS_CPM]
 
@@ -773,7 +775,7 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
        --- Tim Paterson (2007)
 
-   http://dosmandrivel.blogspot.com/2007/08/is-dos-rip-off-of-cpm.html
+   https://dosmandrivel.blogspot.com/2007/08/is-dos-rip-off-of-cpm.html
 
        As I noted when I discussed the old MS-DOS wildcard matching rules,
        MS-DOS worked hard at being compatible with CP/M. And CP/M used 8.3
@@ -794,7 +796,7 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
        filename and extension fields were also propagated into the structure of
        disk directory entries
 
-   http://spider.seds.org/spider/OS2/HPFS/fat.html
+   https://spider.seds.org/spider/OS2/HPFS/fat.html
 
 .. [#kildall_tops10]
 
@@ -805,7 +807,7 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
        --- Robert X. Cringely, *Accidental Empires, Chapter 4 — Amateur Hour*
 
-   http://www.cringely.com/2013/02/18/accidental-empires-chapter-4-amateur-hour/
+   https://www.cringely.com/2013/02/18/accidental-empires-chapter-4-amateur-hour/
 
        CP/M and ISIS in operation have some general similarities to interactive
        operating systems on minicomputers and mainframes such as the DEC PDP-10
@@ -815,7 +817,7 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
        --- Herbert R. Johnson, *CP/M and Digital Research Inc. (DRI) History*
 
-   http://www.retrotechnology.com/dri/d_dri_history.html
+   https://www.retrotechnology.com/dri/d_dri_history.html
 
        Kildall said that PL/M was ‘‘the base for CP/M,’’ even though the
        commands were clearly derived from Digital’s, not IBM’s software. For
@@ -905,7 +907,7 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
        in DEC’s Radix-50 format. A file’s directory entry indicated the address
        of the first block of the file.
 
-   http://cryptosmith.com/2013/10/19/digitals-rt-11-file-system/
+   https://cryptosmith.com/2013/10/19/digitals-rt-11-file-system/
 
        RADIX50 is a character coding system used in earlier Digital Equipment
        Corporation computers, such as the PDP-10, DECsystem-10 and
@@ -917,7 +919,7 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
        RADIX-50 words into a single 36-bit word or extract RADIX-50 words from
        a 36-bit word.
 
-   http://nemesis.lonestar.org/reference/telecom/codes/radix50.html
+   https://archive.md/q2ee
 
 .. [#tortoise_svn_case_sensitivity] https://code.google.com/p/tortoisesvn/issues/detail?id=32
 
@@ -929,7 +931,7 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
        OpenFOAM-sources need a fully case-sensitive file-system and can't even
        be unpacked properly on a Windows system (see [2]).
 
-   http://openfoamwiki.net/index.php/Main_FAQ#Why_isn.27t_there_a_Windows_port_of_OpenFOAM_.3F
+   https://openfoamwiki.net/index.php/Main_FAQ#Why_isn.27t_there_a_Windows_port_of_OpenFOAM_.3F
 
 .. [#common_lisp_filenames]
 
@@ -945,7 +947,7 @@ For example, the Linux port of the `Unity engine`_ has `issues with case-sensiti
 
    https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node203.html
 
-.. [#valve_porting_source_to_linux] http://adrienb.fr/blog/wp-content/uploads/2013/04/PortingSourceToLinux.pdf
+.. [#valve_porting_source_to_linux] https://web.archive.org/web/20181113043451/https://adrienb.fr/blog/wp-content/uploads/2013/04/PortingSourceToLinux.pdf
 
        - Linux filesystems are case-sensitive
 
@@ -979,7 +981,7 @@ as well as many other `restrictions which are considerably more complex`_
 and are partly the result
 of `backwards compatibility with CP/M pseudofiles`_.
 
-.. _backwards compatibility with CP/M pseudofiles: http://bitquabit.com/post/zombie-operating-systems-and-aspnet-mvc/
+.. _backwards compatibility with CP/M pseudofiles: https://bitquabit.com/post/zombie-operating-systems-and-aspnet-mvc/
 .. _restrictions which are considerably more complex: https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx#naming_conventions
 
 This has had long-term consequences,
@@ -988,7 +990,7 @@ in Microsoft's web application framework, ASP.net
 (these were `relaxed in a later version`_).
 
 .. _surprising restrictions on URLs: https://stackoverflow.com/questions/987105/asp-net-mvc-routing-vs-reserved-filenames-in-windows
-.. _relaxed in a later version: http://haacked.com/archive/2010/04/29/allowing-reserved-filenames-in-URLs.aspx/
+.. _relaxed in a later version: https://haacked.com/archive/2010/04/29/allowing-reserved-filenames-in-URLs.aspx/
 
 Windows also does not permit filenames to contain colons,
 due to their use in delimiting drive names like ``C:\``.
@@ -1050,12 +1052,12 @@ but such restrictions do not apply to filenames.)
        The characters composing the name may be selected from the set of all
        character values excluding the slash character and the null byte.
 
-   http://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap03.html
+   https://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap03.html
 
        The bytes composing the name shall not contain the <NUL> or <slash>
        characters.
 
-    http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_170
+    https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_170
 
 .. [#C_strings] The wisdom of this decision is a matter of some debate.
 
@@ -1088,7 +1090,7 @@ but such restrictions do not apply to filenames.)
 .. _rationale for using a null-terminator: https://stackoverflow.com/questions/4418708/whats-the-rationale-for-null-terminated-strings
 .. _Null-terminated strings do have some drawbacks: https://queue.acm.org/detail.cfm?id=2010365
 .. _such as storing strings of arbitrary length: https://www.lysator.liu.se/c/bwk-on-pascal.html
-.. _Windows use null-terminated strings: http://blogs.msdn.com/b/oldnewthing/archive/2009/10/08/9904646.aspx
+.. _Windows use null-terminated strings: https://blogs.msdn.com/b/oldnewthing/archive/2009/10/08/9904646.aspx
 
 ---------------------------
 Limited filesystem support.
@@ -1107,12 +1109,12 @@ despite Microsoft's lucrative patent licensing deals
 and `ongoing`_ `litigation`_ against Android manufacturers
 and `other companies`_ that use the Linux kernel's FAT drivers.
 
-.. _third-party software: http://www.ext2fsd.com/
+.. _third-party software: https://github.com/matt-wu/Ext3Fsd
 .. _almost all file systems: https://wiki.archlinux.org/index.php/file_systems
-.. _Amiga file systems: http://www.tldp.org/FAQ/Linux-FAQ/partitions.html#can-linux-access-amiga-file-systems
-.. _ongoing: http://www.forbes.com/sites/timworstall/2013/12/06/german-patent-ruling-threatens-microsofts-windows-phone-earnings-from-android/
-.. _litigation: http://gizmodo.com/the-secret-android-patents-that-microsoft-forces-oems-t-1591338496
-.. _other companies: http://arstechnica.com/information-technology/2009/02/microsoft-sues-tomtom-over-fat-patents-in-linux-based-device/
+.. _Amiga file systems: https://www.tldp.org/FAQ/Linux-FAQ/partitions.html#can-linux-access-amiga-file-systems
+.. _ongoing: https://www.forbes.com/sites/timworstall/2013/12/06/german-patent-ruling-threatens-microsofts-windows-phone-earnings-from-android/
+.. _litigation: https://gizmodo.com/the-secret-android-patents-that-microsoft-forces-oems-t-1591338496
+.. _other companies: https://arstechnica.com/information-technology/2009/02/microsoft-sues-tomtom-over-fat-patents-in-linux-based-device/
 
 For the system partition,
 Linux users can choose among the usual ext3 journaling filesystem
@@ -1123,9 +1125,9 @@ ext3 and Btrfs `do not require defragmentation`_ to maintain good performance.
 `defragmentation isn't that important for NTFS`_, either.)
 
 .. _Btrfs: https://btrfs.wiki.kernel.org/index.php/Main_Page
-.. _NTFS and FAT: http://technet.microsoft.com/en-us/magazine/2007.11.desktopfiles.aspx
-.. _do not require defragmentation: http://www.tldp.org/LDP/sag/html/filesystems.html#FRAGMENTATION
-.. _defragmentation isn't that important for NTFS: http://blogs.msdn.com/b/e7/archive/2009/01/25/disk-defragmentation-background-and-engineering-the-windows-7-improvements.aspx
+.. _NTFS and FAT: https://technet.microsoft.com/en-us/magazine/2007.11.desktopfiles.aspx
+.. _do not require defragmentation: https://www.tldp.org/LDP/sag/html/filesystems.html#FRAGMENTATION
+.. _defragmentation isn't that important for NTFS: https://blogs.msdn.com/b/e7/archive/2009/01/25/disk-defragmentation-background-and-engineering-the-windows-7-improvements.aspx
 
 Finally, Linux permits unprivileged users
 to run their own filesystems via FUSE.
@@ -1154,28 +1156,28 @@ UTF-16, not UTF-8.
   after a lost or corrupted code point without re-reading the entire string.
 - It is more portable because it does not require a `byte-order mark`_
   and is less likely to be mistaken for other encodings.
-- Internet Explorer has been known to have `security issues with UTF-16`_.
+- Internet Explorer has been known to have security issues with UTF-16.
 
 .. _UTF-8 has many practical advantages: https://annevankesteren.nl/2009/09/utf-8-reasons
 .. _Zero bytes do not appear: https://docs.python.org/2/howto/unicode.html#encodings
-.. _self-synchronizing: http://research.swtch.com/utf8
-.. _byte-order mark: http://www.unicode.org/faq/utf_bom.html
-.. _security issues with UTF-16: http://permalink.gmane.org/gmane.ietf.charsets/372
+.. _self-synchronizing: https://research.swtch.com/utf8
+.. _byte-order mark: https://www.unicode.org/faq/utf_bom.html
+.. _security issues with UTF-16: http://permalink.gmane.org/gmane.ietf.charsets/372 (dead link)
 
 If the Windows API were designed today,
 it would probably use `UTF-8`_.
 The Unicode Consortium primarily `recommends UTF-16`_
 for compatibility with Java and the Windows API.
 
-.. _UTF-8: http://www.cl.cam.ac.uk/~mgk25/ucs/utf-8-history.txt
-.. _recommends UTF-16: http://www.unicode.org/faq/programming.html#2
+.. _UTF-8: https://www.cl.cam.ac.uk/~mgk25/ucs/utf-8-history.txt
+.. _recommends UTF-16: https://www.unicode.org/faq/programming.html#2
 
 In principle, UTF-16 would have the advantage
 of constant time addressing of single characters,
 but in practice most programming languages do not provide data types for this,
 with the `exception of Go and rust`_.
 
-.. _exception of Go and rust: http://lucumr.pocoo.org/2014/1/9/ucs-vs-utf8/
+.. _exception of Go and rust: https://lucumr.pocoo.org/2014/1/9/ucs-vs-utf8/
 
 ----------------------------------------------------
 File extensions are the sole determiner of filetype.
@@ -1186,7 +1188,7 @@ of what program runs when opening a given filetype.
 This makes it easier to dupe a Windows user
 into `unintentionally running malware`_.
 
-.. _unintentionally running malware: http://windows.microsoft.com/en-us/windows-vista/recognizing-dangerous-file-types
+.. _unintentionally running malware: https://web.archive.org/web/20150318032415/http://windows.microsoft.com/en-us/windows-vista/recognizing-dangerous-file-types
 
 Also, if the file extensions for different filetypes happen to collide,
 as they inevitably do,
@@ -1195,7 +1197,7 @@ one program must take default precedence over the other for that file extension.
 For example, there `a lot of different file formats`_ with a ``.dat`` file extension,
 but only one application gets to open them by default.
 
-.. _a lot of different file formats: http://filext.com/file-extension/dat
+.. _a lot of different file formats: https://filext.com/file-extension/dat
 
 On Linux, `filetypes are determined`_ by a combination of
 filesystem metadata (e.g. execute permissions),
@@ -1207,7 +1209,7 @@ and ``.desktop`` configuration files with mimetype information
 
 .. TODO: cite
 
-.. _filetypes are determined: http://www.howtogeek.com/192628/mime-types-explained-why-linux-and-mac-os-x-dont-need-file-extensions/
+.. _filetypes are determined: https://www.howtogeek.com/192628/mime-types-explained-why-linux-and-mac-os-x-dont-need-file-extensions/
 
 A file's executable status is `separate from its file extension`_,
 and an executable text file written in a scripting language
@@ -1219,10 +1221,10 @@ but languages that emphasize cross-platform compatibility,
 such as Python,
 have `implemented work-arounds`_.
 
-.. _separate from its file extension: http://superuser.com/questions/405972/why-do-i-need-an-execute-bit-in-file-mode-on-unix-file-systems
-.. _first-line shebang convention: http://en.wikipedia.org/wiki/Shebang_(Unix)
-.. _implemented work-arounds: http://legacy.python.org/dev/peps/pep-0397/
-.. _cannot indicate it is version 2 or 3: http://stackoverflow.com/questions/7574453/shebang-notation-python-scripts-on-windows-and-linux
+.. _separate from its file extension: https://superuser.com/questions/405972/why-do-i-need-an-execute-bit-in-file-mode-on-unix-file-systems
+.. _first-line shebang convention: https://en.wikipedia.org/wiki/Shebang_(Unix)
+.. _implemented work-arounds: https://legacy.python.org/dev/peps/pep-0397/
+.. _cannot indicate it is version 2 or 3: https://stackoverflow.com/questions/7574453/shebang-notation-python-scripts-on-windows-and-linux
 
 --------------------------------------------
 Ineffectual read-only permissions semantics.
@@ -1243,8 +1245,8 @@ On Windows, the content of a read-only file cannot be altered,
 but the file itself `can be moved, renamed, or deleted`_,
 because the `folder it is in cannot have a read-only status`_.
 
-.. _can be moved, renamed, or deleted: http://windows.microsoft.com/en-us/windows7/prevent-changes-to-a-file-by-setting-it-to-read-only
-.. _folder it is in cannot have a read-only status: http://windows.microsoft.com/en-us/windows-vista/prevent-changes-to-a-file-or-folder-read-only
+.. _can be moved, renamed, or deleted: https://web.archive.org/web/20150401071829/http://windows.microsoft.com/en-us/windows7/prevent-changes-to-a-file-by-setting-it-to-read-only
+.. _folder it is in cannot have a read-only status: https://web.archive.org/web/20150406071856/http://windows.microsoft.com/en-us/windows-vista/prevent-changes-to-a-file-or-folder-read-only
 
 In Linux, by contrast, a read-only directory cannot have files added to it,
 and files in such a directory cannot be moved, renamed, or deleted
@@ -1296,7 +1298,7 @@ and be unable to find the files.
     How can I change the flash drive letter or, even better, make it appear as
     the same drive letter each time?
 
-http://new.office-watch.com/2008/make-a-consistent-drive-letter-or-path-to-a-removable-drive/
+https://office-watch.com/2008/make-a-consistent-drive-letter-or-path-to-a-removable-drive/
 
 Fortunately, there is a solution: NTFS mount points.
 
@@ -1336,7 +1338,7 @@ possibly because mount points behave slightly differently than drive letters.
     which apparently doesn't even exist!  The only solution for this is to not
     recycle subfolders and directories, but to outright delete them.
 
-http://getyouriton.blogspot.com/2009/08/serious-gotchas-with-mounted-drives-or.html
+https://web.archive.org/web/20170327135652/https://getyouriton.blogspot.com/2009/08/serious-gotchas-with-mounted-drives-or.html
 
 While NTFS filesystems have a root directory,
 Windows has no unique root directory;
@@ -1394,7 +1396,7 @@ not the trash in the user's home directory.
    (called ``>`` instead of ``/``)
    and a hierarchical filesystem underneath it.
 
-   http://www.multicians.org/mgr.html#root
+   https://www.multicians.org/mgr.html#root
 
        The Unix system owes much to the Multics file system, most notably the
        directory tree idea.
@@ -1461,7 +1463,7 @@ not the trash in the user's home directory.
        a mount point has recently been common, it conflicts with a much older
        tradition of using ``/mnt`` directly as a temporary mount point.
 
-   http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s11.html
+   https://www.linuxbase.org/betaspecs/fhs/fhs/ch03s11.html
 
    Currently, ``udisks2`` mounts flash drives under ``/media/$USER/``.
 
@@ -1492,7 +1494,7 @@ start a logfile that catches all the output,
 and run a backtrace when the program fails
 (it's better with debugging symbols, though).
 
-.. _to a running process: http://ftp.gnu.org/old-gnu/Manuals/gdb-5.1.1/html_node/gdb_22.html
+.. _to a running process: https://ftp.gnu.org/old-gnu/Manuals/gdb-5.1.1/html_node/gdb_22.html
 
 Alternately, if the process is already unresponsive,
 you can attach ``strace`` and see what system calls it makes,
@@ -1508,8 +1510,8 @@ with nearly any Linux box.
    https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063
 
 .. [#strace_for_Windows]
-   http://www.intellectualheaven.com/default.asp?BH=projects&H=strace.htm
-   http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx
+   https://archive.md/aWJ8b
+   https://technet.microsoft.com/en-us/sysinternals/bb896647.aspx
 
 ---------------------------------
 Restrictive default file locking.
@@ -1592,7 +1594,7 @@ or `run without explorer.exe at all`_. [#KDE_on_Windows]_
 
 .. _alternative shells: https://en.wikipedia.org/wiki/List_of_alternative_shells_for_Windows
 .. _visual themes: https://en.wikipedia.org/wiki/Theme_%28computing%29#Operating_systems
-.. _run without explorer.exe at all: http://lightquick.co.uk/running-windows-without-explorer.exe.html
+.. _run without explorer.exe at all: https://web.archive.org/web/20161023151404/http://lightquick.co.uk/running-windows-without-explorer.exe.html
 .. _change the login shell: https://superuser.com/questions/108265/how-do-you-replace-the-logon-shell-with-iexplore
 
 There is Windows software for
@@ -1652,9 +1654,9 @@ and is not controlled by a single corporation
 in the same way that the Windows API is.
 
 .. [#tiling_window_managers] https://github.com/fuhsjr00/bug.n
-.. [#virtual_desktops] http://virtuawin.sourceforge.net/
+.. [#virtual_desktops] https://virtuawin.sourceforge.net/
 .. [#focus_follows_mouse]
-   http://milosophical.me/blog/2010/03/10/ms-windows-focus-follows-mouse-registry-hacks.html
+   https://milosophical.me/blog/2010/03/10/ms-windows-focus-follows-mouse-registry-hacks.html
    https://superuser.com/questions/368688/on-windows-7-is-there-any-way-to-make-the-scrollwheels-focus-follow-the-mouse
 .. [#cube_desktop] http://www.thinkinbytes.com/en/products/cubedesktop
 .. [#KDE_on_Windows]
@@ -1665,7 +1667,7 @@ in the same way that the Windows API is.
        applications to MS Windows. Currently supported versions of Windows are
        XP, Vista and 7.
 
-   https://windows.kde.org/
+   https://community.kde.org/Windows
 
    This is not without difficulties, however.
 
@@ -1730,7 +1732,7 @@ http://eric.aling.tripod.com/PB/tips/pbtip39.htm
     Unlike regular windows, most dialog boxes can't be maximized, minimized, or
     resized. They can, however, be moved.
 
-http://windows.microsoft.com/en-us/windows/working-with-windows#1TC=windows-7&section_9
+https://web.archive.org/web/20150429182602/http://windows.microsoft.com/en-us/windows/working-with-windows#1TC=windows-7
 
 This can pose user-interface problems,
 especially on high-resolution monitors.
@@ -1817,9 +1819,9 @@ There are some drawbacks to this approach:
        ignore their own codebase and reinvent the wheel. And people wonder why
        their applications are so big..
 
-.. [#resize_non_resizable_windows] http://www.thewindowsclub.com/resize-non-resizable-windows
-.. [#turn_non_resizable_windows] http://www.howtogeek.com/howto/11799/turn-non-resizeable-windows-into-rezieable-windows/
-.. [#ResizeEnable] http://www.digitallis.co.uk/pc/ResizeEnable/index.html
+.. [#resize_non_resizable_windows] https://www.thewindowsclub.com/resize-non-resizable-windows
+.. [#turn_non_resizable_windows] https://www.howtogeek.com/howto/11799/turn-non-resizeable-windows-into-rezieable-windows/
+.. [#ResizeEnable] https://www.softpedia.com/get/System/System-Miscellaneous/ResizeEnable.shtml
 
 ~~~~~~~~~~~~~~~
 Update inertia.
@@ -1838,7 +1840,7 @@ Microsoft fixed this problem via `User Account Control`_ when Windows Vista was 
 but the required changes to the user interface were controversial, [#UAC_controversy]_
 and many users learned to ignore it or turned it off entirely.
 
-.. _User Account Control: http://technet.microsoft.com/en-us/magazine/2007.06.uac.aspx
+.. _User Account Control: https://technet.microsoft.com/en-us/magazine/2007.06.uac.aspx
 .. _users run as administrator by default in Windows XP: https://msdn.microsoft.com/en-us/library/bb530410.aspx#vistauac_topic1
 
 Despite Microsoft ending support for Windows XP in April 2014,
@@ -1848,10 +1850,10 @@ many of them as administrators.
 .. _large number of users are still running Windows XP in 2015: https://redmondmag.com/articles/2015/04/08/windows-xp-usage.aspx
 
 .. [#UAC_controversy]
-   http://www.computerworld.com/article/2477832/desktop-apps/microsoft-exec--we-know-users-hate-uac.html
-   http://arstechnica.com/security/2008/04/vistas-uac-security-prompt-was-designed-to-annoy-you/
-   http://windowssecrets.com/woodys-windows/microsoft-claims-windows-7-uac-flaw-is-by-design/
-   http://windowsitpro.com/blog/microsoft-quotmalware-authors-really-hate-uacquot
+   https://www.computerworld.com/article/2477832/desktop-apps/microsoft-exec--we-know-users-hate-uac.html
+   https://arstechnica.com/security/2008/04/vistas-uac-security-prompt-was-designed-to-annoy-you/
+   https://web.archive.org/web/20160730185317/http://windowssecrets.com/woodys-windows/microsoft-claims-windows-7-uac-flaw-is-by-design/
+   https://web.archive.org/web/20170612174556/http://windowsitpro.com/blog/microsoft-quotmalware-authors-really-hate-uacquot
 
 
 *********
@@ -1895,26 +1897,26 @@ a team forked GNOME 2 to become `MATE`_,
 which retained the "traditional desktop metaphor".
 A fork would be impossible if GNOME 2's source code were proprietary.
 
-.. _MATE: http://mate-desktop.org/
+.. _MATE: https://mate-desktop.org/
 
 A fork like MATE will either `eventually fade away`_,
 continue to `coexist with its parent project`_,
 or even `overtake its parent`_,
 depending on the needs of its users.
 
-.. _eventually fade away: http://crunchbang.org/forums/viewtopic.php?id=38916
+.. _eventually fade away: https://crunchbang.org/forums/viewtopic.php?id=38916
 .. _coexist with its parent project: https://en.wikipedia.org/wiki/OpenBSD
 .. _overtake its parent: http://www.softpanorama.org/People/Stallman/history_of_gcc_development.shtml
 
-.. [#windows_8_hate_1] http://www.washingtonpost.com/blogs/the-switch/wp/2014/02/14/8-things-i-hate-about-windows-8-1/
-.. [#windows_8_defense] http://www.forbes.com/sites/tonybradley/2014/03/19/im-sorry-the-windows-8-hate-just-doesnt-make-sense/
-.. [#windows_9] http://www.smh.com.au/digital-life/computers/hate-windows-8-microsoft-replacing-it-with-windows-9-20140122-317fo.html
-.. [#windows_8_polarizing] http://bgr.com/2013/12/04/windows-8-hatred-explained/
-.. [#windows_8_hate_2] http://www.maximumpc.com/article/features/8_things_we_hate_about_windows_841
-.. [#windows_8_hate_3] http://answers.microsoft.com/en-us/windows/forum/windows_8-windows_install/i-hate-windows-8/cd2d9fec-9d95-42ba-9e41-727419459465
-.. [#windows_8_enterprise] http://www.forbes.com/sites/adriankingsleyhughes/2013/05/19/why-enterprise-is-avoiding-windows-8/
-.. [#windows_8_disappointing] http://www.nngroup.com/articles/windows-8-disappointing-usability/
-.. [#gnome_3_fork] http://www.zdnet.com/article/linus-torvalds-would-like-to-see-a-gnome-fork/
+.. [#windows_8_hate_1] https://www.washingtonpost.com/blogs/the-switch/wp/2014/02/14/8-things-i-hate-about-windows-8-1/
+.. [#windows_8_defense] https://www.forbes.com/sites/tonybradley/2014/03/19/im-sorry-the-windows-8-hate-just-doesnt-make-sense/
+.. [#windows_9] https://www.smh.com.au/digital-life/computers/hate-windows-8-microsoft-replacing-it-with-windows-9-20140122-317fo.html
+.. [#windows_8_polarizing] https://bgr.com/general/windows-8-hatred-explained/
+.. [#windows_8_hate_2] https://archive.md/MPBEF
+.. [#windows_8_hate_3] https://answers.microsoft.com/en-us/windows/forum/windows_8-windows_install/i-hate-windows-8/cd2d9fec-9d95-42ba-9e41-727419459465
+.. [#windows_8_enterprise] https://www.forbes.com/sites/adriankingsleyhughes/2013/05/19/why-enterprise-is-avoiding-windows-8/
+.. [#windows_8_disappointing] https://www.nngroup.com/articles/windows-8-disappointing-usability/
+.. [#gnome_3_fork] https://www.zdnet.com/article/linus-torvalds-would-like-to-see-a-gnome-fork/
 .. [#gnome_3_hate] https://felipec.wordpress.com/2011/06/16/after-two-weeks-of-using-gnome-3-i-officially-hate-it/
 .. [#gnome_3_grumpy] https://lwn.net/Articles/433409/
 
@@ -1929,9 +1931,9 @@ on all but the server version of Windows,
 and `third-party remote desktop software is not permitted`_
 to legally `circumvent this limitation`_. [#windows_xp_not_multiuser]_ [#tightvnc_multiple_unique_sessions]_ [#multiple_sessions_illegal]_
 
-.. _Windows remote desktop licensing: http://technet.microsoft.com/en-us/library/cc725933.aspx
-.. _third-party remote desktop software is not permitted: http://superuser.com/questions/784523/tightvnc-while-an-rdp-session-is-running
-.. _circumvent this limitation: http://lifehacker.com/5873717/enable-concurrent-remote-desktop-sessions-in-windows-with-this-patch
+.. _Windows remote desktop licensing: https://technet.microsoft.com/en-us/library/cc725933.aspx
+.. _third-party remote desktop software is not permitted: https://superuser.com/questions/784523/tightvnc-while-an-rdp-session-is-running
+.. _circumvent this limitation: https://lifehacker.com/5873717/enable-concurrent-remote-desktop-sessions-in-windows-with-this-patch
 
 Note that this is a licensing issue,
 not a technical limitation of Windows itself,
@@ -1946,7 +1948,7 @@ Often, two different users will work remotely
 at the same time on the same machine
 using different desktop environments.
 
-.. _multiple local instances of the X server: http://journalxtra.com/linux/desktop/multiple-desktops-on-one-linux-pc-now-thats-greedy/
+.. _multiple local instances of the X server: https://journalxtra.com/linux/desktop/multiple-desktops-on-one-linux-pc-now-thats-greedy/
 .. _VNC: https://wiki.debian.org/VNCviewer
 .. _X over SSH: https://www.debian.org/doc/manuals/debian-reference/ch07.en.html#_connecting_a_remote_x_client_via_ssh
 
@@ -1961,7 +1963,7 @@ and log in from a text-only `virtual terminal`_ (a.k.a ``tty``).
 This is important to be able to do
 if the X server crashes or cannot start.
 
-.. _virtual terminal: http://en.wikipedia.org/wiki/Virtual_console
+.. _virtual terminal: https://en.wikipedia.org/wiki/Virtual_console
 
 Because the Linux kernel does not rely on the X server to function,
 the `X server can be restarted without rebooting`_.
@@ -1973,7 +1975,7 @@ one can do so cleanly even if the X server is unresponsive
 by using the "`Magic Alt-SysRq keys`_",
 key combinations which send instructions to the kernel.
 
-.. _Magic Alt-SysRq keys: https://www.kernel.org/doc/Documentation/sysrq.txt
+.. _Magic Alt-SysRq keys: https://archive.md/TVTEh
 
 (Windows has Ctrl-Alt-Delete,
 but requires a responding display manager
@@ -1993,8 +1995,8 @@ are hard at work on its replacement, `Wayland`_,
 and Canonical (the company behind Ubuntu)
 is working on a separate but similar endeavor called `Mir`_.
 
-.. _Wayland: http://wayland.freedesktop.org/architecture.html
-.. _Mir: http://unity.ubuntu.com/mir/
+.. _Wayland: https://wayland.freedesktop.org/architecture.html
+.. _Mir: https://mir-server.io/
 
 However, X11 has become so pervasive
 that versions of it power not only Linux desktops
@@ -2002,16 +2004,16 @@ but also the BSD family of operating systems and OS X (`XQuartz`_),
 and it's also been `ported to Windows`_ `and Android`_,
 even though they don't use it as a display manager.
 
-.. _XQuartz: http://xquartz.macosforge.org/landing/
-.. _ported to Windows: http://sourceforge.net/projects/xming/
-.. _and Android: https://play.google.com/store/apps/details?id=net.sourceforge.x11basic
+.. _XQuartz: https://xquartz.macosforge.org/landing/
+.. _ported to Windows: https://sourceforge.net/projects/xming/
+.. _and Android: https://web.archive.org/web/20170110145517/https://play.google.com/store/apps/details?id=net.sourceforge.x11basic
 
 .. [#window_managers]
    https://wiki.archlinux.org/index.php/Window_manager
-   http://en.wikipedia.org/wiki/Comparison_of_X_window_managers
+   https://en.wikipedia.org/wiki/Comparison_of_X_window_managers
 .. [#desktop_environments]
    https://wiki.debian.org/DesktopEnvironment
-   http://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments
+   https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments
 .. [#windows_xp_not_multiuser]
 
        You would think that because Windows XP is multiuser, you could have
@@ -2020,14 +2022,15 @@ even though they don't use it as a display manager.
        server goes black, and in my testing, can't even be used again. Windows
        XP is not really multiuser.
 
-   http://aplawrence.com/Reviews/tightvnc.html
+   https://archive.md/j5zHH
 .. [#tightvnc_multiple_unique_sessions]
 
        Windows, unless you're using Terminal Server (and have the licenses to
        go with it) doesn't have this capability, and I don't believe that even
        with Terminal Server, VNC will be able to take advantage of this.
 
-   http://ehc.ac/p/vnc-tight/mailman/message/25780367/
+   `Source is down`_
+.. _Source is down: http://ehc.ac/p/vnc-tight/mailman/message/25780367/
 
 .. [#multiple_sessions_illegal]
 
@@ -2036,7 +2039,7 @@ even though they don't use it as a display manager.
        not allow you to modify/swap system files and use non-server system that
        way and this is ILLEGAL.
 
-   http://stackoverflow.com/questions/9410091/multi-user-login-remote-desktop-on-windows-linux
+   https://stackoverflow.com/questions/9410091/multi-user-login-remote-desktop-on-windows-linux
 
 --------------------------
 Some notes on performance.
@@ -2053,7 +2056,7 @@ It also incorporates psychology,
 since people don't care if software has good performance
 if they `don't perceive it to have good performance`_.
 
-.. _don't perceive it to have good performance: https://developers.google.com/speed/articles/usability-latency
+.. _don't perceive it to have good performance: https://web.archive.org/web/20170228194654/https://developers.google.com/speed/articles/usability-latency
 
 As a result,
 unqualified generalizations about the performance
@@ -2086,7 +2089,7 @@ that he is who he claims to be.)
 
     --- Anonymous Windows NT kernel developer
 
-http://blog.zorinaq.com/?e=74
+https://blog.zorinaq.com/i-contribute-to-the-windows-kernel-we-are-slower-than-other-oper/
 
 
 Contrast with Microsoft's `"Linux Myths" article`_ from 1999.
@@ -2103,7 +2106,7 @@ Contrast with Microsoft's `"Linux Myths" article`_ from 1999.
 
 A decade later, `Microsoft contributed device driver code`_ to the Linux kernel.
 
-.. _Microsoft contributed device driver code: http://www.microsoft.com/en-us/news/features/2009/jul09/07-20linuxqa.aspx
+.. _Microsoft contributed device driver code: https://archive.md/gyEdx
 
 Secondly, testing and optimizing on multiple platforms
 can yield unexpected performance benefits for both operating systems.
@@ -2121,7 +2124,7 @@ achieved a higher framerate than Direct3D on Windows.
 
     --- Valve Linux Team
 
-.. _ported Left 4 Dead 2 to Linux: http://blogs.valvesoftware.com/linux/faster-zombies/
+.. _ported Left 4 Dead 2 to Linux: https://archive.md/tW6zD
 
 .. TODO: should I talk more about this?
 
@@ -2146,7 +2149,7 @@ In fact, the `POSIX standard`_ requires that these be available.
 Standards like POSIX make writing and using portable software easier,
 and standard POSIX tools are unlikely to become obsolete.
 
-.. _POSIX standard: http://pubs.opengroup.org/onlinepubs/009696699/utilities/contents.html
+.. _POSIX standard: https://pubs.opengroup.org/onlinepubs/009696699/utilities/contents.html
 
 On Windows, by contrast,
 there is no default set of tools that match the POSIX utilities
@@ -2160,14 +2163,14 @@ There is a scriptable shell on all version of Windows (``CMD.EXE``)
 but the currently favored Windows shell (`PowerShell`_)
 was not available by default until Windows 8.
 
-.. _Windows C compiler and build system: http://msdn.microsoft.com/en-us/vstudio/
-.. _PowerShell: http://technet.microsoft.com/en-us/library/hh847837.aspx
+.. _Windows C compiler and build system: https://msdn.microsoft.com/en-us/vstudio/
+.. _PowerShell: https://github.com/PowerShell/PowerShell
 
 .. [#POSIX_for_Windows]
    https://technet.microsoft.com/en-us/library/cc754351.aspx
    https://superuser.com/questions/495360/does-windows-8-still-implement-posix
    https://stackoverflow.com/questions/4746043/where-does-microsoft-windows-7-posix-implementation-currently-stand
-   http://brianreiter.org/2010/08/24/the-sad-history-of-the-microsoft-posix-subsystem/
+   https://brianreiter.org/2010/08/24/the-sad-history-of-the-microsoft-posix-subsystem/
    https://superuser.com/questions/293023/unix-command-line-utilities-for-windows-x64
 
 --------------------------------------------------
@@ -2191,9 +2194,9 @@ This makes configuration less robust
 and harder to adapt to the needs of specific users.
 Windows developers have noted the `many other drawbacks`_ `of the registry`_ in particular.
 
-.. _Windows Registry: http://msdn.microsoft.com/en-us/library/ms970651.aspx
+.. _Windows Registry: https://msdn.microsoft.com/en-us/library/ms970651.aspx
 .. _many other drawbacks: https://rwmj.wordpress.com/2010/02/18/why-the-windows-registry-sucks-technically/
-.. _of the registry: http://blog.codinghorror.com/was-the-windows-registry-a-good-idea/
+.. _of the registry: https://blog.codinghorror.com/was-the-windows-registry-a-good-idea/
 
 On Linux, most configuration can be done graphically
 within applications or configuration managers provided by the desktop environment.
@@ -2227,8 +2230,8 @@ if stored in a dedicated configuration folder in the user's home directory,
 and many applications follow the `XDG base directory standard`_,
 which is intended to address this problem.
 
-.. _is problematic: https://plus.google.com/+RobPikeTheHuman/posts/R58WgWwN9jp
-.. _XDG base directory standard: http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
+.. _is problematic: https://archive.md/turkN
+.. _XDG base directory standard: https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
 Centralized databases like the Windows Registry
 are usually unnecessary for configuration.
@@ -2286,11 +2289,11 @@ and system administrators can use
 dedicated configuration management tools like
 `Puppet`_, `Chef`_, `Ansible`_, `SaltStack`_, etc.
 
-.. _GNU Stow: http://www.gnu.org/software/stow/
-.. _Puppet: http://puppetlabs.com/
-.. _Chef: https://www.getchef.com/
-.. _Ansible: http://www.ansible.com/
-.. _SaltStack: http://www.saltstack.com/
+.. _GNU Stow: https://www.gnu.org/software/stow/
+.. _Puppet: https://puppet.com/
+.. _Chef: https://www.chef.io/
+.. _Ansible: https://www.ansible.com/
+.. _SaltStack: https://www.vmware.com/support/acquisitions/saltstack.html
 
 -------------------------------------
 Package manager with signed binaries.
@@ -2311,9 +2314,9 @@ such as:
 - licensing metadata,
 - and `sophisticated dependency management`_.
 
-.. _mandatory cryptographic signing of packages: http://purplefloyd.wordpress.com/2009/02/05/signing-deb-packages/
+.. _mandatory cryptographic signing of packages: https://purplefloyd.wordpress.com/2009/02/05/signing-deb-packages/
 .. _sophisticated dependency management: https://www.debian.org/doc/debian-policy/ch-relationships.html
-.. _optional fully automatic non-interactive installation: http://debian-handbook.info/browse/wheezy/sect.automatic-upgrades.html
+.. _optional fully automatic non-interactive installation: https://debian-handbook.info/browse/wheezy/sect.automatic-upgrades.html
 
 To be sure, there is an open-source package manager for Windows, `Chocolatey`_,
 that is under active development.
@@ -2322,20 +2325,20 @@ is not as comprehensive as Linux repositories.
 Here are some examples of packages
 which are not in the Chocolatey repository (as of July 2015).
 
-- `Apophysis`_ fractal flame editor `* <http://chocolatey.org/packages?q=apophysis>`__
+- `Apophysis`_ fractal flame editor `* <https://chocolatey.org/packages?q=apophysis>`__
 - `xyscan`_ data extractor `* <https://chocolatey.org/packages?q=xyscan>`__
 - `HEPHAESTUS`_ periodic table for X-ray spectroscopy `* <https://chocolatey.org/packages?q=HEPHAESTUS>`__
 - `EXPGUI`_ XRD analysis `* <https://chocolatey.org/packages?q=EXPGUI>`__
-- `DiffPDF`_ PDF comparison `* <http://chocolatey.org/packages?q=DiffPDF>`__
-- `xchat`_ IRC client `* <http://chocolatey.org/packages?q=xchat>`__
+- `DiffPDF`_ PDF comparison `* <https://chocolatey.org/packages?q=DiffPDF>`__
+- `xchat`_ IRC client `* <https://chocolatey.org/packages?q=xchat>`__
 
-.. _Chocolatey: http://chocolatey.org/
-.. _Apophysis: http://www.apophysis.org/
-.. _xyscan: http://star.physics.yale.edu/~ullrich/xyscanDistributionPage/
-.. _HEPHAESTUS: http://cars9.uchicago.edu/~ravel/software/doc/Hephaestus/hephaestus.html
-.. _EXPGUI: https://subversion.xor.aps.anl.gov/trac/EXPGUI
-.. _DiffPDF: http://www.qtrac.eu/diffpdf.html
-.. _Unison: http://www.cis.upenn.edu/~bcpierce/unison/
+.. _Chocolatey: https://chocolatey.org/
+.. _Apophysis: https://sourceforge.net/projects/apophysis/
+.. _xyscan: https://rhig.physics.yale.edu/~ullrich/software/xyscan/
+.. _HEPHAESTUS: https://bruceravel.github.io/demeter/aug/hephaestus.html
+.. _EXPGUI: https://subversion.xray.aps.anl.gov/trac/EXPGUI
+.. _DiffPDF: https://www.qtrac.eu/diffpdf.html
+.. _Unison: https://www.cis.upenn.edu/~bcpierce/unison/
 .. _xchat: http://xchat.org/download/
 
 (This list isn't particularly significant,
@@ -2409,7 +2412,7 @@ Packaging also makes distributing scripts with library dependencies easier.
 For example, installing ``python`` and ``matplotlib`` is simple on Linux,
 but a `pain in the neck`_ on Windows.
 
-.. _pain in the neck: http://matplotlib.org/users/installing.html#windows
+.. _pain in the neck: https://matplotlib.org/stable/users/installing.html
 
 .. [#windows_package_signing] Windows provides the means to cryptographically sign
    ``.exe`` and ``.msi`` installers,
@@ -2419,7 +2422,7 @@ but a `pain in the neck`_ on Windows.
        has an invalid signature, the installer warns users before it installs
        the package.
 
-   http://download.microsoft.com/download/a/f/7/af7777e5-7dcd-4800-8a0a-b18336565f5b/best_practices.doc
+   https://download.microsoft.com/download/a/f/7/af7777e5-7dcd-4800-8a0a-b18336565f5b/best_practices.doc
 
 ------------------------------------------------------------
 Fixing configuration problems with commands instead of GUIs.
@@ -2448,7 +2451,7 @@ for doing routine configuration tasks.
 
     -- William E. Shotts, Jr. "`Learning the shell`_"
 
-.. _Learning the shell: http://linuxcommand.org/learning_the_shell.php
+.. _Learning the shell: https://linuxcommand.org/lc3_learning_the_shell.php
 
 In addition, using GUIs for configuration
 makes user support and documentation significantly more time-consuming.
@@ -2498,7 +2501,7 @@ on a vanilla Windows box.
 In addition, Windows machines `do not respond to`_ ``ping`` (ICMP) by default.
 Arguably, this is the wrong choice. [#firewall_icmp]_  [#block_icmp]_
 
-.. _do not respond to: http://msdn.microsoft.com/en-us/library/ms912869(v=winembedded.5).aspx
+.. _do not respond to: https://msdn.microsoft.com/en-us/library/ms912869(v=winembedded.5).aspx
 
 By contrast, nearly all Linux machines respond to ``ping``
 and most allow ``ssh`` for remote access.
@@ -2508,8 +2511,8 @@ many tech support and remote administration tasks
 are easier and faster to resolve
 when accessing a remote machine running Linux.
 
-.. [#firewall_icmp] http://security.stackexchange.com/questions/22711/is-it-a-bad-idea-for-a-firewall-to-block-icmp
-.. [#block_icmp] http://serverfault.com/questions/84963/why-not-block-icmp
+.. [#firewall_icmp] https://security.stackexchange.com/questions/22711/is-it-a-bad-idea-for-a-firewall-to-block-icmp
+.. [#block_icmp] https://serverfault.com/questions/84963/why-not-block-icmp
 
 ++++++++++++++++++
 Cultural problems.
@@ -2546,7 +2549,7 @@ to anyone who's had to set up their home internet connection before.
 Some companies complement user support with user forums,
 which have the same `issues with signal-to-noise ratio`_ that most forums have.
 
-.. _issues with signal-to-noise ratio: http://blog.codinghorror.com/civilized-discourse-construction-kit/
+.. _issues with signal-to-noise ratio: https://blog.codinghorror.com/civilized-discourse-construction-kit/
 
 By contrast, projects like the Linux kernel and the Debian project
 maintain accountability and clarity
@@ -2555,13 +2558,13 @@ even when it is embarrassing to do so
 [#brown_paper_bag_release]_ [#runs_rm_r_as_root]_.
 
 .. [#microsoft_connect] https://connect.microsoft.com/
-.. [#adobe_bugs] https://bugbase.adobe.com/
-.. [#foldit_bugs] http://fold.it/portal/node/986241
-.. [#brown_paper_bag_release] http://lwn.net/1999/0204/kernel.php3
+.. [#adobe_bugs] https://tracker.adobe.com/
+.. [#foldit_bugs] https://fold.it/portal/node/986241
+.. [#brown_paper_bag_release] https://lwn.net/1999/0204/kernel.php3
 .. [#runs_rm_r_as_root] https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=155873
 
-.. TODO: http://serverfault.com/questions/403732/anyone-else-experiencing-high-rates-of-linux-server-crashes-during-a-leap-second/
-.. http://www.somebits.com/weblog/tech/bad/leap-second-2012.html
+.. TODO: https://serverfault.com/questions/403732/anyone-else-experiencing-high-rates-of-linux-server-crashes-during-a-leap-second/
+.. https://www.somebits.com/weblog/tech/bad/leap-second-2012.html
 
 -----------------
 Debugging habits.
@@ -2574,8 +2577,8 @@ such as restarting software to make a bug go away,
 or avoiding using parts of an application as a work-around,
 rather than reproducing and reporting bugs.
 
-.. _requiring: http://www.howtogeek.com/182817/htg-explains-why-does-windows-want-to-reboot-so-often/
-.. _reboots: http://www.howtogeek.com/howto/31204/why-do-application-installs-make-you-reboot-and-close-other-apps/
+.. _requiring: https://www.howtogeek.com/182817/htg-explains-why-does-windows-want-to-reboot-so-often/
+.. _reboots: https://www.howtogeek.com/howto/31204/why-do-application-installs-make-you-reboot-and-close-other-apps/
 
 In 2000, when Hotmail switched from FreeBSD to Windows server,
 a white paper noted this problem:
@@ -2592,7 +2595,7 @@ a white paper noted this problem:
 
     --- David Brooks, Microsoft Hotmail Migration Technical Case Study
 
-http://www.theregister.co.uk/2002/11/21/ms_paper_touts_unix/
+https://www.theregister.co.uk/2002/11/21/ms_paper_touts_unix/
 
 https://web.archive.org/web/20030206115538/http://remus.softimage.net/hotmail.html
 
@@ -2610,10 +2613,10 @@ Android, for example, runs on the Linux kernel,
 and there is plenty of malware that targets it.
 
 .. TODO: link to these articles.
-.. http://www.linux.org/threads/android-malware.7836/
-.. http://www.firstpost.com/business/gunpoder-new-android-malware-targets-users-not-residing-china-2339516.html
-.. http://www.hackinglinuxexposed.com/articles/20020924.html
-.. http://www.geekzone.co.nz/foobar/6229
+.. https://www.linux.org/threads/android-malware.7836/
+.. https://www.firstpost.com/business/gunpoder-new-android-malware-targets-users-not-residing-china-2339516.html
+.. https://www.hackinglinuxexposed.com/articles/20020924.html
+.. https://www.geekzone.co.nz/foobar/6229
 
 In practice, though, Windows users are `more likely`_
 to inadvertently install malware,
@@ -2624,7 +2627,7 @@ and requiring ordinary users to do it is harmful in a variety of ways;
 it tends to encourage a cargo-cult mentality toward security
 instead of systematic root-cause analysis.
 
-.. _susceptible to malware: http://www.linux.com/learn/tutorials/284124-myth-busting-is-linux-immune-to-viruses
+.. _susceptible to malware: https://www.linux.com/training-tutorials/myth-busting-linux-immune-viruses/
 .. _more likely: http://unix.stackexchange.com/questions/2751/the-myths-about-malware-in-unix-linux
 .. _notes on package management: `Package manager with signed binaries.`_
 
@@ -2635,7 +2638,7 @@ As a result,
 - Some Windows users may even confuse failing hardware with malware. [#not_a_virus]_
 
 .. _considerable time and effort: https://www.microsoft.com/security/portal/mmpc/shared/ransomware.aspx
-.. _falsely attribute: http://www.combofix.org/suspect-a-malware-infection-heres-the-right-way-to-remove-it.php
+.. _falsely attribute: https://web.archive.org/web/20200813192119/https://www.combofix.org/suspect-a-malware-infection-heres-the-right-way-to-remove-it.php
 .. _software misbehavior to malware: http://lifehacker.com/5958001/the-5-biggest-myths-about-slow-pcs-and-how-you-can-actually-fix-them
 
 This also has consequences for developers.
